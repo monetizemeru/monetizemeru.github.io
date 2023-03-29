@@ -1,0 +1,23 @@
+
+<!-- saved from url=(0073)file:///Users/vovaane/Downloads/%D1%81%D1%82%D0%B0%D1%82%D1%8C%D1%8F.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>html, body, .buzz_wrapper {padding: 0; margin: 0; width: 100%; height: 100%; cursor: pointer;}</style>
+</head><body><div class="buzz_wrapper"><iframe src="./creative(1).html" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="300" height="600" allowtransparency="true"></iframe></div><script type="text/javascript">
+  var id = 'e-5171731b-fe15-b7d2-67a4-85332cd5cef8'
+
+  function clickCb(){
+    window.parent.postMessage(btoa(JSON.stringify({
+      method: 'click',
+      id: id
+    })), '*');
+  }
+
+  Array.prototype.slice.call(document.querySelectorAll('a')).filter(function(el){
+    return el.hasAttribute('href') && el.getAttribute('href').length > 0;
+  }).forEach(function(el){
+    if (!!el.addEventListener){
+      el.addEventListener('click', clickCb, true);
+    } else if (!!el.attachEvent){
+      el.attachEvent('onclick', clickCb);
+    }
+  });
+</script></body></html>
