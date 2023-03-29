@@ -1,0 +1,418 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('font/icomoon.eot?qhjbvv');
+  src:  url('font/icomoon.eot?qhjbvv#iefix') format('embedded-opentype'),
+  url('font/icomoon.ttf?qhjbvv') format('truetype'),
+  url('font/icomoon.woff?qhjbvv') format('woff'),
+  url('font/icomoon.svg?qhjbvv#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family:'FontAwesome';
+  src:url('/css/font/fontawesome-webfont.eot?v=3.2.1');
+  src:url('/css/font/fontawesome-webfont.eot?#iefix&v=3.2.1') format('embedded-opentype'),
+    url('/css/font/fontawesome-webfont.woff?v=3.2.1') format('woff'),
+    url('/css/font/fontawesome-webfont.ttf?v=3.2.1') format('truetype'),
+    url('/css/font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1') format('svg');
+  font-weight:normal;font-style:normal;
+  font-display: swap;
+}
+.fa{
+  font-family:FontAwesome;
+  font-weight:normal;
+  font-style:normal;
+  text-decoration:inherit;
+  -webkit-font-smoothing:antialiased;
+  *margin-right:.3em;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fa-list-ul:before {
+    content:"\f0ca";;
+}
+.fa-list-ol:before {
+    content:"\f0cb";;
+}
+.icon-google:before {
+  content: "\e905";
+  color: #4285f4;
+}
+.icon-rus-vk-01:before {
+  content: "\e622";
+}
+.icon-yandex:before {
+  content: "\e605";
+}
+.icon-mailru:before {
+  content: "\e600";
+}
+.icon-odnoklassniki:before {
+  content: "\e601";
+}
+.icon-minus2:before {
+  content: "\e64b";
+}
+.icon-plus3:before {
+  content: "\e64a";
+}
+.icon-remove-user:before {
+  content: "\e903";
+}
+.icon-add-user:before {
+  content: "\e904";
+}
+.icon-database:before {
+  content: "\e63c";
+}
+.icon-old-mobile:before {
+  content: "\e645";
+}
+.icon-camera2:before {
+  content: "\e63d";
+}
+.icon-coffee:before {
+  content: "\e63e";
+}
+.icon-plus:before {
+  content: "\e62f";
+}
+.icon-minus:before {
+  content: "\e630";
+}
+.icon-gamepad:before {
+  content: "\e63f";
+}
+.icon-soccer:before {
+  content: "\e640";
+}
+.icon-mouse:before {
+  content: "\e641";
+}
+.icon-diamond:before {
+  content: "\e901";
+}
+.icon-chat:before {
+  content: "\e61b";
+}
+.icon-chat2:before {
+  content: "\e606";
+}
+.icon-edit:before {
+  content: "\e609";
+}
+.icon-envelope:before {
+  content: "\e635";
+}
+.icon-male:before {
+  content: "\e800";
+}
+.icon-female:before {
+  content: "\e801";
+}
+.icon-heart:before {
+  content: "\e611";
+}
+.icon-add:before {
+  content: "\e608";
+}
+.icon-chevron-down:before {
+  content: "\f0a3";
+}
+.icon-chevron-left:before {
+  content: "\f0a4";
+}
+.icon-chevron-right:before {
+  content: "\f078";
+}
+.icon-chevron-up:before {
+  content: "\f0a2";
+}
+.icon-comment:before {
+  content: "\f02b";
+}
+.icon-gift:before {
+  content: "\f042";
+}
+.icon-mail-reply:before {
+  content: "\f051";
+}
+.icon-stop:before {
+  content: "\f08f";
+}
+.icon-tools:before {
+  content: "\f031";
+}
+.icon-triangle-down:before {
+  content: "\f05b";
+}
+.icon-triangle-up:before {
+  content: "\f0aa";
+}
+.icon-home:before {
+  content: "\e60a";
+}
+.icon-newspaper:before {
+  content: "\e616";
+}
+.icon-pencil:before {
+  content: "\e607";
+}
+.icon-image:before {
+  content: "\e60d";
+}
+.icon-camera:before {
+  content: "\e618";
+}
+.icon-headphones:before {
+  content: "\e642";
+}
+.icon-film:before {
+  content: "\e61e";
+}
+.icon-camera3:before {
+  content: "\e643";
+}
+.icon-dice:before {
+  content: "\e902";
+}
+.icon-bullhorn:before {
+  content: "\e633";
+}
+.icon-connection:before {
+  content: "\e636";
+}
+.icon-podcast:before {
+  content: "\e60b";
+}
+.icon-folder:before {
+  content: "\e623";
+}
+.icon-tag:before {
+  content: "\e624";
+}
+.icon-cart:before {
+  content: "\e61a";
+}
+.icon-support:before {
+  content: "\e620";
+}
+.icon-pushpin:before {
+  content: "\e626";
+}
+.icon-clock:before {
+  content: "\e62b";
+}
+.icon-download:before {
+  content: "\e617";
+}
+.icon-undo:before {
+  content: "\e63b";
+}
+.icon-users:before {
+  content: "\e60e";
+}
+.icon-user:before {
+  content: "\e60c";
+}
+.icon-quotes-left:before {
+  content: "\e900";
+}
+.icon-spinner:before {
+  content: "\e648";
+}
+.icon-spinner2:before {
+  content: "\e649";
+}
+.icon-search:before {
+  content: "\e646";
+}
+.icon-key:before {
+  content: "\e647";
+}
+.icon-lock:before {
+  content: "\e627";
+}
+.icon-unlocked:before {
+  content: "\e628";
+}
+.icon-wand:before {
+  content: "\e619";
+}
+.icon-fire:before {
+  content: "\e61c";
+}
+.icon-remove:before {
+  content: "\e614";
+}
+.icon-menu:before {
+  content: "\e637";
+}
+.icon-upload:before {
+  content: "\e61f";
+}
+.icon-download2:before {
+  content: "\e613";
+}
+.icon-link:before {
+  content: "\e625";
+}
+.icon-eye:before {
+  content: "\e60f";
+}
+.icon-heart2:before {
+  content: "\e610";
+}
+.icon-heart3:before {
+  content: "\e612";
+}
+.icon-happy:before {
+  content: "\e631";
+}
+.icon-sad:before {
+  content: "\e632";
+}
+.icon-spam:before {
+  content: "\e638";
+}
+.icon-checkmark:before {
+  content: "\e615";
+}
+.icon-plus2:before {
+  content: "\e621";
+}
+.icon-enter:before {
+  content: "\e63a";
+}
+.icon-exit:before {
+  content: "\e639";
+}
+.icon-play:before {
+  content: "\e62a";
+}
+.icon-pause:before {
+  content: "\e634";
+}
+.icon-arrow-right:before {
+  content: "\e629";
+}
+.icon-arrow-left:before {
+  content: "\e62c";
+}
+.icon-arrow-right2:before {
+  content: "\e62d";
+}
+.icon-arrow-left2:before {
+  content: "\e62e";
+}
+.icon-console:before {
+  content: "\e644";
+}
+.icon-googleplus:before {
+  content: "\e602";
+}
+.icon-facebook:before {
+  content: "\e603";
+}
+.icon-twitter:before {
+  content: "\e604";
+}
+.icon-blogger:before {
+  content: "\e61d";
+}
+.icon-star:before {
+  content: "\f005";
+}
+.icon-star-o:before {
+  content: "\f006";
+}
+.icon-check:before {
+  content: "\f00c";
+}
+.icon-times:before {
+  content: "\f00d";
+}
+.icon-power-off:before {
+  content: "\f011";
+}
+.icon-gear:before {
+  content: "\f013";
+}
+.icon-info-circle:before {
+  content: "\f05a";
+}
+.icon-expand:before {
+  content: "\f065";
+}
+.icon-asterisk:before {
+  content: "\f069";
+}
+.icon-warning:before {
+  content: "\f071";
+}
+.icon-external-link:before {
+  content: "\f08e";
+}
+.icon-group:before {
+  content: "\f0c0";
+}
+.icon-angle-left:before {
+  content: "\f104";
+}
+.icon-angle-right:before {
+  content: "\f105";
+}
+.icon-angle-up:before {
+  content: "\f106";
+}
+.icon-angle-down:before {
+  content: "\f107";
+}
+.icon-circle-o:before {
+  content: "\f10c";
+}
+.icon-ruble:before {
+  content: "\f158";
+}
+.icon-thumbs-up:before {
+  content: "\f164";
+}
+.icon-thumbs-down:before {
+  content: "\f165";
+}
+.icon-youtube-play:before {
+  content: "\f16a";
+}
+.icon-vk:before {
+  content: "\f189";
+}
+.icon-steam:before {
+  content: "\f1b6";
+}
+.icon-header:before {
+  content: "\f1dc";
+}
+.icon-pin:before {
+  content: "\e626";
+}
+.icon-user-minus:before {
+  content: "\e903";
+}
+.icon-user-plus:before {
+  content: "\e904";
+}
