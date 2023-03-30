@@ -3239,6 +3239,51 @@
                       </a>
               </div>
     </div>
+    <div class="inread_ad_flex" style="display: flex;justify-content: center;min-height: 400px;align-items: center;">
+  <div class="inread_container" style="background: #fbfbfb; border: 1px solid #eee;text-align: center;padding: 0 10px 30px 10px;width: 100%;min-height: 300px">
+    <div style="font-size: 1.3rem;color: #aaa;;padding: 0.5rem;font-family: 'Roboto Condensed', 'Arial Narrow', Arial, Helvetica, sans-serif">Реклама</div>
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+    <div id="inread_banner_adtechno" style="max-width:600px;min-height:200px;margin: auto;position: relative;"></div>
+  </div>
+</div>
+<script>
+    (function() {
+      var randomId = Math.floor(Math.random() * 1000);
+      document.getElementById("inread_banner_adtechno").id = "inread_banner_adtechno" + "_" + randomId;
+      let newContainerId = "inread_banner_adtechno" + "_" + randomId;
+            window.yaContextCb.push(function() {
+                window.Ya.adfoxCode.createAdaptive(
+                {
+                    ownerId: 1458764,
+                    sequentialLoading: true,
+                    containerId: newContainerId,
+                    onRender: function() {
+                      document.getElementById(newContainerId).style.position = 'relative';
+                        myTimeout = setTimeout(Ya.adfoxCode.reload(newContainerId, {onlyIfWasVisible: true}), 5000)
+                        clearTimeout(myTimeout)
+                    },
+                    onStub: function() {
+                        document.getElementById(newContainerId).style.minHeight = '0px';
+                    },
+                    onError: function (error) {
+                    },
+                    params: {
+                        pp: 'g',
+                        ps: 'givi',
+                        p2: 'iegj',
+                    }
+                },
+                ['desktop','phone'], 
+                {
+                    tabletWidth: 1000,
+                    phoneWidth: 700,
+                    isAutoReloads: true
+                });
+            });
+        
+})()
+
+</script>
 
     <div class="comments-item-main js-comments-item-main">
               <div class="comments-item-header js-comments-item-header">
