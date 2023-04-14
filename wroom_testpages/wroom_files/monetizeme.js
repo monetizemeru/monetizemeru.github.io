@@ -19,7 +19,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 })
             })
 
-        document.body.insertAdjacentElement('beforebegin', mobile_fs)
+        document.body.insertAdjacentElement('afterbegin', mobile_fs)
 
         //Adding top sticky banner and make him scroll
         const stickyTop = document.createElement('div');
