@@ -10,21 +10,20 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         stickyTop.innerHTML = `
     <div class="button-top-close"></div>
     <button class="mm_button_top">^</button>
-    <div id="monetizeme-sticky-top"></div>
-    <script>
-        window.yaContextCb.push(()=>{
-            Ya.adfoxCode.create({
-                ownerId: 1458764,
-                containerId: 'monetizeme-sticky-top',
-                params: {
-                    pp: 'g',
-                    ps: 'gmdq',
-                    p2: 'ihue'
-                }
-            })
-        })
-    </script>`; //add here code of banner
+    <div id="monetizeme-sticky-top"></div>`; //add here code of banner
+    
 
+    window.yaContextCb.push(()=>{
+        Ya.adfoxCode.create({
+            ownerId: 1458764,
+            containerId: 'monetizeme-sticky-top',
+            params: {
+                pp: 'g',
+                ps: 'gmdq',
+                p2: 'ihue'
+            }
+        })
+    })
 
         document.body.insertAdjacentElement('afterbegin', stickyTop)
 
