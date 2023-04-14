@@ -1,29 +1,49 @@
+
 if (window.matchMedia('(max-width: 768px)').matches) {
 
     document.addEventListener("DOMContentLoaded", function(event) {
-        body = document.querySelector("body")
+        const body = document.querySelector("body")
+        //Adding mobile fs banner 
+        const mobile_fs = document.createElement('div');
+        mobile_fs.setAttribute('id', 'mobile_fs');
+        mobile_fs.innerHTML = `
+        <div id="monetizeme-mobile-fs"></div>`;
+
+        window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-mobile-fs',
+                    params: {
+                        pp: 'g',
+                        ps: 'gmdq',
+                        p2: 'ihud'
+                    }
+                })
+            })
+
+        document.body.insertAdjacentElement('beforebegin', mobile_fs)
 
         //Adding top sticky banner and make him scroll
         const stickyTop = document.createElement('div');
         stickyTop.classList.add('monetizeme-block-top');
         stickyTop.setAttribute('id', 'sticky_top');
         stickyTop.innerHTML = `
-    <div class="button-top-close"></div>
-    <button class="mm_button_top">^</button>
-    <div id="monetizeme-sticky-top"></div>`; //add here code of banner
-    
+        <div class="button-top-close"></div>
+        <button class="mm_button_top">^</button>
+        <div id="monetizeme-sticky-top"></div>`; //add here code of banner
 
-    window.yaContextCb.push(()=>{
-        Ya.adfoxCode.create({
-            ownerId: 1458764,
-            containerId: 'monetizeme-sticky-top',
-            params: {
-                pp: 'g',
-                ps: 'gmdq',
-                p2: 'ihue'
-            }
+
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'monetizeme-sticky-top',
+                params: {
+                    pp: 'g',
+                    ps: 'gmdq',
+                    p2: 'ihue'
+                }
+            })
         })
-    })
 
         document.body.insertAdjacentElement('afterbegin', stickyTop)
 
@@ -32,21 +52,21 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         stickyBottom.classList.add('monetizeme-block-bottom', 'collapsed');
         stickyBottom.setAttribute('id', 'sticky_bottom');
         stickyBottom.innerHTML = `
-    <div class="button-bottom-close"></div>
-    <button class="mm_button_bottom ">^</button>
-    <div id="monetizeme-sticky-bottom"></div>`;
+        <div class="button-bottom-close"></div>
+        <button class="mm_button_bottom ">^</button>
+        <div id="monetizeme-sticky-bottom"></div>`;
 
-    window.yaContextCb.push(()=>{
-        Ya.adfoxCode.create({
-            ownerId: 1458764,
-            containerId: 'monetizeme-sticky-bottom',
-            params: {
-                pp: 'i',
-                ps: 'gmdq',
-                p2: 'ihuf'
-            }
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'monetizeme-sticky-bottom',
+                params: {
+                    pp: 'i',
+                    ps: 'gmdq',
+                    p2: 'ihuf'
+                }
+            })
         })
-    })
 
         document.body.insertAdjacentElement('afterbegin', stickyBottom)
 
@@ -111,20 +131,20 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div.comment2")
         const after_commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > form")
         if (textBlock != null) {
-        	
-        	//add mobile after cover
-        	const mobile_before_articleElement = document.createElement("div");
+
+            //add mobile after cover
+            const mobile_before_articleElement = document.createElement("div");
             mobile_before_articleElement.classList.add('mm_mobile_content');
             mobile_before_articleElement.setAttribute('id', 'mobile_before_article');
             mobile_before_articleElement.innerHTML = `<div style="width: 320px; height: 300px; background: red;"></div>`;
             textBlock.parentNode.insertBefore(mobile_before_articleElement, textBlock);
 
             //add mobile in article each 4 elements
-            
+
             const children = artcicleBlock.children;
             const len = children.length;
             for (let i = 4; i < len; i += 5) {
-            	const mobile_in_article = document.createElement("div");
+                const mobile_in_article = document.createElement("div");
                 mobile_in_article.classList.add('mm_mobile_content');
                 mobile_in_article.setAttribute('id', 'mobile_in_article_' + Math.random().toString(36).substr(2, 9));
                 mobile_in_article.innerHTML = ` <div style="width: 320px; height: 300px; background: red;"></div>`;
@@ -140,19 +160,19 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         }
 
         //Add blocks to comments
-        if (commentsBlock != null){
-        	var parent = commentsBlock;
-        	  var children_comments = parent.querySelectorAll('.comment-item');
-        	  for (var i = 4; i < children_comments.length; i += 4) {
-        	    var mobile_in_comments = document.createElement('div');
-        	    mobile_in_comments.classList.add('mm_mobile_content');
-        	    mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + Math.random().toString(36).substr(2, 9));
+        if (commentsBlock != null) {
+            var parent = commentsBlock;
+            var children_comments = parent.querySelectorAll('.comment-item');
+            for (var i = 4; i < children_comments.length; i += 4) {
+                var mobile_in_comments = document.createElement('div');
+                mobile_in_comments.classList.add('mm_mobile_content');
+                mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + Math.random().toString(36).substr(2, 9));
                 mobile_in_comments.innerHTML = ` <div style="width: 320px; height: 300px; background: red;"></div>`;
-        	    parent.insertBefore(mobile_in_comments, children_comments[i]);
-        	  }
-        	const mobile_comments_bottom = document.createElement("div");
-        	mobile_comments_bottom.classList.add('mm_mobile_content');
-        	mobile_comments_bottom.setAttribute('id', 'mobile_after_comments');
+                parent.insertBefore(mobile_in_comments, children_comments[i]);
+            }
+            const mobile_comments_bottom = document.createElement("div");
+            mobile_comments_bottom.classList.add('mm_mobile_content');
+            mobile_comments_bottom.setAttribute('id', 'mobile_after_comments');
             mobile_comments_bottom.innerHTML = `<div style="width: 320px; height: 300px; background: red;"></div>`;
             after_commentsBlock.insertAdjacentElement("afterend", mobile_comments_bottom);
         }
