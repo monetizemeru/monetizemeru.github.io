@@ -1,7 +1,7 @@
 
 if (window.matchMedia('(max-width: 768px)').matches) {
 
-    document.addEventListener("DOMContentLoaded", function(event) {
+    //document.addEventListener("DOMContentLoaded", function(event) {
         const body = document.querySelector("body")
         //Adding mobile fs banner 
         const mobile_fs = document.createElement('div');
@@ -134,7 +134,18 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_before_articleElement = document.createElement("div");
             mobile_before_articleElement.classList.add('mm_mobile_content');
             mobile_before_articleElement.setAttribute('id', 'mobile_before_article');
-            mobile_before_articleElement.innerHTML = `<div style="width: 320px; height: 300px; background: red;"></div>`;
+            mobile_before_articleElement.innerHTML = `<div id="monetizeme-mobile-inread-after-cover"></div>`;
+            window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-mobile-inread-after-cover',
+                    params: {
+                        pp: 'dkuj',
+                        ps: 'gmdq',
+                        p2: 'ihug'
+                    }
+                })
+            })
             textBlock.parentNode.insertBefore(mobile_before_articleElement, textBlock);
 
             //add mobile in article each 4 elements
@@ -143,9 +154,24 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const len = children.length;
             for (let i = 4; i < len; i += 5) {
                 const mobile_in_article = document.createElement("div");
+                const mmId = Math.random().toString(36).substr(2, 9)
+                const mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
                 mobile_in_article.classList.add('mm_mobile_content');
-                mobile_in_article.setAttribute('id', 'mobile_in_article_' + Math.random().toString(36).substr(2, 9));
-                mobile_in_article.innerHTML = ` <div style="width: 320px; height: 300px; background: red;"></div>`;
+                mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId );
+                mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
+
+                window.yaContextCb.push(()=>{
+                    Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: mm_adfox_id,
+                        params: {
+                            pp: 'dkuk',
+                            ps: 'gmdq',
+                            p2: 'ihug'
+                        }
+                    })
+                })
+
                 artcicleBlock.insertBefore(mobile_in_article, children[i]);
             }
 
@@ -177,5 +203,5 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
 
 
-    })
+    //})
 }
