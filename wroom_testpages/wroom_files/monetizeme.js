@@ -5,9 +5,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const body = document.querySelector("body")
         //Adding mobile fs banner 
         const mobile_fs = document.createElement('div');
-        mobile_fs.setAttribute('id', 'mobile_fs');
-        mobile_fs.innerHTML = `
-        <div id="monetizeme-mobile-fs"></div>`;
+        mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
 
         window.yaContextCb.push(()=>{
                 Ya.adfoxCode.create({
