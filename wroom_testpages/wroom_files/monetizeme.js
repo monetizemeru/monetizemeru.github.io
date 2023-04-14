@@ -75,10 +75,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             }
 
             // Bottom block behavior
-            if (currentScrollTop <= lastScrollTop && !isBottomBlockCollapsed && window.scrollY >= 100) {
+            if (currentScrollTop <= (lastScrollTop - 5) && !isBottomBlockCollapsed && window.scrollY >= 100) {
                 bottomBlock.classList.add('collapsed');
                 isBottomBlockCollapsed = true;
-            } else if (currentScrollTop > lastScrollTop && isBottomBlockCollapsed) {
+            } else if (currentScrollTop > lastScrollTop && isBottomBlockCollapsed && window.scrollY >= 100) {
                 bottomBlock.classList.remove('collapsed');
                 isBottomBlockCollapsed = false;
             }
