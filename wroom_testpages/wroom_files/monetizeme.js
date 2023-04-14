@@ -34,8 +34,20 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         stickyBottom.innerHTML = `
     <div class="button-bottom-close"></div>
     <button class="mm_button_bottom ">^</button>
-    <div style="width: 100%; height: 300px; background: red;"></div>
-  `;
+    <div id="monetizeme-sticky-bottom"></div>`;
+
+    window.yaContextCb.push(()=>{
+        Ya.adfoxCode.create({
+            ownerId: 1458764,
+            containerId: 'monetizeme-sticky-bottom',
+            params: {
+                pp: 'i',
+                ps: 'gmdq',
+                p2: 'ihuf'
+            }
+        })
+    })
+
         document.body.insertAdjacentElement('afterbegin', stickyBottom)
 
         //top sticky banner
