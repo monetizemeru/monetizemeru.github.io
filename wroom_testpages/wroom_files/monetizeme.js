@@ -1,7 +1,7 @@
 
 if (window.matchMedia('(max-width: 768px)').matches) {
 
-    //document.addEventListener("DOMContentLoaded", function(event) {
+    document.addEventListener("DOMContentLoaded", function(event) {
         const body = document.querySelector("body")
         //Adding mobile fs banner 
         const mobile_fs = document.createElement('div');
@@ -203,5 +203,5 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
 
 
-    //})
+    })
 }
