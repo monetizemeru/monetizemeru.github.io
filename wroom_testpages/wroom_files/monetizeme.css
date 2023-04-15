@@ -97,7 +97,7 @@
 }
 .mm_mobile_content{
 	padding: 20px 0 !important;
-	margin: auto;
+	margin: auto !important;
 	width: 100%;
 	max-height:100vh;
 	display: grid;
