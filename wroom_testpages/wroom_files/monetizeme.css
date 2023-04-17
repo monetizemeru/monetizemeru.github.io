@@ -100,7 +100,7 @@
 	padding: 20px 0 !important;
 	margin: auto !important;
 	width: 100% !important;
-	max-height:100vh;
+	max-height: 600px !important;
 	display: grid !important;
 	justify-content: center !important;
 	align-items: center !important;
