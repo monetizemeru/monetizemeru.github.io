@@ -153,9 +153,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const children = artcicleBlock.children;
             const len = children.length;
             for (let i = 4; i < len; i += 5) {
-                const mobile_in_article = document.createElement("div");
-                const mmId = Math.random().toString(36).substr(2, 9)
-                const mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
+                var mobile_in_article = document.createElement("div");
+                var mmId = Math.random().toString(36).substr(2, 9)
+                var mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
                 mobile_in_article.classList.add('mm_mobile_content');
                 mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId );
                 mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
@@ -178,9 +178,22 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             //add mobile after article 
             const mobile_article_bottom = document.createElement("div");
             mobile_article_bottom.classList.add('mm_mobile_content');
-            mobile_article_bottom.setAttribute('id', 'mobile_before_article');
-            mobile_article_bottom.innerHTML = `<div style="width: 320px; height: 300px; background: red;"></div>`;
+            mobile_article_bottom.setAttribute('id', 'mobile_after_article');
+            mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article"></div>`;
             articleBottomBlock.parentNode.insertBefore(mobile_article_bottom, articleBottomBlock);
+
+            window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-mobile-inread-after-article',
+                    params: {
+                        pp: 'dkun',
+                        ps: 'gmdq',
+                        p2: 'ihug'
+                    }
+                })
+            })
+
         }
 
         //Add blocks to comments
@@ -189,9 +202,25 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             var children_comments = parent.querySelectorAll('.comment-item');
             for (var i = 4; i < children_comments.length; i += 4) {
                 var mobile_in_comments = document.createElement('div');
+                var mmId = Math.random().toString(36).substr(2, 9)
+                var mm_adfox_id = 'monetizeme-mobile-inread-comments-' + mmId
                 mobile_in_comments.classList.add('mm_mobile_content');
-                mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + Math.random().toString(36).substr(2, 9));
-                mobile_in_comments.innerHTML = ` <div style="width: 320px; height: 300px; background: red;"></div>`;
+                mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + mmId);
+                mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
+                
+                window.yaContextCb.push(()=>{
+                    Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: mm_adfox_id,
+                        params: {
+                            pp: 'dkuo',
+                            ps: 'gmdq',
+                            p2: 'ihug'
+                        }
+                    })
+                })
+
+
                 parent.insertBefore(mobile_in_comments, children_comments[i]);
             }
             const mobile_comments_bottom = document.createElement("div");
