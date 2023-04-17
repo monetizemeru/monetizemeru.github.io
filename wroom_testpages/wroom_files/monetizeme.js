@@ -135,7 +135,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_before_articleElement = document.createElement("div");
             mobile_before_articleElement.classList.add('mm_mobile_content');
             mobile_before_articleElement.setAttribute('id', 'mobile_before_article');
-            mobile_before_articleElement.innerHTML = `<div id="monetizeme-mobile-inread-after-cover"></div>`;
+            mobile_before_articleElement.innerHTML = `<div id="monetizeme-mobile-inread-after-cover" style="display:block"></div>`;
             window.yaContextCb.push(()=>{
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
@@ -180,7 +180,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_article_bottom = document.createElement("div");
             mobile_article_bottom.classList.add('mm_mobile_content');
             mobile_article_bottom.setAttribute('id', 'mobile_after_article');
-            mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article"></div>`;
+            mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article" style="display:block"></div>`;
             articleBottomBlock.parentNode.insertBefore(mobile_article_bottom, articleBottomBlock);
 
             window.yaContextCb.push(()=>{
@@ -200,7 +200,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_mainpage_articleElement = document.createElement("div");
             mobile_mainpage_articleElement.classList.add('mm_mobile_content');
             mobile_mainpage_articleElement.setAttribute('id', 'mobile_mainpage_article');
-            mobile_mainpage_articleElement.innerHTML = `<div id="monetizeme-mobile-mainpage"></div>`;
+            mobile_mainpage_articleElement.innerHTML = `<div id="monetizeme-mobile-mainpage" style="display:block"></div>`;
             window.yaContextCb.push(()=>{
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
@@ -244,7 +244,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_comments_bottom = document.createElement("div");
             mobile_comments_bottom.classList.add('mm_mobile_content');
             mobile_comments_bottom.setAttribute('id', 'mobile_after_comments');
-            mobile_comments_bottom.innerHTML = `<div id="monetizeme-mobile-after-comments"></div>`;
+            mobile_comments_bottom.innerHTML = `<div id="monetizeme-mobile-after-comments" style="display:block"></div>`;
 
             window.yaContextCb.push(()=>{
                 Ya.adfoxCode.create({
