@@ -104,4 +104,5 @@
 	display: grid !important;
 	justify-content: center !important;
 	align-items: center !important;
+	box-sizing: border-box;
 }
