@@ -96,6 +96,7 @@
 
 }
 .mm_mobile_content{
+	position: inherit;
 	padding: 20px 0 !important;
 	margin: auto !important;
 	width: 100% !important;
