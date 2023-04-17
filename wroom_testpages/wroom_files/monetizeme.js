@@ -206,7 +206,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 var mm_adfox_id = 'monetizeme-mobile-inread-comments-' + mmId
                 mobile_in_comments.classList.add('mm_mobile_content');
                 mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + mmId);
-                mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
+                mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-comments-"+ mmId +"'></div>";
                 
                 window.yaContextCb.push(()=>{
                     Ya.adfoxCode.create({
