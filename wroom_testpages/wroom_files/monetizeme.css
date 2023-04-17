@@ -98,9 +98,9 @@
 .mm_mobile_content{
 	padding: 20px 0 !important;
 	margin: auto !important;
-	width: 100%;
+	width: 100% !important;
 	max-height:100vh;
-	display: grid;
-	justify-content: center;
-	align-items: center;
+	display: grid !important;
+	justify-content: center !important;
+	align-items: center !important;
 }
