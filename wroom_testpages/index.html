@@ -3,7 +3,13 @@
 <html lang="ru" prefix="og: http://ogp.me/ns#" class="ios iphone mobile portrait">
    <head>
       <!--В <head> сайта один раз добавьте код загрузчика-->
-      <script>window.yaContextCb = window.yaContextCb || []</script>
+      <script>
+             window.Ya || (window.Ya = {});
+             window.yaContextCb = window.yaContextCb || [];
+             window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
+             window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
+             console.log("Script load")
+      </script>
       <script src="https://yandex.ru/ads/system/context.js" async></script>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="yandex-verification" content="4bb9c670700c2430">

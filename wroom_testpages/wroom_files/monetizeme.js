@@ -159,16 +159,18 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 mobile_in_article.classList.add('mm_mobile_content');
                 mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId );
                 mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
-
-                window.yaContextCb.push(()=>{
-                    Ya.adfoxCode.create({
+                
+                window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.yaContextCb.push(function() {
+                        window.Ya.adfoxCode.create({
                         ownerId: 1458764,
                         containerId: mm_adfox_id,
                         params: {
                             pp: 'dkuk',
                             ps: 'gmdq',
                             p2: 'ihug'
-                        }
+                        }  
+                        })
                     })
                 })
 
@@ -209,17 +211,17 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-comments-"+ mmId +"'></div>";
                 parent.insertBefore(mobile_in_comments, children_comments[i]);
 
-                window.yaContextCb.push(()=>{
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: mm_adfox_id,
-                        params: {
-                            pp: 'dkuo',
-                            ps: 'gmdq',
-                            p2: 'ihug'
-                        }
-                    })
+            window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: mm_adfox_id,
+                    params: {
+                        pp: 'dkuo',
+                        ps: 'gmdq',
+                        p2: 'ihug'
+                    }
                 })
+            })
             }
             const mobile_comments_bottom = document.createElement("div");
             mobile_comments_bottom.classList.add('mm_mobile_content');
