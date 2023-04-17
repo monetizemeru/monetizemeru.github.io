@@ -207,7 +207,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 mobile_in_comments.classList.add('mm_mobile_content');
                 mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + mmId);
                 mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-comments-"+ mmId +"'></div>";
-                
+                parent.insertBefore(mobile_in_comments, children_comments[i]);
+
                 window.yaContextCb.push(()=>{
                     Ya.adfoxCode.create({
                         ownerId: 1458764,
@@ -219,9 +220,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         }
                     })
                 })
-
-
-                parent.insertBefore(mobile_in_comments, children_comments[i]);
             }
             const mobile_comments_bottom = document.createElement("div");
             mobile_comments_bottom.classList.add('mm_mobile_content');
