@@ -225,7 +225,20 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_comments_bottom = document.createElement("div");
             mobile_comments_bottom.classList.add('mm_mobile_content');
             mobile_comments_bottom.setAttribute('id', 'mobile_after_comments');
-            mobile_comments_bottom.innerHTML = `<div style="width: 320px; height: 300px; background: red;"></div>`;
+            mobile_comments_bottom.innerHTML = `<div id="monetizeme-mobile-after-comments"></div>`;
+
+            window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-mobile-after-comments',
+                    params: {
+                        pp: 'dkup',
+                        ps: 'gmdq',
+                        p2: 'ihug'
+                    }
+                })
+            })
+
             after_commentsBlock.insertAdjacentElement("afterend", mobile_comments_bottom);
         }
 
