@@ -460,5 +460,5 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 }
 
 setInterval(function() {
-  Ya.adfoxCode.reload(containerId, {onlyIfWasVisible: true});
+  Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
 }, 15000);
