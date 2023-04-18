@@ -341,7 +341,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.Ya.adfoxCode.hbCallbacks.push(function() {
                     window.Ya.headerBidding.pushAdUnits([
                     {
-                        code: 'monetizeme-desktop-inread-after-cover';
+                        code: 'monetizeme-desktop-inread-after-cover',
                         codeType: 'combo',
                         bids: []
                     }
