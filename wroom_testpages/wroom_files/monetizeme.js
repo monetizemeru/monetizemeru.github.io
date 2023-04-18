@@ -308,7 +308,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const desktop_before_articleElement = document.createElement("div");
             desktop_before_articleElement.classList.add('mm_desktop_content');
             desktop_before_articleElement.setAttribute('id', 'desktop_before_article');
-            desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" style="display:block"></div>`;
+            desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" class="adfox_inread_desktop" style="display:block"></div>`;
 
             window.yaContextCb.push(()=>{
                 Ya.adfoxCode.create({
@@ -336,7 +336,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 let mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
                 desktop_in_article.classList.add('mm_desktop_content');
                 desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId );
-                desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"'></div>";
+                desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"' class='adfox_inread_desktop'></div>";
 
                 window.yaContextCb.push(()=>{
                     Ya.adfoxCode.create({

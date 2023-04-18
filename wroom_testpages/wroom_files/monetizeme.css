@@ -157,11 +157,16 @@
     cursor: pointer;
 }
 .mm_desktop_content{
+	background: #eeeeee;
 	padding: 20px 0 !important;
-	margin: auto !important;
+	margin: 20px 0 !important;
 	width: 100% !important;
 	max-height: 480px !important;
 	display: grid !important;
 	justify-content: center !important;
 	box-sizing: border-box;
+}
+.adfox_inread_desktop{
+	max-width: 620px;
+	max-height: 480px
 }
