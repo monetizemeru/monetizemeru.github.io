@@ -338,6 +338,13 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" class="adfox_inread_desktop" style="display:block"></div>`;
 
             window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([
+                {
+                    code: 'monetizeme-desktop-inread-after-cover';
+                    codeType: 'combo',
+                    bids: []
+                }
+                    ])
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
@@ -459,7 +466,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
         }
     setInterval(function() {
-      Ya.adfoxCode.reload(containerId, {onlyIfWasVisible: true});
+      Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
     }, 15000);
     })
 
