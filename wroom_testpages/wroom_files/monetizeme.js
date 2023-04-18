@@ -161,15 +161,22 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId );
                 mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
 
-                window.yaContextCb.push(()=>{
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: mm_adfox_id,
-                        params: {
-                            pp: 'dkuk',
-                            ps: 'gmdq',
-                            p2: 'ihug'
-                        }
+                window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.Ya.headerBidding.pushAdUnits([{}]);
+                        window.yaContextCb.push(function() {
+                            window.Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: mm_adfox_id,
+                            params: {
+                                pp: 'dkuk',
+                                ps: 'gmdq',
+                                p2: 'ihug'
+                            },
+                            lazyLoad: {
+                                fetchMargin: 150,
+                                mobileScaling: 2.5
+                            }
+                        })
                     })
                 })
 
