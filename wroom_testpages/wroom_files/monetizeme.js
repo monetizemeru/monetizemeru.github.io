@@ -315,7 +315,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
-                        sequentialLoading: true,
                         containerId: 'monetizeme-desktop-inread-after-cover',
                         params: {
                             pp: 'dkug',
@@ -351,7 +350,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         window.yaContextCb.push(function() {
                             window.Ya.adfoxCode.create({
                             ownerId: 1458764,
-                            sequentialLoading: true,
                             containerId: mm_adfox_id,
                             params: {
                                 pp: 'dkul',
