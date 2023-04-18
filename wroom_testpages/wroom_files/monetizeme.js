@@ -344,9 +344,27 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 var mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
                 desktop_in_article.classList.add('mm_desktop_content');
                 desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId );
-                desktop_in_article.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
+                desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"'></div>";
 
-                //desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"'></div>";
+                window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.Ya.headerBidding.pushAdUnits([{}]);
+                        window.yaContextCb.push(function() {
+                            window.Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            sequentialLoading: true,
+                            containerId: mm_adfox_id,
+                            params: {
+                                pp: 'dkul',
+                                ps: 'gmdq',
+                                p2: 'iegj'
+                            },
+                            lazyLoad: {
+                                fetchMargin: 150,
+                                mobileScaling: 2.5
+                            }
+                        })
+                    })
+                })
 
                 artcicleBlock.insertBefore(desktop_in_article, children[i]);
             }
