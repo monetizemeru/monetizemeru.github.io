@@ -155,28 +155,21 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const len = children.length;
             for (let i = 4; i < len; i += 5) {
                 var mobile_in_article = document.createElement("div");
-                var mmId = Math.random().toString(36).substr(2, 9)
+                let mmId = Math.random().toString(36).substr(2, 9)
                 let mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
                 mobile_in_article.classList.add('mm_mobile_content');
                 mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId );
                 mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
 
-                window.Ya.adfoxCode.hbCallbacks.push(function() {
-                    window.Ya.headerBidding.pushAdUnits([{}]);
-                        window.yaContextCb.push(function() {
-                            window.Ya.adfoxCode.create({
-                            ownerId: 1458764,
-                            containerId: mm_adfox_id,
-                            params: {
-                                pp: 'dkuk',
-                                ps: 'gmdq',
-                                p2: 'ihug'
-                            },
-                            lazyLoad: {
-                                fetchMargin: 150,
-                                mobileScaling: 2.5
-                            }
-                        })
+                window.yaContextCb.push(()=>{
+                    Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: mm_adfox_id,
+                        params: {
+                            pp: 'dkuk',
+                            ps: 'gmdq',
+                            p2: 'ihug'
+                        }
                     })
                 })
 
@@ -317,25 +310,18 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_before_articleElement.setAttribute('id', 'desktop_before_article');
             desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" style="display:block"></div>`;
 
-            window.Ya.adfoxCode.hbCallbacks.push(function() {
-                //window.Ya.headerBidding.pushAdUnits([{}]);
-                window.yaContextCb.push(function() {
-                    window.Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: 'monetizeme-desktop-inread-after-cover',
-                        params: {
-                            pp: 'dkug',
-                            ps: 'gmdq',
-                            p2: 'iegj'
-                        },
-                        lazyLoad: {
-                            fetchMargin: 150,
-                            mobileScaling: 2.5
-                        }
-                    })
+            window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-desktop-inread-after-cover',
+                    params: {
+                        pp: 'dkug',
+                        ps: 'gmdq',
+                        p2: 'iegj'
+                    }
                 })
-
             })
+
 
 
             textBlock.parentNode.insertBefore(desktop_before_articleElement, textBlock);
@@ -346,28 +332,21 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const len = children.length;
             for (let i = 4; i < len; i += 5) {
                 var desktop_in_article = document.createElement("div");
-                var mmId = Math.random().toString(36).substr(2, 9)
+                let mmId = Math.random().toString(36).substr(2, 9)
                 let mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
                 desktop_in_article.classList.add('mm_desktop_content');
                 desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId );
                 desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"'></div>";
 
-                window.Ya.adfoxCode.hbCallbacks.push(function() {
-                    window.Ya.headerBidding.pushAdUnits([{}]);
-                        window.yaContextCb.push(function() {
-                            window.Ya.adfoxCode.create({
-                            ownerId: 1458764,
-                            containerId: mm_adfox_id,
-                            params: {
-                                pp: 'dkul',
-                                ps: 'gmdq',
-                                p2: 'iegj'
-                            },
-                            lazyLoad: {
-                                fetchMargin: 150,
-                                mobileScaling: 2.5
-                            }
-                        })
+                window.yaContextCb.push(()=>{
+                    Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: mm_adfox_id,
+                        params: {
+                            pp: 'dkul',
+                            ps: 'gmdq',
+                            p2: 'iegj'
+                        }
                     })
                 })
 
