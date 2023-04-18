@@ -284,7 +284,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const sideBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-4.side > div.sideblock")
         const sideBlock_second = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-4.side > div > div.top-news")
         const artcicleBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div:nth-child(2) > div.text-block > span")
-        const articleBottomBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > a:nth-child(8)")
+        const articleBottomBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > p.news-tag")
         const commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div.comment2")
         const after_commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > form")
 
@@ -358,7 +358,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_article_bottom.classList.add('mm_desktop_content');
             desktop_article_bottom.setAttribute('id', 'desktop_after_article');
             desktop_article_bottom.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
-            articleBottomBlock.parentNode.insertBefore(desktop_article_bottom, articleBottomBlock);
+            //articleBottomBlock.parentNode.insertBefore(desktop_article_bottom, articleBottomBlock);
+
+            articleBottomBlock.insertAdjacentElement('afterend', desktop_article_bottom)
 
 
         }
