@@ -340,14 +340,16 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             window.Ya.adfoxCode.hbCallbacks.push(function() {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
                         containerId: 'monetizeme-desktop-inread-after-cover',
                         params: {
                             pp: 'dkug',
                             ps: 'gmdq',
-                            p2: 'iegj'
+                            p2: 'iegj',
+                        }
                     })
                 })
-            })
+            });
             
 
 
@@ -456,9 +458,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
             after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
         }
+    setInterval(function() {
+      Ya.adfoxCode.reload(containerId, {onlyIfWasVisible: true});
+    }, 15000);
     })
+
 }
 
-setInterval(function() {
-  Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
-}, 15000);
