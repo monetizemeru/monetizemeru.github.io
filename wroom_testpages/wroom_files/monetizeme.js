@@ -156,7 +156,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             for (let i = 4; i < len; i += 5) {
                 var mobile_in_article = document.createElement("div");
                 var mmId = Math.random().toString(36).substr(2, 9)
-                var mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
+                let mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
                 mobile_in_article.classList.add('mm_mobile_content');
                 mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId );
                 mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
@@ -347,7 +347,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             for (let i = 4; i < len; i += 5) {
                 var desktop_in_article = document.createElement("div");
                 var mmId = Math.random().toString(36).substr(2, 9)
-                var mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
+                let mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
                 desktop_in_article.classList.add('mm_desktop_content');
                 desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId );
                 desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"'></div>";
