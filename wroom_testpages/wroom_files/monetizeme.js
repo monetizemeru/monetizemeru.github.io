@@ -311,11 +311,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" style="display:block"></div>`;
 
             window.Ya.adfoxCode.hbCallbacks.push(function() {
-                window.Ya.headerBidding.pushAdUnits([{
-
-                }]);
+                //window.Ya.headerBidding.pushAdUnits([{}]);
                 window.yaContextCb.push(function() {
-                    window.Ya.adfoxCode.createScroll({
+                    window.Ya.adfoxCode.create({
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-desktop-inread-after-cover',
