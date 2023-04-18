@@ -73,6 +73,7 @@
 	left: 0;
 	width: 100px;
 	height: 100px;
+	cursor: pointer;
 }
 
 .mm_button_bottom{
@@ -101,6 +102,65 @@
 	margin: auto !important;
 	width: 100% !important;
 	max-height: 600px !important;
+	display: grid !important;
+	justify-content: center !important;
+	box-sizing: border-box;
+}
+.monetizeme-desktop-sticky-bottom{
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 9999998;
+	position: fixed;
+	bottom: 0px;
+	background: transparent;
+	text-align: center;
+	transition: 300ms ease-in;
+	line-height: 0px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2) !important;
+	background-color: #F0F4F8;
+}
+.mm_button_bottom-desktop{
+	transform: rotate(90deg);
+	height: 25px !important;
+	position: absolute;
+    width: 44px;
+    left: -34px;
+    border: none;
+    background-size: 13px 13px;
+    background-position: 9px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
+    color: #777;
+    bottom:  auto !important;
+    top: 5px;
+    border-radius: 0 0 10px 10px !important;
+    font-size: 17px;
+    font-family: verdana;
+}
+.mm_desktop_side_content{
+	padding: 0px 0 !important;
+	margin: auto !important;
+	width: 100% !important;
+	display: grid !important;
+	justify-content: center !important;
+	box-sizing: border-box;
+}
+.button-bottom-close-desktop {
+    position: absolute;
+    bottom: auto !important;
+    z-index: 99999999;
+    top: -20px;
+    left: -30px;
+    width: 60px;
+    height: 80px;
+    cursor: pointer;
+}
+.mm_desktop_content{
+	padding: 20px 0 !important;
+	margin: auto !important;
+	width: 100% !important;
+	max-height: 480px !important;
 	display: grid !important;
 	justify-content: center !important;
 	box-sizing: border-box;

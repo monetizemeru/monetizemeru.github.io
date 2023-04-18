@@ -262,4 +262,129 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         }
 
     })
+}else{
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+        const body = document.querySelector("body")
+        const stickyBottom = document.createElement('div');
+        stickyBottom.classList.add('monetizeme-desktop-sticky-bottom');
+        stickyBottom.setAttribute('id', 'sticky_bottom');
+        stickyBottom.innerHTML = `
+        <div class="button-bottom-close-desktop"></div>
+        <button class="mm_button_bottom-desktop">×</button>
+        <div id="monetizeme-sticky-bottom" style="width:700px;height:100px;background:red;"></div>`;
+        document.body.insertAdjacentElement('afterbegin', stickyBottom)
+        //bottom sticky banner
+        var bottomButton = document.querySelector('.button-bottom-close-desktop');
+        bottomButton.addEventListener('click', function() {
+            document.getElementById("sticky_bottom").remove();
+        });
+
+        const textBlock = document.querySelector(".text-block");
+        const sideBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-4.side > div.sideblock")
+        const sideBlock_second = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-4.side > div > div.top-news")
+        const artcicleBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div:nth-child(2) > div.text-block > span")
+        const articleBottomBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > a:nth-child(8)")
+        const commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div.comment2")
+        const after_commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > form")
+
+        if (sideBlock != null){
+            const desktop_side = document.createElement("div");
+            desktop_side.classList.add('mm_desktop_side_content');
+            desktop_side.setAttribute('id', 'desktop_side');
+            desktop_side.innerHTML = `<div style="display:block;width:300px;height:500px;background:red;"></div>`;
+            sideBlock.insertAdjacentElement('afterbegin', desktop_side)
+        }
+        if (sideBlock_second != null){
+            const desktop_side_second = document.createElement("div");
+            desktop_side_second.classList.add('mm_desktop_side_content');
+            desktop_side_second.setAttribute('id', 'desktop_side_second');
+            desktop_side_second.innerHTML = `<div style="display:block;width:300px;height:500px;background:red;"></div>`;
+            sideBlock_second.insertAdjacentElement('afterend', desktop_side_second)
+        }
+        if (textBlock != null) {
+
+            //add mobile after cover
+            const desktop_before_articleElement = document.createElement("div");
+            desktop_before_articleElement.classList.add('mm_desktop_content');
+            desktop_before_articleElement.setAttribute('id', 'desktop_before_article');
+            desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" style="display:block"></div>`;
+
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+
+                }]);
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.createScroll({
+                        ownerId: 1458764,
+                        sequentialLoading: true,
+                        containerId: 'monetizeme-desktop-inread-after-cover',
+                        params: {
+                            pp: 'dkug',
+                            ps: 'gmdq',
+                            p2: 'iegj'
+                        },
+                        lazyLoad: {
+                            fetchMargin: 150,
+                            mobileScaling: 2.5
+                        }
+                    })
+                })
+
+            })
+
+
+            textBlock.parentNode.insertBefore(desktop_before_articleElement, textBlock);
+
+            //add mobile in article each 4 elements
+
+            const children = artcicleBlock.children;
+            const len = children.length;
+            for (let i = 4; i < len; i += 5) {
+                var desktop_in_article = document.createElement("div");
+                var mmId = Math.random().toString(36).substr(2, 9)
+                var mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
+                desktop_in_article.classList.add('mm_desktop_content');
+                desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId );
+                desktop_in_article.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
+
+                //desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"'></div>";
+
+                artcicleBlock.insertBefore(desktop_in_article, children[i]);
+            }
+
+            //add mobile after article 
+            const desktop_article_bottom = document.createElement("div");
+            desktop_article_bottom.classList.add('mm_desktop_content');
+            desktop_article_bottom.setAttribute('id', 'desktop_after_article');
+            desktop_article_bottom.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
+            articleBottomBlock.parentNode.insertBefore(desktop_article_bottom, articleBottomBlock);
+
+
+        }
+        //Add blocks to comments
+        if (commentsBlock != null) {
+            var parent = commentsBlock;
+            var children_comments = parent.querySelectorAll('.comment-item');
+            for (var i = 4; i < children_comments.length; i += 4) {
+                var desktop_in_comments = document.createElement('div');
+                const mmId = Math.random().toString(36).substr(2, 9)
+                const mm_adfox_id = 'monetizeme-desktop-inread-comments-' + mmId
+                desktop_in_comments.classList.add('mm_desktop_content');
+                desktop_in_comments.setAttribute('id', 'desktop_in_comments_' + mmId);
+                desktop_in_comments.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
+                //desktop_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-comments-"+ mmId +"'></div>";
+
+
+                parent.insertBefore(desktop_in_comments, children_comments[i]);
+            }
+            const desktop_comments_bottom = document.createElement("div");
+            desktop_comments_bottom.classList.add('mm_desktop_content');
+            desktop_comments_bottom.setAttribute('id', 'desktop_after_comments');
+            desktop_comments_bottom.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
+
+
+            after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
+        }
+    })
 }
