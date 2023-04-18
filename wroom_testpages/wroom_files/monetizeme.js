@@ -331,9 +331,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const children = artcicleBlock.children;
             const len = children.length;
             for (let i = 4; i < len; i += 5) {
-                var desktop_in_article = document.createElement("div");
-                let mmId = Math.random().toString(36).substr(2, 9)
-                let mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
+                const desktop_in_article = document.createElement("div");
+                const mmId = Math.random().toString(36).substr(2, 9)
+                const mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
                 desktop_in_article.classList.add('mm_desktop_content');
                 desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId );
                 desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"' class='adfox_inread_desktop'></div>";
