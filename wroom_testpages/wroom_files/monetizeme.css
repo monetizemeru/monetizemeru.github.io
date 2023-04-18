@@ -157,7 +157,8 @@
     cursor: pointer;
 }
 .mm_desktop_content{
-	background: #f6f6f6;
+	border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 	padding: 20px 0 !important;
 	margin: 20px 0 !important;
 	width: 100% !important;
