@@ -310,26 +310,18 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_before_articleElement.setAttribute('id', 'desktop_before_article');
             desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" style="display:block"></div>`;
 
-            window.Ya.adfoxCode.hbCallbacks.push(function() {
-                //window.Ya.headerBidding.pushAdUnits([{}]);
-                window.yaContextCb.push(function() {
-                    window.Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        sequentialLoading: true,
-                        containerId: 'monetizeme-desktop-inread-after-cover',
-                        params: {
-                            pp: 'dkug',
-                            ps: 'gmdq',
-                            p2: 'iegj'
-                        },
-                        lazyLoad: {
-                            fetchMargin: 150,
-                            mobileScaling: 2.5
-                        }
-                    })
+            window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-desktop-inread-after-cover',
+                    params: {
+                        pp: 'dkug',
+                        ps: 'gmdq',
+                        p2: 'iegj'
+                    }
                 })
-
             })
+
 
 
             textBlock.parentNode.insertBefore(desktop_before_articleElement, textBlock);
