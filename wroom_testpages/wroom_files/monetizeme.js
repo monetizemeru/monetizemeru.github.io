@@ -124,10 +124,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
         //Add blocks to article
         const textBlock = document.querySelector(".text-block");
-        const artcicleBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div:nth-child(2) > div.text-block > span")
-        const articleBottomBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > a:nth-child(8)")
-        const commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div.comment2")
-        const after_commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > form")
+        const artcicleBlock = document.querySelector('span[itemprop="articleBody"]')
+        const articleBottomBlock = document.querySelector(".news-tag")
+        const commentsBlock = document.querySelector(".comment2")
+        const after_commentsBlock = document.querySelector('form[name="addcomment"]')
         const main_pageBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div:nth-child(1) > div.col-md-8 > div.row.index-news-2 > div:nth-child(2)")
         if (textBlock != null) {
 
@@ -176,24 +176,27 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 artcicleBlock.insertBefore(mobile_in_article, children[i]);
             }
 
-            //add mobile after article 
-            const mobile_article_bottom = document.createElement("div");
-            mobile_article_bottom.classList.add('mm_mobile_content');
-            mobile_article_bottom.setAttribute('id', 'mobile_after_article');
-            mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article" style="display:block"></div>`;
-            articleBottomBlock.parentNode.insertBefore(mobile_article_bottom, articleBottomBlock);
+            //add mobile after article
+            if  (articleBottomBlock != null){
+                const mobile_article_bottom = document.createElement("div");
+                mobile_article_bottom.classList.add('mm_mobile_content');
+                mobile_article_bottom.setAttribute('id', 'mobile_after_article');
+                mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article" style="display:block"></div>`;
+                articleBottomBlock.parentNode.insertBefore(mobile_article_bottom, articleBottomBlock);
 
-            window.yaContextCb.push(()=>{
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-mobile-inread-after-article',
-                    params: {
-                        pp: 'dkun',
-                        ps: 'gmdq',
-                        p2: 'ihug'
-                    }
+                window.yaContextCb.push(()=>{
+                    Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-mobile-inread-after-article',
+                        params: {
+                            pp: 'dkun',
+                            ps: 'gmdq',
+                            p2: 'ihug'
+                        }
+                    })
                 })
-            })
+            }
+
 
         }
         if (main_pageBlock != null){
@@ -281,12 +284,12 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         });
 
         const textBlock = document.querySelector(".text-block");
-        const sideBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-4.side > div.sideblock")
+        const sideBlock = document.querySelector(".sideblock")
         const sideBlock_second = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-4.side > div > div.top-news")
-        const artcicleBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div:nth-child(2) > div.text-block > span")
-        const articleBottomBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > p.news-tag")
-        const commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > div.comment2")
-        const after_commentsBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div > div.col-12.col-xl-8.maintext > form")
+        const artcicleBlock = document.querySelector('span[itemprop="articleBody"]')
+        const articleBottomBlock = document.querySelector(".news-tag")
+        const commentsBlock = document.querySelector(".comment2")
+        const after_commentsBlock = document.querySelector('form[name="addcomment"]')
 
         if (sideBlock != null){
             const desktop_side = document.createElement("div");
@@ -353,27 +356,31 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 artcicleBlock.insertBefore(desktop_in_article, children[i]);
             }
 
-            //add mobile after article 
-            const desktop_article_bottom = document.createElement("div");
-            desktop_article_bottom.classList.add('mm_desktop_content');
-            desktop_article_bottom.setAttribute('id', 'desktop_after_article');
-            desktop_article_bottom.innerHTML = `<div id= "monetizeme-desktop-inread-article-bottom" class="adfox_inread_desktop"></div>`;
-            
-            window.yaContextCb.push(()=>{
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-desktop-inread-article-bottom',
-                    params: {
-                        pp: 'dkuh',
-                        ps: 'gmdq',
-                        p2: 'iegj'
-                    }
+            //add mobile after article
+
+            if (articleBottomBlock != null){
+
+                const desktop_article_bottom = document.createElement("div");
+                desktop_article_bottom.classList.add('mm_desktop_content');
+                desktop_article_bottom.setAttribute('id', 'desktop_after_article');
+                desktop_article_bottom.innerHTML = `<div id= "monetizeme-desktop-inread-article-bottom" class="adfox_inread_desktop"></div>`;
+                
+                window.yaContextCb.push(()=>{
+                    Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-desktop-inread-article-bottom',
+                        params: {
+                            pp: 'dkuh',
+                            ps: 'gmdq',
+                            p2: 'iegj'
+                        }
+                    })
                 })
-            })
 
 
-            articleBottomBlock.insertAdjacentElement('afterend', desktop_article_bottom)
+                articleBottomBlock.insertAdjacentElement('afterend', desktop_article_bottom)
 
+            } 
 
         }
         //Add blocks to comments
