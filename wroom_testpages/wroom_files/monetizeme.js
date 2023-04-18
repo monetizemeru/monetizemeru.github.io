@@ -426,3 +426,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         }
     })
 }
+
+setInterval(function() {
+  Ya.adfoxCode.reload(containerId, {onlyIfWasVisible: true});
+}, 15000);
