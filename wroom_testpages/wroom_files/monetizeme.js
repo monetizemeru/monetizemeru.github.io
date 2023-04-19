@@ -368,7 +368,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
-                    containerId: 'adfox_16818282772214079',
+                    containerId: 'monetizeme-desktop-side-second',
                     params: {
                         pp: 'h',
                         ps: 'gmdq',
