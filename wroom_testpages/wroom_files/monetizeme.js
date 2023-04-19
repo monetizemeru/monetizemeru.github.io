@@ -377,7 +377,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 })
             })
 
-            sideBlock_second.insertAdjacentElement('beforeend', desktop_side_second)
+            sideBlock.insertAdjacentElement('beforeend', desktop_side_second)
         }
         if (textBlock != null) {
 
