@@ -333,6 +333,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_side.classList.add('mm_desktop_side_content');
             desktop_side.setAttribute('id', 'desktop_side');
             desktop_side.innerHTML = `<div id="monetizeme-desktop-side-first" style="display:block"></div>`;
+            desktop_side.innerHTML = `<div id="monetizeme-desktop-side-seccond" style="display:block"></div>`;
             window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
@@ -341,6 +342,17 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         pp: 'g',
                         ps: 'gmdq',
                         p2: 'ieea'
+                    }
+                })
+            })
+            window.yaContextCb.push(()=>{
+                Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-desktop-side-seccond',
+                    params: {
+                        pp: 'h',
+                        ps: 'gmdq',
+                        p2: 'ihua'
                     }
                 })
             })
