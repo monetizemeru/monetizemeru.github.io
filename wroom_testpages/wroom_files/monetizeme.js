@@ -311,7 +311,20 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         stickyBottom.innerHTML = `
         <div class="button-bottom-close-desktop"></div>
         <button class="mm_button_bottom-desktop">×</button>
-        <div id="monetizeme-sticky-bottom" style="width:700px;height:100px;background:red;"></div>`;
+        <div id="monetizeme-desktop-sticky-bottom" style="display:block"></div>`;
+
+        window.yaContextCb.push(()=>{
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'monetizeme-desktop-sticky-bottom',
+                params: {
+                    pp: 'i',
+                    ps: 'gmdq',
+                    p2: 'ihub'
+                }
+            })
+        })
+
         document.body.insertAdjacentElement('afterbegin', stickyBottom)
         //bottom sticky banner
         var bottomButton = document.querySelector('.button-bottom-close-desktop');
@@ -333,7 +346,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_side.classList.add('mm_desktop_side_content');
             desktop_side.setAttribute('id', 'desktop_side');
             desktop_side.innerHTML = `<div id="monetizeme-desktop-side-first" style="display:block"></div>`;
-            desktop_side.innerHTML = `<div id="monetizeme-desktop-side-seccond" style="display:block"></div>`;
             window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
@@ -345,21 +357,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     }
                 })
             })
-            window.yaContextCb.push(()=>{
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-desktop-side-seccond',
-                    params: {
-                        pp: 'h',
-                        ps: 'gmdq',
-                        p2: 'ihua'
-                    }
-                })
-            })
 
             sideBlock.insertAdjacentElement('afterbegin', desktop_side)
         }
-        if (sideBlock_second != null) {
+        if (sideBlock != null) {
             const desktop_side_second = document.createElement("div");
             desktop_side_second.classList.add('mm_desktop_side_content');
             desktop_side_second.setAttribute('id', 'desktop_side_second');
@@ -376,7 +377,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 })
             })
 
-            sideBlock_second.insertAdjacentElement('afterend', desktop_side_second)
+            sideBlock_second.insertAdjacentElement('beforeend', desktop_side_second)
         }
         if (textBlock != null) {
 
