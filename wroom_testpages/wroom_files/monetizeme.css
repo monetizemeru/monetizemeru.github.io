@@ -175,3 +175,10 @@
 	max-width: 620px;
 	max-height: 480px
 }
+#desktop_side_second{
+	position: sticky;
+	top:20px;
+}
+.sideblock{
+	height: 95%;
+}
