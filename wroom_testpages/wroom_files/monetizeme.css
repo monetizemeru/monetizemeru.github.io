@@ -97,6 +97,9 @@
 
 }
 .mm_mobile_content{
+	background: #fbfbfb;
+	border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 	position: inherit;
 	padding: 20px 0 !important;
 	margin: auto !important;
@@ -157,6 +160,7 @@
     cursor: pointer;
 }
 .mm_desktop_content{
+	background: #fbfbfb;
 	border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 	padding: 20px 0 !important;
