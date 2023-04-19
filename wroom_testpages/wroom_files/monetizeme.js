@@ -1,4 +1,3 @@
-
 if (window.matchMedia('(max-width: 768px)').matches) {
 
     document.addEventListener("DOMContentLoaded", function(event) {
@@ -7,17 +6,17 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const mobile_fs = document.createElement('div');
         mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
 
-        window.yaContextCb.push(()=>{
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-mobile-fs',
-                    params: {
-                        pp: 'g',
-                        ps: 'gmdq',
-                        p2: 'ihud'
-                    }
-                })
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'monetizeme-mobile-fs',
+                params: {
+                    pp: 'g',
+                    ps: 'gmdq',
+                    p2: 'ihud'
+                }
             })
+        })
 
         document.body.insertAdjacentElement('afterbegin', mobile_fs)
 
@@ -136,7 +135,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             mobile_before_articleElement.classList.add('mm_mobile_content');
             mobile_before_articleElement.setAttribute('id', 'mobile_before_article');
             mobile_before_articleElement.innerHTML = `<div id="monetizeme-mobile-inread-after-cover" style="display:block"></div>`;
-            window.yaContextCb.push(()=>{
+            window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
                     containerId: 'monetizeme-mobile-inread-after-cover',
@@ -150,41 +149,42 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             textBlock.parentNode.insertBefore(mobile_before_articleElement, textBlock);
 
             //add mobile in article each 4 elements
+            if (artcicleBlock != null) {
+                const children = artcicleBlock.children;
+                const len = children.length;
+                for (let i = 4; i < len; i += 5) {
+                    var mobile_in_article = document.createElement("div");
+                    let mmId = Math.random().toString(36).substr(2, 9)
+                    let mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
+                    mobile_in_article.classList.add('mm_mobile_content');
+                    mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId);
+                    mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "'></div>";
 
-            const children = artcicleBlock.children;
-            const len = children.length;
-            for (let i = 4; i < len; i += 5) {
-                var mobile_in_article = document.createElement("div");
-                let mmId = Math.random().toString(36).substr(2, 9)
-                let mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
-                mobile_in_article.classList.add('mm_mobile_content');
-                mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId );
-                mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-"+ mmId +"'></div>";
-
-                window.yaContextCb.push(()=>{
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: mm_adfox_id,
-                        params: {
-                            pp: 'dkuk',
-                            ps: 'gmdq',
-                            p2: 'ihug'
-                        }
+                    window.yaContextCb.push(() => {
+                        Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: mm_adfox_id,
+                            params: {
+                                pp: 'dkuk',
+                                ps: 'gmdq',
+                                p2: 'ihug'
+                            }
+                        })
                     })
-                })
 
-                artcicleBlock.insertBefore(mobile_in_article, children[i]);
+                    artcicleBlock.insertBefore(mobile_in_article, children[i]);
+                }
             }
 
             //add mobile after article
-            if  (articleBottomBlock != null){
+            if (articleBottomBlock != null) {
                 const mobile_article_bottom = document.createElement("div");
                 mobile_article_bottom.classList.add('mm_mobile_content');
                 mobile_article_bottom.setAttribute('id', 'mobile_after_article');
                 mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article" style="display:block"></div>`;
                 articleBottomBlock.parentNode.insertBefore(mobile_article_bottom, articleBottomBlock);
 
-                window.yaContextCb.push(()=>{
+                window.yaContextCb.push(() => {
                     Ya.adfoxCode.create({
                         ownerId: 1458764,
                         containerId: 'monetizeme-mobile-inread-after-article',
@@ -199,12 +199,12 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
 
         }
-        if (main_pageBlock != null){
+        if (main_pageBlock != null) {
             const mobile_mainpage_articleElement = document.createElement("div");
             mobile_mainpage_articleElement.classList.add('mm_mobile_content');
             mobile_mainpage_articleElement.setAttribute('id', 'mobile_mainpage_article');
             mobile_mainpage_articleElement.innerHTML = `<div id="monetizeme-mobile-mainpage" style="display:block"></div>`;
-            window.yaContextCb.push(()=>{
+            window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
                     containerId: 'monetizeme-mobile-mainpage',
@@ -228,9 +228,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 const mm_adfox_id = 'monetizeme-mobile-inread-comments-' + mmId
                 mobile_in_comments.classList.add('mm_mobile_content');
                 mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + mmId);
-                mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-comments-"+ mmId +"'></div>";
+                mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-comments-" + mmId + "'></div>";
 
-                window.yaContextCb.push(()=>{
+                window.yaContextCb.push(() => {
                     Ya.adfoxCode.create({
                         ownerId: 1458764,
                         containerId: mm_adfox_id,
@@ -249,7 +249,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             mobile_comments_bottom.setAttribute('id', 'mobile_after_comments');
             mobile_comments_bottom.innerHTML = `<div id="monetizeme-mobile-after-comments" style="display:block"></div>`;
 
-            window.yaContextCb.push(()=>{
+            window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
                     containerId: 'monetizeme-mobile-after-comments',
@@ -265,7 +265,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         }
 
     })
-}else{
+} else {
     document.addEventListener("DOMContentLoaded", function(event) {
 
         const body = document.querySelector("body")
@@ -291,12 +291,12 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const commentsBlock = document.querySelector(".comment2")
         const after_commentsBlock = document.querySelector('form[name="addcomment"]')
 
-        if (sideBlock != null){
+        if (sideBlock != null) {
             const desktop_side = document.createElement("div");
             desktop_side.classList.add('mm_desktop_side_content');
             desktop_side.setAttribute('id', 'desktop_side');
             desktop_side.innerHTML = `<div id="monetizeme-desktop-side-first" style="display:block"></div>`;
-            window.yaContextCb.push(()=>{
+            window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
                     containerId: 'monetizeme-desktop-side-first',
@@ -310,12 +310,12 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
             sideBlock.insertAdjacentElement('afterbegin', desktop_side)
         }
-        if (sideBlock_second != null){
+        if (sideBlock_second != null) {
             const desktop_side_second = document.createElement("div");
             desktop_side_second.classList.add('mm_desktop_side_content');
             desktop_side_second.setAttribute('id', 'desktop_side_second');
             desktop_side_second.innerHTML = `<div id="monetizeme-desktop-side-second" style="display:block"></div>`;
-            window.yaContextCb.push(()=>{
+            window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
                     containerId: 'adfox_16818282772214079',
@@ -337,72 +337,68 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_before_articleElement.setAttribute('id', 'desktop_before_article');
             desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" class="adfox_inread_desktop" style="display:block"></div>`;
 
-            (function(){
-                window.Ya.adfoxCode.hbCallbacks.push(function() {
-                    window.Ya.headerBidding.pushAdUnits([
-                    {
-                        code: 'monetizeme-desktop-inread-after-cover',
-                        codeType: 'combo',
-                        bids: []
-                    }
-                        ])
-                    window.yaContextCb.push(function() {
-                        window.Ya.adfoxCode.create({
-                            ownerId: 1458764,
-                            containerId: 'monetizeme-desktop-inread-after-cover',
-                            params: {
-                                pp: 'dkug',
-                                ps: 'gmdq',
-                                p2: 'iegj',
-                            }
-                        })
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+                    code: 'monetizeme-desktop-inread-after-cover',
+                    codeType: 'combo',
+                    bids: []
+                }])
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-desktop-inread-after-cover',
+                        params: {
+                            pp: 'dkug',
+                            ps: 'gmdq',
+                            p2: 'iegj',
+                        }
                     })
                 })
-            })()
-            
-            
+            })
+
 
 
 
             textBlock.parentNode.insertBefore(desktop_before_articleElement, textBlock);
 
             //add mobile in article each 4 elements
+            if (artcicleBlock != null) {
+                const children = artcicleBlock.children;
+                const len = children.length;
+                for (let i = 4; i < len; i += 5) {
+                    const desktop_in_article = document.createElement("div");
+                    const mmId = Math.random().toString(36).substr(2, 9)
+                    const mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
+                    desktop_in_article.classList.add('mm_desktop_content');
+                    desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
+                    desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-" + mmId + "' class='adfox_inread_desktop'></div>";
 
-            const children = artcicleBlock.children;
-            const len = children.length;
-            for (let i = 4; i < len; i += 5) {
-                const desktop_in_article = document.createElement("div");
-                const mmId = Math.random().toString(36).substr(2, 9)
-                const mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
-                desktop_in_article.classList.add('mm_desktop_content');
-                desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId );
-                desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-"+ mmId +"' class='adfox_inread_desktop'></div>";
-
-                window.yaContextCb.push(()=>{
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: mm_adfox_id,
-                        params: {
-                            pp: 'dkul',
-                            ps: 'gmdq',
-                            p2: 'iegj'
-                        }
+                    window.yaContextCb.push(() => {
+                        Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: mm_adfox_id,
+                            params: {
+                                pp: 'dkul',
+                                ps: 'gmdq',
+                                p2: 'iegj'
+                            }
+                        })
                     })
-                })
 
-                artcicleBlock.insertBefore(desktop_in_article, children[i]);
+                    artcicleBlock.insertBefore(desktop_in_article, children[i]);
+                }
             }
 
             //add mobile after article
 
-            if (articleBottomBlock != null){
+            if (articleBottomBlock != null) {
 
                 const desktop_article_bottom = document.createElement("div");
                 desktop_article_bottom.classList.add('mm_desktop_content');
                 desktop_article_bottom.setAttribute('id', 'desktop_after_article');
                 desktop_article_bottom.innerHTML = `<div id= "monetizeme-desktop-inread-article-bottom" class="adfox_inread_desktop"></div>`;
-                
-                window.yaContextCb.push(()=>{
+
+                window.yaContextCb.push(() => {
                     Ya.adfoxCode.create({
                         ownerId: 1458764,
                         containerId: 'monetizeme-desktop-inread-article-bottom',
@@ -417,7 +413,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
                 articleBottomBlock.insertAdjacentElement('afterend', desktop_article_bottom)
 
-            } 
+            }
 
         }
         //Add blocks to comments
@@ -431,9 +427,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 desktop_in_comments.classList.add('mm_desktop_content');
                 desktop_in_comments.setAttribute('id', 'desktop_in_comments_' + mmId);
                 desktop_in_comments.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
-                desktop_in_comments.innerHTML = "<div id='monetizeme-desktop-inread-comments-"+ mmId +"' class='adfox_inread_desktop'></div>";
+                desktop_in_comments.innerHTML = "<div id='monetizeme-desktop-inread-comments-" + mmId + "' class='adfox_inread_desktop'></div>";
 
-                window.yaContextCb.push(()=>{
+                window.yaContextCb.push(() => {
                     Ya.adfoxCode.create({
                         ownerId: 1458764,
                         containerId: mm_adfox_id,
@@ -451,8 +447,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_comments_bottom.classList.add('mm_desktop_content');
             desktop_comments_bottom.setAttribute('id', 'desktop_after_comments');
             desktop_comments_bottom.innerHTML = `<div id= "monetizeme-desktop-coomments-bottom" class="adfox_inread_desktop"></div>`;
-            
-            window.yaContextCb.push(()=>{
+
+            window.yaContextCb.push(() => {
                 Ya.adfoxCode.create({
                     ownerId: 1458764,
                     containerId: 'monetizeme-desktop-coomments-bottom',
@@ -468,10 +464,11 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
             after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
         }
-    setInterval(function() {
-      Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
-    }, 15000);
+        setInterval(function() {
+            Ya.adfoxCode.reload(null, {
+                onlyIfWasVisible: true
+            });
+        }, 30000);
     })
 
 }
-
