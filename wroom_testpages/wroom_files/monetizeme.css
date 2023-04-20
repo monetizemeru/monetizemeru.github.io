@@ -168,6 +168,7 @@
 	width: 100% !important;
 	max-height: 480px !important;
 	display: grid !important;
+	width: 800px !important;
 	justify-content: center !important;
 	box-sizing: border-box;
 }
