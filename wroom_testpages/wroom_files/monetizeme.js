@@ -6,7 +6,7 @@
 
 //hb_script.setAttribute('src','https://yandex.ru/ads/system/header-bidding.js');
 
-document.head.appendChild(hb_script);
+//document.head.appendChild(hb_script);
 
 if (window.matchMedia('(max-width: 768px)').matches) {
     document.addEventListener("DOMContentLoaded", function(event) {
