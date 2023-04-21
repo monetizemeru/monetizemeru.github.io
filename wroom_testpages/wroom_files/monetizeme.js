@@ -1,12 +1,47 @@
-//window.yaContextCb = window.yaContextCb || [];
-//window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
-//window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
+//LIBRARY COONECT START
 
-//var hb_script = document.createElement('script');
+var hb_script = document.createElement('script');
 
-//hb_script.setAttribute('src','https://yandex.ru/ads/system/header-bidding.js');
+hb_script.setAttribute('src','https://yandex.ru/ads/system/header-bidding.js');
+hb_script.setAttribute('async','true');
 
-//document.head.appendChild(hb_script);
+document.head.appendChild(hb_script);
+
+var adfoxBiddersMap = {
+  "astralab": "2365332",
+  "buzzoola": "2365409",
+  "videonow": "2365411",
+  "sape": "2365419",
+  "mediasniper": "2365420",
+  "adfox_adsmart": "2365424",
+  "myTarget": "2365426",
+  "adriver": "2365427",
+  "bidvol": "2365429"
+};
+var adUnits = [];
+var userTimeout = 1500;
+
+window.YaHeaderBiddingSettings = {
+  biddersMap: adfoxBiddersMap,
+  adUnits: adUnits,
+  timeout: userTimeout,
+};
+
+window.Ya || (window.Ya = {});
+window.yaContextCb = window.yaContextCb || [];
+window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
+window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
+
+var adfox_script = document.createElement('script');
+adfox_script.setAttribute('src','https://yandex.ru/ads/system/context.js');
+adfox_script.setAttribute('async','true');
+document.head.appendChild(adfox_script);
+
+var adriver_script = document.createElement('script');
+adriver_script.setAttribute('src','https://content.adriver.ru/AdRiverFPS.js');
+document.head.appendChild(adriver_script);
+
+//LIBRARY CONNECT END
 
 if (window.matchMedia('(max-width: 768px)').matches) {
     document.addEventListener("DOMContentLoaded", function(event) {
