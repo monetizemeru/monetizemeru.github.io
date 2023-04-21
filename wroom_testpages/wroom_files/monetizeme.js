@@ -301,7 +301,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
     })
 } else {
-    //document.addEventListener("DOMContentLoaded", function(event) {
+    document.addEventListener("DOMContentLoaded", function(event) {
 
         const body = document.querySelector("body")
         const stickyBottom = document.createElement('div');
@@ -577,6 +577,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 onlyIfWasVisible: true
             });
         }, 30000);
-    //})
+    })
 
 }
