@@ -19,7 +19,7 @@ var adfoxBiddersMap = {
   "bidvol": "2365429"
 };
 var adUnits = [];
-var userTimeout = 1500;
+var userTimeout = 2000;
 
 window.YaHeaderBiddingSettings = {
   biddersMap: adfoxBiddersMap,
@@ -50,17 +50,28 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const mobile_fs = document.createElement('div');
         mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
 
-        window.yaContextCb.push(() => {
-            Ya.adfoxCode.create({
-                ownerId: 1458764,
-                containerId: 'monetizeme-mobile-fs',
-                params: {
-                    pp: 'g',
-                    ps: 'gmdq',
-                    p2: 'ihud'
-                }
-            })
-        })
+        window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+                    code: 'monetizeme-mobile-fs',
+                    codeType: 'combo',
+                    sizes: [ [ 0, 0 ] ],
+                    bids: [ 
+                    { bidder: "buzzoola", params: {placementId: "1247268" } },
+                    { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } }
+                    ]
+                }])
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-mobile-fs',
+                        params: {
+                            pp: 'g',
+                            ps: 'gmdq',
+                            p2: 'ihud',
+                        }
+                    })
+                })
+        }) 
 
         document.body.insertAdjacentElement('afterbegin', mobile_fs)
 
@@ -73,18 +84,34 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         <button class="mm_button_top">^</button>
         <div id="monetizeme-sticky-top"></div>`; //add here code of banner
 
-
-        window.yaContextCb.push(() => {
-            Ya.adfoxCode.create({
-                ownerId: 1458764,
-                containerId: 'monetizeme-sticky-top',
-                params: {
-                    pp: 'g',
-                    ps: 'gmdq',
-                    p2: 'ihue'
-                }
+        window.Ya.adfoxCode.hbCallbacks.push(function() {
+            window.Ya.headerBidding.pushAdUnits([{
+                code: 'monetizeme-sticky-top',
+                codeType: 'combo',
+                sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 0, 0 ] ],
+                bids: [ 
+                { bidder: "astralab", params: {placementId: "6440fac98528b410c4990c65" } },
+                { bidder: "buzzoola", params: {placementId: "1247261" } },
+                { bidder: "videonow", params: {placementId: "6322246" } },
+                { bidder: "sape", params: { placementId:"844558" } },
+                { bidder: "mediasniper", params: { placementId: "740009" }},
+                { bidder: "myTarget", params: { placementId: "1256667" } },
+                { bidder: "adriver", params: { placementId: "136:wroom_320x100mob",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
+                { bidder: "bidvol", params: { placementId: "34827" } } ]
+            }])
+            window.yaContextCb.push(function() {
+                window.Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-sticky-top',
+                    params: {
+                        pp: 'g',
+                        ps: 'gmdq',
+                        p2: 'ihue',
+                    }
+                })
             })
         })
+
 
         document.body.insertAdjacentElement('afterbegin', stickyTop)
 
@@ -97,17 +124,36 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         <button class="mm_button_bottom ">^</button>
         <div id="monetizeme-sticky-bottom"></div>`;
 
-        window.yaContextCb.push(() => {
-            Ya.adfoxCode.create({
-                ownerId: 1458764,
-                containerId: 'monetizeme-sticky-bottom',
-                params: {
-                    pp: 'i',
-                    ps: 'gmdq',
-                    p2: 'ihuf'
-                }
+
+        window.Ya.adfoxCode.hbCallbacks.push(function() {
+            window.Ya.headerBidding.pushAdUnits([{
+                code: 'monetizeme-sticky-bottom',
+                codeType: 'combo',
+                sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ] ],
+                bids: [ 
+                { bidder: "astralab", params: {placementId: "6440faf88528b410c4990c66" } },
+                { bidder: "buzzoola", params: {placementId: "1247262" } },
+                { bidder: "videonow", params: {placementId: "6323752" } },
+                { bidder: "sape", params: { placementId:"844559" } },
+                { bidder: "mediasniper", params: { placementId: "740010" }},
+                { bidder: "adfox_adsmart", params: { "p1": "cxzvu", "p2": "hhuq" } },
+                { bidder: "myTarget", params: { placementId: "1256669" } },
+                { bidder: "adriver", params: { placementId: "136:wroom_300x250mob",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
+                { bidder: "bidvol", params: { placementId: "34828" } } ]
+            }])
+            window.yaContextCb.push(function() {
+                window.Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-sticky-bottom',
+                    params: {
+                        pp: 'i',
+                        ps: 'gmdq',
+                        p2: 'ihuf',
+                    }
+                })
             })
         })
+
 
         document.body.insertAdjacentElement('afterbegin', stickyBottom)
 
@@ -180,17 +226,36 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             mobile_before_articleElement.classList.add('mm_mobile_content');
             mobile_before_articleElement.setAttribute('id', 'mobile_before_article');
             mobile_before_articleElement.innerHTML = `<div id="monetizeme-mobile-inread-after-cover" style="display:block"></div>`;
-            window.yaContextCb.push(() => {
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-mobile-inread-after-cover',
-                    params: {
-                        pp: 'dkuj',
-                        ps: 'gmdq',
-                        p2: 'ihug'
-                    }
+            
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+                    code: 'monetizeme-mobile-inread-after-cover',
+                    codeType: 'combo',
+                    sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                    bids: [ 
+                    { bidder: "astralab", params: {placementId: "6440fbad8528b410c4990c67" } },
+                    { bidder: "buzzoola", params: {placementId: "1247263" } },
+                    { bidder: "videonow", params: {placementId: "6324759" } },
+                    { bidder: "sape", params: { placementId:"844560" } },
+                    { bidder: "mediasniper", params: { placementId: "740011" }},
+                    { bidder: "adfox_adsmart", params: { "p1": "cxzvx", "p2": "ul" } },
+                    { bidder: "myTarget", params: { placementId: "1256671" } },
+                    { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_1",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
+                    { bidder: "bidvol", params: { placementId: "34829" } } ]
+                }])
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-mobile-inread-after-cover',
+                        params: {
+                            pp: 'dkuj',
+                            ps: 'gmdq',
+                            p2: 'ihug',
+                        }
+                    })
                 })
             })
+
             textBlock.parentNode.insertBefore(mobile_before_articleElement, textBlock);
 
             //add mobile in article each 4 elements
@@ -205,15 +270,32 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId);
                     mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "'></div>";
 
-                    window.yaContextCb.push(() => {
-                        Ya.adfoxCode.create({
-                            ownerId: 1458764,
-                            containerId: mm_adfox_id,
-                            params: {
-                                pp: 'dkuk',
-                                ps: 'gmdq',
-                                p2: 'ihug'
-                            }
+                    window.Ya.adfoxCode.hbCallbacks.push(function() {
+                        window.Ya.headerBidding.pushAdUnits([{
+                            code: mm_adfox_id,
+                            codeType: 'combo',
+                            sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                            bids: [
+                            { bidder: "astralab", params: {placementId: "64411d898528b410c4990c68" } }, 
+                            { bidder: "buzzoola", params: {placementId: "1247264" } },
+                            { bidder: "videonow", params: {placementId: "6325564" } },
+                            { bidder: "sape", params: { placementId:"844561" } },
+                            { bidder: "mediasniper", params: { placementId: "740012" }},
+                            { bidder: "adfox_adsmart", params: { "p1": "cxzvy", "p2": "ul" } },
+                            { bidder: "myTarget", params: { placementId: "1256674" } },
+                            { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_2",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                            { bidder: "bidvol", params: { placementId: "34830" } } ]
+                        }])
+                        window.yaContextCb.push(function() {
+                            window.Ya.adfoxCode.create({
+                                ownerId: 1458764,
+                                containerId: mm_adfox_id,
+                                params: {
+                                    pp: 'dkuk',
+                                    ps: 'gmdq',
+                                    p2: 'ihug',
+                                }
+                            })
                         })
                     })
 
@@ -230,15 +312,32 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId);
                         mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "'></div>";
 
-                        window.yaContextCb.push(() => {
-                            Ya.adfoxCode.create({
-                                ownerId: 1458764,
-                                containerId: mm_adfox_id,
-                                params: {
-                                    pp: 'dkuk',
-                                    ps: 'gmdq',
-                                    p2: 'ihug'
-                                }
+                        window.Ya.adfoxCode.hbCallbacks.push(function() {
+                            window.Ya.headerBidding.pushAdUnits([{
+                                code: mm_adfox_id,
+                                codeType: 'combo',
+                                sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                                bids: [
+                                { bidder: "astralab", params: {placementId: "64411d898528b410c4990c68" } }, 
+                                { bidder: "buzzoola", params: {placementId: "1247264" } },
+                                { bidder: "videonow", params: {placementId: "6325564" } },
+                                { bidder: "sape", params: { placementId:"844561" } },
+                                { bidder: "mediasniper", params: { placementId: "740012" }},
+                                { bidder: "adfox_adsmart", params: { "p1": "cxzvy", "p2": "ul" } },
+                                { bidder: "myTarget", params: { placementId: "1256674" } },
+                                { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_2",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                                { bidder: "bidvol", params: { placementId: "34830" } } ]
+                            }])
+                            window.yaContextCb.push(function() {
+                                window.Ya.adfoxCode.create({
+                                    ownerId: 1458764,
+                                    containerId: mm_adfox_id,
+                                    params: {
+                                        pp: 'dkuk',
+                                        ps: 'gmdq',
+                                        p2: 'ihug',
+                                    }
+                                })
                             })
                         })
 
@@ -252,19 +351,38 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 mobile_article_bottom.classList.add('mm_mobile_content');
                 mobile_article_bottom.setAttribute('id', 'mobile_after_article');
                 mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article" style="display:block"></div>`;
-                articleBottomBlock.parentNode.insertBefore(mobile_article_bottom, articleBottomBlock);
-
-                window.yaContextCb.push(() => {
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: 'monetizeme-mobile-inread-after-article',
-                        params: {
-                            pp: 'dkun',
-                            ps: 'gmdq',
-                            p2: 'ihug'
-                        }
+                
+                window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.Ya.headerBidding.pushAdUnits([{
+                        code: 'monetizeme-mobile-inread-after-article',
+                        codeType: 'combo',
+                        sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480] ],
+                        bids: [ 
+                        { bidder: "astralab", params: {placementId: "64411ec58528b410c4990c69" } },
+                        { bidder: "buzzoola", params: {placementId: "1247265" } },
+                        { bidder: "videonow", params: {placementId: "6326344" } },
+                        { bidder: "sape", params: { placementId:"844562" } },
+                        { bidder: "mediasniper", params: { placementId: "740013" }},
+                        { bidder: "adfox_adsmart", params: { "p1": "cxzvz", "p2": "ul" } },
+                        { bidder: "myTarget", params: { placementId: "1256682" } },
+                        { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_3",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
+                        { bidder: "bidvol", params: { placementId: "34831" } } ]
+                    }])
+                    window.yaContextCb.push(function() {
+                        window.Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: 'monetizeme-mobile-inread-after-article',
+                            params: {
+                                pp: 'dkun',
+                                ps: 'gmdq',
+                                p2: 'ihug',
+                            }
+                        })
                     })
                 })
+
+                articleBottomBlock.parentNode.insertBefore(mobile_article_bottom, articleBottomBlock);
+
             }
 
 
@@ -274,17 +392,37 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             mobile_mainpage_articleElement.classList.add('mm_mobile_content');
             mobile_mainpage_articleElement.setAttribute('id', 'mobile_mainpage_article');
             mobile_mainpage_articleElement.innerHTML = `<div id="monetizeme-mobile-mainpage" style="display:block"></div>`;
-            window.yaContextCb.push(() => {
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-mobile-mainpage',
-                    params: {
-                        pp: 'dkuj',
-                        ps: 'gmdq',
-                        p2: 'ihug'
-                    }
+
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+                    code: 'monetizeme-mobile-inread-after-article',
+                    codeType: 'combo',
+                    sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480] ],
+                    bids: [ 
+                    { bidder: "astralab", params: {placementId: "64411ec58528b410c4990c69" } },
+                    { bidder: "buzzoola", params: {placementId: "1247265" } },
+                    { bidder: "videonow", params: {placementId: "6326344" } },
+                    { bidder: "sape", params: { placementId:"844562" } },
+                    { bidder: "mediasniper", params: { placementId: "740013" }},
+                    { bidder: "adfox_adsmart", params: { "p1": "cxzvz", "p2": "ul" } },
+                    { bidder: "myTarget", params: { placementId: "1256682" } },
+                    { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_3",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
+                    { bidder: "bidvol", params: { placementId: "34831" } } ]
+                }])
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-mobile-inread-after-article',
+                        params: {
+                            pp: 'dkun',
+                            ps: 'gmdq',
+                            p2: 'ihug',
+                        }
+                    })
                 })
             })
+
+
             main_pageBlock.parentNode.insertBefore(mobile_mainpage_articleElement, main_pageBlock);
         }
 
@@ -300,15 +438,32 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 mobile_in_comments.setAttribute('id', 'mobile_in_comments_' + mmId);
                 mobile_in_comments.innerHTML = "<div id='monetizeme-mobile-inread-comments-" + mmId + "'></div>";
 
-                window.yaContextCb.push(() => {
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: mm_adfox_id,
-                        params: {
-                            pp: 'dkuo',
-                            ps: 'gmdq',
-                            p2: 'ihug'
-                        }
+                window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.Ya.headerBidding.pushAdUnits([{
+                        code: mm_adfox_id,
+                        codeType: 'combo',
+                        sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                        bids: [
+                        { bidder: "astralab", params: {placementId: "64411f598528b410c4990c6a" } }, 
+                        { bidder: "buzzoola", params: {placementId: "1247266" } },
+                        { bidder: "videonow", params: {placementId: "6327462" } },
+                        { bidder: "sape", params: { placementId:"844563" } },
+                        { bidder: "mediasniper", params: { placementId: "740014" }},
+                        { bidder: "adfox_adsmart", params: { "p1": "cxzwa", "p2": "ul" } },
+                        { bidder: "myTarget", params: { placementId: "1256684" } },
+                        { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_4",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                        { bidder: "bidvol", params: { placementId: "34832" } } ]
+                    }])
+                    window.yaContextCb.push(function() {
+                        window.Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: mm_adfox_id,
+                            params: {
+                                pp: 'dkuo',
+                                ps: 'gmdq',
+                                p2: 'ihug',
+                            }
+                        })
                     })
                 })
 
@@ -319,17 +474,35 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             mobile_comments_bottom.setAttribute('id', 'mobile_after_comments');
             mobile_comments_bottom.innerHTML = `<div id="monetizeme-mobile-after-comments" style="display:block"></div>`;
 
-            window.yaContextCb.push(() => {
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-mobile-after-comments',
-                    params: {
-                        pp: 'dkup',
-                        ps: 'gmdq',
-                        p2: 'ihug'
-                    }
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+                    code: 'monetizeme-mobile-after-comments',
+                    codeType: 'combo',
+                    sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480] ],
+                    bids: [ 
+                    { bidder: "astralab", params: {placementId: "64411fa48528b410c4990c6b" } },
+                    { bidder: "buzzoola", params: {placementId: "1247267" } },
+                    { bidder: "videonow", params: {placementId: "6328134" } },
+                    { bidder: "sape", params: { placementId:"844564" } },
+                    { bidder: "mediasniper", params: { placementId: "740015" }},
+                    { bidder: "adfox_adsmart", params: { "p1": "cxzwb", "p2": "ul" } },
+                    { bidder: "myTarget", params: { placementId: "1256689" } },
+                    { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_5",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
+                    { bidder: "bidvol", params: { placementId: "34833" } } ]
+                }])
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-mobile-after-comments',
+                        params: {
+                            pp: 'dkup',
+                            ps: 'gmdq',
+                            p2: 'ihug',
+                        }
+                    })
                 })
             })
+
 
             after_commentsBlock.insertAdjacentElement("afterend", mobile_comments_bottom);
         }
@@ -347,15 +520,33 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         <button class="mm_button_bottom-desktop">×</button>
         <div id="monetizeme-desktop-sticky-bottom" style="display:block"></div>`;
 
-        window.yaContextCb.push(()=>{
-            Ya.adfoxCode.create({
-                ownerId: 1458764,
-                containerId: 'monetizeme-desktop-sticky-bottom',
-                params: {
-                    pp: 'i',
-                    ps: 'gmdq',
-                    p2: 'ihub'
-                }
+        
+        window.Ya.adfoxCode.hbCallbacks.push(function() {
+            window.Ya.headerBidding.pushAdUnits([{
+                code: 'monetizeme-desktop-sticky-bottom',
+                codeType: 'combo',
+                sizes: [ [ 990, 90 ], [ 970, 90 ], [ 728, 90 ], [ 0, 0 ] ],
+                bids: [ 
+                { bidder: "astralab", params: {placementId: "6440fa038528b410c4990c63" } },
+                { bidder: "buzzoola", params: {placementId: "1247259" } },
+                { bidder: "videonow", params: {placementId: "6321252" } },
+                { bidder: "sape", params: { placementId:"844557" } },
+                { bidder: "mediasniper", params: { placementId: "740008" }},
+                { bidder: "adfox_adsmart", params: { "p1": "cxzvt", "p2": "hhuq" } },
+                { bidder: "myTarget", params: { placementId: "1256639" } },
+                { bidder: "adriver", params: { placementId: "136:wroom_320x100" ,additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                { bidder: "bidvol", params: { placementId: "34825" } } ]
+            }])
+            window.yaContextCb.push(function() {
+                window.Ya.adfoxCode.create({
+                    ownerId: 1458764,
+                    containerId: 'monetizeme-desktop-sticky-bottom',
+                    params: {
+                        pp: 'i',
+                        ps: 'gmdq',
+                        p2: 'ihub',
+                    }
+                })
             })
         })
 
@@ -369,7 +560,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const textBlock = document.querySelector(".text-block");
         const mainText = document.querySelector(".maintext")
         const sideBlock = document.querySelector(".sideblock")
-        const sideBlock_main = document.querySelector(".side-block")
         const artcicleBlock = document.querySelector('span[itemprop="articleBody"]')
         const articleBottomBlock = document.querySelector('a[name="comments"]')
         const commentsBlock = document.querySelector(".comment2")
@@ -380,57 +570,76 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_side.classList.add('mm_desktop_side_content');
             desktop_side.setAttribute('id', 'desktop_side');
             desktop_side.innerHTML = `<div id="monetizeme-desktop-side-first" style="display:block"></div>`;
-            window.yaContextCb.push(() => {
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-desktop-side-first',
-                    params: {
-                        pp: 'g',
-                        ps: 'gmdq',
-                        p2: 'ieea'
-                    }
+
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+                    code: 'monetizeme-desktop-side-first',
+                    codeType: 'combo',
+                    sizes: [ [ 240, 400 ], [ 300, 500 ], [ 300, 600 ], [ 120, 600 ], [ 300, 300 ], [ 0, 0 ] ],
+                    bids: [ 
+                    { bidder: "astralab", params: {placementId: "6440f86a8528b410c4990c5e" } },
+                    { bidder: "buzzoola", params: {placementId: "1247208" } },
+                    { bidder: "videonow", params: {placementId: "6319454" } },
+                    { bidder: "sape", params: { placementId:"844548" } },
+                    { bidder: "mediasniper", params: { placementId: "740001" }},
+                    { bidder: "adfox_adsmart", params: { "p1": "cxzvl", "p2": "hhro" } },
+                    { bidder: "myTarget", params: { placementId: "1255774" } },
+                    { bidder: "adriver", params: { placementId: "136:wroom_300x600_1",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}} },
+                    { bidder: "bidvol", params: { placementId: "34818" } } ]
+                }])
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-desktop-side-first',
+                        params: {
+                            pp: 'g',
+                            ps: 'gmdq',
+                            p2: 'ieea',
+                        }
+                    })
                 })
             })
 
             sideBlock.insertAdjacentElement('afterbegin', desktop_side)
         }
         
-        if (sideBlock_main != null) {
-            const desktop_side = document.createElement("div");
-            desktop_side.classList.add('mm_desktop_side_content');
-            desktop_side.setAttribute('id', 'desktop_side');
-            desktop_side.innerHTML = `<div id="monetizeme-desktop-side-first" style="display:block"></div>`;
-            window.yaContextCb.push(() => {
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-desktop-side-first',
-                    params: {
-                        pp: 'g',
-                        ps: 'gmdq',
-                        p2: 'ieea'
-                    }
-                })
-            })
-
-            sideBlock_main.insertAdjacentElement('afterbegin', desktop_side)
-        }
 
         if (sideBlock != null) {
             const desktop_side_second = document.createElement("div");
             desktop_side_second.classList.add('mm_desktop_side_content');
             desktop_side_second.setAttribute('id', 'desktop_side_second');
             desktop_side_second.innerHTML = `<div id="monetizeme-desktop-side-second" style="display:block"></div>`;
-            window.yaContextCb.push(() => {
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-desktop-side-second',
-                    params: {
-                        pp: 'h',
-                        ps: 'gmdq',
-                        p2: 'ihua'
-                    }
+            
+
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                window.Ya.headerBidding.pushAdUnits([{
+                    code: 'monetizeme-desktop-side-second',
+                    codeType: 'combo',
+                    sizes: [ [ 240, 400 ], [ 300, 500 ], [ 300, 600 ], [ 120, 600 ], [ 300, 300 ], [ 0, 0 ] ],
+                    bids: [ 
+                    { bidder: "astralab", params: {placementId: "6440f90e8528b410c4990c62" } },
+                    { bidder: "buzzoola", params: {placementId: "1247211" } },
+                    { bidder: "videonow", params: {placementId: "6320596" } },
+                    { bidder: "sape", params: { placementId:"844549" } },
+                    { bidder: "mediasniper", params: { placementId: "740002" }},
+                    { bidder: "adfox_adsmart", params: { "p1": "cxzvm", "p2": "hhro" } },
+                    { bidder: "myTarget", params: { placementId: "1255776" } },
+                    { bidder: "adriver", params: { placementId: "136:wroom_300x600_2",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                    { bidder: "bidvol", params: { placementId: "34819" } } ]
+                }])
+                window.yaContextCb.push(function() {
+                    window.Ya.adfoxCode.create({
+                        ownerId: 1458764,
+                        containerId: 'monetizeme-desktop-side-second',
+                        params: {
+                            pp: 'h',
+                            ps: 'gmdq',
+                            p2: 'ihua',
+                        }
+                    })
                 })
             })
+
 
             sideBlock.insertAdjacentElement('beforeend', desktop_side_second)
         }
@@ -456,7 +665,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     { bidder: "mediasniper", params: { placementId: "740003" }},
                     { bidder: "adfox_adsmart", params: { "p1": "cxzvo", "p2": "ul" } },
                     { bidder: "myTarget", params: { placementId: "1255780" } },
-                    { bidder: "adriver", params: { placementId: "136:wroom_300x250_1" } },
+                    { bidder: "adriver", params: { placementId: "136:wroom_300x250_1",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
                     { bidder: "bidvol", params: { placementId: "34820" } } ]
                 }])
                 window.yaContextCb.push(function() {
@@ -490,17 +699,34 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
                     desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-" + mmId + "' class='adfox_inread_desktop'></div>";
 
-                    window.yaContextCb.push(() => {
-                        Ya.adfoxCode.create({
-                            ownerId: 1458764,
-                            containerId: mm_adfox_id,
-                            params: {
-                                pp: 'dkul',
-                                ps: 'gmdq',
-                                p2: 'iegj'
-                            }
+                    window.Ya.adfoxCode.hbCallbacks.push(function() {
+                        window.Ya.headerBidding.pushAdUnits([{
+                            code: mm_adfox_id,
+                            codeType: 'combo',
+                            sizes: [ [ 728, 90 ], [ 300, 250 ], [ 640, 480 ], [ 0, 0 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 320, 480 ], [ 580, 400 ] ],
+                            bids: [ 
+                            { bidder: "buzzoola", params: {placementId: "1247255" } },
+                            { bidder: "videonow", params: {placementId: "6315648" } },
+                            { bidder: "sape", params: { placementId:"844551" } },
+                            { bidder: "mediasniper", params: { placementId: "740004" }},
+                            { bidder: "adfox_adsmart", params: { "p1": "cxzvp", "p2": "ul" } },
+                            { bidder: "myTarget", params: { placementId: "1256631" } },
+                            { bidder: "adriver", params: { placementId: "136:wroom_300x250_2",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                            { bidder: "bidvol", params: { placementId: "34821" } } ]
+                        }])
+                        window.yaContextCb.push(function() {
+                            window.Ya.adfoxCode.create({
+                                ownerId: 1458764,
+                                containerId: mm_adfox_id,
+                                params: {
+                                    pp: 'dkul',
+                                    ps: 'gmdq',
+                                    p2: 'iegj',
+                                }
+                            })
                         })
                     })
+
 
                     artcicleBlock.insertBefore(desktop_in_article, children[i]);
                 }
@@ -515,15 +741,31 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
                     desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-" + mmId + "' class='adfox_inread_desktop'></div>";
 
-                    window.yaContextCb.push(() => {
-                        Ya.adfoxCode.create({
-                            ownerId: 1458764,
-                            containerId: mm_adfox_id,
-                            params: {
-                                pp: 'dkul',
-                                ps: 'gmdq',
-                                p2: 'iegj'
-                            }
+                    window.Ya.adfoxCode.hbCallbacks.push(function() {
+                        window.Ya.headerBidding.pushAdUnits([{
+                            code: mm_adfox_id,
+                            codeType: 'combo',
+                            sizes: [ [ 728, 90 ], [ 300, 250 ], [ 640, 480 ], [ 0, 0 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 320, 480 ], [ 580, 400 ] ],
+                            bids: [ 
+                            { bidder: "buzzoola", params: {placementId: "1247255" } },
+                            { bidder: "videonow", params: {placementId: "6315648" } },
+                            { bidder: "sape", params: { placementId:"844551" } },
+                            { bidder: "mediasniper", params: { placementId: "740004" }},
+                            { bidder: "adfox_adsmart", params: { "p1": "cxzvp", "p2": "ul" } },
+                            { bidder: "myTarget", params: { placementId: "1256631" } },
+                            { bidder: "adriver", params: { placementId: "136:wroom_300x250_2",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                            { bidder: "bidvol", params: { placementId: "34821" } } ]
+                        }])
+                        window.yaContextCb.push(function() {
+                            window.Ya.adfoxCode.create({
+                                ownerId: 1458764,
+                                containerId: mm_adfox_id,
+                                params: {
+                                    pp: 'dkul',
+                                    ps: 'gmdq',
+                                    p2: 'iegj',
+                                }
+                            })
                         })
                     })
 
@@ -541,15 +783,31 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 desktop_article_bottom.setAttribute('id', 'desktop_after_article');
                 desktop_article_bottom.innerHTML = `<div id= "monetizeme-desktop-inread-article-bottom" class="adfox_inread_desktop"></div>`;
 
-                window.yaContextCb.push(() => {
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: 'monetizeme-desktop-inread-article-bottom',
-                        params: {
-                            pp: 'dkuh',
-                            ps: 'gmdq',
-                            p2: 'iegj'
-                        }
+                window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.Ya.headerBidding.pushAdUnits([{
+                        code: 'monetizeme-desktop-inread-article-bottom',
+                        codeType: 'combo',
+                        sizes: [ [ 728, 90 ], [ 300, 250 ], [ 640, 480 ], [ 0, 0 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 320, 480 ], [ 580, 400 ] ],
+                        bids: [ 
+                        { bidder: "buzzoola", params: {placementId: "1247256" } },
+                        { bidder: "videonow", params: {placementId: "6316146" } },
+                        { bidder: "sape", params: { placementId:"844554" } },
+                        { bidder: "mediasniper", params: { placementId: "740005" }},
+                        { bidder: "adfox_adsmart", params: { "p1": "cxzvq", "p2": "ul" } },
+                        { bidder: "myTarget", params: { placementId: "1256633" } },
+                        { bidder: "adriver", params: { placementId: "136:wroom_300x250_3",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                        { bidder: "bidvol", params: { placementId: "34822" } } ]
+                    }])
+                    window.yaContextCb.push(function() {
+                        window.Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: 'monetizeme-desktop-inread-article-bottom',
+                            params: {
+                                pp: 'dkuh',
+                                ps: 'gmdq',
+                                p2: 'iegj',
+                            }
+                        })
                     })
                 })
 
@@ -572,15 +830,32 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 desktop_in_comments.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
                 desktop_in_comments.innerHTML = "<div id='monetizeme-desktop-inread-comments-" + mmId + "' class='adfox_inread_desktop'></div>";
 
-                window.yaContextCb.push(() => {
-                    Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        containerId: mm_adfox_id,
-                        params: {
-                            pp: 'dkui',
-                            ps: 'gmdq',
-                            p2: 'iegj'
-                        }
+
+                window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.Ya.headerBidding.pushAdUnits([{
+                        code: mm_adfox_id,
+                        codeType: 'combo',
+                        sizes: [ [ 728, 90 ], [ 300, 250 ], [ 640, 480 ], [ 0, 0 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 320, 480 ], [ 580, 400 ] ],
+                        bids: [ 
+                        { bidder: "buzzoola", params: {placementId: "1247257" } },
+                        { bidder: "videonow", params: {placementId: "6317778" } },
+                        { bidder: "sape", params: { placementId:"844555" } },
+                        { bidder: "mediasniper", params: { placementId: "740006" }},
+                        { bidder: "adfox_adsmart", params: { "p1": "cxzvr", "p2": "ul" } },
+                        { bidder: "myTarget", params: { placementId: "1256635" } },
+                        { bidder: "adriver", params: { placementId: "136:wroom_300x250_4",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+                        { bidder: "bidvol", params: { placementId: "34823" } } ]
+                    }])
+                    window.yaContextCb.push(function() {
+                        window.Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: mm_adfox_id,
+                            params: {
+                                pp: 'dkui',
+                                ps: 'gmdq',
+                                p2: 'iegj',
+                            }
+                        })
                     })
                 })
 
@@ -591,26 +866,41 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             desktop_comments_bottom.setAttribute('id', 'desktop_after_comments');
             desktop_comments_bottom.innerHTML = `<div id= "monetizeme-desktop-coomments-bottom" class="adfox_inread_desktop"></div>`;
 
-            window.yaContextCb.push(() => {
-                Ya.adfoxCode.create({
-                    ownerId: 1458764,
-                    containerId: 'monetizeme-desktop-coomments-bottom',
-                    params: {
-                        pp: 'dkum',
-                        ps: 'gmdq',
-                        p2: 'iegj'
-                    }
+
+            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                    window.Ya.headerBidding.pushAdUnits([{
+                        code: 'monetizeme-desktop-coomments-bottom',
+                        codeType: 'combo',
+                        sizes: [ [ 728, 90 ], [ 300, 250 ], [ 640, 480 ], [ 0, 0 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 320, 480 ], [ 580, 400 ] ],
+                        bids: [ 
+                        { bidder: "buzzoola", params: {placementId: "1247258" } },
+                        { bidder: "videonow", params: {placementId: "6318782" } },
+                        { bidder: "sape", params: { placementId:"844556" } },
+                        { bidder: "mediasniper", params: { placementId: "740007" }},
+                        { bidder: "adfox_adsmart", params: { "p1": "cxzvs", "p2": "ul" } },
+                        { bidder: "myTarget", params: { placementId: "1256637" } },
+                        { bidder: "adriver", params: { placementId: "136:wroom_300x250_5",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}} },
+                        { bidder: "bidvol", params: { placementId: "34824" } } ]
+                    }])
+                    window.yaContextCb.push(function() {
+                        window.Ya.adfoxCode.create({
+                            ownerId: 1458764,
+                            containerId: 'monetizeme-desktop-coomments-bottom',
+                            params: {
+                                pp: 'dkum',
+                                ps: 'gmdq',
+                                p2: 'iegj',
+                            }
+                        })
+                    })
                 })
-            })
 
 
 
             after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
         }
         setInterval(function() {
-            Ya.adfoxCode.reload(null, {
-                onlyIfWasVisible: true
-            });
+            Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
         }, 30000);
     })
 
