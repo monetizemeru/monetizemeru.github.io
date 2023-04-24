@@ -63,6 +63,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
+                        sequentialLoading: true,
                         containerId: 'monetizeme-mobile-fs',
                         params: {
                             pp: 'g',
@@ -102,7 +103,14 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             window.yaContextCb.push(function() {
                 window.Ya.adfoxCode.create({
                     ownerId: 1458764,
+                    sequentialLoading: true,
                     containerId: 'monetizeme-sticky-top',
+                    onError:function(error) {
+                        stickyTop.classList.add('stub')
+                    },
+                    onStub: function() {
+                        stickyTop.classList.add('stub')
+                    },
                     params: {
                         pp: 'g',
                         ps: 'gmdq',
@@ -144,6 +152,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             window.yaContextCb.push(function() {
                 window.Ya.adfoxCode.create({
                     ownerId: 1458764,
+                    sequentialLoading: true,
                     containerId: 'monetizeme-sticky-bottom',
                     params: {
                         pp: 'i',
@@ -246,6 +255,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
+                        sequentialLoading: true,
                         containerId: 'monetizeme-mobile-inread-after-cover',
                         params: {
                             pp: 'dkuj',
@@ -289,6 +299,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         window.yaContextCb.push(function() {
                             window.Ya.adfoxCode.create({
                                 ownerId: 1458764,
+                                sequentialLoading: true,
                                 containerId: mm_adfox_id,
                                 params: {
                                     pp: 'dkuk',
@@ -331,6 +342,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             window.yaContextCb.push(function() {
                                 window.Ya.adfoxCode.create({
                                     ownerId: 1458764,
+                                    sequentialLoading: true,
                                     containerId: mm_adfox_id,
                                     params: {
                                         pp: 'dkuk',
@@ -371,6 +383,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     window.yaContextCb.push(function() {
                         window.Ya.adfoxCode.create({
                             ownerId: 1458764,
+                            sequentialLoading: true,
                             containerId: 'monetizeme-mobile-inread-after-article',
                             params: {
                                 pp: 'dkun',
@@ -412,6 +425,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
+                        sequentialLoading: true,
                         containerId: 'monetizeme-mobile-inread-after-article',
                         params: {
                             pp: 'dkun',
@@ -457,6 +471,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     window.yaContextCb.push(function() {
                         window.Ya.adfoxCode.create({
                             ownerId: 1458764,
+                            sequentialLoading: true,
                             containerId: mm_adfox_id,
                             params: {
                                 pp: 'dkuo',
@@ -493,6 +508,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
+                        sequentialLoading: true,
                         containerId: 'monetizeme-mobile-after-comments',
                         params: {
                             pp: 'dkup',
@@ -540,6 +556,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             window.yaContextCb.push(function() {
                 window.Ya.adfoxCode.create({
                     ownerId: 1458764,
+                    sequentialLoading: true,
                     containerId: 'monetizeme-desktop-sticky-bottom',
                     params: {
                         pp: 'i',
@@ -590,6 +607,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
+                        sequentialLoading: true,
                         containerId: 'monetizeme-desktop-side-first',
                         params: {
                             pp: 'g',
@@ -630,6 +648,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
+                        sequentialLoading: true,
                         containerId: 'monetizeme-desktop-side-second',
                         params: {
                             pp: 'h',
@@ -671,6 +690,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.yaContextCb.push(function() {
                     window.Ya.adfoxCode.create({
                         ownerId: 1458764,
+                        sequentialLoading: true,
                         containerId: 'monetizeme-desktop-inread-after-cover',
                         params: {
                             pp: 'dkug',
@@ -717,6 +737,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         window.yaContextCb.push(function() {
                             window.Ya.adfoxCode.create({
                                 ownerId: 1458764,
+                                sequentialLoading: true,
                                 containerId: mm_adfox_id,
                                 params: {
                                     pp: 'dkul',
@@ -759,6 +780,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         window.yaContextCb.push(function() {
                             window.Ya.adfoxCode.create({
                                 ownerId: 1458764,
+                                sequentialLoading: true,
                                 containerId: mm_adfox_id,
                                 params: {
                                     pp: 'dkul',
@@ -801,6 +823,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     window.yaContextCb.push(function() {
                         window.Ya.adfoxCode.create({
                             ownerId: 1458764,
+                            sequentialLoading: true,
                             containerId: 'monetizeme-desktop-inread-article-bottom',
                             params: {
                                 pp: 'dkuh',
@@ -849,6 +872,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     window.yaContextCb.push(function() {
                         window.Ya.adfoxCode.create({
                             ownerId: 1458764,
+                            sequentialLoading: true,
                             containerId: mm_adfox_id,
                             params: {
                                 pp: 'dkui',
@@ -885,6 +909,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     window.yaContextCb.push(function() {
                         window.Ya.adfoxCode.create({
                             ownerId: 1458764,
+                            sequentialLoading: true,
                             containerId: 'monetizeme-desktop-coomments-bottom',
                             params: {
                                 pp: 'dkum',
