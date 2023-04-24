@@ -111,6 +111,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     onStub: function() {
                         stickyTop.classList.add('stub')
                     },
+                    onRender: function() {
+                        stickyTop.classList.add('view')
+                    },
                     params: {
                         pp: 'g',
                         ps: 'gmdq',
@@ -154,6 +157,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     ownerId: 1458764,
                     sequentialLoading: true,
                     containerId: 'monetizeme-sticky-bottom',
+                    onError:function(error) {
+                        stickyBottom.classList.add('stub')
+                    },
+                    onStub: function() {
+                        stickyBottom.classList.add('stub')
+                    },
+                    onRender: function() {
+                        stickyBottom.classList.add('view')
+                    },
                     params: {
                         pp: 'i',
                         ps: 'gmdq',
@@ -257,6 +269,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-mobile-inread-after-cover',
+                        onError:function(error) {
+                            mobile_before_articleElement.classList.add('stub')
+                        },
+                        onStub: function() {
+                            mobile_before_articleElement.classList.add('stub')
+                        },
+                        onRender: function() {
+                            mobile_before_articleElement.classList.add('view')
+                        },
                         params: {
                             pp: 'dkuj',
                             ps: 'gmdq',
@@ -301,6 +322,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 ownerId: 1458764,
                                 sequentialLoading: true,
                                 containerId: mm_adfox_id,
+                                onError:function(error) {
+                                    mobile_in_article.classList.add('stub')
+                                },
+                                onStub: function() {
+                                    mobile_in_article.classList.add('stub')
+                                },
+                                onRender: function() {
+                                    mobile_in_article.classList.add('view')
+                                },
                                 params: {
                                     pp: 'dkuk',
                                     ps: 'gmdq',
@@ -344,6 +374,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     ownerId: 1458764,
                                     sequentialLoading: true,
                                     containerId: mm_adfox_id,
+                                    onError:function(error) {
+                                        mobile_in_article.classList.add('stub')
+                                    },
+                                    onStub: function() {
+                                        mobile_in_article.classList.add('stub')
+                                    },
+                                    onRender: function() {
+                                        mobile_in_article.classList.add('view')
+                                    },
                                     params: {
                                         pp: 'dkuk',
                                         ps: 'gmdq',
@@ -385,6 +424,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             ownerId: 1458764,
                             sequentialLoading: true,
                             containerId: 'monetizeme-mobile-inread-after-article',
+                            onError:function(error) {
+                                mobile_article_bottom.classList.add('stub')
+                            },
+                            onStub: function() {
+                                mobile_article_bottom.classList.add('stub')
+                            },
+                            onRender: function() {
+                                mobile_article_bottom.classList.add('view')
+                            },
                             params: {
                                 pp: 'dkun',
                                 ps: 'gmdq',
@@ -427,6 +475,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-mobile-inread-after-article',
+                        onError:function(error) {
+                            mobile_mainpage_articleElement.classList.add('stub')
+                        },
+                        onStub: function() {
+                            mobile_mainpage_articleElement.classList.add('stub')
+                        },
+                        onRender: function() {
+                            mobile_mainpage_articleElement.classList.add('view')
+                        },
                         params: {
                             pp: 'dkun',
                             ps: 'gmdq',
@@ -473,6 +530,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             ownerId: 1458764,
                             sequentialLoading: true,
                             containerId: mm_adfox_id,
+                            onError:function(error) {
+                                mobile_in_comments.classList.add('stub')
+                            },
+                            onStub: function() {
+                                mobile_in_comments.classList.add('stub')
+                            },
+                            onRender: function() {
+                                mobile_in_comments.classList.add('view')
+                            },
                             params: {
                                 pp: 'dkuo',
                                 ps: 'gmdq',
@@ -510,6 +576,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-mobile-after-comments',
+                        onError:function(error) {
+                            mobile_comments_bottom.classList.add('stub')
+                        },
+                        onStub: function() {
+                            mobile_comments_bottom.classList.add('stub')
+                        },
+                        onRender: function() {
+                            mobile_comments_bottom.classList.add('view')
+                        },
                         params: {
                             pp: 'dkup',
                             ps: 'gmdq',

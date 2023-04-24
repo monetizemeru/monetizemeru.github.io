@@ -186,3 +186,6 @@
 .stub{
 	display: none !important;
 }
+.view{
+	display: inherit !important;
+}
