@@ -5,7 +5,7 @@ var hb_script = document.createElement('script');
 hb_script.setAttribute('src','https://yandex.ru/ads/system/header-bidding.js');
 hb_script.setAttribute('async','true');
 
-document.head.appendChild(hb_script);
+document.head.insertAdjacentElement('afterbegin', hb_script)
 
 var adfoxBiddersMap = {
   "astralab": "2365332",
