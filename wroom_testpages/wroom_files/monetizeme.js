@@ -335,13 +335,13 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 sequentialLoading: true,
                                 containerId: mm_adfox_id,
                                 onError:function(error) {
-                                    document.getElementById(mm_adfox_id).classList.add('stub')
+                                    document.getElementById('mobile_in_article_' + mmId).classList.add('stub')
                                 },
                                 onStub: function() {
-                                    document.getElementById(mm_adfox_id).classList.add('stub')
+                                    document.getElementById('mobile_in_article_' + mmId).classList.add('stub')
                                 },
                                 onRender: function() {
-                                    document.getElementById(mm_adfox_id).classList.add('view')
+                                    document.getElementById('mobile_in_article_' + mmId).classList.add('view')
                                 },
                                 params: {
                                     pp: 'dkuk',
@@ -391,13 +391,13 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     sequentialLoading: true,
                                     containerId: mm_adfox_id,
                                     onError:function(error) {
-                                        document.getElementById(mm_adfox_id).classList.add('stub')
+                                        document.getElementById('mobile_in_article_' + mmId).classList.add('stub')
                                     },
                                     onStub: function() {
-                                        document.getElementById(mm_adfox_id).classList.add('stub')
+                                        document.getElementById('mobile_in_article_' + mmId).classList.add('stub')
                                     },
                                     onRender: function() {
-                                        document.getElementById(mm_adfox_id).classList.add('view')
+                                        document.getElementById('mobile_in_article_' + mmId).classList.add('view')
                                     },
                                     params: {
                                         pp: 'dkuk',
@@ -559,13 +559,13 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             sequentialLoading: true,
                             containerId: mm_adfox_id,
                             onError:function(error) {
-                                document.getElementById(mm_adfox_id).classList.add('stub')
+                                document.getElementById('mobile_in_comments_' + mmId).classList.add('stub')
                             },
                             onStub: function() {
-                                document.getElementById(mm_adfox_id).classList.add('stub')
+                                document.getElementById('mobile_in_comments_' + mmId).classList.add('stub')
                             },
                             onRender: function() {
-                                document.getElementById(mm_adfox_id).classList.add('view')
+                                document.getElementById('mobile_in_comments_' + mmId).classList.add('view')
                             },
                             params: {
                                 pp: 'dkuo',
