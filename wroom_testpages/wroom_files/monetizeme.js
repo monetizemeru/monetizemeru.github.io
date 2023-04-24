@@ -323,13 +323,13 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 sequentialLoading: true,
                                 containerId: mm_adfox_id,
                                 onError:function(error) {
-                                    mobile_in_article.classList.add('stub')
+                                    document.getElementById(mm_adfox_id).classList.add('stub')
                                 },
                                 onStub: function() {
-                                    mobile_in_article.classList.add('stub')
+                                    document.getElementById(mm_adfox_id).classList.add('stub')
                                 },
                                 onRender: function() {
-                                    mobile_in_article.classList.add('view')
+                                    document.getElementById(mm_adfox_id).classList.add('view')
                                 },
                                 params: {
                                     pp: 'dkuk',
@@ -379,13 +379,13 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     sequentialLoading: true,
                                     containerId: mm_adfox_id,
                                     onError:function(error) {
-                                        mobile_in_article.classList.add('stub')
+                                        document.getElementById(mm_adfox_id).classList.add('stub')
                                     },
                                     onStub: function() {
-                                        mobile_in_article.classList.add('stub')
+                                        document.getElementById(mm_adfox_id).classList.add('stub')
                                     },
                                     onRender: function() {
-                                        mobile_in_article.classList.add('view')
+                                        document.getElementById(mm_adfox_id).classList.add('view')
                                     },
                                     params: {
                                         pp: 'dkuk',
@@ -547,13 +547,13 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             sequentialLoading: true,
                             containerId: mm_adfox_id,
                             onError:function(error) {
-                                mobile_in_comments.classList.add('stub')
+                                document.getElementById(mm_adfox_id).classList.add('stub')
                             },
                             onStub: function() {
-                                mobile_in_comments.classList.add('stub')
+                                document.getElementById(mm_adfox_id).classList.add('stub')
                             },
                             onRender: function() {
-                                mobile_in_comments.classList.add('view')
+                                document.getElementById(mm_adfox_id).classList.add('view')
                             },
                             params: {
                                 pp: 'dkuo',
