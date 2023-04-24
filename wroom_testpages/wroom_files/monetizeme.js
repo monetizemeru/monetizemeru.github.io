@@ -335,6 +335,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     pp: 'dkuk',
                                     ps: 'gmdq',
                                     p2: 'ihug',
+                                },
+                                lazyLoad: {
+                                  fetchMargin: 200,
+                                  mobileScaling: 2
                                 }
                             })
                         })
@@ -387,6 +391,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                         pp: 'dkuk',
                                         ps: 'gmdq',
                                         p2: 'ihug',
+                                    },
+                                    lazyLoad: {
+                                      fetchMargin: 200,
+                                      mobileScaling: 2
                                     }
                                 })
                             })
@@ -437,6 +445,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 pp: 'dkun',
                                 ps: 'gmdq',
                                 p2: 'ihug',
+                            },
+                            lazyLoad: {
+                              fetchMargin: 200,
+                              mobileScaling: 2
                             }
                         })
                     })
@@ -488,6 +500,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             pp: 'dkun',
                             ps: 'gmdq',
                             p2: 'ihug',
+                        },
+                        lazyLoad: {
+                          fetchMargin: 200,
+                          mobileScaling: 2
                         }
                     })
                 })
@@ -543,6 +559,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 pp: 'dkuo',
                                 ps: 'gmdq',
                                 p2: 'ihug',
+                            },
+                            lazyLoad: {
+                              fetchMargin: 200,
+                              mobileScaling: 2
                             }
                         })
                     })
@@ -589,6 +609,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             pp: 'dkup',
                             ps: 'gmdq',
                             p2: 'ihug',
+                        },
+                        lazyLoad: {
+                          fetchMargin: 200,
+                          mobileScaling: 2
                         }
                     })
                 })
