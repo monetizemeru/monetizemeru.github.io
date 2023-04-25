@@ -3,7 +3,7 @@
 	z-index: 999;
 	transition: all 0.5s;
 	top: 0;
-	max-height: 100px;
+	max-height: 150px;
 	bottom: auto;
 	position: fixed;
 	display: flex;
