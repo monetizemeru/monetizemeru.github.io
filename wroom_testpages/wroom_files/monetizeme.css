@@ -187,5 +187,5 @@
 	display: none !important;
 }
 .view{
-	display: inherit !important;
+	display: grid !important;
 }
