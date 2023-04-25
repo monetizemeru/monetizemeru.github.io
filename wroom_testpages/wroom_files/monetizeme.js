@@ -91,7 +91,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             window.Ya.headerBidding.pushAdUnits([{
                 code: 'monetizeme-sticky-top',
                 codeType: 'combo',
-                sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 0, 0 ] ],
+                sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ] ],
                 bids: [ 
                 { bidder: "astralab", params: {placementId: "6440fac98528b410c4990c65" } },
                 { bidder: "buzzoola", params: {placementId: "1247261" } },
