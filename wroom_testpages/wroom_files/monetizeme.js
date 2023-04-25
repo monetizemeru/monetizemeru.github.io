@@ -659,6 +659,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     ownerId: 1458764,
                     sequentialLoading: true,
                     containerId: 'monetizeme-desktop-sticky-bottom',
+                    onError:function(error) {
+                        stickyBottom.classList.add('stub')
+                    },
+                    onStub: function() {
+                        stickyBottom.classList.add('stub')
+                    },
+                    onRender: function() {
+                        stickyBottom.classList.add('view')
+                    },
                     params: {
                         pp: 'i',
                         ps: 'gmdq',
@@ -755,6 +764,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             pp: 'h',
                             ps: 'gmdq',
                             p2: 'ihua',
+                        },
+                        lazyLoad: {
+                          fetchMargin: 200,
+                          mobileScaling: 2
                         }
                     })
                 })
@@ -793,11 +806,21 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-desktop-inread-after-cover',
+                        onError:function(error) {
+                            desktop_before_articleElement.classList.add('stub')
+                        },
+                        onStub: function() {
+                            desktop_before_articleElement.classList.add('stub')
+                        },
+                        onRender: function() {
+                            desktop_before_articleElement.classList.add('view')
+                        },
                         params: {
                             pp: 'dkug',
                             ps: 'gmdq',
                             p2: 'iegj',
-                        }
+                        },
+
                     })
                 })
             })
@@ -840,10 +863,23 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 ownerId: 1458764,
                                 sequentialLoading: true,
                                 containerId: mm_adfox_id,
+                                onError:function(error) {
+                                    document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
+                                },
+                                onStub: function() {
+                                    document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
+                                },
+                                onRender: function() {
+                                    document.getElementById('desktop_in_article_' + mmId).classList.add('view')
+                                },
                                 params: {
                                     pp: 'dkul',
                                     ps: 'gmdq',
                                     p2: 'iegj',
+                                },
+                                lazyLoad: {
+                                  fetchMargin: 200,
+                                  mobileScaling: 2
                                 }
                             })
                         })
@@ -883,10 +919,23 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 ownerId: 1458764,
                                 sequentialLoading: true,
                                 containerId: mm_adfox_id,
+                                onError:function(error) {
+                                    document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
+                                },
+                                onStub: function() {
+                                    document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
+                                },
+                                onRender: function() {
+                                    document.getElementById('desktop_in_article_' + mmId).classList.add('view')
+                                },
                                 params: {
                                     pp: 'dkul',
                                     ps: 'gmdq',
                                     p2: 'iegj',
+                                },
+                                lazyLoad: {
+                                  fetchMargin: 200,
+                                  mobileScaling: 2
                                 }
                             })
                         })
@@ -926,10 +975,23 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             ownerId: 1458764,
                             sequentialLoading: true,
                             containerId: 'monetizeme-desktop-inread-article-bottom',
+                            onError:function(error) {
+                                desktop_article_bottom.classList.add('stub')
+                            },
+                            onStub: function() {
+                                desktop_article_bottom.classList.add('stub')
+                            },
+                            onRender: function() {
+                                desktop_article_bottom.classList.add('view')
+                            },
                             params: {
                                 pp: 'dkuh',
                                 ps: 'gmdq',
                                 p2: 'iegj',
+                            },
+                            lazyLoad: {
+                              fetchMargin: 200,
+                              mobileScaling: 2
                             }
                         })
                     })
@@ -975,10 +1037,23 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             ownerId: 1458764,
                             sequentialLoading: true,
                             containerId: mm_adfox_id,
+                            onError:function(error) {
+                                document.getElementById('desktop_in_comments_' + mmId).classList.add('stub')
+                            },
+                            onStub: function() {
+                                document.getElementById('desktop_in_comments_' + mmId).classList.add('stub')
+                            },
+                            onRender: function() {
+                                document.getElementById('desktop_in_comments_' + mmId).classList.add('view')
+                            },
                             params: {
                                 pp: 'dkui',
                                 ps: 'gmdq',
                                 p2: 'iegj',
+                            },
+                            lazyLoad: {
+                              fetchMargin: 200,
+                              mobileScaling: 2
                             }
                         })
                     })
@@ -1012,10 +1087,23 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             ownerId: 1458764,
                             sequentialLoading: true,
                             containerId: 'monetizeme-desktop-coomments-bottom',
+                            onError:function(error) {
+                                desktop_comments_bottom.classList.add('stub')
+                            },
+                            onStub: function() {
+                                desktop_comments_bottom.classList.add('stub')
+                            },
+                            onRender: function() {
+                                desktop_comments_bottom.classList.add('view')
+                            },
                             params: {
                                 pp: 'dkum',
                                 ps: 'gmdq',
                                 p2: 'iegj',
+                            },
+                            lazyLoad: {
+                              fetchMargin: 200,
+                              mobileScaling: 2
                             }
                         })
                     })
