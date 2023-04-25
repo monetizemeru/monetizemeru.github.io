@@ -110,6 +110,10 @@
 	justify-content: center !important;
 	box-sizing: border-box;
 }
+.mm_mobile_content div{
+	margin: auto !important;
+	padding: auto !important;
+}
 .monetizeme-desktop-sticky-bottom{
 	left: 50%;
 	transform: translate(-50%, 0);
