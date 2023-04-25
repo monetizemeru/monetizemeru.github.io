@@ -106,7 +106,6 @@
 	/*width: calc(100% - 2px) !important;*/
 	width: 100%;
 	max-height: 800px !important;
-	display: grid !important;
 	justify-content: center !important;
 	box-sizing: border-box;
 }
@@ -172,7 +171,6 @@
 	margin: 20px 0 !important;
 	width: 100% !important;
 	max-height: 480px !important;
-	display: grid !important;
 	width: 800px !important;
 	justify-content: center !important;
 	box-sizing: border-box;
