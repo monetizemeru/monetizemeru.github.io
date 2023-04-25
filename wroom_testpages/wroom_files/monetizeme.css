@@ -189,4 +189,5 @@
 }
 .view{
 	display: flex !important;
+	width: -webkit-fill-available;
 }
