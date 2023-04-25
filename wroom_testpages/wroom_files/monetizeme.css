@@ -177,6 +177,10 @@
 	justify-content: center !important;
 	box-sizing: border-box;
 }
+.mm_desktop_content div{
+	margin: auto !important;
+	padding: auto !important;
+}
 .adfox_inread_desktop{
 	max-height: 480px;
 	contain:content;

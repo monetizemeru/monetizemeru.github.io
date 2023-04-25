@@ -58,8 +58,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     codeType: 'combo',
                     sizes: [ [ 0, 0 ] ],
                     bids: [ 
-                    { bidder: "buzzoola", params: {placementId: "1247268" } },
-                    { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } }
+                    //{ bidder: "buzzoola", params: {placementId: "1247268" } },
+                    //{ bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } }
                     ]
                 }])
                 window.yaContextCb.push(function() {
