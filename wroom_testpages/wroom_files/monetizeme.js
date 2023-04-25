@@ -1113,9 +1113,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
             after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
         }
-        setInterval(function() {
-            Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
-        }, 30000);
+        //setInterval(function() {
+            //Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
+        //}, 30000);
     })
 
 }
