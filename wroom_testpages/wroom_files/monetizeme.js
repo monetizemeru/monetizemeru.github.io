@@ -254,7 +254,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-mobile-inread-after-cover',
                     codeType: 'combo',
-                    sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [ 
                     { bidder: "astralab", params: {placementId: "6440fbad8528b410c4990c67" } },
                     { bidder: "buzzoola", params: {placementId: "1247263" } },
@@ -307,7 +307,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         window.Ya.headerBidding.pushAdUnits([{
                             code: mm_adfox_id,
                             codeType: 'combo',
-                            sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                            sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                             bids: [
                             { bidder: "astralab", params: {placementId: "64411d898528b410c4990c68" } }, 
                             { bidder: "buzzoola", params: {placementId: "1247264" } },
@@ -363,7 +363,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             window.Ya.headerBidding.pushAdUnits([{
                                 code: mm_adfox_id,
                                 codeType: 'combo',
-                                sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                                sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                                 bids: [
                                 { bidder: "astralab", params: {placementId: "64411d898528b410c4990c68" } }, 
                                 { bidder: "buzzoola", params: {placementId: "1247264" } },
@@ -417,7 +417,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     window.Ya.headerBidding.pushAdUnits([{
                         code: 'monetizeme-mobile-inread-after-article',
                         codeType: 'combo',
-                        sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480] ],
+                        sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                         bids: [ 
                         { bidder: "astralab", params: {placementId: "64411ec58528b410c4990c69" } },
                         { bidder: "buzzoola", params: {placementId: "1247265" } },
@@ -472,7 +472,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-mobile-inread-after-article',
                     codeType: 'combo',
-                    sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480] ],
+                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [ 
                     { bidder: "astralab", params: {placementId: "64411ec58528b410c4990c69" } },
                     { bidder: "buzzoola", params: {placementId: "1247265" } },
@@ -531,7 +531,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     window.Ya.headerBidding.pushAdUnits([{
                         code: mm_adfox_id,
                         codeType: 'combo',
-                        sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480 ] ],
+                        sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                         bids: [
                         { bidder: "astralab", params: {placementId: "64411f598528b410c4990c6a" } }, 
                         { bidder: "buzzoola", params: {placementId: "1247266" } },
@@ -581,7 +581,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-mobile-after-comments',
                     codeType: 'combo',
-                    sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ], [ 300, 250 ], [ 0, 0 ], [ 300, 500 ], [ 320, 500 ], [ 320, 480] ],
+                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [ 
                     { bidder: "astralab", params: {placementId: "64411fa48528b410c4990c6b" } },
                     { bidder: "buzzoola", params: {placementId: "1247267" } },
