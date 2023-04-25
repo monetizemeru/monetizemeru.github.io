@@ -1,0 +1,105 @@
+#monetizeme
+#buzzoola
+buzzoola.com, 17330, DIRECT
+google.com, pub-2318710712278558, DIRECT, f08c47fec0942fa0
+betweendigital.com, 43209, DIRECT
+appnexus.com, 12447, RESELLER, f5ab79cb980f11d1
+amitydigital.io, 360, RESELLER
+sonobi.com, e128791470, RESELLER, d1a215d9eb5aee9e
+inmobi.com, 7957ec161b1f429da7c848923b57bedc, RESELLER, 83e75a7ae333ca9d
+loopme.com, 11574, RESELLER, 6c8d5f95897a5a3b
+improvedigital.com, 1251, RESELLER
+smilewanted.com, 2927, RESELLER
+improvedigital.com, 1010, RESELLER
+spotxchange.com, 178357, RESELLER, 7842df1d2fe2db34
+spotx.tv, 178357, RESELLER, 7842df1d2fe2db34
+appnexus.com, 10040, RESELLER
+rubiconproject.com, 19814, RESELLER, 0bfd66d529a55807
+pubmatic.com, 158810, RESELLER, 5d62403b186f2ace
+indexexchange.com, 193216, DIRECT
+rubiconproject.com, 16114, DIRECT
+smartadserver.com, 2491, RESELLER
+contextweb.com, 560288, RESELLER, 89ff185a4c4e857c
+pubmatic.com, 156439, RESELLER
+pubmatic.com, 154037, RESELLER
+appnexus.com, 3703, RESELLER, f5ab79cb980f11d1
+districtm.io, 101760, RESELLER, 3fd707be9c4527c3
+openx.com, 537149888, RESELLER, 6a698e2ec38604c6
+smartadserver.com, 4016, RESELLER
+smartadserver.com, 4012, RESELLER
+smartadserver.com, 4071, RESELLER
+smartadserver.com, 4073, RESELLER
+smartadserver.com, 4074, RESELLER
+loopme.com, 11013, DIRECT, 6c8d5f95897a5a3b
+rubiconproject.com, 20744, RESELLER, 0bfd66d529a55807
+google.com, pub-2843405949989126, RESELLER, f08c47fec0942fa0
+hyperaudience.com, 09012023, DIRECT
+#google
+google.com, pub-9944657713528952, DIRECT, f08c47fec0942fa0
+#otm
+otm-r.com, 904, DIRECT
+#sape
+republer.com, 24077, DIRECT
+smartyads.com, 100135, RESELLER, fd2bde0ff2e62c5d
+conversantmedia.com, 100264, RESELLER, 03113cd04947736d
+loopme.com, 11342, RESELLER, 6c8d5f95897a5a3b
+adform.com, 2795, RESELLER
+betweendigital.com, 43837, RESELLER
+vidoomy.com, 60653, RESELLER
+openx.com, 540804929, RESELLER, 6a698e2ec38604c6
+tremorhub.com, 4cywq-a04wk, RESELLER, 1a4e959a1b50034a
+pubmatic.com, 156498, RESELLER, 5d62403b186f2ace
+indexexchange.com, 192311, RESELLER
+advertising.com, 22762, RESELLER
+adriver.ru, 187150, RESELLER
+buzzoola.com, 576544, RESELLER
+amitydigital.io, 360, RESELLER
+appnexus.com, 12447, RESELLER, f5ab79cb980f11d1
+appnexus.com, 13369, RESELLER, f5ab79cb980f11d1
+smartadserver.com, 4250, RESELLER
+rubiconproject.com, 23946, RESELLER, 0bfd66d529a55807
+sonobi.com, e128791470, RESELLER, d1a215d9eb5aee9e
+advertising.com, 28764, RESELLER
+onetag.com, 75708a69dff3a56, RESELLER
+betweendigital.com, 33854, RESELLER
+betweendigital.com, 35313, RESELLER
+betweendigital.com, 43484, RESELLER
+betweendigital.com, 42888, RESELLER
+betweendigital.com, 43721, RESELLER
+openx.com, 541177349, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 159668, RESELLER, 5d62403b186f2ace
+opera.com, pub5449961587776, RESELLER, 55a0c5fd61378de3
+indexexchange.com, 197200, RESELLER, 50b1c356f2c5c8fc
+rubiconproject.com, 19724, RESELLER, 0bfd66d529a55807
+google.com, pub-5289985627731322, RESELLER, f08c47fec0942fa0
+adcolony.com, 29b7f4a14dc689eb, RESELLER, 1ad675c9de6b5176
+gamoshi.io, 267-b4800, RESELLER, 20e30b2ae1f670f2
+admixer.co.kr, 1289, RESELLER
+emxdgt.com, 2047, RESELLER, 1e1d41537f7cad7f
+meitu.com, 654, RESELLER
+appnexus.com, 1356, RESELLER, f5ab79cb980f11d1
+sovrn.com, 273644, RESELLER, fafdf38b16bf6b2b
+lijit.com, 273644, RESELLER, fafdf38b16bf6b2b
+onetag.com, 5d1628750185ace, RESELLER
+loopme.com, 11278, RESELLER, 6c8d5f95897a5a3b
+e-planning.net, 949b688810cb7439, RESELLER, c1ba615865ed87b2
+bidvol.com, 15166, RESELLER
+buzzoola.com, 16288, RESELLER
+rubiconproject.com, 15636, RESELLER, 0bfd66d529a55807
+google.com, pub-2318710712278558, RESELLER, f08c47fec0942fa0
+smartyads.com, 100001, RESELLER, fd2bde0ff2e62c5d
+admixer.co.kr,1538,RESELLER
+google.com, pub-2843405949989126, DIRECT, f08c47fec0942fa0
+rtbsape.com, 1671024, DIRECT
+#adriver
+adriver.ru, 187150, DIRECT
+#mytarget
+target.my.com, 2885891, DIRECT
+yandex.com, 103520426, DIRECT
+improvedigital.com, 2031, RESELLER
+betweendigital.com, 43554, RESELLER
+uis.mobfox.com, 165, RESELLER
+Contextweb.com, 562899,RESELLER,89ff185a4c4e857c
+hyperad.tech, 150, RESELLER
+hyperad.tech, 215, RESELLER
+google.com, pub-5533854580432370, RESELLER, f08c47fec0942fa0
