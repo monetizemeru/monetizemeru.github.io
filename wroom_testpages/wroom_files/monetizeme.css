@@ -103,8 +103,9 @@
 	position: inherit;
 	padding: 20px 0 !important;
 	margin: auto !important;
-	width: calc(100% - 2px) !important;
-	max-height: 600px !important;
+	/*width: calc(100% - 2px) !important;*/
+	width: 100%;
+	max-height: 800px !important;
 	display: grid !important;
 	justify-content: center !important;
 	box-sizing: border-box;
