@@ -188,5 +188,5 @@
 	display: none !important;
 }
 .view{
-	display: grid !important;
+	display: flex !important;
 }
