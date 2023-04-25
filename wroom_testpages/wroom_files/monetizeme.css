@@ -174,8 +174,8 @@
 	box-sizing: border-box;
 }
 .adfox_inread_desktop{
-	max-width: 620px;
-	max-height: 480px
+	max-height: 480px;
+	contain:content;
 }
 #desktop_side_second{
 	position: sticky;
@@ -189,5 +189,4 @@
 }
 .view{
 	display: flex !important;
-	width: -webkit-fill-available;
 }
