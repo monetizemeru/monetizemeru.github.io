@@ -642,7 +642,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             window.Ya.headerBidding.pushAdUnits([{
                 code: 'monetizeme-desktop-sticky-bottom',
                 codeType: 'combo',
-                sizes: [ [ 990, 90 ], [ 970, 90 ], [ 728, 90 ], [ 0, 0 ] ],
+                sizes: [ [ 728, 90 ], [ 0, 0 ] ],
                 bids: [ 
                 { bidder: "astralab", params: {placementId: "6440fa038528b410c4990c63" } },
                 { bidder: "buzzoola", params: {placementId: "1247259" } },
