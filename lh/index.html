@@ -52,6 +52,74 @@
 		document.addEventListener("DOMContentLoaded", function(event) {
 
 			const commentsBlock = document.querySelector(".comments-list")
+			const artcicleBlock = document.getElementById("post-content")
+
+			if (artcicleBlock != null) {
+			    const children = artcicleBlock.children;
+			    const len = children.length;
+			    for (let i = 40; i < len; i += 20) {
+			        const desktop_in_article = document.createElement("div");
+			        const mmId = Math.random().toString(36).substr(2, 9)
+			        const mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
+			        desktop_in_article.classList.add('mm_desktop_content');
+			        desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
+			        desktop_in_article.setAttribute('style', 'display: block;border: 1px solid #ebebeb;border-top: 3px solid #ed5e42;text-align: center;width: calc(100% - 2px);min-height: 500px' );
+			        desktop_in_article.innerHTML = "<div style='adding: 8px;font-family: PTRoot,Arial,sans-serif;font-size: 12px;line-height: 18px;color: #5c5c5c;overflow: hidden;text-overflow: ellipsis;'>Реклама</div><div id='monetizeme-desktop-inread-article-" + mmId + "' class='adfox_inread_desktop'></div>";
+
+			        window.Ya.adfoxCode.hbCallbacks.push(function() {
+			            window.Ya.headerBidding.pushAdUnits([{
+			                code: mm_adfox_id,
+			                codeType: 'combo',
+			                sizes: [ [ 728, 90 ], [ 300, 250 ], [ 0, 0 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
+			                bids: [ 
+			                { bidder: "buzzoola", params: {placementId: "1247255" } },
+			                { bidder: "videonow", params: {placementId: "6315648" } },
+			                { bidder: "sape", params: { placementId:"844551" } },
+			                { bidder: "otm", params: { placementId:"44950" } },
+			                { bidder: "mediasniper", params: { placementId: "740004" }},
+			                { bidder: "adfox_adsmart", params: { "p1": "cxzvp", "p2": "ul" } },
+			                { bidder: "myTarget", params: { placementId: "1256631" } },
+			                { bidder: "adriver", params: { placementId: "136:wroom_300x250_2",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}} } },
+			                { bidder: "bidvol", params: { placementId: "34821" } } ]
+			            }])
+			            window.yaContextCb.push(function() {
+			                window.Ya.adfoxCode.create({
+			                    ownerId: 1458764,
+			                    sequentialLoading: true,
+			                    containerId: mm_adfox_id,
+			                    onError:function(error) {
+			                        document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
+			                    },
+			                    onStub: function() {
+			                        document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
+			                    },
+			                    onRender: function() {
+			                        document.getElementById('desktop_in_article_' + mmId).classList.add('view')
+			                        document.getElementById(mm_adfox_id).style.position = "sticky"
+			                        document.getElementById(mm_adfox_id).style.top = "48px"
+			                    },
+			                    params: {
+			                        p1: 'cxsgl',
+			                        p2: 'ieea',
+			                        pfc: 'fbpvv',
+			                        pfb: 'nyzjx'
+			                    },
+			                    lazyLoad: {
+			                      fetchMargin: 100,
+			                      mobileScaling: 2
+			                    }
+			                })
+			            })
+			        })
+
+
+			        artcicleBlock.insertBefore(desktop_in_article, children[i]);
+			    }
+			}
+
+
+
+
 
 			if (commentsBlock != null) {
 			    var parent = commentsBlock;
@@ -85,7 +153,7 @@
 			                    onRender: function() {
 			                        document.getElementById('mobile_in_comments_' + mmId).classList.add('view')
 			                        document.getElementById(mm_adfox_id).style.position = "sticky"
-			                        document.getElementById(mm_adfox_id).style.top = "10px"
+			                        document.getElementById(mm_adfox_id).style.top = "48px"
 			                    },
 			                    params: {
 			                        p1: 'cxsgl',
@@ -106,6 +174,7 @@
 			}
 
 		})
+
 
 
 	</script>
