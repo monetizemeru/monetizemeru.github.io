@@ -16,7 +16,8 @@ var adfoxBiddersMap = {
   "adfox_adsmart": "2365424",
   "myTarget": "2365426",
   "adriver": "2365427",
-  "bidvol": "2365429"
+  "bidvol": "2365429",
+  "otm": "2374742"
 };
 var adUnits = [];
 var userTimeout = 1500;
@@ -97,6 +98,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 { bidder: "buzzoola", params: {placementId: "1247261" } },
                 { bidder: "videonow", params: {placementId: "6322246" } },
                 { bidder: "sape", params: { placementId:"844558" } },
+                { bidder: "otm", params: { placementId:"44955" } },
                 { bidder: "mediasniper", params: { placementId: "740009" }},
                 { bidder: "myTarget", params: { placementId: "1256667" } },
                 { bidder: "adriver", params: { placementId: "136:wroom_320x100mob",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
@@ -130,12 +132,12 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
         //Adding bottom sticky banner and make him scroll
         const stickyBottom = document.createElement('div');
-        stickyBottom.classList.add('monetizeme-block-bottom', 'collapsed');
+        stickyBottom.classList.add('monetizeme-block-bottom');
         stickyBottom.setAttribute('id', 'sticky_bottom');
         stickyBottom.innerHTML = `
         <div class="button-bottom-close"></div>
         <button class="mm_button_bottom ">^</button>
-        <div id="monetizeme-sticky-bottom"></div>`;
+        <div id="monetizeme-sticky-bottom" style="width:300px;height:300px;background:red"></div>`;
 
 
         window.Ya.adfoxCode.hbCallbacks.push(function() {
@@ -148,6 +150,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 { bidder: "buzzoola", params: {placementId: "1247262" } },
                 { bidder: "videonow", params: {placementId: "6323752" } },
                 { bidder: "sape", params: { placementId:"844559" } },
+                { bidder: "otm", params: { placementId:"44956" } },
                 { bidder: "mediasniper", params: { placementId: "740010" }},
                 { bidder: "adfox_adsmart", params: { "p1": "cxzvu", "p2": "hhuq" } },
                 { bidder: "myTarget", params: { placementId: "1256669" } },
@@ -160,10 +163,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     sequentialLoading: true,
                     containerId: 'monetizeme-sticky-bottom',
                     onError:function(error) {
-                        stickyBottom.classList.add('stub')
+                        //stickyBottom.classList.add('stub')
                     },
                     onStub: function() {
-                        stickyBottom.classList.add('stub')
+                        //stickyBottom.classList.add('stub')
                     },
                     onRender: function() {
                         stickyBottom.classList.add('view')
@@ -188,7 +191,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         //bottom sticky banner
         var bottomBlock = document.querySelector('.monetizeme-block-bottom');
         var bottomButton = document.querySelector('.button-bottom-close');
-        var isBottomBlockCollapsed = true;
+        var isBottomBlockCollapsed = false;
 
         var lastScrollTop = 0;
 
@@ -205,10 +208,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             }
 
             // Bottom block behavior
-            if (currentScrollTop <= (lastScrollTop - 5) && !isBottomBlockCollapsed && window.scrollY >= 100) {
+            if (currentScrollTop <= (lastScrollTop - 5) && !isBottomBlockCollapsed) {
                 bottomBlock.classList.add('collapsed');
                 isBottomBlockCollapsed = true;
-            } else if (currentScrollTop > lastScrollTop && isBottomBlockCollapsed && window.scrollY >= 100) {
+            } else if (currentScrollTop > lastScrollTop && isBottomBlockCollapsed) {
                 bottomBlock.classList.remove('collapsed');
                 isBottomBlockCollapsed = false;
             }
@@ -260,6 +263,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     { bidder: "buzzoola", params: {placementId: "1247263" } },
                     { bidder: "videonow", params: {placementId: "6324759" } },
                     { bidder: "sape", params: { placementId:"844560" } },
+                    { bidder: "otm", params: { placementId:"44960" } },
                     { bidder: "mediasniper", params: { placementId: "740011" }},
                     { bidder: "adfox_adsmart", params: { "p1": "cxzvx", "p2": "ul" } },
                     { bidder: "myTarget", params: { placementId: "1256671" } },
@@ -313,6 +317,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             { bidder: "buzzoola", params: {placementId: "1247264" } },
                             { bidder: "videonow", params: {placementId: "6325564" } },
                             { bidder: "sape", params: { placementId:"844561" } },
+                            { bidder: "otm", params: { placementId:"44961" } },
                             { bidder: "mediasniper", params: { placementId: "740012" }},
                             { bidder: "adfox_adsmart", params: { "p1": "cxzvy", "p2": "ul" } },
                             { bidder: "myTarget", params: { placementId: "1256674" } },
@@ -339,7 +344,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     p2: 'ihug',
                                 },
                                 lazyLoad: {
-                                  fetchMargin: 200,
+                                  fetchMargin: 50,
                                   mobileScaling: 2
                                 }
                             })
@@ -369,6 +374,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 { bidder: "buzzoola", params: {placementId: "1247264" } },
                                 { bidder: "videonow", params: {placementId: "6325564" } },
                                 { bidder: "sape", params: { placementId:"844561" } },
+                                { bidder: "otm", params: { placementId:"44961" } },
                                 { bidder: "mediasniper", params: { placementId: "740012" }},
                                 { bidder: "adfox_adsmart", params: { "p1": "cxzvy", "p2": "ul" } },
                                 { bidder: "myTarget", params: { placementId: "1256674" } },
@@ -395,7 +401,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                         p2: 'ihug',
                                     },
                                     lazyLoad: {
-                                      fetchMargin: 200,
+                                      fetchMargin: 50,
                                       mobileScaling: 2
                                     }
                                 })
@@ -423,6 +429,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         { bidder: "buzzoola", params: {placementId: "1247265" } },
                         { bidder: "videonow", params: {placementId: "6326344" } },
                         { bidder: "sape", params: { placementId:"844562" } },
+                        { bidder: "otm", params: { placementId:"44962" } },
                         { bidder: "mediasniper", params: { placementId: "740013" }},
                         { bidder: "adfox_adsmart", params: { "p1": "cxzvz", "p2": "ul" } },
                         { bidder: "myTarget", params: { placementId: "1256682" } },
@@ -449,7 +456,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 p2: 'ihug',
                             },
                             lazyLoad: {
-                              fetchMargin: 200,
+                              fetchMargin: 50,
                               mobileScaling: 2
                             }
                         })
@@ -478,6 +485,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     { bidder: "buzzoola", params: {placementId: "1247265" } },
                     { bidder: "videonow", params: {placementId: "6326344" } },
                     { bidder: "sape", params: { placementId:"844562" } },
+                    { bidder: "otm", params: { placementId:"44962" } },
                     { bidder: "mediasniper", params: { placementId: "740013" }},
                     { bidder: "adfox_adsmart", params: { "p1": "cxzvz", "p2": "ul" } },
                     { bidder: "myTarget", params: { placementId: "1256682" } },
@@ -537,6 +545,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         { bidder: "buzzoola", params: {placementId: "1247266" } },
                         { bidder: "videonow", params: {placementId: "6327462" } },
                         { bidder: "sape", params: { placementId:"844563" } },
+                        { bidder: "otm", params: { placementId:"44963" } },
                         { bidder: "mediasniper", params: { placementId: "740014" }},
                         { bidder: "adfox_adsmart", params: { "p1": "cxzwa", "p2": "ul" } },
                         { bidder: "myTarget", params: { placementId: "1256684" } },
@@ -563,7 +572,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 p2: 'ihug',
                             },
                             lazyLoad: {
-                              fetchMargin: 200,
+                              fetchMargin: 50,
                               mobileScaling: 2
                             }
                         })
@@ -587,6 +596,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     { bidder: "buzzoola", params: {placementId: "1247267" } },
                     { bidder: "videonow", params: {placementId: "6328134" } },
                     { bidder: "sape", params: { placementId:"844564" } },
+                    { bidder: "otm", params: { placementId:"44964" } },
                     { bidder: "mediasniper", params: { placementId: "740015" }},
                     { bidder: "adfox_adsmart", params: { "p1": "cxzwb", "p2": "ul" } },
                     { bidder: "myTarget", params: { placementId: "1256689" } },
@@ -613,7 +623,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             p2: 'ihug',
                         },
                         lazyLoad: {
-                          fetchMargin: 200,
+                          fetchMargin: 50,
                           mobileScaling: 2
                         }
                     })
@@ -634,7 +644,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         stickyBottom.setAttribute('id', 'sticky_bottom');
         stickyBottom.innerHTML = `
         <div class="button-bottom-close-desktop"></div>
-        <button class="mm_button_bottom-desktop">×</button>
+        <button class="mm_button_bottom-desktop">x</button>
         <div id="monetizeme-desktop-sticky-bottom" style="display:block"></div>`;
 
         
@@ -648,6 +658,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 { bidder: "buzzoola", params: {placementId: "1247259" } },
                 { bidder: "videonow", params: {placementId: "6321252" } },
                 { bidder: "sape", params: { placementId:"844557" } },
+                { bidder: "otm", params: { placementId:"44954" } },
                 { bidder: "mediasniper", params: { placementId: "740008" }},
                 { bidder: "adfox_adsmart", params: { "p1": "cxzvt", "p2": "hhuq" } },
                 { bidder: "myTarget", params: { placementId: "1256639" } },
@@ -708,6 +719,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     { bidder: "buzzoola", params: {placementId: "1247208" } },
                     { bidder: "videonow", params: {placementId: "6319454" } },
                     { bidder: "sape", params: { placementId:"844548" } },
+                    { bidder: "otm", params: { placementId:"44947" } },
                     { bidder: "mediasniper", params: { placementId: "740001" }},
                     { bidder: "adfox_adsmart", params: { "p1": "cxzvl", "p2": "hhro" } },
                     { bidder: "myTarget", params: { placementId: "1255774" } },
@@ -749,6 +761,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     { bidder: "buzzoola", params: {placementId: "1247211" } },
                     { bidder: "videonow", params: {placementId: "6320596" } },
                     { bidder: "sape", params: { placementId:"844549" } },
+                    { bidder: "otm", params: { placementId:"44948" } },
                     { bidder: "mediasniper", params: { placementId: "740002" }},
                     { bidder: "adfox_adsmart", params: { "p1": "cxzvm", "p2": "hhro" } },
                     { bidder: "myTarget", params: { placementId: "1255776" } },
@@ -766,7 +779,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             p2: 'ihua',
                         },
                         lazyLoad: {
-                          fetchMargin: 200,
+                          fetchMargin: 100,
                           mobileScaling: 2
                         }
                     })
@@ -795,6 +808,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     { bidder: "buzzoola", params: {placementId: "1247254" } },
                     { bidder: "videonow", params: {placementId: "6314928" } },
                     { bidder: "sape", params: { placementId:"844550" } },
+                    { bidder: "otm", params: { placementId:"44949" } },
                     { bidder: "mediasniper", params: { placementId: "740003" }},
                     { bidder: "adfox_adsmart", params: { "p1": "cxzvo", "p2": "ul" } },
                     { bidder: "myTarget", params: { placementId: "1255780" } },
@@ -852,6 +866,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             { bidder: "buzzoola", params: {placementId: "1247255" } },
                             { bidder: "videonow", params: {placementId: "6315648" } },
                             { bidder: "sape", params: { placementId:"844551" } },
+                            { bidder: "otm", params: { placementId:"44950" } },
                             { bidder: "mediasniper", params: { placementId: "740004" }},
                             { bidder: "adfox_adsmart", params: { "p1": "cxzvp", "p2": "ul" } },
                             { bidder: "myTarget", params: { placementId: "1256631" } },
@@ -878,7 +893,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     p2: 'iegj',
                                 },
                                 lazyLoad: {
-                                  fetchMargin: 200,
+                                  fetchMargin: 100,
                                   mobileScaling: 2
                                 }
                             })
@@ -908,6 +923,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             { bidder: "buzzoola", params: {placementId: "1247255" } },
                             { bidder: "videonow", params: {placementId: "6315648" } },
                             { bidder: "sape", params: { placementId:"844551" } },
+                            { bidder: "otm", params: { placementId:"44950" } },
                             { bidder: "mediasniper", params: { placementId: "740004" }},
                             { bidder: "adfox_adsmart", params: { "p1": "cxzvp", "p2": "ul" } },
                             { bidder: "myTarget", params: { placementId: "1256631" } },
@@ -934,7 +950,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     p2: 'iegj',
                                 },
                                 lazyLoad: {
-                                  fetchMargin: 200,
+                                  fetchMargin: 100,
                                   mobileScaling: 2
                                 }
                             })
@@ -964,6 +980,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         { bidder: "buzzoola", params: {placementId: "1247256" } },
                         { bidder: "videonow", params: {placementId: "6316146" } },
                         { bidder: "sape", params: { placementId:"844554" } },
+                        { bidder: "otm", params: { placementId:"44951" } },
                         { bidder: "mediasniper", params: { placementId: "740005" }},
                         { bidder: "adfox_adsmart", params: { "p1": "cxzvq", "p2": "ul" } },
                         { bidder: "myTarget", params: { placementId: "1256633" } },
@@ -990,7 +1007,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 p2: 'iegj',
                             },
                             lazyLoad: {
-                              fetchMargin: 200,
+                              fetchMargin: 100,
                               mobileScaling: 2
                             }
                         })
@@ -1026,6 +1043,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         { bidder: "buzzoola", params: {placementId: "1247257" } },
                         { bidder: "videonow", params: {placementId: "6317778" } },
                         { bidder: "sape", params: { placementId:"844555" } },
+                        { bidder: "otm", params: { placementId:"44952" } },
                         { bidder: "mediasniper", params: { placementId: "740006" }},
                         { bidder: "adfox_adsmart", params: { "p1": "cxzvr", "p2": "ul" } },
                         { bidder: "myTarget", params: { placementId: "1256635" } },
@@ -1052,7 +1070,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 p2: 'iegj',
                             },
                             lazyLoad: {
-                              fetchMargin: 200,
+                              fetchMargin: 100,
                               mobileScaling: 2
                             }
                         })
@@ -1076,6 +1094,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         { bidder: "buzzoola", params: {placementId: "1247258" } },
                         { bidder: "videonow", params: {placementId: "6318782" } },
                         { bidder: "sape", params: { placementId:"844556" } },
+                        { bidder: "otm", params: { placementId:"44953" } },
                         { bidder: "mediasniper", params: { placementId: "740007" }},
                         { bidder: "adfox_adsmart", params: { "p1": "cxzvs", "p2": "ul" } },
                         { bidder: "myTarget", params: { placementId: "1256637" } },
@@ -1102,7 +1121,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 p2: 'iegj',
                             },
                             lazyLoad: {
-                              fetchMargin: 200,
+                              fetchMargin: 100,
                               mobileScaling: 2
                             }
                         })
@@ -1112,10 +1131,11 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
 
             after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
+
         }
-        //setInterval(function() {
-            //Ya.adfoxCode.reload(null, {onlyIfWasVisible: true});
-        //}, 30000);
+        setInterval(function() {
+            Ya.adfoxCode.reload(['monetizeme-desktop-sticky-bottom', 'monetizeme-desktop-side-second'], {onlyIfWasVisible: true});
+        }, 30000)
     })
 
 }
