@@ -114,54 +114,48 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </html>
 
 <script type="text/javascript">
-// Function to check if an element is fully visible in the viewport
-function isElementVisible(element) {
-  var rect = element.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= window.innerHeight &&
-    rect.right <= window.innerWidth
-  );
-}
-
-// Function to handle scroll events
-function handleScroll() {
-  var parallaxBanner = document.querySelector('.parallax-banner');
-  var stickyBannerTop = document.querySelector('.sticky-banner-top');
-  var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
-
-  if (isElementVisible(parallaxBanner)) {
-    // Parallax banner is in view
-    parallaxBanner.style.backgroundPositionY = -window.pageYOffset * 0.5 + 'px';
-
-    // Hide sticky banners
-    stickyBannerTop.style.display = 'none';
-    stickyBannerBottom.style.display = 'none';
-  } else {
-    // Parallax banner is out of view
-
-    // Show sticky banner based on scroll direction and visibility
-    if (window.pageYOffset > lastScrollPos && isElementVisible(parallaxBanner)) {
-      // Scrolling down and parallax banner is fully visible
-      stickyBannerBottom.style.display = 'block';
-      stickyBannerTop.style.display = 'none';
-      stickyBannerBottom.style.position = 'fixed';
-      stickyBannerBottom.style.bottom = '0';
-    } else {
-      // Scrolling up or parallax banner is partially visible
-      stickyBannerTop.style.display = 'block';
-      stickyBannerBottom.style.display = 'none';
-    }
+  // Function to check if the top of an element is above the viewport
+  function isElementAboveViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return rect.top < 0;
   }
 
-  // Remember the last scroll position
-  lastScrollPos = window.pageYOffset;
-}
+  // Function to handle scroll events
+  function handleScroll() {
+    var parallaxBanner = document.querySelector('.parallax-banner');
+    var stickyBannerTop = document.querySelector('.sticky-banner-top');
+    var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
 
-// Attach the scroll event listener
-var lastScrollPos = 0;
-window.addEventListener('scroll', handleScroll);
+    if (isElementVisible(parallaxBanner)) {
+      // Parallax banner is in view
+      parallaxBanner.style.backgroundPositionY = -window.pageYOffset * 0.5 + 'px';
 
+      // Hide sticky banners
+      stickyBannerTop.style.display = 'none';
+      stickyBannerBottom.style.display = 'none';
+    } else {
+      // Parallax banner is out of view
+
+      // Show sticky banner based on scroll direction and visibility
+      if (window.pageYOffset > lastScrollPos && isElementAboveViewport(parallaxBanner)) {
+        // Scrolling down and top of parallax banner is above the viewport
+        stickyBannerBottom.style.display = 'block';
+        stickyBannerTop.style.display = 'none';
+        stickyBannerBottom.style.position = 'fixed';
+        stickyBannerBottom.style.bottom = '0';
+      } else {
+        // Scrolling up or top of parallax banner is visible
+        stickyBannerTop.style.display = 'block';
+        stickyBannerBottom.style.display = 'none';
+      }
+    }
+
+    // Remember the last scroll position
+    lastScrollPos = window.pageYOffset;
+  }
+
+  // Attach the scroll event listener
+  var lastScrollPos = 0;
+  window.addEventListener('scroll', handleScroll);
 
 </script>
