@@ -134,7 +134,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
     if (isElementInViewport(parallaxBanner)) {
       // Parallax banner is in view
-
+      parallaxBanner.style.backgroundPositionY = -window.pageYOffset * 0.5 + 'px';
       // Hide sticky banners
       stickyBannerTop.style.display = 'none';
       stickyBannerBottom.style.display = 'none';
