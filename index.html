@@ -25,6 +25,7 @@
       justify-content: center;
       background-color: #f1f1f1; /* Replace with the desired background color */
       z-index: 1;
+      left: 0;
       display: none;
     }
 
@@ -69,7 +70,8 @@
     <!--Категория: <не задана>-->
     <!--Баннер: <не задана>-->
     <!--Тип баннера: mobile_sticky_top-->
-    <div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div>
+    <div style="width: 100%;display: flex;justify-content: center;">
+    <div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>
     <script>
         window.yaContextCb.push(()=>{
             Ya.adfoxCode.create({
@@ -90,7 +92,8 @@
 
   <div class="sticky-banner-bottom" >
     <!-- Content of the sticky banner (bottom position) goes here -->
-    <div id="sticky_b" style="width: 100%;display: flex;justify-content: center;"></div>
+    <div style="width: 100%;display: flex;justify-content: center;">
+    <div id="sticky_b"></div></div>
     <script>
         window.yaContextCb.push(()=>{
             Ya.adfoxCode.create({
