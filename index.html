@@ -142,6 +142,17 @@ function handleScroll() {
   // Check if the parallax banner is completely hidden
   var parallaxBannerHidden = isParallaxBannerHidden();
 
+  if (parallaxBannerHidden && !parallaxBannerReached) {
+    // Scrolled to the parallax banner for the first time
+    parallaxBannerReached = true;
+    stickyBannerTop.style.display = 'block';
+    stickyBannerBottom.style.display = 'block';
+    stickyBannerTop.style.position = 'fixed';
+    stickyBannerTop.style.top = '0';
+    stickyBannerBottom.style.position = 'fixed';
+    stickyBannerBottom.style.bottom = '0';
+  }
+
   if (parallaxBannerHidden) {
     // Parallax banner is completely hidden
 
@@ -150,8 +161,6 @@ function handleScroll() {
       // Scrolling down
       stickyBannerBottom.style.display = 'block';
       stickyBannerTop.style.display = 'none';
-      stickyBannerBottom.style.position = 'fixed';
-      stickyBannerBottom.style.bottom = '0';
     } else {
       // Scrolling up
       stickyBannerTop.style.display = 'block';
@@ -168,6 +177,9 @@ function handleScroll() {
   // Remember the last scroll position
   lastScrollPos = window.pageYOffset;
 }
+
+// Flag to track if the user has reached the parallax banner
+var parallaxBannerReached = false;
 
 // Attach the scroll event listener
 var lastScrollPos = 0;
