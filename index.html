@@ -25,6 +25,7 @@
       justify-content: center;
       background-color: #f1f1f1; /* Replace with the desired background color */
       z-index: 1;
+      display: none;
     }
 
     .sticky-banner-top {
@@ -115,7 +116,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </html>
 
 <script type="text/javascript">
-  // Function to check if an element is completely hidden in the viewport
+// Function to check if an element is completely hidden in the viewport
 function isElementHidden(element) {
   var rect = element.getBoundingClientRect();
   return (
@@ -138,6 +139,16 @@ function handleScroll() {
   var parallaxBanner = document.querySelector('.parallax-banner');
   var stickyBannerTop = document.querySelector('.sticky-banner-top');
   var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
+
+  if (!isParallaxBannerVisible()) {
+    // Parallax banner is not yet visible
+    return;
+  }
+
+  if (!parallaxBannerReached) {
+    // User has reached the parallax banner for the first time
+    parallaxBannerReached = true;
+  }
 
   if (isParallaxBannerVisible()) {
     // Parallax banner is in view
@@ -166,6 +177,9 @@ function handleScroll() {
   // Remember the last scroll position
   lastScrollPos = window.pageYOffset;
 }
+
+// Flag to track if the user has reached the parallax banner
+var parallaxBannerReached = false;
 
 // Attach the scroll event listener
 var lastScrollPos = 0;
