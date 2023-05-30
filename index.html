@@ -118,7 +118,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   function isElementInViewport(element) {
     var rect = element.getBoundingClientRect();
     return (
-      rect.bottom <= 0 || rect.top >= window.innerHeight || rect.right <= 0 || rect.left >= window.innerWidth
+      rect.bottom > 0 || rect.top >= window.innerHeight || rect.right > 0 || rect.left < window.innerWidth
     );
   }
 
