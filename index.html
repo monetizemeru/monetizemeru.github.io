@@ -62,7 +62,7 @@
     <!--Категория: <не задана>-->
     <!--Баннер: <не задана>-->
     <!--Тип баннера: mobile_sticky_top-->
-    <div id="sticky_t"></div>
+    <div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div>
     <script>
         window.yaContextCb.push(()=>{
             Ya.adfoxCode.create({
@@ -81,9 +81,9 @@
 
   </div>
 
-  <div class="sticky-banner-bottom">
+  <div class="sticky-banner-bottom" >
     <!-- Content of the sticky banner (bottom position) goes here -->
-    <div id="sticky_b"></div>
+    <div id="sticky_b" style="width: 100%;display: flex;justify-content: center;"></div>
     <script>
         window.yaContextCb.push(()=>{
             Ya.adfoxCode.create({
@@ -137,13 +137,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       // Parallax banner is out of view
 
       // Show sticky banner based on scroll direction
-      if (window.pageYOffset > lastScrollPos) {
+      if (window.pageYOffset > lastScrollPos+5) {
         // Scrolling down
-        stickyBannerBottom.style.display = 'grid';
+        stickyBannerBottom.style.display = 'block';
         stickyBannerTop.style.display = 'none';
       } else {
         // Scrolling up
-        stickyBannerTop.style.display = 'grid';
+        stickyBannerTop.style.display = 'block';
         stickyBannerBottom.style.display = 'none';
       }
     }
