@@ -20,7 +20,7 @@
       position: fixed;
       left: 0;
       width: 100%;
-      height: 100px; /* Adjust the height as needed */
+      justify-content: center; /* Adjust the height as needed */
       background-color: #f1f1f1; /* Replace with the desired background color */
       z-index: 1;
       display: none;
@@ -140,11 +140,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       // Show sticky banner based on scroll direction
       if (window.pageYOffset > lastScrollPos) {
         // Scrolling down
-        stickyBannerBottom.style.display = 'block';
+        stickyBannerBottom.style.display = 'flex';
         stickyBannerTop.style.display = 'none';
       } else {
         // Scrolling up
-        stickyBannerTop.style.display = 'block';
+        stickyBannerTop.style.display = 'flex';
         stickyBannerBottom.style.display = 'none';
       }
     }
