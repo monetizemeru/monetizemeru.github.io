@@ -18,8 +18,8 @@
     .sticky-banner-top,
     .sticky-banner-bottom {
       position: fixed;
-      left: 0;
       width: 100%;
+      justify-content: center;
       background-color: #f1f1f1; /* Replace with the desired background color */
       z-index: 1;
       display: none;
@@ -139,11 +139,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       // Show sticky banner based on scroll direction
       if (window.pageYOffset > lastScrollPos) {
         // Scrolling down
-        stickyBannerBottom.style.display = 'block';
+        stickyBannerBottom.style.display = 'grid';
         stickyBannerTop.style.display = 'none';
       } else {
         // Scrolling up
-        stickyBannerTop.style.display = 'block';
+        stickyBannerTop.style.display = 'grid';
         stickyBannerBottom.style.display = 'none';
       }
     }
