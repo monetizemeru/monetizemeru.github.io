@@ -8,7 +8,10 @@
 
   <title>Parallax Text Banner</title>
   <style>
-    .parallax-banner {/* Adjust the height as needed */
+    .parallax-banner {
+      padding:20px 0px;
+      background: #f1f1f1;
+      /* Adjust the height as needed */
     }
 
     .content {
@@ -137,7 +140,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       // Parallax banner is out of view
 
       // Show sticky banner based on scroll direction
-      if (window.pageYOffset > lastScrollPos) {
+      if (window.pageYOffset + 5> lastScrollPos) {
         // Scrolling down
         stickyBannerBottom.style.display = 'block';
         stickyBannerTop.style.display = 'none';
