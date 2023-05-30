@@ -137,13 +137,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       // Show sticky banner based on scroll direction
       if (window.pageYOffset > lastScrollPos) {
         // Scrolling down
-        stickyBannerBottom.style.display = 'block';
+        stickyBannerBottom.style.display = 'flex';
+        stickyBannerBottom.style.justifyContent = 'center';
         stickyBannerTop.style.display = 'none';
         stickyBannerBottom.style.position = 'fixed';
         stickyBannerBottom.style.bottom = '0';
       } else {
         // Scrolling up
-        stickyBannerTop.style.display = 'block';
+        stickyBannerBottom.style.display = 'flex';
+        stickyBannerBottom.style.justifyContent = 'center';
         stickyBannerBottom.style.display = 'none';
       }
     } else {
