@@ -140,38 +140,40 @@ function handleScroll() {
   var stickyBannerTop = document.querySelector('.sticky-banner-top');
   var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
 
-  if (!isParallaxBannerVisible()) {
-    // Parallax banner is not yet visible
-    return;
-  }
-
-  if (!parallaxBannerReached) {
-    // User has reached the parallax banner for the first time
-    parallaxBannerReached = true;
-  }
-
+  // Check if the parallax banner is in view
   if (isParallaxBannerVisible()) {
     // Parallax banner is in view
     parallaxBanner.style.backgroundPositionY = -window.pageYOffset * 0.5 + 'px';
 
-    // Hide sticky banners
-    stickyBannerTop.style.display = 'none';
-    stickyBannerBottom.style.display = 'none';
+    // Hide sticky banners initially
+    if (!parallaxBannerReached) {
+      stickyBannerTop.style.display = 'none';
+      stickyBannerBottom.style.display = 'none';
+    } else {
+      // User has scrolled to the parallax banner
+
+      // Show sticky banner based on scroll direction
+      if (window.pageYOffset > lastScrollPos) {
+        // Scrolling down
+        stickyBannerBottom.style.display = 'block';
+        stickyBannerTop.style.display = 'none';
+        stickyBannerBottom.style.position = 'fixed';
+        stickyBannerBottom.style.bottom = '0';
+      } else {
+        // Scrolling up
+        stickyBannerTop.style.display = 'block';
+        stickyBannerBottom.style.display = 'none';
+      }
+    }
   } else {
     // Parallax banner is out of view
 
-    // Show sticky banner based on scroll direction and visibility
-    if (window.pageYOffset > lastScrollPos && isElementHidden(parallaxBanner)) {
-      // Scrolling down and parallax banner is completely hidden
-      stickyBannerBottom.style.display = 'block';
-      stickyBannerTop.style.display = 'none';
-      stickyBannerBottom.style.position = 'fixed';
-      stickyBannerBottom.style.bottom = '0';
-    } else {
-      // Scrolling up or parallax banner is partially visible
-      stickyBannerTop.style.display = 'block';
-      stickyBannerBottom.style.display = 'none';
-    }
+    // Reset parallax banner reached flag
+    parallaxBannerReached = false;
+
+    // Hide sticky banners
+    stickyBannerTop.style.display = 'none';
+    stickyBannerBottom.style.display = 'none';
   }
 
   // Remember the last scroll position
@@ -184,5 +186,6 @@ var parallaxBannerReached = false;
 // Attach the scroll event listener
 var lastScrollPos = 0;
 window.addEventListener('scroll', handleScroll);
+
 
 </script>
