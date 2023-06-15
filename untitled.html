@@ -1,4 +1,4 @@
-<style>
+  <style>
     .parallax-banner {
       display: flex;
       justify-content: center;
@@ -45,9 +45,8 @@
   })
 </script>
 <script type="text/javascript">
-  //Удаляем floor ad, который есть на сайте
-  document.querySelector("[id^=floor_ad]").remove()
-  
+
+
   const body = document.querySelector("body")
   const stickyTop = document.createElement('div');
   stickyTop.classList.add('sticky-banner-top');
@@ -155,22 +154,6 @@ var parallaxBannerReached = false;
 // Attach the scroll event listener
 var lastScrollPos = 0;
 window.addEventListener('scroll', handleScroll);
-
-function checkURLchange(){
-    if(window.location.href != oldURL){
-        if (document.querySelector(".sticky-banner-top")){
-          document.querySelector(".sticky-banner-top").remove()
-        }
-        if (document.querySelector(".sticky-banner-bottom")){
-          document.querySelector(".sticky-banner-bottom").remove()
-        }
-        window.removeEventListener('scroll', handleScroll)
-        oldURL = window.location.href;
-    }
-}
-
-var oldURL = window.location.href;
-setInterval(checkURLchange, 1000);
 
 
 </script>
