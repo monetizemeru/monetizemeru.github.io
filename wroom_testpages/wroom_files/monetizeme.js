@@ -239,7 +239,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             popup.style.transform = "rotate(180deg)"
             popup.style.boxShadow = "0 1px 1px 0 rgb(0 0 0 / 20%)"
             popup.style.borderRadius = "0 0 0 10px"
+            popup.style.fontSize = "1.1rem"
             bottomButton.style.display = "block"
+
 
           }
         }

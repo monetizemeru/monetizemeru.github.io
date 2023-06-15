@@ -223,14 +223,38 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             body.style.paddingTop = "120px"
         }
 
-        topButton.addEventListener('click', function() {
-            document.getElementById("sticky_top").remove();
-        });
+        let timeLeft = 5; // Time in seconds
+        let timerId;
+        let popup = document.querySelector('.mm_button_bottom')
+        function updateProgress() {
+          timeLeft--;
+          popup.textContent = `${timeLeft}`;
 
+
+          if (timeLeft === 0) {
+            clearInterval(timerId);
+            popup.textContent = '^'
+            popup.style.transform = "rotate(180deg)"
+            popup.style.boxShadow = "0 1px 1px 0 rgb(0 0 0 / 20%)"
+            popup.style.borderRadius = "0 0 0 10px"
+            popup.style.fontSize = "1.1rem"
+            bottomButton.style.display = "block"
+
+
+          }
+        }
+
+   
+        timerId = setInterval(updateProgress, 1000); // Update every second (1000 milliseconds)
 
         bottomButton.addEventListener('click', function() {
             document.getElementById("sticky_bottom").remove();
         });
+
+        topButton.addEventListener('click', function() {
+            document.getElementById("sticky_top").remove();
+        });
+
         if (document.getElementById("sticky_top") <= 1) {
             topButton.style.display = "none"
         } else {
