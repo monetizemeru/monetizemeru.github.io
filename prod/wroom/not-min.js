@@ -60,7 +60,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     codeType: 'combo',
                     sizes: [ [ 0, 0 ] ],
                     bids: [ 
-                    { bidder: "myTarget", params: {placementId: "1302798" } },
+                    //{ bidder: "myTarget", params: {placementId: "1302798" } },
                     //{ bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } }
                     ]
                 }])
@@ -69,7 +69,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-mobile-fs',
-                        type: 'fullscreen',
                         params: {
                             pp: 'g',
                             ps: 'gmdq',
