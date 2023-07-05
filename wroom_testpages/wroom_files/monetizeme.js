@@ -76,7 +76,47 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             <div class="marker">Реклама</div>
                             <div class="btn"></div>
                             <div id="close-button">4</div>
-                            <div style="width: 300px; height: 500px; background: yellow;"></div>`;
+                            <div id="mm_fs"style="width: 300px; height: 500px; background: yellow;"></div>`;
+
+                            window.Ya.adfoxCode.hbCallbacks.push(function() {
+                                window.Ya.headerBidding.pushAdUnits([{
+                                    code: 'mm_fs',
+                                    codeType: 'combo',
+                                    sizes: [ [ 320, 50 ], [ 320, 100 ], [ 300, 100 ], [ 300, 50 ], [ 320, 150 ], [ 300, 150 ] ],
+                                    bids: [ 
+                                    { bidder: "astralab", params: {placementId: "6440fac98528b410c4990c65" } },
+                                    { bidder: "buzzoola", params: {placementId: "1247261" } },
+                                    { bidder: "videonow", params: {placementId: "6322246" } },
+                                    { bidder: "sape", params: { placementId:"844558" } },
+                                    { bidder: "otm", params: { placementId:"44955" } },
+                                    { bidder: "mediasniper", params: { placementId: "740009" }},
+                                    { bidder: "myTarget", params: { placementId: "1256667" } },
+                                    { bidder: "adriver", params: { placementId: "136:wroom_320x100mob",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
+                                    { bidder: "bidvol", params: { placementId: "34827" } } ]
+                                }])
+                                window.yaContextCb.push(function() {
+                                    window.Ya.adfoxCode.create({
+                                        ownerId: 1458764,
+                                        sequentialLoading: true,
+                                        containerId: 'mm_fs',
+                                        onError:function(error) {
+                                            mobile_fs_s.classList.add('stub')
+                                        },
+                                        onStub: function() {
+                                            mobile_fs_s.classList.add('stub')
+                                        },
+                                        onRender: function() {
+                                            mobile_fs_s.classList.add('view')
+                                        },
+                                        params: {
+                                            pp: 'g',
+                                            ps: 'gmdq',
+                                            p2: 'ihue',
+                                        }
+                                    })
+                                })
+                            })
+
                             document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
                                 var btn = document.querySelector('.btn')
 
