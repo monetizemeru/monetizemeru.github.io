@@ -103,11 +103,11 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         })
 
                         document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
-                            var btn = document.querySelector('.btn')
+                            var btn = document.querySelector('.mm_fs_btn')
 
                             let timeLeft = 4;
                             let timerId;
-                            let popup = document.querySelector('#close-button')
+                            let popup = document.querySelector('#mm_fs_close-button')
                             function updateProgress() {
                               timeLeft--;
                               popup.textContent = `${timeLeft}`;
@@ -126,7 +126,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             
                             timerId = setInterval(updateProgress, 1000);
                             btn.addEventListener('click', function() {
-                                    document.getElementById("banner").remove();
+                                    document.getElementById("mm_fs_banner").remove();
                                 });
                     },
                     params: {
