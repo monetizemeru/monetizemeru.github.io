@@ -72,11 +72,36 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         onStub: function() {
                             const mobile_fs_s = document.createElement('div');
                             mobile_fs_s.setAttribute('id', 'banner');
-                            stickyTop.innerHTML = `
+                            mobile_fs_s.innerHTML = `
                             <div class="marker">Реклама</div>
                             <div class="btn"></div>
                             <div id="close-button">4</div>
                             <div style="width: 300px; height: 500px; background: yellow;"></div>`;
+                                var btn = document.querySelector('.btn')
+
+                                let timeLeft = 4;
+                                let timerId;
+                                let popup = document.querySelector('#close-button')
+                                function updateProgress() {
+                                  timeLeft--;
+                                  popup.textContent = `${timeLeft}`;
+
+
+                                  if (timeLeft === 0) {
+                                    clearInterval(timerId);
+                                    popup.textContent = 'X'
+                                    btn.style.display = 'block'
+
+
+
+                                  }
+                                }
+
+                                
+                                timerId = setInterval(updateProgress, 1000);
+                                btn.addEventListener('click', function() {
+                                        document.getElementById("banner").remove();
+                                    });
                         },
                         params: {
                             pp: 'g',
