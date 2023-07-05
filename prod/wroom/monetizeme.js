@@ -54,36 +54,86 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const mobile_fs = document.createElement('div');
         mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
 
-        window.Ya.adfoxCode.hbCallbacks.push(function() {
-                window.Ya.headerBidding.pushAdUnits([{
-                    code: 'monetizeme-mobile-fs',
-                    codeType: 'combo',
-                    sizes: [ [ 0, 0 ] ],
-                    bids: [ 
-                    //{ bidder: "myTarget", params: {placementId: "1302798" } },
-                    //{ bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } }
-                    ]
-                }])
-                window.yaContextCb.push(function() {
-                    window.Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        sequentialLoading: true,
-                        containerId: 'monetizeme-mobile-fs',
-                        onStub: function() {
-                            const mobile_fs_s = document.createElement('div');
-                            mobile_fs_s.setAttribute('id', 'banner');
-                            stickyTop.innerHTML = `
-                            <div class="marker">Реклама</div>
-                            <div class="btn"></div>
-                            <div id="close-button">4</div>
-                            <div style="width: 300px; height: 500px; background: yellow;"></div>`;
-                        },
-                        params: {
-                            pp: 'g',
-                            ps: 'gmdq',
-                            p2: 'ihud',
-                        }
-                    })
+        window.yaContextCb.push(()=>{
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                    sequentialLoading: true,
+                    containerId: 'monetizeme-mobile-fs',
+                    onStub: function() {
+                        const mobile_fs_s = document.createElement('div');
+                        mobile_fs_s.setAttribute('id', 'mm_fs_banner');
+                        mobile_fs_s.setAttribute('style', 'display:none');
+                        mobile_fs_s.innerHTML = `
+                        <div class="mm_fs_marker">Реклама</div>
+                        <div class="mm_fs_btn"></div>
+                        <div id="mm_fs_close-button">4</div>
+                        <div id="mm_fs_container"></div>`;
+
+                        window.Ya.adfoxCode.hbCallbacks.push(function() {
+                            window.Ya.headerBidding.pushAdUnits([{
+                                code: 'mm_fs_container',
+                                codeType: 'combo',
+                                sizes: [ [0, 0] ],
+                                bids: [ 
+                                { bidder: "myTarget", params: {placementId: "1302798" } },
+                                { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } },
+                                { bidder: "buzzoola", params: {placementId: "1247268" } } ]
+                            }])
+                            window.yaContextCb.push(function() {
+                                window.Ya.adfoxCode.create({
+                                    ownerId: 1458764,
+                                    sequentialLoading: true,
+                                    containerId: 'mm_fs',
+                                    onError:function(error) {
+                                        mobile_fs_s.classList.add('stub')
+                                    },
+                                    onStub: function() {
+                                        mobile_fs_s.classList.add('stub')
+                                    },
+                                    onRender: function() {
+                                        mobile_fs_s.classList.add('view')
+                                    },
+                                    params: {
+                                        pp: 'g',
+                                        ps: 'gmdq',
+                                        p2: 'ihud',
+                                    }
+                                })
+                            })
+                        })
+
+                        document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
+                            var btn = document.querySelector('.mm_fs_btn')
+
+                            let timeLeft = 4;
+                            let timerId;
+                            let popup = document.querySelector('#mm_fs_close-button')
+                            function updateProgress() {
+                              timeLeft--;
+                              popup.textContent = `${timeLeft}`;
+
+
+                              if (timeLeft === 0) {
+                                clearInterval(timerId);
+                                popup.textContent = 'X'
+                                btn.style.display = 'block'
+
+
+
+                              }
+                            }
+
+                            
+                            timerId = setInterval(updateProgress, 1000);
+                            btn.addEventListener('click', function() {
+                                    document.getElementById("mm_fs_banner").remove();
+                                });
+                    },
+                    params: {
+                        pp: 'h',
+                        ps: 'gmdq',
+                        p2: 'ihud',
+                    }
                 })
         }) 
 
