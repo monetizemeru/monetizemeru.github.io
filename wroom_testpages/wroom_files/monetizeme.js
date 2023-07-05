@@ -54,8 +54,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const mobile_fs = document.createElement('div');
         mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
 
-        window.yaContextCb.push(function() {
-            window.Ya.adfoxCode.create({
+        window.yaContextCb.push(()=>{
+            Ya.adfoxCode.create({
                 ownerId: 1458764,
                     sequentialLoading: true,
                     containerId: 'monetizeme-mobile-fs',
@@ -76,7 +76,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 sizes: [ [0, 0] ],
                                 bids: [ 
                                 { bidder: "myTarget", params: {placementId: "1302798" } },
-                                { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } }
+                                { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } },
                                 { bidder: "buzzoola", params: {placementId: "1247268" } } ]
                             }])
                             window.yaContextCb.push(function() {
