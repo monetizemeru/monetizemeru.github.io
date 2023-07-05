@@ -31,6 +31,7 @@ window.YaHeaderBiddingSettings = {
 window.Ya || (window.Ya = {});
 window.yaContextCb = window.yaContextCb || [];
 window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
+
 window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
 
 var adfox_script = document.createElement('script');
@@ -59,7 +60,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     codeType: 'combo',
                     sizes: [ [ 0, 0 ] ],
                     bids: [ 
-                    //{ bidder: "buzzoola", params: {placementId: "1247268" } },
+                    //{ bidder: "myTarget", params: {placementId: "1302798" } },
                     //{ bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } }
                     ]
                 }])
@@ -68,6 +69,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-mobile-fs',
+                        onStub: function() {
+                            const mobile_fs_s = document.createElement('div');
+                            mobile_fs_s.setAttribute('id', 'banner');
+                            stickyTop.innerHTML = `
+                            <div class="marker">Реклама</div>
+                            <div class="btn"></div>
+                            <div id="close-button">4</div>
+                            <div style="width: 300px; height: 500px; background: yellow;"></div>`;
+                        },
                         params: {
                             pp: 'g',
                             ps: 'gmdq',
@@ -136,10 +146,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         stickyBottom.setAttribute('id', 'sticky_bottom');
         stickyBottom.innerHTML = `
         <div class="button-bottom-close"></div>
-        <button class="mm_button_bottom"></button>
-        <div id="monetizeme-sticky-bottom" style="width:300px;height:300px;background:red"></div>`;
-
-
+        <button class="mm_button_bottom ">^</button>
+        <div id="monetizeme-sticky-bottom"></div>`;
 
 
         window.Ya.adfoxCode.hbCallbacks.push(function() {
@@ -165,10 +173,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     sequentialLoading: true,
                     containerId: 'monetizeme-sticky-bottom',
                     onError:function(error) {
-                        //stickyBottom.classList.add('stub')
+                        stickyBottom.classList.add('stub')
                     },
                     onStub: function() {
-                        //stickyBottom.classList.add('stub')
+                        stickyBottom.classList.add('stub')
                     },
                     onRender: function() {
                         stickyBottom.classList.add('view')
@@ -224,8 +232,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         if (isTopBlockCollapsed == false) {
             body.style.paddingTop = "120px"
         }
-
-        let timeLeft = 5; // Time in seconds
+        
+        let timeLeft = 10;
         let timerId;
         let popup = document.querySelector('.mm_button_bottom')
         function updateProgress() {
@@ -247,16 +255,16 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         }
 
    
-        timerId = setInterval(updateProgress, 1000); // Update every second (1000 milliseconds)
-
-        bottomButton.addEventListener('click', function() {
-            document.getElementById("sticky_bottom").remove();
-        });
+        timerId = setInterval(updateProgress, 1000); 
 
         topButton.addEventListener('click', function() {
             document.getElementById("sticky_top").remove();
         });
 
+
+        bottomButton.addEventListener('click', function() {
+            document.getElementById("sticky_bottom").remove();
+        });
         if (document.getElementById("sticky_top") <= 1) {
             topButton.style.display = "none"
         } else {
@@ -319,7 +327,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 })
             })
 
-            textBlock.parentNode.insertBefore(mobile_before_articleElement, textBlock);
+            textBlock.insertBefore(mobile_before_articleElement, textBlock.childNodes[1]);
 
             //add mobile in article each 4 elements
             if (artcicleBlock != null) {
@@ -331,7 +339,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     let mm_adfox_id = 'monetizeme-mobile-inread-article-' + mmId
                     mobile_in_article.classList.add('mm_mobile_content');
                     mobile_in_article.setAttribute('id', 'mobile_in_article_' + mmId);
-                    mobile_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "'></div>";
+                    mobile_in_article.innerHTML = "<div id='" + mm_adfox_id + "'></div>";
 
                     window.Ya.adfoxCode.hbCallbacks.push(function() {
                         window.Ya.headerBidding.pushAdUnits([{
@@ -774,7 +782,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const desktop_side_second = document.createElement("div");
             desktop_side_second.classList.add('mm_desktop_side_content');
             desktop_side_second.setAttribute('id', 'desktop_side_second');
-            desktop_side_second.innerHTML = `<div id="monetizeme-desktop-side-second" style="display:block"></div>`;
+            desktop_side_second.innerHTML = `<div id="monetizeme-desktop-side-second" style="display:block"></div>
+            <script src="https://cdn.viqeo.tv/js/vq_starter.js" async></script>
+            <div data-playerId="4044" data-profileId="14601" class="viqeo-fly-widget"></div>`;
             
 
             window.Ya.adfoxCode.hbCallbacks.push(function() {
@@ -869,7 +879,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
 
 
-            textBlock.parentNode.insertBefore(desktop_before_articleElement, textBlock);
+            textBlock.insertBefore(desktop_before_articleElement, textBlock.childNodes[1]);
 
             //add mobile in article each 4 elements
             if (artcicleBlock != null) {

@@ -69,6 +69,15 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: 'monetizeme-mobile-fs',
+                        onStub: function() {
+                            const mobile_fs_s = document.createElement('div');
+                            mobile_fs_s.setAttribute('id', 'banner');
+                            stickyTop.innerHTML = `
+                            <div class="marker">Реклама</div>
+                            <div class="btn"></div>
+                            <div id="close-button">4</div>
+                            <div style="width: 300px; height: 500px; background: yellow;"></div>`;
+                        },
                         params: {
                             pp: 'g',
                             ps: 'gmdq',
@@ -263,7 +272,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         }
 
         //Add blocks to article
-        ownerId = 
         const textBlock = document.querySelector(".text-block");
         const mainText = document.querySelector(".maintext")
         const artcicleBlock = document.querySelector('span[itemprop="articleBody"]')
