@@ -76,7 +76,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             <div class="marker">Реклама</div>
                             <div class="btn"></div>
                             <div id="close-button">4</div>
-                            <div id="mm_fs"style="width: 300px; height: 500px; background: yellow;"></div>`;
+                            <div id="mm_fs" style="display;none"style="width: 300px; height: 500px; background: yellow;"></div>`;
 
                             window.Ya.adfoxCode.hbCallbacks.push(function() {
                                 window.Ya.headerBidding.pushAdUnits([{
