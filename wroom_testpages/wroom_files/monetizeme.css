@@ -46,6 +46,9 @@
 	text-transform: uppercase;
 	letter-spacing: 0.5rem;
 }
+#mm_fs_container{
+	max-height: 75%;
+}
 
 .monetizeme-block-top {
 	width: 100%;

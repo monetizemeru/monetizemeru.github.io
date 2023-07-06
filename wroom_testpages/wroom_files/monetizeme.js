@@ -62,11 +62,11 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                     onStub: function() {
                         const mobile_fs_s = document.createElement('div');
                         mobile_fs_s.setAttribute('id', 'mm_fs_banner');
-                        mobile_fs_s.setAttribute('style', 'display:none');
+                        mobile_fs_s.setAttribute('style', 'background:#fff;z-index:0;');
                         mobile_fs_s.innerHTML = `
-                        <div class="mm_fs_marker">Реклама</div>
+                        <div class="mm_fs_marker stub"></div>
                         <div class="mm_fs_btn"></div>
-                        <div id="mm_fs_close-button">4</div>
+                        <div id="mm_fs_close-button" class="stub">4</div>
                         <div id="mm_fs_container"></div>`;
 
                         window.Ya.adfoxCode.hbCallbacks.push(function() {
@@ -75,7 +75,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 codeType: 'combo',
                                 sizes: [ [0, 0] ],
                                 bids: [ 
-                                { bidder: "myTarget", params: {placementId: "1302798" } },
                                 { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } },
                                 { bidder: "buzzoola", params: {placementId: "1247268" } } ]
                             }])
@@ -83,15 +82,44 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 window.Ya.adfoxCode.create({
                                     ownerId: 1458764,
                                     sequentialLoading: true,
-                                    containerId: 'mm_fs',
+                                    containerId: 'mm_fs_container',
                                     onError:function(error) {
-                                        mobile_fs_s.classList.add('stub')
+                                        document.querySelector("#mm_fs_banner").add('stub')
                                     },
                                     onStub: function() {
-                                        mobile_fs_s.classList.add('stub')
+                                        document.querySelector("#mm_fs_banner").add('stub')
                                     },
                                     onRender: function() {
-                                        mobile_fs_s.classList.add('view')
+                                        document.querySelector("#mm_fs_banner").classList.add('view')
+                                        document.querySelector("#mm_fs_banner").removeAttribute("style")
+                                        document.querySelector(".mm_fs_marker").classList.remove("stub")
+                                        document.querySelector("#mm_fs_close-button").classList.remove("stub")
+                                        document.querySelector(".mm_fs_marker").innerHTML += 'advertising'
+                                        var btn = document.querySelector('.mm_fs_btn')
+
+                                        let timeLeft = 4;
+                                        let timerId;
+                                        let popup = document.querySelector('#mm_fs_close-button')
+                                        function updateProgress() {
+                                          timeLeft--;
+                                          popup.textContent = `${timeLeft}`;
+
+
+                                          if (timeLeft === 0) {
+                                            clearInterval(timerId);
+                                            popup.textContent = 'X'
+                                            btn.style.display = 'block'
+
+
+
+                                          }
+                                        }
+
+                                        
+                                        timerId = setInterval(updateProgress, 1000);
+                                        btn.addEventListener('click', function() {
+                                                document.getElementById("mm_fs_banner").remove();
+                                            });
                                     },
                                     params: {
                                         pp: 'g',
@@ -103,31 +131,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         })
 
                         document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
-                            var btn = document.querySelector('.mm_fs_btn')
-
-                            let timeLeft = 4;
-                            let timerId;
-                            let popup = document.querySelector('#mm_fs_close-button')
-                            function updateProgress() {
-                              timeLeft--;
-                              popup.textContent = `${timeLeft}`;
-
-
-                              if (timeLeft === 0) {
-                                clearInterval(timerId);
-                                popup.textContent = 'X'
-                                btn.style.display = 'block'
-
-
-
-                              }
-                            }
-
-                            
-                            timerId = setInterval(updateProgress, 1000);
-                            btn.addEventListener('click', function() {
-                                    document.getElementById("mm_fs_banner").remove();
-                                });
                     },
                     params: {
                         pp: 'h',
