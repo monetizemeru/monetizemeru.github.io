@@ -17,8 +17,8 @@ if (article_block != null) {
                     const mm_adfox_id = 'monetizeme-desktop-inread-article-' + mmId
                     desktop_in_article.classList.add('mm_desktop_content');
                     desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
-                    desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 40px 40px;');
-                    desktop_in_article.innerHTML = "<div id='adfox_168977481108888621'></div>";
+                    desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;');
+                    desktop_in_article.innerHTML = "<div id='adfox_168977481108888621' style='width:inherit'></div>";
 
                     window.yaContextCb.push(()=>{
                             Ya.adfoxCode.create({
