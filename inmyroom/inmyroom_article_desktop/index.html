@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <!-- saved from url=(0089)https://www.inmyroom.ru/posts/36887-kak-sdelat-kvartiru-v-starom-fonde-superfunkcionalnoj -->
 <html lang="ru" prefix="og: http://ogp.me/ns#" class="no-touch-device popmechanic-desktop popmechanic-landscape popmechanic-loaded"><head>
+    <!--В <head> сайта один раз добавьте код загрузчика-->
+    <script>window.yaContextCb = window.yaContextCb || []</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {
 const article_block = document.querySelector(".b-Article_content")
@@ -14,13 +18,34 @@ if (article_block != null) {
                     desktop_in_article.classList.add('mm_desktop_content');
                     desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
                     desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 40px 40px;');
-                    desktop_in_article.innerHTML = "<div class='mm-container' style='text-align: center;text-transform: uppercase;font-size: 0.7rem;'>Реклама - продолжение ниже <div id='monetizeme-desktop-inread-article-" + mmId + "' class='adfox_inread_desktop' style='width: 520px;height: 200px;background: #ffd100;margin-top: 20px;justify-content: center;display: grid;/* text-align: center; */align-content: center;font-size: 4rem;text-transform: capitalize;'> Banner</div></div>";
+                    desktop_in_article.innerHTML = "<div id='adfox_168977481108888621'></div>";
 
+                    window.yaContextCb.push(()=>{
+                            Ya.adfoxCode.create({
+                                ownerId: 1458764,
+                                containerId: 'adfox_168977481108888621',
+                                params: {
+                                    p1: 'cxsrk',
+                                    p2: 'iegj',
+                                    pfc: 'fhnzi',
+                                    pfb: 'psywd'
+                                }
+                            })
+                        })
 
                     article_block.insertBefore(desktop_in_article, children[i]);
                 }
             }
         })
+    //Удаляем все баннеры в контенте
+    if (document.querySelectorAll("[id^=desktop_in_content_container_]") != null)
+        {document.querySelectorAll("[id^=desktop_in_content_container_]").forEach((element) => 
+            {if(element.children[1].children[0] != document.getElementById("adfox_168962292203196037")) // тут поставить айди кода вставки
+            {
+                element.parentElement.classList.remove("placeholder")
+                element.remove()
+            }
+            })}
 </script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><meta content="239854476109563" property="fb:app_id"><meta content="622308112" property="fb:admins"><meta content="224657370922569" property="fb:pages"><meta name="x-cart-id"><link crossorigin="" href="https://www.google-analytics.com/" rel="dns-prefetch"><link crossorigin="" href="https://mc.yandex.ru/" rel="dns-prefetch"><link crossorigin="" href="https://d2wy8f7a9ursnm.cloudfront.net/" rel="dns-prefetch"><link crossorigin="" href="https://cdn.inmyroom.ru/" rel="dns-prefetch"><link crossorigin="" href="https://assets-prod.inmyroom.ru/" rel="dns-prefetch"><link crossorigin="" href="https://images.cdn.inmyroom.ru/" rel="dns-prefetch"><link crossorigin="" href="https://connect.facebook.net/" rel="dns-prefetch"><link crossorigin="" href="https://static.doubleclick.net/" rel="dns-prefetch"><link crossorigin="" href="https://fonts.gstatic.com/" rel="dns-prefetch"><link crossorigin="" href="https://www.googletagmanager.com/" rel="dns-prefetch"><link crossorigin="" href="https://st.top100.ru/" rel="dns-prefetch"><link crossorigin="" href="https://www.google-analytics.com/" rel="preconnect"><link crossorigin="" href="https://mc.yandex.ru/" rel="preconnect"><link crossorigin="" href="https://d2wy8f7a9ursnm.cloudfront.net/" rel="preconnect"><link crossorigin="" href="https://cdn.inmyroom.ru/" rel="preconnect"><link crossorigin="" href="https://assets-prod.inmyroom.ru/" rel="preconnect"><link crossorigin="" href="https://images.cdn.inmyroom.ru/" rel="preconnect"><link crossorigin="" href="https://connect.facebook.net/" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"><link crossorigin="" href="https://www.googletagmanager.com/" rel="preconnect"><link crossorigin="" href="https://st.top100.ru/" rel="preconnect"><link as="font" crossorigin="" href="https://assets-prod.inmyroom.ru/assets/Montserrat-Regular.f2f703e1.woff2" rel="preload"><link as="font" crossorigin="" href="https://assets-prod.inmyroom.ru/assets/Montserrat-SemiBold.b0dba9cd.woff2" rel="preload"><link as="font" crossorigin="" href="https://assets-prod.inmyroom.ru/assets/Montserrat-Bold.7fd93beb.woff2" rel="preload"><link as="font" crossorigin="" href="https://assets-prod.inmyroom.ru/assets/Montserrat-ExtraBold.14c26f19.woff2" rel="preload"><link crossorigin="" href="https://d2wy8f7a9ursnm.cloudfront.net/" rel="dns-prefetch"><link crossorigin="" href="https://d2wy8f7a9ursnm.cloudfront.net/" rel="preconnect"><link crossorigin="" href="https://www.googletagmanager.com/" rel="dns-prefetch"><meta name="csrf-param" content="authenticity_token">
 <meta name="csrf-token" content="iV8Nvlis/WcPbeMyDTH6hjOLW3+K4FrNr7DeBTuxNIpycZ5LEwevgfvIQgY91i3haP31qORA8hx5NI2Gk1lNMw=="><title>Как сделать квартиру в старом фонде суперфункциональной — INMYROOM</title><meta content="Делимся идеями, реализованными в трешке в сталинке. Свежие идеи дизайна интерьеров, декора, архитектуры на INMYROOM." name="description"><meta content="https://cdn.inmyroom.ru/uploads/post/social_teaser/29/296a/main_296acdcf-c4ef-4f50-a380-f94f5845dfb8.png" property="og:image"><meta content="Как сделать квартиру в старом фонде суперфункциональной — INMYROOM" property="og:title"><meta content="Делимся идеями, реализованными в трешке в сталинке. Свежие идеи дизайна интерьеров, декора, архитектуры на INMYROOM." property="og:description"><meta content="https://www.inmyroom.ru/posts/36887-kak-sdelat-kvartiru-v-starom-fonde-superfunkcionalnoj" property="og:url"><meta content="INMYROOM.ru" property="og:site_name"><meta content="article" property="og:type"><meta content="summary_large_image" property="twitter:card"><meta content="@INMYROOM_ru" property="twitter:site"><meta content="@INMYROOM_ru" property="twitter:author"><link href="https://cdn.inmyroom.ru/uploads/post/social_teaser/29/296a/main_296acdcf-c4ef-4f50-a380-f94f5845dfb8.png" rel="image_src"><link rel="canonical" href="https://www.inmyroom.ru/posts/36887-kak-sdelat-kvartiru-v-starom-fonde-superfunkcionalnoj"><meta content="width=1520" name="viewport"><meta content="229aea1ede4d6ac9bd99de8546f4dd6d" name="p:domain_verify"><link href="https://www.inmyroom.ru/favicon.png?v=4" rel="shortcut icon" type="image/x-icon"><link rel="alternate" type="application/atom+xml" title="ATOM" href="https://www.inmyroom.ru/?format=atom"><link rel="stylesheet" media="screen" href="./index_files/bundle.site.desktop.ed5a1144.css"><link href="./index_files/section.site.desktop.posts.15d27e95.css" media="all" rel="stylesheet" type="text/css">

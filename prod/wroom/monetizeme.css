@@ -46,6 +46,9 @@
 	text-transform: uppercase;
 	letter-spacing: 0.5rem;
 }
+#mm_fs_container{
+	max-height: 75%;
+}
 
 .monetizeme-block-top {
 	width: 100%;
@@ -100,7 +103,7 @@
 	z-index: 999;
 	transition: all 0.5s;
 	bottom: 0;
-	max-height: 30vh;
+	max-height: 25vh;
 	top: auto;
 	position: fixed;
 	display: flex;
