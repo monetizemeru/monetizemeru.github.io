@@ -14,7 +14,20 @@ if (article_block != null) {
                     desktop_in_article.classList.add('mm_desktop_content');
                     desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
                     desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 40px 40px;');
-                    desktop_in_article.innerHTML = "<div class='mm-container' style='text-align: center;text-transform: uppercase;font-size: 0.6rem;'>Реклама - продолжение ниже <div id='monetizeme-desktop-inread-article-" + mmId + "' class='adfox_inread_desktop' style='width: 300px;height: 300px;background: #ffd100;margin-top: 20px;justify-content: center;display: grid;/* text-align: center; */align-content: center;font-size: 4rem;text-transform: capitalize;'> Banner</div></div>";
+                    desktop_in_article.innerHTML = "<div id='adfox_16898672523868914' style='width:inherit'></div>";
+
+                    window.yaContextCb.push(()=>{
+                            Ya.adfoxCode.create({
+                                ownerId: 1458764,
+                                containerId: 'adfox_16898672523868914',
+                                params: {
+                                    p1: 'cyhvt',
+                                    p2: 'ihug',
+                                    pfc: 'fhnzi',
+                                    pfb: 'pyxut'
+                                }
+                            })
+                        })
 
 
                     article_block.insertBefore(desktop_in_article, children[i]);
