@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donation Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .donation-info {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .copy-button {
+      cursor: pointer;
+      background-color: #252525;
+      color: white;
+      border: none;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="donation-info">
+    <p>If you'd like to make a donation in GEL, USD, or EUR, please use the following details:</p>
+    <p>IBAN: GE16BG0000000534078642 <button class="copy-button" onclick="copyToClipboard('GE16BG0000000534078642')">Copy</button></p>
+    <p>Beneficiary's name: ROMAN CHKHATARASHVILI <button class="copy-button" onclick="copyToClipboard('ROMAN CHKHATARASHVILI')">Copy</button></p>
+  </div>
+  
+  <div class="donation-info">
+    <p>For donations in RUB, kindly use the card number: 5536 9138 0457 3919 <button class="copy-button" onclick="copyToClipboard('5536 9138 0457 3919')">Copy</button></p>
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('Copied to clipboard: ' + text);
+    }
+  </script>
+</body>
+</html>
