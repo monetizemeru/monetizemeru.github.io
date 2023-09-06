@@ -1,0 +1,309 @@
+<style>
+    .parallax-banner {
+      width: 100%;
+      border-radius: 0.5rem;
+
+      /* Adjust the height as needed */
+    }
+    .sticky-banner-top,
+    .sticky-banner-bottom {
+      position: fixed;
+      justify-content: center;
+      background-color: #f7f7f7; /* Replace with the desired background color */
+      transition: all 0.5s;
+      margin:0px !important;
+    }
+    .sticky-banner-top {
+      top: 4rem;
+      z-index: 100;
+      transform: translateY(0px);
+
+    }
+    .sticky-banner-top.collapsed {
+      transform: translateY(-250px)
+
+    }
+
+
+    .sticky-banner-bottom {
+      bottom: 0;
+      z-index: 9999;
+      transform: translateY(0px);
+    }
+    .sticky-banner-bottom.collapsed {
+      transform: translateY(500px);
+    }
+    .button-bottom-close {
+      position: absolute;
+      bottom: auto !important;
+      z-index: 99999999;
+      top: -3rem;
+      right: 0;
+      width: 5rem;
+      height: 5rem;
+      cursor: pointer;
+    }
+
+    .mm_button_bottom{
+      height: 1.3rem !important;
+      position: absolute;
+      width: 44px;
+      right: 0.5rem;
+      border: none;
+      background-size: 13px 13px;
+      background-position: 9px;
+      background-color: #ffffffde;
+      background-repeat: no-repeat;
+      box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
+      color: #777;
+      bottom: auto !important;
+      top: -1.3rem;
+      border-radius: 0px 0px 10px 10px;
+      font-size: 0.9rem;
+      font-family: verdana;
+      transform: rotate(180deg);
+    }
+    .button-top-close {
+      position: absolute;
+      top: auto !important;
+      z-index: 99999999;
+      bottom: -3rem;
+      right: 0;
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .mm_button_top{
+      height: 1.3rem !important;
+      position: absolute;
+      width: 44px;
+      right: 0.5rem;
+      left: auto;
+      border: none;
+      background-size: 13px 13px;
+      background-position: 9px;
+      background-color: #ffffffde;
+      background-repeat: no-repeat;
+      box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
+      color: #777;
+      top: auto !important;
+      bottom: -1.3rem;
+      border-radius: 0 0 10px 10px !important;
+      font-size: 17px;
+      font-family: verdana;
+
+    }
+    #sticky_b{
+    	contain: content;
+    	border-radius: 0.5rem 0.5rem 0 0
+    }
+    #sticky_t{
+    	contain: content;
+    	border-radius: 0px 0px 0.5rem 0.5rem;
+    }
+    .adfox_parallax > div > div > div > div > div > div{
+      transform: translateY(4rem) !important;
+    }
+   
+  </style>
+<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgba(143,100,56,1) 52%, rgba(0,0,0,1) 100%);">
+    <div id="p-banner-monetize-me" class="adfox_parallax"></div>
+</div>
+<script>
+
+  
+
+  var randomId = Math.floor(Math.random() * 1000);
+  document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
+  document.getElementById("parallax-banner").id = "parallax-banner" + "_" + randomId;
+  //Указываем элемент статьи
+
+  var nodes = document.querySelectorAll('.js__buzzoola');
+  var first = nodes[0];
+  var article = nodes[nodes.length- 1]
+
+  //Берем ширину контента
+  width_sticky_banner = article.offsetWidth - 20 + "px"
+
+
+  document.querySelector("#p-banner-monetize-me" + "_" + randomId ).style.width = width_sticky_banner
+  window.yaContextCb.push(()=>{
+      Ya.adfoxCode.create({
+          ownerId: 1458764,
+          containerId: 'p-banner-monetize-me'+ "_" + randomId,
+          params: {
+              p1: 'cxsrk',
+              p2: 'iegj',
+              pfc: 'fhnzi',
+              pfb: 'proed'
+          }
+      })
+  })
+  
+  //Удаляем стиль плейсхолдера
+  document.addEventListener("DOMContentLoaded", function(event) { 
+  article.querySelector("#parallax-banner" + "_" + randomId).parentElement.parentElement.style.background = "none"})
+  
+  if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1){
+
+      var stickyBottom = document.createElement('div');
+      var stickyTop = document.createElement('div');
+
+      stickyTop.classList.add('sticky-banner-top');
+      stickyTop.setAttribute('id', 'sticky_top' + randomId);
+      stickyTop.setAttribute('style', 'width:' + width_sticky_banner);
+      stickyTop.innerHTML = `
+      <div class="button-top-close"></div>
+      <button class="mm_button_top">^</button>
+      <div style="width: 100%;display: flex;justify-content: center;">
+        <div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div>
+      </div>`;
+
+      window.yaContextCb.push(()=>{
+          Ya.adfoxCode.create({
+              ownerId: 1458764,
+              containerId: 'sticky_top' + randomId,
+              params: {
+                  p1: 'cyrmv',
+                  p2: 'ihub',
+                  pfc: 'fhnzi',
+                  pfb: 'pskil'
+              }
+          })
+      })
+
+      article.insertAdjacentElement('afterbegin', stickyTop)
+     
+       //Ставим ширину баннера под контент
+      article.querySelector('#sticky_top' + randomId).style.width = width_sticky_banner
+
+      stickyBottom.classList.add('sticky-banner-bottom','collapsed');
+      stickyBottom.setAttribute('id', 'sticky_bottom' + randomId);
+      stickyBottom.setAttribute('style', 'width:' + width_sticky_banner);
+      stickyBottom.innerHTML = `
+      <div class="button-bottom-close"></div>
+      <button class="mm_button_bottom ">^</button>
+      <div style="width: 100%;display: flex;justify-content: center;">
+        <div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div>
+      </div>`;
+
+
+      window.yaContextCb.push(()=>{
+          Ya.adfoxCode.create({
+              ownerId: 1458764,
+              containerId: 'sticky_bottom' + randomId,
+              params: {
+                  p1: 'cyrmv',
+                  p2: 'ihub',
+                  pfc: 'fhnzi',
+                  pfb: 'psfsi'
+              }
+          })
+      })
+      article.insertAdjacentElement('afterbegin', stickyBottom)
+
+      //Ставим ширину баннера под контент
+      article.querySelector('#sticky_bottom' + randomId).style.width = width_sticky_banner
+
+
+    // Function to check if an element is completely hidden in the viewport
+    function isElementHidden(element) {
+      var rect = element.getBoundingClientRect();
+      return (
+        rect.bottom <= 5 ||
+        rect.top >= window.innerHeight ||
+        rect.right <= 5 ||
+        rect.left >= window.innerWidth
+      );
+    }
+
+    // Function to check if the parallax banner is completely hidden
+    function isParallaxBannerHidden() {
+      var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId );
+      return isElementHidden(parallaxBanner);
+    }
+
+    // Function to handle scroll events
+    function handleScroll() {
+      var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
+      var stickyBannerBottom = article.querySelector('#sticky_bottom' + randomId)
+      var stickyBannerTop = article.querySelector('#sticky_top' + randomId)
+
+      // Check if the parallax banner is completely hidden
+      var parallaxBannerHidden = isParallaxBannerHidden();
+
+      if (parallaxBannerHidden) {
+        // Parallax banner is completely hidden
+
+        // Show sticky banner based on scroll direction
+        if (window.pageYOffset > lastScrollPos) {
+          // Scrolling down
+          if (parallaxBannerReached) {
+            stickyBannerBottom.classList.remove('collapsed')
+            stickyBannerTop.classList.add('collapsed')
+          }
+        } else {
+          // Scrolling up
+          if (parallaxBannerReached) {
+            stickyBannerTop.classList.remove('collapsed')
+            stickyBannerBottom.classList.add('collapsed')
+
+          }
+        }
+      } else {
+        // Parallax banner is partially or fully visible
+
+        // Set the flag to indicate scrolling to parallax banner
+        parallaxBannerReached = true;
+
+        // Hide sticky banners initially
+        stickyBannerTop.classList.add('collapsed');
+        stickyBannerBottom.classList.add('collapsed');
+      }
+
+      // Remember the last scroll position
+      lastScrollPos = window.pageYOffset;
+    }
+
+    // Flag to track if the user has scrolled to the parallax banner
+    var parallaxBannerReached = false;
+
+    var bottomButton = article.querySelector('.button-bottom-close');
+    var topButton = article.querySelector('.button-top-close');
+
+
+    topButton.addEventListener('click', function() {
+        article.querySelector('#sticky_top' + randomId).remove();
+    });
+
+    bottomButton.addEventListener('click', function() {
+        article.querySelector('#sticky_bottom' + randomId).remove();
+    });
+
+    // Attach the scroll event listener
+    var lastScrollPos = 0;
+    window.addEventListener('scroll', handleScroll);
+
+    function checkURLchange(){
+        if(window.location.href != oldURL){
+          if (article.querySelector('#sticky_top' + randomId)){
+            article.querySelector('#sticky_top' + randomId).remove()
+          }
+            if (article.querySelector('#sticky_bottom' + randomId)){
+              article.querySelector('#sticky_bottom' + randomId).remove()
+            }
+            window.removeEventListener('scroll', handleScroll)
+            oldURL = window.location.href;
+        }
+    }
+
+    var oldURL = window.location.href;
+    setInterval(checkURLchange, 500);
+
+    //Ставим ширину баннера под контент
+    
+
+
+  }
+  
+</script>
