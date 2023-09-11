@@ -52,23 +52,22 @@
     }
 
     .mm_button_bottom {
-        height: 1.3rem !important;
         position: absolute;
-        width: 44px;
+        padding: 0 0.6rem;
         right: 0.5rem;
+        left: auto;
         border: none;
         background-size: 13px 13px;
         background-position: 9px;
         background-color: #ffffffde;
         background-repeat: no-repeat;
-        box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
+        box-shadow: 0 -1px 1px 0 rgb(0 0 0 / 20%) !important;
         color: #777;
-        bottom: auto !important;
-        top: -1.3rem;
-        border-radius: 0px 0px 10px 10px;
-        font-size: 0.9rem;
+        bottom: : auto !important;
+        top: -1.5rem;
+        border-radius: 10px 10px 0px 0px !important;
+        font-size: 0.7rem;
         font-family: verdana;
-        transform: rotate(180deg);
         cursor: pointer;
     }
 
@@ -84,9 +83,8 @@
     }
 
     .mm_button_top {
-        height: 1.3rem !important;
         position: absolute;
-        width: 44px;
+        padding: 0 0.6rem;
         right: 0.5rem;
         left: auto;
         border: none;
@@ -97,9 +95,9 @@
         box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
         color: #777;
         top: auto !important;
-        bottom: -1.3rem;
+        bottom: -1.5rem;
         border-radius: 0 0 10px 10px !important;
-        font-size: 17px;
+        font-size: 0.7rem;
         font-family: verdana;
         cursor: pointer;
 
@@ -127,11 +125,7 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me'+ '_' + randomId,
-            params: {
-                p1: 'czgbs',
-                p2: 'iegj',
-                pfc: 'fstox',
-                pfb: 'qumwl'
+            params: { %banner.user2%
             }
         })
     })
@@ -152,16 +146,12 @@
       var stickyTop = document.createElement('div');
       stickyTop.classList.add('sticky-banner-top', 'collapsed');
       stickyTop.setAttribute('id', 'sticky_top');
-      stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+      stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
       window.yaContextCb.push(() => {
           Ya.adfoxCode.create({
               ownerId: 1458764,
               containerId: 'sticky_t',
-              params: {
-                  p1: 'czgbw',
-                  p2: 'inwu',
-                  pfc: 'fstox',
-                  pfb: 'qunep'
+              params: { %banner.user3%
               }
           })
       })
@@ -173,16 +163,12 @@
 
       stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
       stickyBottom.setAttribute('id', 'sticky_bottom');
-      stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+      stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
       window.yaContextCb.push(() => {
           Ya.adfoxCode.create({
               ownerId: 1458764,
               containerId: 'sticky_b',
-              params: {
-                  p1: 'czgbv',
-                  p2: 'ihub',
-                  pfc: 'fstox',
-                  pfb: 'qumwm'
+              params: { %banner.user4%
               }
           })
       })

@@ -20,7 +20,7 @@
 
     .sticky-banner-top {
         top: 4.25rem;
-        z-index: 1;
+        z-index: 3;
         transform: translateY(0px);
 
     }
@@ -45,8 +45,8 @@
         z-index: 99999999;
         top: -3rem;
         right: 0;
-        width: 5rem;
-        height: 5rem;
+        width: 3rem;
+        height: 3rem;
         cursor: pointer;
     }
 
@@ -100,14 +100,19 @@
         font-family: verdana;
 
     }
-    .adfox_parallax>div>div>div>div>div>div {
-        transform: translateY(4.25rem) !important;
+    .adfox_parallax  > div > div > div:nth-child(1) > div > div > div {
+        transform: translateY(2.25rem) !important;
     }
 </style>
 <div class="parallax-banner">
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script>
+  //Удаляем floor ad, который есть на сайте
+  if (document.querySelector("[id^=floor_ad]") != null) {
+    window.Ya.adfoxCode.destroy(document.querySelector("[id^=floor_ad]").id)
+    document.querySelector("[id^=floor_ad]").remove()
+  }
     var randomId = Math.floor(Math.random() * 1000);
     document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
 
@@ -132,10 +137,6 @@
     //Ставим отступ для верхнего баннера
     document.querySelector("main").style.paddingTop = "70px"
 
-    //Удаляем floor ad, который есть на сайте
-    if (document.querySelector("[id^=floor_ad]") != null) {
-        document.querySelector("[id^=floor_ad]").remove()
-    }
     //Удаляем верхний билборд
     if (document.querySelector("#mobile_top_billboard")) {
         document.querySelector("#mobile_top_billboard").remove()

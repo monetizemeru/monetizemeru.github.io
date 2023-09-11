@@ -240,12 +240,34 @@
             return isElementHidden(parallaxBanner);
         }
 
+        function isArticleAboveScreen(articleElement) {
+          const articleRect = articleElement.getBoundingClientRect();
+          const screenBottom = window.innerHeight;
+
+          // Check if the bottom of the article is above the screen bottom
+          return articleRect.bottom < screenBottom;
+        }
+
+        // Function to collapse the element
+        function collapseElement(elementToCollapse) {
+          elementToCollapse.classList.add('collapsed') // You can use any other method to hide the element
+        }
+
         var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
         var stickyBannerBottom = article.querySelector("#sticky_bottom" + randomId)
         var stickyBannerTop = article.querySelector("#sticky_top" + randomId)
 
         // Function to handle scroll events
         function handleScroll() {
+
+            var articleElement = document.querySelector('.single-article__container'); // Change this selector accordingly
+            var elementToCollapse = document.querySelector('.sticky-banner-bottom'); // Change this selector accordingly
+
+            if (isArticleAboveScreen(articleElement)) {
+              collapseElement(elementToCollapse);
+            }else{
+                elementToCollapse.classList.remove('collapsed')
+            }
 
             // Check if the parallax banner is completely hidden
             var parallaxBannerHidden = isParallaxBannerHidden();
@@ -288,6 +310,8 @@
 
             // Remember the last scroll position
             lastScrollPos = window.pageYOffset;
+
+
         }
 
         // Flag to track if the user has scrolled to the parallax banner
