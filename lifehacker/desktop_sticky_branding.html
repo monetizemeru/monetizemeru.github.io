@@ -50,21 +50,20 @@
     .mm_button_bottom {
         height: 1.3rem !important;
         position: absolute;
-        width: 44px;
+        padding: 0px 10px;
         right: 0.5rem;
         border: none;
         background-size: 13px 13px;
         background-position: 9px;
         background-color: #ffffffde;
         background-repeat: no-repeat;
-        box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
+        box-shadow: 0px -1px 1px 0px rgb(0 0 0 / 20%);
         color: #777;
         bottom: auto !important;
         top: -1.3rem;
-        border-radius: 0px 0px 10px 10px;
-        font-size: 0.9rem;
+        border-radius: 10px 10px 0px 0px;
+        font-size: 12px;
         font-family: verdana;
-        transform: rotate(180deg);
     }
 
     .button-top-close {
@@ -80,7 +79,7 @@
     .mm_button_top {
         height: 1.3rem !important;
         position: absolute;
-        width: 44px;
+        padding: 0px 10px;
         right: 0.5rem;
         left: auto;
         border: none;
@@ -93,7 +92,7 @@
         top: auto !important;
         bottom: -1.3rem;
         border-radius: 0 0 10px 10px !important;
-        font-size: 17px;
+        font-size: 12px;
         font-family: verdana;
 
     }
@@ -175,7 +174,7 @@
 
         stickyTop.classList.add('sticky-banner-top', 'collapsed');
         stickyTop.setAttribute('id', 'sticky_top' + randomId);
-        stickyTop.innerHTML = '<div class="button-top-close"></div><button class="mm_button_top">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t' + randomId + '"class="sticky_t"></div></div>'
+        stickyTop.innerHTML = '<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t' + randomId + '"class="sticky_t"></div></div>'
 
         window.yaContextCb.push(() => {
             Ya.adfoxCode.create({
@@ -198,7 +197,7 @@
 
         stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
         stickyBottom.setAttribute('id', 'sticky_bottom' + randomId);
-        stickyBottom.innerHTML = '<div class="button-bottom-close"></div><button class="mm_button_bottom ">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b' + randomId + '"class="sticky_b"></div></div>';
+        stickyBottom.innerHTML = '<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b' + randomId + '"class="sticky_b"></div></div>';
 
 
         window.yaContextCb.push(() => {
@@ -223,15 +222,20 @@
         function isElementHidden(element) {
             var rect = element.getBoundingClientRect();
             return (
-                rect.bottom <= 50 ||
-                rect.top >= window.innerHeight ||
-                rect.right <= 50 ||
+                rect.bottom <= 350 ||
+                rect.top >= window.innerHeight + 350 ||
+                rect.right <= 5 ||
                 rect.left >= window.innerWidth
             );
         }
 
         // Function to check if the parallax banner is completely hidden
         function isParallaxBannerHidden() {
+            var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
+            return isElementHidden(parallaxBanner);
+        }
+
+        function isSectionBannerHidden() {
             var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
             return isElementHidden(parallaxBanner);
         }
@@ -246,7 +250,7 @@
             // Check if the parallax banner is completely hidden
             var parallaxBannerHidden = isParallaxBannerHidden();
 
-            if (window.pageYOffset > 150 && parallaxBannerHidden && parallaxBannerReached == false){
+            if (window.pageYOffset > 250 && parallaxBannerHidden && parallaxBannerReached == false){
                         stickyBannerTop.classList.remove('collapsed')
                     }
 
@@ -264,7 +268,7 @@
 
                 } else {
                     // Scrolling up
-                    if (parallaxBannerReached ) {
+                    if (parallaxBannerReached && window.pageYOffset > 250) {
                         stickyBannerTop.classList.remove('collapsed')
                         stickyBannerBottom.classList.add('collapsed')
                         console.log ('scroll_up')
