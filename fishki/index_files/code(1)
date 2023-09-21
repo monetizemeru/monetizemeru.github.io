@@ -1,0 +1,12 @@
+var pid = "3080";
+var rnc = 0;
+try {
+    var rpd = parent.document;
+    if (rpd != document) {
+        var rph = rpd.getElementById("mlph"+pid);
+        rnc = rph ? 1 : 0;
+    }
+} catch(e) {};
+if (rnc){
+ setTimeout("document.close();", 1000);
+}

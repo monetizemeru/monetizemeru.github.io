@@ -1,0 +1,9 @@
+var random = Math.floor(Math.random() * 1000000);
+var d = document.getElementById("mlph2260") || document.getElementById("medialand_adland_inline_div2260");
+if (d) {
+   d.innerHTML = '<div id="mlph2780"></div>';
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "//engine.fishki.net/code?pid=2780&gid=28&oin=1&rid=" + random;
+    d.parentNode.insertBefore(s, d);
+}

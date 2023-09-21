@@ -34,7 +34,7 @@ window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
 
 window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
 
-var css = '.desktop_placeholder{min-height:320px;background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px;} .mobile_placeholder{min-height:300px;background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 0px;}',
+var css = '.desktop_placeholder{min-height:320px;background: #f8f9fa;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px;} .mobile_placeholder{min-height:300px;background: #f8f9fa;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 0px;}',
     head = document.head || document.getElementsByTagName('head')[0],
     style = document.createElement('style');
 
@@ -94,9 +94,9 @@ function add_dektop_banners_fc(){
                                         document.getElementById('desktop_in_article_' + mmId).classList.remove('desktop_placeholder')
                                     },
                                     params: {
-                                        pp: 'h',
+                                        pp: 'g',
                                         ps: 'gsuv',
-                                        p2: 'iegj'
+                                        p2: 'indo'
                                     },
                                     lazyLoad: {
                                       fetchMargin: 350,
@@ -180,9 +180,9 @@ function add_dektop_banners_sc(){
                                                             document.getElementById('desktop_in_article_' + mmId).classList.remove('desktop_placeholder')
                                                         },
                                                         params: {
-                                                            pp: 'h',
+                                                            pp: 'g',
                                                             ps: 'gsuv',
-                                                            p2: 'iegj'
+                                                            p2: 'indo'
                                                         },
                                                         lazyLoad: {
                                                           fetchMargin: 350,
@@ -263,9 +263,9 @@ function add_mobile_banners_fc(){
                                         document.getElementById('mobile_in_article_' + mmId).classList.remove('mobile_placeholder')
                                     },
                                     params: {
-                                        pp: 'h',
+                                        pp: 'g',
                                         ps: 'gsuv',
-                                        p2: 'ihug'
+                                        p2: 'inxe'
                                     },
                                     lazyLoad: {
                                       fetchMargin: 300,
@@ -349,9 +349,9 @@ function add_mobile_banners_sc(){
                                                             document.getElementById('mobile_in_article_' + mmId).classList.remove('mobile_placeholder')
                                                         },
                                                         params: {
-                                                            pp: 'h',
+                                                            pp: 'g',
                                                             ps: 'gsuv',
-                                                            p2: 'ihug'
+                                                            p2: 'inxe'
                                                         },
                                                         lazyLoad: {
                                                           fetchMargin: 200,

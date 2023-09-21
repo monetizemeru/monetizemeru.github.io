@@ -1,0 +1,49 @@
+
+<!-- saved from url=(0038)https://en.fishki.net/notification/FCM -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Оповещения Fishki.net</title>
+    <link rel="manifest" href="https://en.fishki.net/notification/manifest.json">
+</head>
+<body>
+<script src="./firebase-app.js"></script>
+<script src="./firebase-messaging.js"></script>
+<script>
+	var fb_project_name = "fishki";
+	var id_user_token = 0;
+  // Initialize Firebase
+  var config_firebase = {
+    apiKey: "AIzaSyBg5RQHihErJsWhb9mRuRo3LbIGRtX-O8c",
+    authDomain: "fishki-net-api-project-608605678670.firebaseapp.com",
+    projectId: "fishki.net:api-project-608605678670",
+    messagingSenderId: "608605678670",
+	publicVapidKey: "BMTtUIHSes2OIXO6G3kMSs0KOhRdsD-jmItSjxdwOsvnE4l2o7v2FZhikYBGwH2AFNnaWyF5NibbyrrM3kqGvTU",
+  };
+	firebase.initializeApp(config_firebase);
+	var messaging = firebase.messaging();
+	messaging.usePublicVapidKey(config_firebase.publicVapidKey); 
+
+</script>
+
+<script>
+function send(val)
+{
+    var ev = val ? 'servicefounded' : 'servicenot';
+    window.parent.postMessage(ev, "*");
+}
+window.onload = function() {
+    if(Notification.permission === 'granted'){
+		var thisToken = window.localStorage.getItem('sentFirebaseMessagingToken'+fb_project_name);
+		if(thisToken){
+			send(1);
+		}
+		else
+			send(0);
+	}
+	else
+		send(0);
+};
+</script>
+
+
+<div id="professor_prebid-root"></div></body></html>

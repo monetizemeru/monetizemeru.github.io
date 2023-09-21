@@ -1,0 +1,20 @@
+(function() {
+
+    var d = document.getElementById('medialand_adland_inline_div_2889') || document.getElementById('mlph2889');
+    if (d) {
+        d.innerHTML = "<div id='mlph3080' style='padding-top: 53px; display: none'></div>";
+    } else {
+        return
+    }
+
+    (function() {
+        var container = document.getElementById('mlph3080'); 
+        if (!container) {
+            setTimeout(arguments.callee, 50);
+            return;
+        }
+        var script_tag = document.createElement('script');
+        script_tag.src = '//engine.fishki.net/code?pid=3080&gid=28&oin=1&rid=311125';
+        container.parentNode.insertBefore(script_tag, container);
+    })();
+})();

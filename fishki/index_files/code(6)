@@ -1,0 +1,18 @@
+(function() {
+  var p = document.getElementById("medialand_adland_inline_div_2780") || document.getElementById("mlph2780");
+  if (!p) {setTimeout(arguments.callee, 300); return}
+  var ph='<div id="yandex_rtb_R-A-1994676-35"></div> <div style="display:none">%tracing_code%</div>';
+  p.innerHTML = ph;
+
+  (function() {
+    var pp = document.getElementById("yandex_rtb_R-A-1994676-35");
+    if (!pp) {setTimeout(arguments.callee, 300); return}
+
+window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-1994676-35',
+    blockId: 'R-A-1994676-35'
+  })
+})
+  })();
+})();

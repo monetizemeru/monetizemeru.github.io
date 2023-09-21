@@ -1,0 +1,32 @@
+(function() {
+
+var p = document.getElementById('medialand_adland_inline_div_3073') || document.getElementById('mlph3073');
+if (!p) {
+    if (window.DOCWRITE_DENY) return;
+    document.write('<div id="mlph3073"></div>');
+    setTimeout(arguments.callee, 300);
+    return;
+}
+
+(function() {
+    try{
+        typeof window.Ya.adfoxCode.create == 'function'
+    } catch(e) {
+        setTimeout(arguments.callee, 300);
+        return;
+    }
+    var ph='<div id="adfox_15742431971687942"></div><div style="display: none">%tracing_code%</div>';
+    p.innerHTML = ph;
+
+    window.Ya.adfoxCode.create({
+        ownerId: 314121,
+        containerId: 'adfox_15742431971687942',
+        params: {
+            pp: 'tml',
+            ps: 'dkmw',
+            p2: 'gmbx'
+        }
+    });
+})()
+
+})()

@@ -1,0 +1,29 @@
+(function() {
+
+var p = document.getElementById('medialand_adland_inline_div_2496') || document.getElementById('mlph2496');
+if (!p) {
+    if (window.DOCWRITE_DENY) return;
+    document.write('<div id="mlph2496"></div>');
+    setTimeout(arguments.callee, 300);
+    return;
+}
+
+var ph='<ins class="mrg-tag" style="display:inline-block;text-decoration: none;" data-ad-client="ad-230527" data-ad-slot="230527"></ins><div id="mlph2781"></div><div style="display: none"><img src="https://engine.fishki.net/action?bid=32075&pid=2496&rid=668254&rid2=1406237352&jlt=on" vspace="0" hspace="0" width="0" height="0"></div>';
+p.innerHTML = ph;
+
+function add_script(url, node, extra={}) {
+    var s = document.createElement('script');
+    s.type ='text/javascript';
+    s.async = true;
+    s.src = url;
+    for (var a in extra) {
+        if (!extra.hasOwnProperty(a)) continue;
+        s[a] = extra[a];
+    }
+    node.parentNode.insertBefore(s, node);
+}
+
+add_script("https://ad.mail.ru/static/ads-async.js", p);
+(MRGtag = window.MRGtag || []).push({})
+
+})()
