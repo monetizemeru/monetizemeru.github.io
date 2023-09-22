@@ -154,7 +154,7 @@
         var stickyTop = document.createElement('div');
         width_sticky_banner = article.offsetWidth + "px"
 
-        stickyTop.classList.add('sticky-banner-top');
+        stickyTop.classList.add('sticky-banner-top', 'collapsed');
         stickyTop.setAttribute('id', 'sticky_top' + randomId);
         stickyTop.innerHTML = '<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t' + randomId + '"class="sticky_t"></div></div>'
 
