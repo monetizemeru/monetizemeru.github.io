@@ -1,0 +1,297 @@
+<style>
+    .parallax-banner {
+      display: flex;
+      justify-content: center;
+      padding:20px 0px;
+
+      /* Adjust the height as needed */
+    }
+
+    .sticky-banner-top,
+    .sticky-banner-bottom {
+      position: fixed;
+      width: 100%;
+      justify-content: center;
+      background-color: #f1f1f1; /* Replace with the desired background color */
+      left: 0;
+      transition: all 0.5s;
+    }
+
+    .sticky-banner-top {
+      top: 64px;
+      z-index: 1;
+      transform: translateY(0px);
+
+    }
+    .sticky-banner-top.collapsed {
+      transform: translateY(-250px)
+
+    }
+
+    .sticky-banner-bottom {
+      bottom: 44px;
+      z-index: 9999;
+      transform: translateY(0px);
+    }
+    .sticky-banner-bottom.collapsed {
+      transform: translateY(500px);
+    }
+    .button-bottom-close {
+      position: absolute;
+      bottom: auto !important;
+      z-index: 99999999;
+      top: -3rem;
+      right: 0;
+      width: 5rem;
+      height: 5rem;
+      cursor: pointer;
+    }
+
+    .mm_button_bottom{
+      height: 1.3rem !important;
+      position: absolute;
+      width: 44px;
+      right: 0;
+      border: none;
+      background-size: 13px 13px;
+      background-position: 9px;
+      background-color: #ffffffde;
+      background-repeat: no-repeat;
+      box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
+      color: #777;
+      bottom: auto !important;
+      top: -1.3rem;
+      border-radius: 0px 0px 10px 10px;
+      font-size: 0.9rem;
+      font-family: verdana;
+      transform: rotate(180deg);
+    }
+    .button-top-close {
+      position: absolute;
+      top: auto !important;
+      z-index: 99999999;
+      bottom: -3rem;
+      right: 0;
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .mm_button_top{
+      height: 1.3rem !important;
+      position: absolute;
+      width: 44px;
+      right: 0;
+      left: auto;
+      border: none;
+      background-size: 13px 13px;
+      background-position: 9px;
+      background-color: #ffffffde;
+      background-repeat: no-repeat;
+      box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
+      color: #777;
+      top: auto !important;
+      bottom: -1.3rem;
+      border-radius: 0 0 10px 10px !important;
+      font-size: 17px;
+      font-family: verdana;
+
+    }
+  </style>
+<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgb(29 37 48) 52%, rgb(0, 0, 0) 100%);">
+    <div id="p-banner-monetize-me" class="adfox_parallax"></div>
+</div>
+<script>
+    var randomId = Math.floor(Math.random() * 1000);
+    document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
+    document.getElementById("parallax-banner").id = "parallax-banner" + "_" + randomId;
+
+    var nodes = document.querySelectorAll('.articleBody');
+    var first = nodes[0];
+    var article = nodes[nodes.length - 1]
+
+    width_sticky_banner = article.offsetWidth  + "px"
+
+
+    document.querySelector("#p-banner-monetize-me" + "_" + randomId).style.width = width_sticky_banner
+    window.yaContextCb.push(() => {
+        Ya.adfoxCode.create({
+            ownerId: 1458764,
+            containerId: 'p-banner-monetize-me' + "_" + randomId,
+            params: {
+                p1: 'czlap',
+                p2: 'iegj',
+                pfc: 'fulnt',
+                pfb: 'qxzpk'
+            }
+        })
+    })
+
+    if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
+
+        var stickyBottom = document.createElement('div');
+        var stickyTop = document.createElement('div');
+        width_sticky_banner = article.offsetWidth + "px"
+
+        stickyTop.classList.add('sticky-banner-top');
+        stickyTop.setAttribute('id', 'sticky_top' + randomId);
+        stickyTop.innerHTML = '<div class="button-top-close"></div><button class="mm_button_top">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t' + randomId + '"class="sticky_t"></div></div>'
+
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'sticky_t' + randomId,
+                params: {
+                    p1: 'czlan',
+                    p2: 'inwu',
+                    pfc: 'fulnt',
+                    pfb: 'qxzpm'
+                }
+            })
+        })
+
+        article.insertAdjacentElement('afterbegin', stickyTop)
+        article.querySelector('#sticky_top' + randomId).style.width = width_sticky_banner
+
+
+        stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
+        stickyBottom.setAttribute('id', 'sticky_bottom' + randomId);
+        stickyBottom.innerHTML = '<div class="button-bottom-close"></div><button class="mm_button_bottom ">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b' + randomId + '"class="sticky_b"></div></div>';
+
+
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'sticky_b' + randomId,
+                params: {
+                    p1: 'czlao',
+                    p2: 'ihub',
+                    pfc: 'fulnt',
+                    pfb: 'qxzpl'
+                }
+            })
+        })
+        article.insertAdjacentElement('afterbegin', stickyBottom)
+
+        article.querySelector('#sticky_bottom' + randomId).style.width = width_sticky_banner
+
+        function isElementHidden(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.bottom <= 5 ||
+                rect.top >= window.innerHeight ||
+                rect.right <= 5 ||
+                rect.left >= window.innerWidth
+            );
+        }
+        function isArticleAboveScreen(articleElement) {
+            const articleRect = articleElement.getBoundingClientRect();
+            const screenBottom = window.innerHeight;
+
+            // Check if the bottom of the article is above the screen bottom
+            return articleRect.bottom < screenBottom;
+        }
+
+
+        function isArticleBelowScreenTop(articleElement) {
+          const articleRect = articleElement.getBoundingClientRect();
+          const screenTop = 0;
+          return articleRect.top > screenTop;
+        }
+
+        function isParallaxBannerHidden() {
+            var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
+            return isElementHidden(parallaxBanner);
+        }
+
+        // Function to handle scroll events
+        function handleScroll() {
+            var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
+            var stickyBannerBottom = article.querySelector("#sticky_bottom" + randomId)
+            var stickyBannerTop = article.querySelector("#sticky_top" + randomId)
+
+            // Check if the parallax banner is completely hidden
+            var parallaxBannerHidden = isParallaxBannerHidden();
+
+            if (parallaxBannerHidden) {
+                // Parallax banner is completely hidden
+
+                // Show sticky banner based on scroll direction
+                if (window.pageYOffset > lastScrollPos) {
+                    // Scrolling down
+                    if (parallaxBannerReached && isArticleAboveScreen(article) != true) {
+                        stickyBannerBottom.classList.remove('collapsed')
+                        stickyBannerTop.classList.add('collapsed')
+                    }
+                    if (isArticleAboveScreen(article)){
+                      stickyBannerBottom.classList.add('collapsed')
+                    }
+                    if (parallaxBannerReached != true && isArticleBelowScreenTop(article) != true){
+                      stickyBannerTop.classList.remove('collapsed')
+                    }
+                } else {
+                    // Scrolling up
+                    if (parallaxBannerReached && isArticleAboveScreen(article) != true && isArticleBelowScreenTop(article) != true) {
+                        stickyBannerTop.classList.remove('collapsed')
+                        stickyBannerBottom.classList.add('collapsed')
+
+                    }
+                    if (isArticleAboveScreen(article) || isArticleBelowScreenTop(article)){
+                      stickyBannerTop.classList.add('collapsed')
+                    }
+                }
+            } else {
+                // Parallax banner is partially or fully visible
+
+                // Set the flag to indicate scrolling to parallax banner
+                parallaxBannerReached = true;
+
+                // Hide sticky banners initially
+                stickyBannerTop.classList.add('collapsed');
+                stickyBannerBottom.classList.add('collapsed');
+            }
+
+            // Remember the last scroll position
+            lastScrollPos = window.pageYOffset;
+
+        }
+
+        var parallaxBannerReached = false;
+        var bottomButton = article.querySelector('.button-bottom-close');
+        var topButton = article.querySelector('.button-top-close');
+
+        topButton.addEventListener('click', function() {
+            article.querySelector('#sticky_top' + randomId).remove();
+        });
+
+        bottomButton.addEventListener('click', function() {
+            article.querySelector('#sticky_bottom' + randomId).remove();
+        });
+        var lastScrollPos = 0;
+        window.addEventListener('scroll', handleScroll);
+
+        var container = document.querySelector('main');
+
+        var observer = new MutationObserver(function(mutationsList) {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    for (const addedNode of mutation.addedNodes) {
+                        if (addedNode instanceof HTMLElement && addedNode.tagName === 'DIV') {
+                          window.removeEventListener('scroll', handleScroll)
+                          if (document.querySelector("#sticky_top" + randomId)) {
+                              document.querySelector("#sticky_top" + randomId).remove()
+                              
+                              console.log('Удаляем верхний')
+                          }
+                          if (document.querySelector("#sticky_bottom" + randomId)) {
+                              document.querySelector("#sticky_bottom" + randomId).remove()
+
+                              console.log('Удаляем нижний')
+                          }
+                        }
+                      }
+                    }
+                  }
+                })
+        observer.observe(container, { childList: true });
+    }
+</script>
