@@ -2,22 +2,25 @@
     .parallax-banner {
         width: 100%;
         border-radius: 0.5rem;
+
+        /* Adjust the height as needed */
     }
 
     .sticky-banner-top,
     .sticky-banner-bottom {
-        background: none;
         position: fixed;
         justify-content: center;
         background-color: #f7f7f7;
-        transition: all 0.5s;
+        /* Replace with the desired background color */
+        transition: all 0.8s;
         margin: 0px !important;
     }
 
     .sticky-banner-top {
-        top: 4rem;
-        z-index: 100;
+        top: 0rem;
+        z-index: 3;
         transform: translateY(0px);
+        background: none;
 
     }
 
@@ -30,6 +33,7 @@
         bottom: 0;
         z-index: 9999;
         transform: translateY(0px);
+        background: none;
     }
 
     .sticky-banner-bottom.collapsed {
@@ -48,23 +52,24 @@
     }
 
     .mm_button_bottom {
-        height: 1.3rem !important;
         position: absolute;
-        width: 44px;
+        padding: 0.3rem 0.7rem;
         right: 0.5rem;
+        left: auto;
         border: none;
         background-size: 13px 13px;
         background-position: 9px;
         background-color: #ffffffde;
         background-repeat: no-repeat;
-        box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
+        box-shadow: 0 -1px 1px 0 rgb(0 0 0 / 20%) !important;
         color: #777;
-        bottom: auto !important;
-        top: -1.3rem;
-        border-radius: 0px 0px 10px 10px;
-        font-size: 0.9rem;
+        bottom: : auto !important;
+        top: -1.2rem;
+        border-radius: 10px 10px 0px 0px !important;
+        font-size: 0.6rem;
         font-family: verdana;
-        transform: rotate(180deg);
+        cursor: pointer;
+        height: auto !important;
     }
 
     .button-top-close {
@@ -75,47 +80,46 @@
         right: 0;
         width: 5rem;
         height: 5rem;
+        cursor: pointer;
     }
 
     .mm_button_top {
-        height: 1.3rem !important;
-        position: absolute;
-        width: 44px;
-        right: 0.5rem;
-        left: auto;
-        border: none;
-        background-size: 13px 13px;
-        background-position: 9px;
-        background-color: #ffffffde;
-        background-repeat: no-repeat;
-        box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
-        color: #777;
-        top: auto !important;
-        bottom: -1.3rem;
-        border-radius: 0 0 10px 10px !important;
-        font-size: 17px;
-        font-family: verdana;
+      position: absolute;
+      padding: 0.3rem 0.7rem;
+      right: 0.5rem;
+      left: auto;
+      border: none;
+      background-size: 13px 13px;
+      background-position: 9px;
+      background-color: #ffffffde;
+      background-repeat: no-repeat;
+      box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
+      color: #777;
+      top: auto !important;
+      bottom: -1.2rem;
+      border-radius: 0 0 10px 10px !important;
+      font-size: 0.6rem;
+      font-family: verdana;
+      cursor: pointer;
+      height: auto !important;
 
     }
 
     .sticky_b {
         contain: content;
-        border-radius: 0.5rem 0.5rem 0 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        border-radius: 0.5rem 0.5rem 0 0
     }
 
     .sticky_t {
         contain: content;
         border-radius: 0px 0px 0.5rem 0.5rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
     }
-
+    .sticky-banner-top img,
+    .sticky-banner-bottom img{
+      margin: auto !important;
+    }
 </style>
-<div class="parallax-banner" id="parallax-banner" style="%banner.user5%">
+<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgb(29 37 48) 52%, rgb(0, 0, 0) 100%);">
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script>
@@ -125,7 +129,7 @@
 
     var nodes = document.querySelectorAll('.articleBody');
     var first = nodes[0];
-    var article = nodes[nodes.length - 2]
+    var article = nodes[nodes.length - 1]
 
     width_sticky_banner = article.offsetWidth  + "px"
 
@@ -148,11 +152,11 @@
 
         var stickyBottom = document.createElement('div');
         var stickyTop = document.createElement('div');
-        width_sticky_banner = article.offsetWidth - 20 + "px"
+        width_sticky_banner = article.offsetWidth + "px"
 
         stickyTop.classList.add('sticky-banner-top');
         stickyTop.setAttribute('id', 'sticky_top' + randomId);
-        stickyTop.innerHTML = '<div class="button-top-close"></div><button class="mm_button_top">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t' + randomId + '"class="sticky_t"></div></div>'
+        stickyTop.innerHTML = '<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t' + randomId + '"class="sticky_t"></div></div>'
 
         window.yaContextCb.push(() => {
             Ya.adfoxCode.create({
@@ -173,7 +177,7 @@
 
         stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
         stickyBottom.setAttribute('id', 'sticky_bottom' + randomId);
-        stickyBottom.innerHTML = '<div class="button-bottom-close"></div><button class="mm_button_bottom ">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b' + randomId + '"class="sticky_b"></div></div>';
+        stickyBottom.innerHTML = '<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b' + randomId + '"class="sticky_b"></div></div>';
 
 
         window.yaContextCb.push(() => {
@@ -201,36 +205,76 @@
                 rect.left >= window.innerWidth
             );
         }
+        function isArticleAboveScreen(articleElement) {
+            const articleRect = articleElement.getBoundingClientRect();
+            const screenBottom = window.innerHeight;
+
+            // Check if the bottom of the article is above the screen bottom
+            return articleRect.bottom < screenBottom;
+        }
+
+
+        function isArticleBelowScreenTop(articleElement) {
+          const articleRect = articleElement.getBoundingClientRect();
+          const screenTop = 0;
+          return articleRect.top > screenTop;
+        }
 
         function isParallaxBannerHidden() {
             var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
             return isElementHidden(parallaxBanner);
         }
 
-        var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
-        var stickyBannerBottom = article.querySelector("#sticky_bottom" + randomId)
-        var stickyBannerTop = article.querySelector("#sticky_top" + randomId)
-
+        // Function to handle scroll events
         function handleScroll() {
+            var parallaxBanner = article.querySelector("#parallax-banner" + "_" + randomId);
+            var stickyBannerBottom = article.querySelector("#sticky_bottom" + randomId)
+            var stickyBannerTop = article.querySelector("#sticky_top" + randomId)
+
+            // Check if the parallax banner is completely hidden
             var parallaxBannerHidden = isParallaxBannerHidden();
+
             if (parallaxBannerHidden) {
+                // Parallax banner is completely hidden
+
+                // Show sticky banner based on scroll direction
                 if (window.pageYOffset > lastScrollPos) {
-                    if (parallaxBannerReached) {
+                    // Scrolling down
+                    if (parallaxBannerReached && isArticleAboveScreen(article) != true) {
                         stickyBannerBottom.classList.remove('collapsed')
                         stickyBannerTop.classList.add('collapsed')
                     }
+                    if (isArticleAboveScreen(article)){
+                      stickyBannerBottom.classList.add('collapsed')
+                    }
+                    if (parallaxBannerReached != true && isArticleBelowScreenTop(article) != true){
+                      stickyBannerTop.classList.remove('collapsed')
+                    }
                 } else {
-                    if (parallaxBannerReached) {
+                    // Scrolling up
+                    if (parallaxBannerReached && isArticleAboveScreen(article) != true && isArticleBelowScreenTop(article) != true) {
                         stickyBannerTop.classList.remove('collapsed')
                         stickyBannerBottom.classList.add('collapsed')
+
+                    }
+                    if (isArticleAboveScreen(article) || isArticleBelowScreenTop(article)){
+                      stickyBannerTop.classList.add('collapsed')
                     }
                 }
             } else {
+                // Parallax banner is partially or fully visible
+
+                // Set the flag to indicate scrolling to parallax banner
                 parallaxBannerReached = true;
+
+                // Hide sticky banners initially
                 stickyBannerTop.classList.add('collapsed');
                 stickyBannerBottom.classList.add('collapsed');
             }
+
+            // Remember the last scroll position
             lastScrollPos = window.pageYOffset;
+
         }
 
         var parallaxBannerReached = false;
