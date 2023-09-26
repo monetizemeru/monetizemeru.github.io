@@ -2,7 +2,6 @@
     .parallax-banner {
       display: flex;
       justify-content: center;
-      padding:20px 0px;
 
       /* Adjust the height as needed */
     }
@@ -18,7 +17,7 @@
     }
 
     .sticky-banner-top {
-      top: 64px;
+      top: 0px;
       z-index: 1;
       transform: translateY(0px);
 
@@ -29,7 +28,7 @@
     }
 
     .sticky-banner-bottom {
-      bottom: 44px;
+      bottom: 0px;
       z-index: 9999;
       transform: translateY(0px);
     }
@@ -97,8 +96,8 @@
 
     }
   </style>
-<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgb(29 37 48) 52%, rgb(0, 0, 0) 100%);">
-    <div id="p-banner-monetize-me" class="adfox_parallax"></div>
+<div class="parallax-banner" id="parallax-banner">
+    <div id="p-banner-monetize-me" class="adfox_parallax" style="background: radial-gradient(circle, rgb(29 37 48) 52%, rgb(0, 0, 0) 100%);"></div>
 </div>
 <script>
     var randomId = Math.floor(Math.random() * 1000);
@@ -109,19 +108,16 @@
     var first = nodes[0];
     var article = nodes[nodes.length - 1]
 
-    width_sticky_banner = article.offsetWidth  + "px"
 
-
-    document.querySelector("#p-banner-monetize-me" + "_" + randomId).style.width = width_sticky_banner
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me' + "_" + randomId,
             params: {
-                p1: 'czlap',
-                p2: 'iegj',
+                p1: 'czlia',
+                p2: 'ihug',
                 pfc: 'fulnt',
-                pfb: 'qxzpk'
+                pfb: 'qyxvn'
             }
         })
     })
@@ -132,7 +128,7 @@
         var stickyTop = document.createElement('div');
         width_sticky_banner = article.offsetWidth + "px"
 
-        stickyTop.classList.add('sticky-banner-top');
+        stickyTop.classList.add('sticky-banner-top','collapsed');
         stickyTop.setAttribute('id', 'sticky_top' + randomId);
         stickyTop.innerHTML = '<div class="button-top-close"></div><button class="mm_button_top">^</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t' + randomId + '"class="sticky_t"></div></div>'
 
@@ -141,16 +137,16 @@
                 ownerId: 1458764,
                 containerId: 'sticky_t' + randomId,
                 params: {
-                    p1: 'czlan',
-                    p2: 'inwu',
+                    p1: 'czlib',
+                    p2: 'ihue',
                     pfc: 'fulnt',
-                    pfb: 'qxzpm'
+                    pfb: 'qyxvo'
                 }
             })
         })
 
         article.insertAdjacentElement('afterbegin', stickyTop)
-        article.querySelector('#sticky_top' + randomId).style.width = width_sticky_banner
+
 
 
         stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
@@ -163,16 +159,15 @@
                 ownerId: 1458764,
                 containerId: 'sticky_b' + randomId,
                 params: {
-                    p1: 'czlao',
-                    p2: 'ihub',
+                    p1: 'czlic',
+                    p2: 'ihuf',
                     pfc: 'fulnt',
-                    pfb: 'qxzpl'
+                    pfb: 'qyxvp'
                 }
             })
         })
         article.insertAdjacentElement('afterbegin', stickyBottom)
 
-        article.querySelector('#sticky_bottom' + randomId).style.width = width_sticky_banner
 
         function isElementHidden(element) {
             var rect = element.getBoundingClientRect();

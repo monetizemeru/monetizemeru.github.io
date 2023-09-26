@@ -71,6 +71,40 @@
         cursor: pointer;
         height: auto !important;
     }
+    .mm_marker_bottom{
+        padding: 0rem 0.4rem;
+        border: none;
+        top: -1rem;
+        line-height: initial;
+        position: absolute;
+        left: 0.5rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.05rem;
+        border-radius: 0.3rem 0.3rem 0 0 !important;
+        height: 1rem;
+        background: #ffffffde;
+        width: fit-content;
+        text-align: center;
+        color: #989795;
+        box-shadow: 1px 1px 1px 0px rgb(0 0 0 / 20%) !important;
+    }
+    .mm_marker_top{
+        padding: 0rem 0.4rem;
+        border: none;
+        line-height: initial;
+        position: absolute;
+        left: 0.5rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.05rem;
+        border-radius: 0 0rem 0.3rem 0.3rem !important;
+        height: 1rem;
+        bottom: -1rem;
+        background: #ffffffde;
+        width: fit-content;
+        text-align: center;
+        color: #989795;
+        box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%) !important;
+    }
 
     .button-top-close {
         position: absolute;
@@ -119,7 +153,7 @@
       margin: auto !important;
     }
 </style>
-<div class="parallax-banner" style="background: radial-gradient(circle, rgb(135 96 48) 52%, rgb(0, 0, 0) 100%);">
+<div class="parallax-banner" style="%banner.user5%">
     <div id="p-banner-monetize-me"></div>
 </div>
 <script>
@@ -132,16 +166,13 @@
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me'+ '_' + randomId,
             params: {
-              p1: 'cxsrk',
-              p2: 'iegj',
-              pfc: 'fhnzi',
-              pfb: 'proed'
+              %banner.user2%
             }
         })
     })
 
     //Берем ширину контента
-    width_sticky_banner = document.querySelector("article.article").offsetWidth + "px"
+    width_sticky_banner = document.querySelector('[itemprop="articleBody"]').offsetWidth + "px"
 
     //Указываем элемент статьи
     var article = document.querySelector("article.article")
@@ -159,16 +190,13 @@
       var stickyTop = document.createElement('div');
       stickyTop.classList.add('sticky-banner-top', 'collapsed');
       stickyTop.setAttribute('id', 'sticky_top');
-      stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+      stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
       window.yaContextCb.push(() => {
           Ya.adfoxCode.create({
               ownerId: 1458764,
               containerId: 'sticky_t',
               params: {
-                p1: 'cyrmv',
-                p2: 'ihub',
-                pfc: 'fhnzi',
-                pfb: 'pskil'
+                %banner.user3%
               }
           })
       })
@@ -180,16 +208,13 @@
 
       stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
       stickyBottom.setAttribute('id', 'sticky_bottom');
-      stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+      stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
       window.yaContextCb.push(() => {
           Ya.adfoxCode.create({
               ownerId: 1458764,
               containerId: 'sticky_b',
               params: {
-                p1: 'cyrmv',
-                p2: 'ihub',
-                pfc: 'fhnzi',
-                pfb: 'psfsi'
+                %banner.user4%
               }
           })
       })
@@ -322,7 +347,7 @@
       }
 
       var oldURL = window.location.href;
-      setInterval(checkURLchange, 500);
+      //setInterval(checkURLchange, 500);
 
     }
 

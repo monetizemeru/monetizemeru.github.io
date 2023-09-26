@@ -67,6 +67,40 @@
     font-family: verdana;
     cursor: pointer;
   }
+  .mm_marker_bottom{
+      padding: 0rem 0.4rem;
+      border: none;
+      top: -1rem;
+      line-height: initial;
+      position: absolute;
+      left: 0.5rem;
+      font-size: 0.5rem;
+      letter-spacing: 0.05rem;
+      border-radius: 0.3rem 0.3rem 0 0 !important;
+      height: 1rem;
+      background: #ffffffde;
+      width: fit-content;
+      text-align: center;
+      color: #989795;
+      box-shadow: 1px 1px 1px 0px rgb(0 0 0 / 20%) !important;
+  }
+  .mm_marker_top{
+      padding: 0rem 0.4rem;
+      border: none;
+      line-height: initial;
+      position: absolute;
+      left: 0.5rem;
+      font-size: 0.5rem;
+      letter-spacing: 0.05rem;
+      border-radius: 0 0rem 0.3rem 0.3rem !important;
+      height: 1rem;
+      bottom: -1rem;
+      background: #ffffffde;
+      width: fit-content;
+      text-align: center;
+      color: #989795;
+      box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%) !important;
+  }
 
   .button-top-close {
     position: absolute;
@@ -138,7 +172,7 @@
     var stickyTop = document.createElement('div');
     stickyTop.classList.add('sticky-banner-top', 'collapsed');
     stickyTop.setAttribute('id', 'sticky_top');
-    stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
     window.yaContextCb.push(() => {
       Ya.adfoxCode.create({
         ownerId: 1458764,
@@ -155,7 +189,7 @@
 
     stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
     stickyBottom.setAttribute('id', 'sticky_bottom');
-    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
     window.yaContextCb.push(() => {
       Ya.adfoxCode.create({
         ownerId: 1458764,
