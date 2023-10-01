@@ -2,6 +2,7 @@
   .parallax-banner {
     width: 100%;
     border-radius: 0.5rem;
+    margin: 30px 0px;
   }
 
   .sticky-banner-top,
@@ -14,7 +15,7 @@
   }
 
   .sticky-banner-top {
-    top: 4.25rem;
+    top: 48px;
     z-index: 3;
     transform: translateY(0px);
     background: none;
@@ -41,16 +42,16 @@
     position: absolute;
     bottom: auto !important;
     z-index: 99999999;
-    top: -3rem;
+    top: -2rem;
     right: 0;
     width: 5rem;
-    height: 5rem;
+    height: 2rem;
     cursor: pointer;
   }
 
   .mm_button_bottom {
     position: absolute;
-    padding: 0 0.6rem;
+    padding: 0.1rem 0.6rem;
     right: 0.5rem;
     left: auto;
     border: none;
@@ -61,14 +62,14 @@
     box-shadow: 0 -1px 1px 0 rgb(0 0 0 / 20%) !important;
     color: #777;
     bottom: : auto !important;
-    top: -1.5rem;
+    top: -1rem;
     border-radius: 10px 10px 0px 0px !important;
     font-size: 0.7rem;
     font-family: verdana;
     cursor: pointer;
   }
   .mm_marker_bottom{
-      padding: 0rem 0.4rem;
+      padding: 0rem 0.6rem;
       border: none;
       top: -1rem;
       line-height: initial;
@@ -106,16 +107,16 @@
     position: absolute;
     top: auto !important;
     z-index: 99999999;
-    bottom: -3rem;
+    bottom: -2rem;
     right: 0;
     width: 5rem;
-    height: 5rem;
+    height: 2rem;
     cursor: pointer;
   }
 
   .mm_button_top {
     position: absolute;
-    padding: 0 0.6rem;
+    padding: 0.1rem 0.6rem;
     right: 0.5rem;
     left: auto;
     border: none;
@@ -126,7 +127,7 @@
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
     color: #777;
     top: auto !important;
-    bottom: -1.5rem;
+    bottom: -1rem;
     border-radius: 0 0 10px 10px !important;
     font-size: 0.7rem;
     font-family: verdana;
@@ -147,17 +148,18 @@
       display: flex;
       justify-content: center;
       z-index: 10;
-      font-size: 12px;
-      right: 5px;
+      font-size: 10px;
+      right: 35px;
       top: 5px;
       background: #d1d0cede;
       padding: 0 10px;
       text-align: center;
       border-radius: 30px;
       cursor: pointer;
+      line-height: 23px;
   }
 </style>
-<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgba(143,100,56,1) 52%, rgba(0,0,0,1) 100%);">
+<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgb(50 64 112) 52%, rgba(0,0,0,1) 100%)">
     <div class="close_btn_p" id="close_parallax">Закрыть</div>
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
@@ -169,7 +171,12 @@
     Ya.adfoxCode.create({
       ownerId: 1458764,
       containerId: 'p-banner-monetize-me' + '_' + randomId,
-      params: {%banner.user2%}
+      params: {
+        p1: 'czocf',
+        p2: 'iegj',
+        pfc: 'fsrcc',
+        pfb: 'rdvmo'
+      }
     })
   })
 
@@ -192,7 +199,12 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_t',
-        params: {%banner.user3%}
+        params: {
+          p1: 'czocg',
+          p2: 'inwu',
+          pfc: 'fsrcc',
+          pfb: 'rdvmq'      
+        }
       })
     })
 
@@ -209,7 +221,12 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_b',
-        params: {%banner.user4%}
+        params: {
+          p1: 'czoch',
+          p2: 'ihub',
+          pfc: 'fsrcc',
+          pfb: 'rdvmp'
+        }
       })
     })
     article.insertAdjacentElement('afterbegin', stickyBottom)
@@ -296,10 +313,10 @@
     var parallaxBannerReached = false;
     var bottomButton = document.querySelector('.button-bottom-close');
     var topButton = document.querySelector('.button-top-close');
-    var buttonParalax = article.querySelector("#close_parallax" + "_" + randomId)
+    var buttonParalax = document.querySelector("#close_parallax")
 
     buttonParalax.addEventListener('click', function() {
-        article.querySelector("#parallax-banner" + "_" + randomId).remove();
+        document.querySelector("#parallax-banner").remove();
     });
 
 
