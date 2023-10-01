@@ -151,10 +151,18 @@
     .sticky-banner-bottom img{
       margin: auto !important;
     }
-</style> <div class="parallax-banner" style="background: radial-gradient(circle, rgb(29 37 48) 52%, rgb(0, 0, 0) 100%);">     <div id="p-banner-monetize-me"></div> </div> <script>
+</style> <div class="parallax-banner" style="background: radial-gradient(circle, rgb(29 37 48) 52%, rgb(0, 0, 0) 100%);"><div id="p-banner-monetize-me"></div> </div> <script>
   if(document.querySelector('#adfox_169038227740013767') != null){
     window.Ya.adfoxCode.destroy('adfox_169038227740013767')
   }
+
+  //Указываем элемент статьи
+  var article = document.querySelector("article.article")
+  width_sticky_banner = article.offsetWidth + "px"
+  //Убираем отступ плейсхолдера
+  document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
+
+  document.querySelector('.parallax-banner').style.width = width_sticky_banner
 
   var randomId = Math.floor(Math.random() * 1000);
   document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
@@ -171,13 +179,6 @@
             }
         })
     })
-
-
-    //Указываем элемент статьи
-    var article = document.querySelector("article.article")
-
-    //Убираем отступ плейсхолдера
-    document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
     
 
     
