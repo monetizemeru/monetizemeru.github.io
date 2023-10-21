@@ -167,7 +167,7 @@ function monetizemeAd(stub, load){
                         {
                             document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
                         },
-                        onLoad: function{
+                        onLoad: function(data){
                             load()
                         },
                         onStub: function()

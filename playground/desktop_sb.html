@@ -4,11 +4,8 @@
   }
   .parallax-banner {
     border-radius: 0.5rem;
-    width: calc(100% + 2px);
   }
-  .adfox_parallax{
-    width: calc(100% + 2px);
-  }
+
 
   .sticky-banner-top,
   .sticky-banner-bottom {
@@ -165,7 +162,7 @@
   }
 
 </style>
-<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgb(50 64 112) 52%, rgba(0,0,0,1) 100%)">
+<div class="parallax-banner" id="parallax-banner" style="">
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script>
@@ -183,10 +180,14 @@
       containerId: 'p-banner-monetize-me' + '_' + randomId,
       onRender: function(){
         //Ставим параллакс пропорционально картинке во всю щирину
-        var banner_p_width = document.querySelector('.adfox_parallax').offsetWidth + "px"
+        var banner_p_height = document.querySelector('.adfox_parallax').offsetWidth  + "px"
 
-        document.querySelector(".adfox_parallax > div > div > div").style.height = banner_p_width
-        document.querySelector(".adfox_parallax > div > div > div > div > div > div").style.height = banner_p_width
+        document.querySelector(".adfox_parallax > div > div > div").style.height = banner_p_height
+        document.querySelector(".adfox_parallax > div > div > div > div > div > div").style.height = banner_p_height
+        document.querySelector(".parallax-banner").parentElement.parentElement.parentElement.style.fontSize = "0"
+        document.querySelector(".parallax-banner").parentElement.parentElement.parentElement.style.background = "none"
+        document.querySelector(".parallax-banner").parentElement.parentElement.parentElement.style.border = "none"
+
       },
       params: {
         p1: 'czref',
