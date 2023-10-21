@@ -50,97 +50,97 @@ document.head.appendChild(adriver_script);
 if (window.matchMedia('(max-width: 768px)').matches) {
     document.addEventListener("DOMContentLoaded", function(event) {
         const body = document.querySelector("body")
-        //Adding mobile fs banner 
-        const mobile_fs = document.createElement('div');
-        mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
+        // //Adding mobile fs banner 
+        // const mobile_fs = document.createElement('div');
+        // mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
 
-        window.yaContextCb.push(()=>{
-            Ya.adfoxCode.create({
-                ownerId: 1458764,
-                    sequentialLoading: true,
-                    containerId: 'monetizeme-mobile-fs',
-                    onStub: function() {
-                        const mobile_fs_s = document.createElement('div');
-                        mobile_fs_s.setAttribute('id', 'mm_fs_banner');
-                        mobile_fs_s.setAttribute('style', 'background:#fff;z-index:0;');
-                        mobile_fs_s.innerHTML = `
-                        <div class="mm_fs_marker stub"></div>
-                        <div class="mm_fs_btn"></div>
-                        <div id="mm_fs_close-button" class="stub">4</div>
-                        <div id="mm_fs_container"></div>`;
+        // window.yaContextCb.push(()=>{
+        //     Ya.adfoxCode.create({
+        //         ownerId: 1458764,
+        //             sequentialLoading: true,
+        //             containerId: 'monetizeme-mobile-fs',
+        //             onStub: function() {
+        //                 const mobile_fs_s = document.createElement('div');
+        //                 mobile_fs_s.setAttribute('id', 'mm_fs_banner');
+        //                 mobile_fs_s.setAttribute('style', 'background:#fff;z-index:0;');
+        //                 mobile_fs_s.innerHTML = `
+        //                 <div class="mm_fs_marker stub"></div>
+        //                 <div class="mm_fs_btn"></div>
+        //                 <div id="mm_fs_close-button" class="stub">4</div>
+        //                 <div id="mm_fs_container"></div>`;
 
-                        window.Ya.adfoxCode.hbCallbacks.push(function() {
-                            window.Ya.headerBidding.pushAdUnits([{
-                                code: 'mm_fs_container',
-                                codeType: 'combo',
-                                sizes: [ [0, 0] ],
-                                bids: [ 
-                                { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } },
-                                { bidder: "buzzoola", params: {placementId: "1247268" } } ]
-                            }])
-                            window.yaContextCb.push(function() {
-                                window.Ya.adfoxCode.create({
-                                    ownerId: 1458764,
-                                    sequentialLoading: true,
-                                    containerId: 'mm_fs_container',
-                                    onError:function(error) {
-                                        document.querySelector("#mm_fs_banner").add('stub')
-                                    },
-                                    onStub: function() {
-                                        document.querySelector("#mm_fs_banner").add('stub')
-                                    },
-                                    onRender: function() {
-                                        document.querySelector("#mm_fs_banner").classList.add('view')
-                                        document.querySelector("#mm_fs_banner").removeAttribute("style")
-                                        document.querySelector(".mm_fs_marker").classList.remove("stub")
-                                        document.querySelector("#mm_fs_close-button").classList.remove("stub")
-                                        document.querySelector(".mm_fs_marker").innerHTML += 'advertising'
-                                        var btn = document.querySelector('.mm_fs_btn')
+        //                 window.Ya.adfoxCode.hbCallbacks.push(function() {
+        //                     window.Ya.headerBidding.pushAdUnits([{
+        //                         code: 'mm_fs_container',
+        //                         codeType: 'combo',
+        //                         sizes: [ [0, 0] ],
+        //                         bids: [ 
+        //                         { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } },
+        //                         { bidder: "buzzoola", params: {placementId: "1247268" } } ]
+        //                     }])
+        //                     window.yaContextCb.push(function() {
+        //                         window.Ya.adfoxCode.create({
+        //                             ownerId: 1458764,
+        //                             sequentialLoading: true,
+        //                             containerId: 'mm_fs_container',
+        //                             onError:function(error) {
+        //                                 document.querySelector("#mm_fs_banner").add('stub')
+        //                             },
+        //                             onStub: function() {
+        //                                 document.querySelector("#mm_fs_banner").add('stub')
+        //                             },
+        //                             onRender: function() {
+        //                                 document.querySelector("#mm_fs_banner").classList.add('view')
+        //                                 document.querySelector("#mm_fs_banner").removeAttribute("style")
+        //                                 document.querySelector(".mm_fs_marker").classList.remove("stub")
+        //                                 document.querySelector("#mm_fs_close-button").classList.remove("stub")
+        //                                 document.querySelector(".mm_fs_marker").innerHTML += 'advertising'
+        //                                 var btn = document.querySelector('.mm_fs_btn')
 
-                                        let timeLeft = 4;
-                                        let timerId;
-                                        let popup = document.querySelector('#mm_fs_close-button')
-                                        function updateProgress() {
-                                          timeLeft--;
-                                          popup.textContent = `${timeLeft}`;
-
-
-                                          if (timeLeft === 0) {
-                                            clearInterval(timerId);
-                                            popup.textContent = 'X'
-                                            btn.style.display = 'block'
+        //                                 let timeLeft = 4;
+        //                                 let timerId;
+        //                                 let popup = document.querySelector('#mm_fs_close-button')
+        //                                 function updateProgress() {
+        //                                   timeLeft--;
+        //                                   popup.textContent = `${timeLeft}`;
 
 
+        //                                   if (timeLeft === 0) {
+        //                                     clearInterval(timerId);
+        //                                     popup.textContent = 'X'
+        //                                     btn.style.display = 'block'
 
-                                          }
-                                        }
+
+
+        //                                   }
+        //                                 }
 
                                         
-                                        timerId = setInterval(updateProgress, 1000);
-                                        btn.addEventListener('click', function() {
-                                                document.getElementById("mm_fs_banner").remove();
-                                            });
-                                    },
-                                    params: {
-                                        pp: 'g',
-                                        ps: 'gmdq',
-                                        p2: 'ihud',
-                                    }
-                                })
-                            })
-                        })
+        //                                 timerId = setInterval(updateProgress, 1000);
+        //                                 btn.addEventListener('click', function() {
+        //                                         document.getElementById("mm_fs_banner").remove();
+        //                                     });
+        //                             },
+        //                             params: {
+        //                                 pp: 'g',
+        //                                 ps: 'gmdq',
+        //                                 p2: 'ihud',
+        //                             }
+        //                         })
+        //                     })
+        //                 })
 
-                        document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
-                    },
-                    params: {
-                        pp: 'h',
-                        ps: 'gmdq',
-                        p2: 'ihud',
-                    }
-                })
-        }) 
+        //                 document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
+        //             },
+        //             params: {
+        //                 pp: 'h',
+        //                 ps: 'gmdq',
+        //                 p2: 'ihud',
+        //             }
+        //         })
+        // }) 
 
-        document.body.insertAdjacentElement('afterbegin', mobile_fs)
+        // document.body.insertAdjacentElement('afterbegin', mobile_fs)
 
         //Adding top sticky banner and make him scroll
         const stickyTop = document.createElement('div');
@@ -182,9 +182,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         stickyTop.classList.add('view')
                     },
                     params: {
-                        pp: 'g',
-                        ps: 'gmdq',
-                        p2: 'ihue',
+                        p1: 'cztgt',
+                        p2: 'iqhq',
                     }
                 })
             })
@@ -235,9 +234,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         stickyBottom.classList.add('view')
                     },
                     params: {
-                        pp: 'i',
-                        ps: 'gmdq',
-                        p2: 'ihuf',
+                        p1: 'cztgu',
+                        p2: 'iqhr',
                     }
                 })
             })
@@ -338,7 +336,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_before_articleElement = document.createElement("div");
             mobile_before_articleElement.classList.add('mm_mobile_content');
             mobile_before_articleElement.setAttribute('id', 'mobile_before_article');
-            mobile_before_articleElement.innerHTML = `<div id="monetizeme-mobile-inread-after-cover" style="display:block"></div>`;
+            mobile_before_articleElement.innerHTML = `<div id="monetizeme-mobile-inread-after-cover"></div>`;
             
             window.Ya.adfoxCode.hbCallbacks.push(function() {
                 window.Ya.headerBidding.pushAdUnits([{
@@ -372,9 +370,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             mobile_before_articleElement.classList.add('view')
                         },
                         params: {
-                            pp: 'dkuj',
-                            ps: 'gmdq',
-                            p2: 'ihug',
+                            p1: 'cztgh',
+                            p2: 'inxe',
                         }
                     })
                 })
@@ -426,9 +423,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     document.getElementById('mobile_in_article_' + mmId).classList.add('view')
                                 },
                                 params: {
-                                    pp: 'dkuk',
-                                    ps: 'gmdq',
-                                    p2: 'ihug',
+                                    p1: 'cztgq',
+                                    p2: 'ipvp',
                                 },
                                 lazyLoad: {
                                   fetchMargin: 50,
@@ -483,9 +479,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                         document.getElementById('mobile_in_article_' + mmId).classList.add('view')
                                     },
                                     params: {
-                                        pp: 'dkuk',
-                                        ps: 'gmdq',
-                                        p2: 'ihug',
+                                        p1: 'cztgq',
+                                        p2: 'ipvp',
                                     },
                                     lazyLoad: {
                                       fetchMargin: 50,
@@ -504,7 +499,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 const mobile_article_bottom = document.createElement("div");
                 mobile_article_bottom.classList.add('mm_mobile_content');
                 mobile_article_bottom.setAttribute('id', 'mobile_after_article');
-                mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article" style="display:block"></div>`;
+                mobile_article_bottom.innerHTML = `<div id="monetizeme-mobile-inread-after-article"></div>`;
                 
                 window.Ya.adfoxCode.hbCallbacks.push(function() {
                     window.Ya.headerBidding.pushAdUnits([{
@@ -538,9 +533,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 mobile_article_bottom.classList.add('view')
                             },
                             params: {
-                                pp: 'dkun',
-                                ps: 'gmdq',
-                                p2: 'ihug',
+                                p1: 'cztgq',
+                                p2: 'ipvp',
                             },
                             lazyLoad: {
                               fetchMargin: 50,
@@ -560,7 +554,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_mainpage_articleElement = document.createElement("div");
             mobile_mainpage_articleElement.classList.add('mm_mobile_content');
             mobile_mainpage_articleElement.setAttribute('id', 'mobile_mainpage_article');
-            mobile_mainpage_articleElement.innerHTML = `<div id="monetizeme-mobile-mainpage" style="display:block"></div>`;
+            mobile_mainpage_articleElement.innerHTML = `<div id="monetizeme-mobile-mainpage"></div>`;
 
             window.Ya.adfoxCode.hbCallbacks.push(function() {
                 window.Ya.headerBidding.pushAdUnits([{
@@ -594,9 +588,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             mobile_mainpage_articleElement.classList.add('view')
                         },
                         params: {
-                            pp: 'dkun',
-                            ps: 'gmdq',
-                            p2: 'ihug',
+                            p1: 'cztgq',
+                            p2: 'ipvp',
                         },
                         lazyLoad: {
                           fetchMargin: 200,
@@ -654,9 +647,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 document.getElementById('mobile_in_comments_' + mmId).classList.add('view')
                             },
                             params: {
-                                pp: 'dkuo',
-                                ps: 'gmdq',
-                                p2: 'ihug',
+                                p1: 'cztgq',
+                                p2: 'ipvp',
                             },
                             lazyLoad: {
                               fetchMargin: 50,
@@ -671,7 +663,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const mobile_comments_bottom = document.createElement("div");
             mobile_comments_bottom.classList.add('mm_mobile_content');
             mobile_comments_bottom.setAttribute('id', 'mobile_after_comments');
-            mobile_comments_bottom.innerHTML = `<div id="monetizeme-mobile-after-comments" style="display:block"></div>`;
+            mobile_comments_bottom.innerHTML = `<div id="monetizeme-mobile-after-comments"></div>`;
 
             window.Ya.adfoxCode.hbCallbacks.push(function() {
                 window.Ya.headerBidding.pushAdUnits([{
@@ -705,9 +697,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             mobile_comments_bottom.classList.add('view')
                         },
                         params: {
-                            pp: 'dkup',
-                            ps: 'gmdq',
-                            p2: 'ihug',
+                            p1: 'cztgq',
+                            p2: 'ipvp',
                         },
                         lazyLoad: {
                           fetchMargin: 50,
@@ -732,7 +723,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         stickyBottom.innerHTML = `
         <div class="button-bottom-close-desktop"></div>
         <button class="mm_button_bottom-desktop">x</button>
-        <div id="monetizeme-desktop-sticky-bottom" style="display:block"></div>`;
+        <div id="monetizeme-desktop-sticky-bottom"></div>`;
 
         
         window.Ya.adfoxCode.hbCallbacks.push(function() {
@@ -767,9 +758,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                         stickyBottom.classList.add('view')
                     },
                     params: {
-                        pp: 'i',
-                        ps: 'gmdq',
-                        p2: 'ihub',
+                        p1: 'cztgs',
+                        p2: 'iqhs',
                     }
                 })
             })
@@ -885,7 +875,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             const desktop_before_articleElement = document.createElement("div");
             desktop_before_articleElement.classList.add('mm_desktop_content');
             desktop_before_articleElement.setAttribute('id', 'desktop_before_article');
-            desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" class="adfox_inread_desktop" style="display:block"></div>`;
+            desktop_before_articleElement.innerHTML = `<div id="monetizeme-desktop-inread-after-cover" class="adfox_inread_desktop"></div>`;
 
             window.Ya.adfoxCode.hbCallbacks.push(function() {
                 window.Ya.headerBidding.pushAdUnits([{
@@ -919,9 +909,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                             desktop_before_articleElement.classList.add('view')
                         },
                         params: {
-                            pp: 'dkug',
-                            ps: 'gmdq',
-                            p2: 'iegj',
+                            p1: 'cztgg',
+                            p2: 'indo'
                         },
 
                     })
@@ -977,9 +966,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     document.getElementById('desktop_in_article_' + mmId).classList.add('view')
                                 },
                                 params: {
-                                    pp: 'dkul',
-                                    ps: 'gmdq',
-                                    p2: 'iegj',
+                                    p1: 'cztgr',
+                                    p2: 'ipvo'
                                 },
                                 lazyLoad: {
                                   fetchMargin: 100,
@@ -1034,9 +1022,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                     document.getElementById('desktop_in_article_' + mmId).classList.add('view')
                                 },
                                 params: {
-                                    pp: 'dkul',
-                                    ps: 'gmdq',
-                                    p2: 'iegj',
+                                    p1: 'cztgr',
+                                    p2: 'ipvo',
                                 },
                                 lazyLoad: {
                                   fetchMargin: 100,
@@ -1091,9 +1078,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 desktop_article_bottom.classList.add('view')
                             },
                             params: {
-                                pp: 'dkuh',
-                                ps: 'gmdq',
-                                p2: 'iegj',
+                                p1: 'cztgr',
+                                p2: 'ipvo',
                             },
                             lazyLoad: {
                               fetchMargin: 100,
@@ -1119,7 +1105,6 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 const mm_adfox_id = 'monetizeme-desktop-inread-comments-' + mmId
                 desktop_in_comments.classList.add('mm_desktop_content');
                 desktop_in_comments.setAttribute('id', 'desktop_in_comments_' + mmId);
-                desktop_in_comments.innerHTML = `<div style="display:block;width:800px;height:280px;background:red;"></div>`;
                 desktop_in_comments.innerHTML = "<div id='monetizeme-desktop-inread-comments-" + mmId + "' class='adfox_inread_desktop'></div>";
 
 
@@ -1154,9 +1139,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 document.getElementById('desktop_in_comments_' + mmId).classList.add('view')
                             },
                             params: {
-                                pp: 'dkui',
-                                ps: 'gmdq',
-                                p2: 'iegj',
+                                p1: 'cztgr',
+                                p2: 'ipvo',
                             },
                             lazyLoad: {
                               fetchMargin: 100,
@@ -1205,9 +1189,8 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                                 desktop_comments_bottom.classList.add('view')
                             },
                             params: {
-                                pp: 'dkum',
-                                ps: 'gmdq',
-                                p2: 'iegj',
+                                p1: 'cztgr',
+                                p2: 'ipvo',
                             },
                             lazyLoad: {
                               fetchMargin: 100,
@@ -1222,9 +1205,9 @@ if (window.matchMedia('(max-width: 768px)').matches) {
             after_commentsBlock.insertAdjacentElement("afterend", desktop_comments_bottom);
 
         }
-        setInterval(function() {
-            Ya.adfoxCode.reload(['monetizeme-desktop-sticky-bottom', 'monetizeme-desktop-side-second'], {onlyIfWasVisible: true});
-        }, 30000)
+        // setInterval(function() {
+        //     Ya.adfoxCode.reload(['monetizeme-desktop-sticky-bottom', 'monetizeme-desktop-side-second'], {onlyIfWasVisible: true});
+        // }, 30000)
     })
 
 }

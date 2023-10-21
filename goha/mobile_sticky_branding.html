@@ -3,7 +3,6 @@
         display: flex;
         justify-content: center;
         padding: 20px 0px;
-        margin: 30px 0px;
     }
 
     .sticky-banner-top,
@@ -18,7 +17,7 @@
 
     .sticky-banner-top {
         top: 48px;
-        z-index: 3;
+        z-index: 7;
         transform: translateY(0px);
 
     }
@@ -29,7 +28,7 @@
 
     .sticky-banner-bottom {
         bottom: 0;
-        z-index: 9999;
+        z-index: 999;
         transform: translateY(0px);
     }
 
@@ -41,31 +40,31 @@
         position: absolute;
         bottom: auto !important;
         z-index: 99999999;
-        top: -2rem;
+        top: -3rem;
         right: 0;
-        width: 4rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
         cursor: pointer;
     }
 
     .mm_button_bottom {
-        padding: 0.1rem 0.6rem;
+        height: 1.3rem !important;
         position: absolute;
-        right: 0rem;
+        width: 44px;
+        right: 0;
         border: none;
         background-size: 13px 13px;
         background-position: 9px;
         background-color: #ffffffde;
         background-repeat: no-repeat;
-        box-shadow: 0 -1px 1px 0 rgb(0 0 0 / 20%) !important;
+        box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
         color: #777;
         bottom: auto !important;
-        top: -1rem;
-        border-radius: 0.3rem 0.3rem 0px 0px;
-        letter-spacing: 0.05rem;
-        font-size: 0.5rem;
-        height: 1rem;
+        top: -1.3rem;
+        border-radius: 0px 0px 10px 10px;
+        font-size: 0.9rem;
         font-family: verdana;
+        transform: rotate(180deg);
     }
     .mm_marker_bottom{
         padding: 0rem 0.4rem;
@@ -73,7 +72,7 @@
         top: -1rem;
         line-height: initial;
         position: absolute;
-        left: 0rem;
+        left: 0;
         font-size: 0.5rem;
         letter-spacing: 0.05rem;
         border-radius: 0 0.3rem 0 0 !important;
@@ -106,16 +105,17 @@
         position: absolute;
         top: auto !important;
         z-index: 99999999;
-        bottom: -2rem;
+        bottom: -3rem;
         right: 0;
-        width: 4rem;
-        height: 2rem;
+        width: 5rem;
+        height: 5rem;
     }
 
     .mm_button_top {
-        padding: 0.1rem 0.6rem;
+        height: 1.3rem !important;
         position: absolute;
-        right: 0rem;
+        width: 44px;
+        right: 0;
         left: auto;
         border: none;
         background-size: 13px 13px;
@@ -125,11 +125,9 @@
         box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
         color: #777;
         top: auto !important;
-        height: 1rem;
-        bottom: -1rem;
-        border-radius: 0 0 0.3rem 0.3rem !important;
-        font-size: 0.5rem;
-        letter-spacing: 0.05rem;
+        bottom: -1.3rem;
+        border-radius: 0 0 10px 10px !important;
+        font-size: 17px;
         font-family: verdana;
 
     }
@@ -142,8 +140,6 @@
         window.Ya.adfoxCode.destroy(document.querySelector("[id^=floor_ad]").id)
         document.querySelector("[id^=floor_ad]").remove()
     }
-
-    document.querySelector('.parallax-banner').parentElement.style.overflow = "unset"
 
     var randomId = Math.floor(Math.random() * 1000);
     document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
@@ -169,7 +165,7 @@
     const stickyTop = document.createElement('div');
     stickyTop.classList.add('sticky-banner-top');
     stickyTop.setAttribute('id', 'sticky_top');
-    stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">ЗАКРЫТЬ</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">^</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
@@ -183,7 +179,7 @@
     const stickyBottom = document.createElement('div');
     stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
     stickyBottom.setAttribute('id', 'sticky_bottom');
-    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">ЗАКРЫТЬ</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">^</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
@@ -228,16 +224,10 @@
         var parallaxBanner = document.querySelector('.parallax-banner');
         var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
         var stickyBannerTop = document.querySelector('.sticky-banner-top');
-        var articleElement = document.querySelector('.single-article__content');
+        var articleElement = document.querySelector('.entry-article__article-wrapper');
         var elementToCollapse = document.querySelector('.sticky-banner-bottom');
         
         var parallaxBannerHidden = isParallaxBannerHidden();
-
-        if (isElementHidden(document.querySelector('.top-header-container'))){
-            document.querySelector('.sticky-banner-top').style.top = "0px"
-        }else{
-            document.querySelector('.sticky-banner-top').style.top = "48px"
-        }
 
         if (parallaxBannerHidden) {
             if (window.pageYOffset > lastScrollPos) {

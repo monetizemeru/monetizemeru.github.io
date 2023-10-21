@@ -48,7 +48,7 @@ function monetizemeAd(stub, load){
     window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
 
 
-    var artcicleBlock = document.querySelector("#fishki-video-frame")
+    var artcicleBlock = document.querySelector(".content__text.js-mediator-article")
 
 
     //Mobile codes add
@@ -167,7 +167,7 @@ function monetizemeAd(stub, load){
                         {
                             document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
                         },
-                        onLoad: function(data){
+                        onLoad: function{
                             load()
                         },
                         onStub: function()
@@ -195,7 +195,8 @@ function monetizemeAd(stub, load){
                     })
                 })
             })
-            artcicleBlock.appendChild(mobile_after_cover)
+            artcicleBlock.insertBefore(mobile_after_cover, artcicleBlock.children[6])
         }
     }
 }
+

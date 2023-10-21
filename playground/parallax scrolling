@@ -1,0 +1,12 @@
+let duck = document.querySelector("#p-banner-monetize-me_687 > div > div > div.i8ac32715 > div > div > div");
+window.addEventListener("scroll", function() {
+    let rate = window.scrollY * 1;
+    let rateCloudsPositive = window.scrollY * 3;
+    let rateCloudsNegative = window.scrollY * -3;
+    duck.style.transform = `translateY(${rate}px)`;
+
+
+    // duck.style.transition = '2s';
+    duck.style.transform = `translateY(${rateCloudsNegative}px)`;
+
+});

@@ -1,8 +1,13 @@
 <style>
+  .page-header{
+    z-index: 11;
+  }
   .parallax-banner {
-    width: 100%;
     border-radius: 0.5rem;
-    margin: 30px 0px;
+    width: calc(100% + 2px);
+  }
+  .adfox_parallax{
+    width: calc(100% + 2px);
   }
 
   .sticky-banner-top,
@@ -15,7 +20,7 @@
   }
 
   .sticky-banner-top {
-    top: 48px;
+    top: 85px;
     z-index: 3;
     transform: translateY(0px);
     background: none;
@@ -62,9 +67,9 @@
     box-shadow: 0 -1px 1px 0 rgb(0 0 0 / 20%) !important;
     color: #777;
     bottom: : auto !important;
-    top: -1rem;
+    top: -1.5rem;
     border-radius: 10px 10px 0px 0px !important;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-family: verdana;
     cursor: pointer;
   }
@@ -75,7 +80,7 @@
       line-height: initial;
       position: absolute;
       left: 0.5rem;
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       letter-spacing: 0.05rem;
       border-radius: 0.3rem 0.3rem 0 0 !important;
       height: 1rem;
@@ -91,7 +96,7 @@
       line-height: initial;
       position: absolute;
       left: 0.5rem;
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       letter-spacing: 0.05rem;
       border-radius: 0 0rem 0.3rem 0.3rem !important;
       height: 1rem;
@@ -127,9 +132,9 @@
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
     color: #777;
     top: auto !important;
-    bottom: -1rem;
+    bottom: -1.5rem;
     border-radius: 0 0 10px 10px !important;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-family: verdana;
     cursor: pointer;
   }
@@ -150,7 +155,7 @@
       z-index: 10;
       font-size: 10px;
       right: 35px;
-      top: 35px;
+      top: 5px;
       background: #d1d0cede;
       padding: 0 10px;
       text-align: center;
@@ -158,12 +163,17 @@
       cursor: pointer;
       line-height: 23px;
   }
+
 </style>
-<div class="parallax-banner" id="parallax-banner" style="%banner.user5%">
-    <div class="close_btn_p" id="close_parallax">Закрыть</div>
+<div class="parallax-banner" id="parallax-banner" style="background: radial-gradient(circle, rgb(50 64 112) 52%, rgba(0,0,0,1) 100%)">
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script>
+  if (document.querySelector(".mtt-adhesion-container") != null) {
+      window.Ya.adfoxCode.destroy(document.querySelector("[id^=mtt-adhesion-banner]").id)
+      document.querySelector(".mtt-adhesion-container").remove()
+  }
+
   var randomId = Math.floor(Math.random() * 1000);
   document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
 
@@ -171,18 +181,30 @@
     Ya.adfoxCode.create({
       ownerId: 1458764,
       containerId: 'p-banner-monetize-me' + '_' + randomId,
-      params: {%banner.user2%}
+      onRender: function(){
+        //Ставим параллакс пропорционально картинке во всю щирину
+        var banner_p_width = document.querySelector('.adfox_parallax').offsetWidth + "px"
+
+        document.querySelector(".adfox_parallax > div > div > div").style.height = banner_p_width
+        document.querySelector(".adfox_parallax > div > div > div > div > div > div").style.height = banner_p_width
+      },
+      params: {
+        p1: 'czref',
+        p2: 'iegj',
+        pfc: 'fwmsr',
+        pfb: 'rhgqq'
+      }
     })
   })
 
   //Указываем элемент статьи
-  var article = document.querySelector(".single-article__content")
+  var article = document.querySelector(".article-content")
 
   //Убираем отступ плейсхолдера
   document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
 
   //Берем ширину контента
-  width_sticky_banner = document.querySelector(".single-article__content").offsetWidth + "px"
+  width_sticky_banner = document.querySelector(".article-content").offsetWidth + "px"
 
   if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
     var stickyBottom = document.createElement('div');
@@ -194,7 +216,12 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_t',
-        params: {%banner.user3%}
+        params: {
+          p1: 'czreb',
+          p2: 'inwu',
+          pfc: 'fwmsr',
+          pfb: 'rhgqs'      
+        }
       })
     })
 
@@ -211,7 +238,12 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_b',
-        params: {%banner.user4%}
+        params: {
+          p1: 'czrec',
+          p2: 'ihub',
+          pfc: 'fwmsr',
+          pfb: 'rhgqr'
+        }
       })
     })
     article.insertAdjacentElement('afterbegin', stickyBottom)
@@ -222,7 +254,7 @@
     function isElementHidden(element) {
       var rect = element.getBoundingClientRect();
       return (
-        rect.bottom <= 5 ||
+        rect.bottom <= 500 ||
         rect.top >= window.innerHeight ||
         rect.right <= 5 ||
         rect.left >= window.innerWidth
@@ -250,20 +282,30 @@
 
     function isArticleBelowScreenTop(articleElement) {
       const articleRect = articleElement.getBoundingClientRect();
-      const screenTop = 0;
+      const screenTop = 250;
       return articleRect.top > screenTop;
     }
+
 
     // Function to handle scroll events
     function handleScroll() {
       var parallaxBanner = document.querySelector('.parallax-banner');
       var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
       var stickyBannerTop = document.querySelector('.sticky-banner-top');
-      var articleElement = document.querySelector('.single-article__content');
+      var articleElement = document.querySelector('.article-content');
       var elementToCollapse = document.querySelector('.sticky-banner-bottom');
 
 
       var parallaxBannerHidden = isParallaxBannerHidden();
+
+      if (document.querySelector('.float-teaser') != null){
+          document.querySelector('.sticky-banner-top').style.top = "119px"
+          document.querySelector('.float-teaser').addEventListener('click', function() {
+          document.querySelector('.sticky-banner-top').style.top = "85px"
+      });
+      }else{
+          document.querySelector('.sticky-banner-top').style.top = "85px"
+      }
 
       if (parallaxBannerHidden) {
         if (window.pageYOffset > lastScrollPos) {
@@ -298,11 +340,6 @@
     var parallaxBannerReached = false;
     var bottomButton = document.querySelector('.button-bottom-close');
     var topButton = document.querySelector('.button-top-close');
-    var buttonParalax = document.querySelector("#close_parallax")
-
-    buttonParalax.addEventListener('click', function() {
-        document.querySelector("#parallax-banner").remove();
-    });
 
 
     topButton.addEventListener('click', function() {

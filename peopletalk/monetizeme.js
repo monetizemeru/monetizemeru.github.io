@@ -7,6 +7,13 @@ hb_script.setAttribute('async','true');
 
 document.head.insertAdjacentElement('afterbegin', hb_script)
 
+var astra_script = document.createElement('script');
+
+astra_script.setAttribute('src','https://static.terratraf.com/engine/ssp/hb.js');
+astra_script.setAttribute('async','true');
+
+document.head.insertAdjacentElement('afterbegin', astra_script)
+
 var adfoxBiddersMap = {
   "astralab": "2365332",
   "buzzoola": "2365409",
