@@ -1,0 +1,47 @@
+<style type="text/css">
+	.parallax-banner {
+	  width: 100%;
+	  border-radius: 0.5rem;
+	}
+	.interscroller_banner > div > div > div:first-child {
+	  height: var(--banner-height) !important;
+	}
+	.interscroller_banner > div > div > div > div > div > div{
+	  height: var(--banner-height) !important;
+	}
+	.static_banner > div:first-child{
+	  height: var(--banner-height) !important;
+	}
+	.video_banner > div:first-child{
+	  height: var(--banner-height) !important;
+	}
+	.video_banner > div:first-child > div {
+	    height: auto !important;
+	}
+	.video_banner > div:first-child > div > div > video {
+	    height: auto !important;
+	}
+</style>
+<div class="parallax-banner" id="parallax-banner" style="">
+    <div id="p-banner-monetize-me" class="adfox_parallax"></div>
+</div>
+<script type="text/javascript">
+	var randomId = Math.floor(Math.random() * 1000);
+	document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
+
+	var banner_p_height = Math.round(document.querySelector('.adfox_parallax').offsetWidth * 0.7)
+	document.documentElement.style.setProperty('--banner-height', `${banner_p_height}px`);
+
+	window.yaContextCb.push(() => {
+	  Ya.adfoxCode.create({
+	    ownerId: 1458764,
+	    containerId: 'p-banner-monetize-me' + '_' + randomId ,
+	    params: {
+	    	p1: 'dabxq',
+            p2: 'iegj',
+            pfc: 'fzlkk',
+            pfb: 'ropyx'
+            }
+	  })
+	})
+</script>
