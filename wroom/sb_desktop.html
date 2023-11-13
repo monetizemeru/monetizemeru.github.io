@@ -157,9 +157,26 @@
       cursor: pointer;
       line-height: 23px;
   }
+  .interscroller_banner > div > div > div:first-child {
+    height: var(--banner-height) !important;
+  }
+  .interscroller_banner > div > div > div > div > div > div{
+    height: var(--banner-height) !important;
+  }
+  .static_banner > div:first-child{
+    height: var(--banner-height) !important;
+  }
+  .video_banner > div:first-child{
+    height: var(--banner-height) !important;
+  }
+  .video_banner > div:first-child > div {
+      height: auto !important;
+  }
+  .video_banner > div:first-child > div > div > video {
+      height: auto !important;
+  }
 </style>
-<div class="parallax-banner" id="parallax-banner" style="background: linear-gradient(180deg, rgba(128,137,181,1) 0%, rgba(25,33,70,1) 100%)">
-    <div class="close_btn_p" id="close_parallax">Закрыть</div>
+<div class="parallax-banner" id="parallax-banner" style="">
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script>
@@ -172,16 +189,17 @@
   var randomId = Math.floor(Math.random() * 1000);
   document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
 
+  var banner_p_height = Math.round(document.querySelector('.adfox_parallax').offsetWidth * 0.7)
+  document.documentElement.style.setProperty('--banner-height', `${banner_p_height}px`);
+
   window.yaContextCb.push(() => {
     Ya.adfoxCode.create({
       ownerId: 1458764,
       containerId: 'p-banner-monetize-me' + '_' + randomId,
-      params: {
-        p1: 'cztuf',
-        p2: 'iegj',
-        pfc: 'fxbtr',
-        pfb: 'riipv'
-      }
+      onRender: function(){
+        document.querySelector('#parallax-banner').parentElement.parentElement.style.background = '#fff'
+      },
+      params: {%banner.user2%}
     })
   })
 
@@ -204,12 +222,19 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_t',
-        params: {
-          p1: 'cztub',
-          p2: 'inwu',
-          pfc: 'fxbtr',
-          pfb: 'riipx'      
-        }
+        onRender: function(){
+          var s = document.querySelector(".text-block").offsetWidth 
+          var p = s / 1480
+          var padd = (200 - 200 * p)/2
+          var banner_selector = document.querySelector('.top_width')
+              if (banner_selector == null){
+              }else{
+              banner_selector.style.transform = 'scale(' + p + ')'
+              banner_selector.style.marginTop ='-'+ padd + 'px'
+              banner_selector.style.marginBottom ='-' + padd + 'px'
+              }
+        },
+        params: {%banner.user3%}
       })
     })
 
@@ -226,12 +251,19 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_b',
-        params: {
-          p1: 'cztuc',
-          p2: 'ihub',
-          pfc: 'fxbtr',
-          pfb: 'riipw'
-        }
+        onRender: function(){
+          var s = document.querySelector(".text-block").offsetWidth 
+          var p = s / 1480
+          var padd = (200 - 200 * p)/2
+          var banner_selector = document.querySelector('.bot_width')
+              if (banner_selector == null){
+              }else{
+              banner_selector.style.transform = 'scale(' + p + ')'
+              banner_selector.style.marginTop ='-'+ padd + 'px'
+              banner_selector.style.marginBottom ='-' + padd + 'px'
+              }
+        },
+        params: {%banner.user4%}
       })
     })
     article.insertAdjacentElement('afterbegin', stickyBottom)
@@ -318,11 +350,7 @@
     var parallaxBannerReached = false;
     var bottomButton = document.querySelector('.button-bottom-close_sb');
     var topButton = document.querySelector('.button-top-close_sb');
-    var buttonParalax = document.querySelector("#close_parallax")
 
-    buttonParalax.addEventListener('click', function() {
-        document.querySelector("#parallax-banner").remove();
-    });
 
 
     topButton.addEventListener('click', function() {

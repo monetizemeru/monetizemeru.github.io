@@ -147,6 +147,24 @@
         display: flex;
         justify-content: center;
     }
+    .interscroller_banner > div > div > div:first-child {
+      height: var(--banner-height) !important;
+    }
+    .interscroller_banner > div > div > div > div > div > div{
+      height: var(--banner-height) !important;
+    }
+    .static_banner > div:first-child{
+      height: var(--banner-height) !important;
+    }
+    .video_banner > div:first-child{
+      height: var(--banner-height) !important;
+    }
+    .video_banner > div:first-child > div {
+        height: auto !important;
+    }
+    .video_banner > div:first-child > div > div > video {
+        height: auto !important;
+    }
 
 </style>
 <div class="parallax-banner" id="parallax-banner" style="%banner.user5%">
@@ -156,6 +174,7 @@
     var randomId = Math.floor(Math.random() * 1000);
     document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
     document.getElementById("parallax-banner").id = "parallax-banner" + "_" + randomId;
+
 
     var nodes = document.querySelectorAll('.js__buzzoola');
     var first = nodes[0];
@@ -172,6 +191,9 @@
             params: {%banner.user2%}
         })
     })
+
+    var banner_p_height = Math.round(article.querySelector('.adfox_parallax').offsetWidth * 0.7)
+    document.documentElement.style.setProperty('--banner-height', `${banner_p_height}px`);
 
     if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
 

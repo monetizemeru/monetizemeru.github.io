@@ -133,6 +133,22 @@
     .adfox_parallax  > div > div > div:nth-child(1) > div > div > div {
         transform: translateY(64px) !important;
     }
+    .static_banner > div:first-child {
+      height: 125vw !important;
+      width: 100vw !important;
+    }
+    .video_banner > div:first-child {
+        height: 125vw !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div {
+        height: auto !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div > div > video {
+        height: auto !important;
+        width: 100vw !important;
+    }
   </style> <div class="parallax-banner" id="parallax-banner"><div id="p-banner-monetize-me" class="adfox_parallax" style="%banner.user5%"></div> </div> <script type="text/javascript">
 
   var randomId = Math.floor(Math.random() * 1000);
@@ -147,6 +163,18 @@
       Ya.adfoxCode.create({
           ownerId: 1458764,
           containerId: 'p-banner-monetize-me' + '_' + randomId ,
+          onRender: function(){
+              document.body.addEventListener('click', playOrPauseVideo);
+              document.body.addEventListener('touchstart', playOrPauseVideo);
+
+              function playOrPauseVideo() {
+                var videoElement = article.querySelector('.video_banner > div:first-child > div > div > video');
+
+                if (videoElement && videoElement.paused) {
+                  videoElement.play();
+                }
+              }
+          },
           params: {
               %banner.user2%
           }

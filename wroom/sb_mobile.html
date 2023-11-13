@@ -131,9 +131,25 @@
         font-family: verdana;
 
     }
+    .static_banner > div:first-child {
+      height: 125vw !important;
+      width: 100vw !important;
+    }
+    .video_banner > div:first-child {
+        height: 125vw !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div {
+        height: auto !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div > div > video {
+        height: auto !important;
+        width: 100vw !important;
+    }
 </style>
 <div class="parallax-banner">
-    <div id="p-banner-monetize-me" class="adfox_parallax" style="background: linear-gradient(180deg, rgba(128,137,181,1) 0%, rgba(25,33,70,1) 100%)"></div>
+    <div id="p-banner-monetize-me" class="adfox_parallax" style=""></div>
 </div>
 <script>
     if (document.querySelector(".monetizeme-block-bottom") != null) {
@@ -154,12 +170,19 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me' + '_' + randomId,
-            params: {
-                p1: 'cztug',
-                p2: 'ihug',
-                pfc: 'fxbtr',
-                pfb: 'rinzg'
-            }
+            onRender: function(){
+                document.body.addEventListener('click', playOrPauseVideo);
+                document.body.addEventListener('touchstart', playOrPauseVideo);
+
+                function playOrPauseVideo() {
+                  var videoElement = document.querySelector('.video_banner > div:first-child > div > div > video');
+
+                  if (videoElement && videoElement.paused) {
+                    videoElement.play();
+                  }
+                }
+            },
+            params: {%banner.user2%}
         })
     })
 
@@ -179,12 +202,7 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_t',
-            params: {
-                p1: 'cztud',
-                p2: 'ihue',
-                pfc: 'fxbtr',
-                pfb: 'rinzh'
-            }
+            params: {%banner.user3%}
         })
     })
 
@@ -198,11 +216,7 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_b',
-            params: {
-                p1: 'cztue',
-                p2: 'ihuf',
-                pfc: 'fxbtr',
-                pfb: 'rinzi'            }
+            params: {%banner.user4%}
         })
     })
     document.body.insertAdjacentElement('afterbegin', stickyBottom)

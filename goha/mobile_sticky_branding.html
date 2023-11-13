@@ -28,7 +28,7 @@
 
     .sticky-banner-bottom {
         bottom: 0;
-        z-index: 999;
+        z-index: 1000000;
         transform: translateY(0px);
     }
 
@@ -131,6 +131,22 @@
         font-family: verdana;
 
     }
+    .static_banner > div:first-child {
+      height: 125vw !important;
+      width: 100vw !important;
+    }
+    .video_banner > div:first-child {
+        height: 125vw !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div {
+        height: auto !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div > div > video {
+        height: auto !important;
+        width: 100vw !important;
+    }
 </style>
 <div class="parallax-banner">
     <div id="p-banner-monetize-me" class="adfox_parallax" style="%banner.user5%"></div>
@@ -150,6 +166,18 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me' + '_' + randomId,
+            onRender: function(){
+                document.body.addEventListener('click', playOrPauseVideo);
+                document.body.addEventListener('touchstart', playOrPauseVideo);
+
+                function playOrPauseVideo() {
+                  var videoElement = document.querySelector('.video_banner > div:first-child > div > div > video');
+
+                  if (videoElement && videoElement.paused) {
+                    videoElement.play();
+                  }
+                }
+            },
             params: {%banner.user2%}
         })
     })

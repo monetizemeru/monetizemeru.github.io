@@ -151,7 +151,23 @@
     .sticky-banner-bottom img{
       margin: auto !important;
     }
-</style> <div class="parallax-banner" style="%banner.user4%"><div id="p-banner-monetize-me"></div> </div> <script>
+    .static_banner > div:first-child {
+      height: 125vw !important;
+      width: 100vw !important;
+    }
+    .video_banner > div:first-child {
+        height: 125vw !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div {
+        height: auto !important;
+        width: 100vw !important;
+    }
+    .video_banner > div:first-child > div > div > video {
+        height: auto !important;
+        width: 100vw !important;
+    }
+</style> <div class="parallax-banner" style="%banner.user4%"><div id="p-banner-monetize-me" class="adfox_parallax"></div> </div> <script>
   if(document.querySelector('#adfox_169038227740013767') != null){
     window.Ya.adfoxCode.destroy('adfox_169038227740013767')
   }
@@ -171,6 +187,18 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me'+ '_' + randomId,
+            onRender: function(){
+                document.body.addEventListener('click', playOrPauseVideo);
+                document.body.addEventListener('touchstart', playOrPauseVideo);
+
+                function playOrPauseVideo() {
+                  var videoElement = document.querySelector('.video_banner > div:first-child > div > div > video');
+
+                  if (videoElement && videoElement.paused) {
+                    videoElement.play();
+                  }
+                }
+            },
             params: {%banner.user2%}
         })
     })

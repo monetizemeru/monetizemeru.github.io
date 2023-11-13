@@ -1,0 +1,799 @@
+
+<!-- saved from url=(0011)about:blank -->
+<html style="--color-primary: #ff8201; --color-button: #fff; --color-main: #ff8201;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="https://cdn.viqeo.tv/js/assets/master-3181/js/vn_player.js"></script><style>.player[data-progress_type='video'] {
+  touch-action: pan-y;
+}
+
+.logoContainer {
+  position: absolute;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  max-width: 250px;
+  max-height: 250px;
+  min-width: 50px;
+  min-height: 50px;
+  right: 10px;
+}
+
+.external-container .logoContainer {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  .logoContainer {
+    width: 20vh;
+    height: 20vh;
+  }
+}
+
+@media (orientation: portrait) {
+  .logoContainer {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+.player[data-animation_type='alpha'] .logoContainer {
+  opacity: 0;
+}
+
+[data-animation_type='up']:not([data-logo_always_show='true']) .logoContainer {
+  top: 0;
+  -webkit-transform: translate(0, -100%);
+     -moz-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+}
+
+.player:hover[data-animation_type='up'][data-progress_type='video']
+  .logoContainer,
+.player[data-animation_type='up'][data-progress_type='video'][data-logo_always_show='true']
+  .logoContainer,
+.player:hover[data-animation_type='up'][data-progress_type='none']
+  .logoContainer,
+.player[data-animation_type='up'][data-progress_type='none'][data-logo_always_show='true']
+  .logoContainer,
+.player[data-animation_type='alpha'][data-progress_type='video'] .logoContainer,
+.player[data-animation_type='alpha'][data-progress_type='none'] .logoContainer,
+.player[data-animation_type='visible'][data-progress_type='video']
+  .logoContainer,
+.player[data-animation_type='visible'][data-progress_type='none']
+  .logoContainer {
+  top: -webkit-calc(5px + 5vmin);
+  top: -moz-calc(5px + 5vmin);
+  top: calc(5px + 5vmin);
+  -webkit-transform: translate(0, 0);
+     -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.player:hover[data-animation_type='up'][data-progress_type='story']
+  .logoContainer,
+.player[data-animation_type='up'][data-progress_type='story'][data-logo_always_show='true']
+  .logoContainer,
+.player[data-animation_type='alpha'][data-progress_type='story'] .logoContainer,
+.player[data-animation_type='visible'][data-progress_type='story']
+  .logoContainer {
+  top: -webkit-calc(25px + 5vmin);
+  top: -moz-calc(25px + 5vmin);
+  top: calc(25px + 5vmin);
+  -webkit-transform: translate(0, 0);
+     -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.player:hover[data-animation_type='alpha'] .logoContainer,
+.player.mobile .logoContainer {
+  opacity: 1;
+}
+
+/** List Menu */
+.menu-container {
+  background-color: rgb(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.menu-header {
+  font-weight: 300;
+  font-size: 10pt;
+  line-height: 1;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.menu-header {
+  padding: 5px;
+}
+
+.menu-header:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.menu-header-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  display: none;
+}
+
+.menu-header-icon_out {
+  -webkit-transform: rotate(-90deg);
+     -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.menu-header-icon_in {
+  -webkit-transform: rotate(90deg);
+     -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.menu-header-value {
+  margin-top: 3px;
+}
+
+.menu-content {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.menu-content-item {
+  font-weight: 300;
+  font-size: 10pt;
+  line-height: 1;
+  color: #fff;
+  position: relative;
+  padding: 5px 10px;
+  list-style-type: none;
+}
+
+.menu-content-item:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.menu-content-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.menu-content-item_active {
+  color: #7fcc4e;
+}
+
+.menu-controller {
+  display: none;
+}
+
+.menu-controller:checked + .a > .menu-content,
+.menu-open .menu-content {
+  max-height: 300px;
+}
+
+.menu-controller + .a .menu-header-icon_in {
+  display: inline-block;
+}
+
+.menu-controller:checked + .a .menu-header-icon_in,
+.menu-open .menu-header-icon_in {
+  display: none;
+}
+
+.menu-controller:checked + .a .menu-header-icon_out,
+.menu-open .menu-header-icon_out {
+  display: inline-block;
+}
+
+.menu-controller:checked + .a .menu-header-value,
+.menu-open .menu-header-value {
+  display: none;
+}
+
+.menu-controller:checked + .a .menu-header,
+.menu-open .menu-header {
+  border-bottom: 1px solid #fff;
+}
+</style><style>.buttonContainer {
+  position: absolute;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  bottom: 13px;
+  color: var(--color-button);
+}
+
+.external-container .buttonContainer,
+.advertStarted .buttonContainer {
+  display: none;
+}
+
+.buttonContainer-medium {
+  width: 30px;
+  height: 30px;
+}
+
+.buttonContainer-big {
+  width: 36px;
+  height: 36px;
+}
+
+.player[data-animation_type='alpha'] .buttonContainer,
+.player[data-animation_type='alpha'][data-overlay='start']
+  .buttonContainer.buttonContainer {
+  opacity: 0;
+}
+
+.player[data-animation_type='up'] .buttonContainer-medium,
+.player[data-animation_type='up'][data-overlay='start']
+  .buttonContainer.buttonContainer-medium {
+  bottom: -30px;
+}
+
+.player[data-animation_type='up'] .buttonContainer-big,
+.player[data-animation_type='up'][data-overlay='start']
+  .buttonContainer.buttonContainer-big {
+  bottom: -36px;
+}
+
+.player:hover[data-animation_type='up'] .buttonContainer,
+.player.mobile .buttonContainer {
+  bottom: 13px;
+}
+
+.player:hover[data-animation_type='alpha'] .buttonContainer,
+.player.mobile .buttonContainer {
+  opacity: 1;
+}
+
+.player[data-animation_type='visible'][data-overlay='start'] .buttonContainer {
+  display: none;
+}
+</style><style>.popupsContainer {
+  position: absolute;
+}
+
+.popupsOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style><style>.overlayContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+[data-overlay='start'] .overlayContainer {
+  background: none;
+}
+</style><style>.external-container .progressBar,
+.advertStarted .progressBar {
+  display: none;
+}
+</style><style>.timelineContainer {
+  position: absolute;
+  left: 0;
+  bottom: 16px;
+  display: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.timelineContainer.timelineContainer-loadedSprite {
+  border: 1px solid #000;
+  -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.75);
+}
+
+.player[data-pointer_position='progress_bar'] .timelineContainer,
+.player.rewind .timelineContainer {
+  display: block;
+}
+</style></head><body class="player desktop subtitleEnabled" style="min-height: 100%; padding: 0px; margin: 0px; overflow: hidden; font-family: Arial, Helvetica, sans-serif; font-size: 14px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-logo_always_show="true" data-language="ru" data-progress_type="none" data-player_type="standart" data-animation_type="alpha" data-playback_rate="1" data-player_volume="muted" data-player_status="played"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0" aria-hidden="true" id="__SVG_SPRITE_NODE__"><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30" id="backgroundButton">
+    <g id="backgroundButton_svg_1" transform="matrix(0.5,-2.31112e-34,0,0.5,-1,-1)">
+        <circle cx="32" cy="32" r="28" style="fill-opacity:0.301961;"></circle>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30" id="backgroundButtonHover">
+    <g id="backgroundButtonHover_svg_1" transform="matrix(0.5,-2.31112e-34,0,0.5,-1,-1)">
+        <circle cx="32" cy="32" r="28" style="fill-opacity:0.501961;stroke:currentColor;stroke-width:3px;"></circle>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="fullscreen">
+<path d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="fullscreenExit">
+<path d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z" fill="currentColor"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="play">
+<path d="M8 5v14l11-7z" style="fill: currentColor;"></path>
+  <path d="M0 0h24v24H0z" fill="none"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="pause">
+<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"></path>
+  <path d="M0 0h24v24H0z" fill="none"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="settings">
+  <path fill="none" d="M0 0h20v20H0V0z"></path>
+  <path d="M15.95 10.78c.03-.25.05-.51.05-.78s-.02-.53-.06-.78l1.69-1.32c.15-.12.19-.34.1-.51l-1.6-2.77c-.1-.18-.31-.24-.49-.18l-1.99.8c-.42-.32-.86-.58-1.35-.78L12 2.34c-.03-.2-.2-.34-.4-.34H8.4c-.2 0-.36.14-.39.34l-.3 2.12c-.49.2-.94.47-1.35.78l-1.99-.8c-.18-.07-.39 0-.49.18l-1.6 2.77c-.1.18-.06.39.1.51l1.69 1.32c-.04.25-.07.52-.07.78s.02.53.06.78L2.37 12.1c-.15.12-.19.34-.1.51l1.6 2.77c.1.18.31.24.49.18l1.99-.8c.42.32.86.58 1.35.78l.3 2.12c.04.2.2.34.4.34h3.2c.2 0 .37-.14.39-.34l.3-2.12c.49-.2.94-.47 1.35-.78l1.99.8c.18.07.39 0 .49-.18l1.6-2.77c.1-.18.06-.39-.1-.51l-1.67-1.32zM10 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z" fill="currentColor"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 -1 14 14" id="share">
+    <g transform="matrix(1,0,0,1,-470.255,-846.539)">
+        <g transform="matrix(1,0,0,1,1,400)">
+            <g transform="matrix(1.68125,0,0,1.68125,455.805,431.407)">
+                <path d="M12.8,13.22L12.8,14.97L16,11.98L12.8,9L12.8,10.7C9.69,11.13 8.45,13.26 8,15.4C9.11,13.9 10.58,13.22 12.8,13.22Z" style="fill:currentColor;fill-rule:nonzero;" transform="scale(0.7) translate(5.5, 5)"></path>
+            </g>
+        </g>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="highQuality">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 11H9.5v-2h-2v2H6V9h1.5v2.5h2V9H11v6zm7-1c0 .55-.45 1-1 1h-.75v1.5h-1.5V15H14c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v4zm-3.5-.5h2v-3h-2v3z" fill="currentColor"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 0 64 64" id="volumeOn"><g><path id="volumeOn_Volume-Off-Icon" serif:id="Volume Off Icon" d="M34.087,50.643c-1.171,-0.169 -2.226,-0.693 -3.034,-1.482l-0.086,0l-9.361,-9.361l-10.921,0c-2.585,0 -4.681,-2.095 -4.681,-4.68l0,-6.24c0,-2.586 2.096,-4.681 4.681,-4.681l10.921,0l9.361,-9.361l0.086,0c0.808,-0.789 1.863,-1.312 3.034,-1.483l0,-0.076l1.56,0l0,37.442l-1.56,0l0,-0.078Z" style="fill:currentColor;"></path><path id="volumeOn_Volume-Medium-Icon" serif:id="Volume Medium Icon" d="M46.818,45.732l-2.169,-2.169c3.232,-2.811 5.284,-6.943 5.284,-11.563c0,-4.619 -2.052,-8.752 -5.284,-11.563l2.169,-2.169c3.785,3.371 6.182,8.265 6.182,13.732c0,5.467 -2.397,10.361 -6.182,13.732Zm-4.337,-4.337l-2.182,-2.181c2.13,-1.686 3.501,-4.287 3.501,-7.214c0,-2.926 -1.371,-5.528 -3.501,-7.213l2.182,-2.181c2.679,2.25 4.386,5.622 4.386,9.394c0,3.773 -1.707,7.146 -4.386,9.395Z" style="fill:currentColor;"></path></g></symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 0 64 64" id="volumeOff"><g><path id="volumeOff_Volume-Off-Icon" serif:id="Volume Off Icon" d="M34.087,50.643c-1.171,-0.169 -2.226,-0.693 -3.034,-1.482l-0.086,0l-9.361,-9.361l-10.921,0c-2.585,0 -4.681,-2.095 -4.681,-4.68l0,-6.24c0,-2.586 2.096,-4.681 4.681,-4.681l10.921,0l9.361,-9.361l0.086,0c0.808,-0.789 1.863,-1.312 3.034,-1.483l0,-0.076l1.56,0l0,37.442l-1.56,0l0,-0.078Z" style="fill:currentColor;"></path><path id="volumeOff_Volume-Off-Icon1" serif:id="Volume Off Icon" d="M50.864,31.992l6.671,6.671c0.614,0.614 0.614,1.609 0,2.224c-0.614,0.614 -1.61,0.614 -2.224,0l-6.671,-6.671l-6.671,6.671c-0.615,0.614 -1.61,0.614 -2.224,0c-0.614,-0.615 -0.614,-1.61 0,-2.224l6.671,-6.671l-6.671,-6.671c-0.614,-0.615 -0.614,-1.61 0,-2.225c0.614,-0.613 1.609,-0.613 2.224,0l6.671,6.672l6.671,-6.672c0.614,-0.613 1.61,-0.613 2.224,0c0.614,0.615 0.614,1.61 0,2.225l-6.671,6.671Z" style="fill:currentColor;"></path></g></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="subtitles">
+  <path d="M0 0h24v24H0z" fill="none" transform="translate(3, 3)"></path>
+  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 12h4v2H4v-2zm10 6H4v-2h10v2zm6 0h-4v-2h4v2zm0-4H10v-2h10v2z" transform="translate(3, 3)" fill="currentColor"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="arrow">
+  <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" fill="#fff"></path>
+  <path d="M0 0h24v24H0z" fill="none"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="baseline-close-24px">
+  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"></path>
+    <path d="M0 0h24v24H0z" fill="none"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" id="facebook">
+<path d="M24.1914 2H5.80859C3.70871 2 2 3.70871 2 5.80859V24.1914C2 26.2913 3.70871 28 5.80859 28H13.4766V18.8086H10.4297V14.2383H13.4766V11.1406C13.4766 8.62041 15.5267 6.57031 18.0469 6.57031H22.668V11.1406H18.0469V14.2383H22.668L21.9062 18.8086H18.0469V28H24.1914C26.2913 28 28 26.2913 28 24.1914V5.80859C28 3.70871 26.2913 2 24.1914 2Z" fill="#3B5998"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" id="twitter">
+<g clip-path="url(#twitter_clip0)">
+<path d="M30 5.69813C28.8844 6.1875 27.6956 6.51187 26.4562 6.66937C27.7312 5.90812 28.7044 4.71187 29.1619 3.27C27.9731 3.97875 26.6606 4.47938 25.2619 4.75875C24.1331 3.55688 22.5244 2.8125 20.7694 2.8125C17.3644 2.8125 14.6231 5.57625 14.6231 8.96438C14.6231 9.45188 14.6644 9.92062 14.7656 10.3669C9.6525 10.1175 5.12813 7.66688 2.08875 3.93375C1.55812 4.85438 1.24688 5.90812 1.24688 7.0425C1.24688 9.1725 2.34375 11.0606 3.97875 12.1537C2.99062 12.135 2.02125 11.8481 1.2 11.3962C1.2 11.415 1.2 11.4394 1.2 11.4637C1.2 14.4525 3.33187 16.935 6.1275 17.5069C5.62687 17.6438 5.08125 17.7094 4.515 17.7094C4.12125 17.7094 3.72375 17.6869 3.35062 17.6044C4.1475 20.04 6.40875 21.8306 9.0975 21.8888C7.005 23.5256 4.34812 24.5119 1.47188 24.5119C0.9675 24.5119 0.48375 24.4894 0 24.4275C2.72438 26.1844 5.95312 27.1875 9.435 27.1875C20.7525 27.1875 26.94 17.8125 26.94 9.68625C26.94 9.41437 26.9306 9.15188 26.9175 8.89125C28.1381 8.025 29.1637 6.94313 30 5.69813Z" fill="#00ACEE"></path>
+</g>
+<defs>
+<clippath id="twitter_clip0">
+<rect width="30" height="30" fill="white"></rect>
+</clippath>
+</defs>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" id="programming">
+<g clip-path="url(#programming_clip0)">
+<path d="M25.7543 4.02539H4.2457C1.90488 4.02539 0 5.93027 0 8.27168V21.7283C0 24.0697 1.90488 25.9746 4.2457 25.9746H25.7543C28.0951 25.9746 30 24.0697 30 21.7283V8.27168C30 5.93027 28.0951 4.02539 25.7543 4.02539ZM10.8873 10.7807L6.4207 15.2473L10.3928 19.2193C10.7361 19.5627 10.7361 20.1193 10.3928 20.4621C10.05 20.8055 9.49336 20.8055 9.15 20.4621L4.55625 15.8684C4.21289 15.525 4.21289 14.9689 4.55625 14.6256L9.64394 9.53789C9.9873 9.19453 10.5439 9.19453 10.8873 9.53789C11.2301 9.88066 11.2301 10.4373 10.8873 10.7807ZM18.1371 8.71289L13.4895 21.8725C13.3277 22.3307 12.8256 22.5703 12.368 22.4086C11.9104 22.2469 11.6701 21.7447 11.8318 21.2871L16.4795 8.12754C16.6412 7.66992 17.1428 7.42969 17.601 7.59141C18.0586 7.75312 18.2988 8.25527 18.1371 8.71289ZM25.4437 15.3744L20.3561 20.4621C20.0127 20.8055 19.4561 20.8055 19.1127 20.4621C18.7699 20.1193 18.7699 19.5627 19.1127 19.2193L23.5793 14.7527L19.6072 10.7807C19.2639 10.4373 19.2639 9.88066 19.6072 9.53789C19.95 9.19453 20.5066 9.19453 20.85 9.53789L25.4437 14.1316C25.7871 14.475 25.7871 15.0311 25.4437 15.3744Z" fill="#FF8201"></path>
+</g>
+<defs>
+<clippath id="programming_clip0">
+<rect width="30" height="30" fill="white"></rect>
+</clippath>
+</defs>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" id="vk">
+<g clip-path="url(#vk_clip0)">
+<path d="M29.7326 21.708C29.652 21.573 29.1532 20.4891 26.753 18.2615C24.2403 15.9288 24.5779 16.3076 27.6043 12.2741C29.4476 9.81771 30.1845 8.3176 29.9539 7.67631C29.7345 7.06501 28.3788 7.22627 28.3788 7.22627L23.8709 7.25252C23.8709 7.25252 23.5372 7.20752 23.2878 7.35566C23.0459 7.50192 22.8902 7.83944 22.8902 7.83944C22.8902 7.83944 22.1758 9.74083 21.2232 11.3572C19.215 14.7681 18.4105 14.9481 18.0824 14.7362C17.3192 14.243 17.5105 12.7523 17.5105 11.6947C17.5105 8.38886 18.0111 7.01063 16.5335 6.65435C16.0422 6.53622 15.6822 6.45746 14.4277 6.44434C12.8189 6.42746 11.4556 6.44996 10.685 6.82687C10.1712 7.07814 9.77552 7.6388 10.0174 7.67068C10.3156 7.71006 10.9906 7.85257 11.3488 8.3401C11.8119 8.96828 11.795 10.3821 11.795 10.3821C11.795 10.3821 12.0613 14.273 11.1744 14.7568C10.565 15.0887 9.73051 14.4118 7.93976 11.316C7.02281 9.73146 6.32901 7.9782 6.32901 7.9782C6.32901 7.9782 6.19588 7.65193 5.95774 7.47754C5.66896 7.26565 5.26393 7.19815 5.26393 7.19815L0.977366 7.2244C0.977366 7.2244 0.334193 7.24315 0.0979259 7.52254C-0.11209 7.77194 0.0810496 8.28573 0.0810496 8.28573C0.0810496 8.28573 3.43755 16.1369 7.23658 20.0954C10.7225 23.7237 14.679 23.4856 14.679 23.4856H16.4716C16.4716 23.4856 17.0136 23.4256 17.2892 23.1275C17.5442 22.8537 17.5348 22.3399 17.5348 22.3399C17.5348 22.3399 17.4992 19.9341 18.6168 19.5797C19.7175 19.2309 21.1314 21.9049 22.6296 22.9343C23.7622 23.7125 24.6229 23.5419 24.6229 23.5419L28.63 23.4856C28.63 23.4856 30.7264 23.3562 29.7326 21.708Z" fill="#4C75A3"></path>
+</g>
+<defs>
+<clippath id="vk_clip0">
+<rect width="30" height="30" fill="white"></rect>
+</clippath>
+</defs>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" id="url">
+<path d="M11.2604 9.26768C8.31476 12.3154 8.95755 17.3731 12.3318 19.6137C12.4429 19.6875 12.5908 19.6729 12.6863 19.5796C13.3967 18.8855 13.9976 18.2132 14.5238 17.3581C14.6043 17.2273 14.5543 17.0576 14.4192 16.9844C13.9045 16.7056 13.3924 16.1828 13.1041 15.6305L13.1037 15.6307C12.7584 14.943 12.6408 14.1721 12.8237 13.376C12.8238 13.376 12.824 13.3761 12.8242 13.3761C13.0346 12.3568 14.1289 11.4087 14.9646 10.5318C14.9629 10.5312 14.9612 10.5306 14.9594 10.53L18.0907 7.33402C19.3386 6.0604 21.3912 6.0499 22.652 7.31072C23.9256 8.55855 23.9467 10.6215 22.6988 11.8951L20.8022 13.8455C20.7144 13.9358 20.6859 14.0675 20.727 14.1865C21.1637 15.4529 21.2711 17.2386 20.9784 18.5877C20.9702 18.6254 21.0168 18.6501 21.0439 18.6225L25.0806 14.5025C27.6593 11.8705 27.6374 7.58535 25.032 4.97988C22.373 2.32091 18.0443 2.34304 15.4127 5.02897L11.2766 9.25039C11.2711 9.25616 11.2659 9.26202 11.2604 9.26768Z" fill="#FF8201"></path>
+<path d="M18.8057 20.1938C18.8056 20.1939 18.8055 20.1941 18.8055 20.1942C18.8081 20.1931 18.8104 20.1921 18.813 20.191C19.6369 18.6845 19.799 16.9568 19.4129 15.2726L19.4112 15.2744L19.4093 15.2736C19.0427 13.7735 18.0367 12.2839 16.6706 11.3668C16.553 11.2879 16.3653 11.297 16.2552 11.386C15.5632 11.9456 14.8858 12.6631 14.4389 13.5788C14.3687 13.7225 14.4212 13.8952 14.5596 13.9755C15.0783 14.2767 15.5467 14.7176 15.8604 15.3029L15.8609 15.3026C16.1053 15.7161 16.3462 16.5007 16.1902 17.3437C16.1901 17.3437 16.1899 17.3437 16.1898 17.3437C16.0443 18.4614 14.9156 19.4866 14.0183 20.4105L14.0188 20.4109C13.3358 21.1093 11.5996 22.8793 10.9043 23.5896C9.65652 24.8631 7.59355 24.8842 6.31998 23.6364C5.04641 22.3885 5.02535 20.3256 6.27318 19.052L8.17548 17.0957C8.2617 17.007 8.29101 16.8782 8.25266 16.7606C7.83027 15.4646 7.71455 13.7192 7.98117 12.3716C7.98859 12.3341 7.94238 12.3101 7.91556 12.3374L3.93955 16.3955C1.33437 19.0545 1.35645 23.3836 3.98869 26.0158C6.64751 28.6209 10.9543 28.5769 13.5594 25.9181C14.4644 24.9057 18.3385 21.3188 18.8057 20.1938Z" fill="#FF8201"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="stats">
+  <g transform="matrix(0.290847,0,0,0.290847,-211.455,-99.1088)">
+        <g transform="matrix(1,0,0,1,0,360.418)">
+            <rect x="747.703" y="24.888" width="18.09" height="31.416" style="fill:currentColor;fill-rule:nonzero;"></rect>
+        </g>
+        <g transform="matrix(1,0,0,1,0,360.418)">
+            <rect x="769.562" y="7.526" width="18.091" height="48.778" style="fill:currentColor;fill-rule:nonzero;"></rect>
+        </g>
+        <g transform="matrix(1,0,0,1,0,360.418)">
+            <rect x="791.421" y="31.915" width="18.091" height="24.389" style="fill:currentColor;fill-rule:nonzero;"></rect>
+        </g>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 0 30 30" id="story-rewind">
+    <g transform="matrix(1,0,0,1,-101,-324.775)" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <g transform="matrix(1,0,0,1,66,20.7746)">
+            <path d="M50,334C58.279,334 65,327.279 65,319C65,310.721 58.279,304 50,304C41.721,304 35,310.721 35,319C35,327.279 41.721,334 50,334ZM54.697,326.738L46.459,318.5L54.697,310.262L52.5,308.065L42.065,318.5L52.5,328.935L54.697,326.738Z" style="fill:currentColor;"></path>
+        </g>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="replay">
+  <path d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" fill="currentColor"></path>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 166" fill="none" id="playA2vHover">
+<g filter="url(#playA2vHover_filter0_d_940_13824)">
+<circle cx="83" cy="83" r="72.5" fill="currentColor" stroke="currentColor"></circle>
+<rect width="89.8462" height="89.8462" transform="translate(38.0769 38.0769)" fill="currentColor"></rect>
+<path d="M66.9245 55.0537C65.4272 54.1664 63.5333 55.2456 63.5333 56.986V108.999C63.5333 110.74 65.4272 111.819 66.9245 110.932L110.811 84.9252C112.279 84.0552 112.279 81.9303 110.811 81.0603L66.9245 55.0537Z" fill="white" stroke="white" stroke-width="6.94904" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+<defs>
+<filter id="playA2vHover_filter0_d_940_13824" x="0" y="0" width="166" height="166" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+<fecolormatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></fecolormatrix>
+<feoffset></feoffset>
+<fegaussianblur stdDeviation="5"></fegaussianblur>
+<fecomposite in2="hardAlpha" operator="out"></fecomposite>
+<fecolormatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></fecolormatrix>
+<feblend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_940_13824"></feblend>
+<feblend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_940_13824" result="shape"></feblend>
+</filter>
+</defs>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 0 512 512" id="youtube"><path d="M503.234,91.578c-4.66,-43.664 -39.144,-78.156 -82.812,-82.812c-109.508,-11.688 -219.336,-11.688 -328.84,0c-43.668,4.66 -78.156,39.148 -82.816,82.812c-11.688,109.504 -11.688,219.336 0,328.84c4.66,43.668 39.148,78.156 82.812,82.816c109.504,11.688 219.336,11.688 328.844,0c43.668,-4.66 78.152,-39.148 82.812,-82.816c11.688,-109.504 11.688,-219.332 0,-328.84Z" style="fill:#d42428;fill-rule:nonzero;"></path><path d="M414.27,192.542c0,-26.142 -21.178,-47.33 -47.305,-47.33l-221.939,0c-26.122,0 -47.295,21.194 -47.295,47.33l0,126.916c0,26.142 21.177,47.33 47.295,47.33l221.935,0c26.132,0 47.305,-21.194 47.305,-47.33l0,-126.916l0.003,0Zm-189.933,116.999l0,-119.205l90.4,59.605l-90.4,59.6Z" style="fill:#fff;fill-rule:nonzero;"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 0 512 512" id="instagram"><path d="M503.234,91.578c-4.66,-43.664 -39.144,-78.156 -82.812,-82.812c-109.508,-11.688 -219.336,-11.688 -328.84,0c-43.668,4.66 -78.156,39.148 -82.816,82.812c-11.688,109.504 -11.688,219.336 0,328.84c4.66,43.668 39.148,78.156 82.812,82.816c109.504,11.688 219.336,11.688 328.844,0c43.668,-4.66 78.152,-39.148 82.812,-82.816c11.688,-109.504 11.688,-219.332 0,-328.84Z" style="fill:url(#instagram__Radial1);fill-rule:nonzero;"></path><g><path d="M55.09,178.466c1.331,-9.404 2.346,-18.861 4.038,-28.196c9.594,-52.874 47.027,-88.849 100.55,-90.693c64.444,-2.214 129.083,-2.331 193.517,-0.01c58.254,2.098 100.443,45.232 102.262,103.506c1.936,61.878 1.936,123.908 0,185.786c-1.819,58.274 -43.993,101.404 -102.257,103.506c-64.434,2.326 -129.088,2.385 -193.517,-0.034c-58.264,-2.19 -98.54,-45.423 -102.437,-103.784c-0.337,-5.048 -1.42,-10.052 -2.156,-15.076l0,-155.005Zm200.964,239.363c29.488,0 59.005,0.883 88.454,-0.205c46.174,-1.712 74.574,-29.269 75.652,-75.398c1.336,-57.479 1.336,-115.036 0,-172.52c-1.078,-46.119 -29.498,-74.32 -75.652,-75.3c-58.581,-1.239 -117.225,-1.229 -175.807,0c-45.802,0.961 -74.286,28.59 -75.529,74.203c-1.581,58.206 -1.581,116.514 0,174.719c1.243,45.608 29.727,72.599 75.534,74.296c29.079,1.083 58.23,0.205 87.348,0.205Z" style="fill:url(#instagram__Linear2);fill-rule:nonzero;"></path><g><path d="M55.09,178.466c1.331,-9.404 2.346,-18.861 4.038,-28.196c9.594,-52.874 47.027,-88.849 100.55,-90.693c64.444,-2.214 129.083,-2.331 193.517,-0.01c58.254,2.098 100.443,45.232 102.262,103.506c1.936,61.878 1.936,123.908 0,185.786c-1.819,58.274 -43.993,101.404 -102.257,103.506c-64.434,2.326 -129.088,2.385 -193.517,-0.034c-58.264,-2.19 -98.54,-45.423 -102.437,-103.784c-0.337,-5.048 -1.42,-10.052 -2.156,-15.076l0,-155.005Zm200.964,239.363c29.488,0 59.005,0.883 88.454,-0.205c46.174,-1.712 74.574,-29.269 75.652,-75.398c1.336,-57.479 1.336,-115.036 0,-172.52c-1.078,-46.119 -29.498,-74.32 -75.652,-75.3c-58.581,-1.239 -117.225,-1.229 -175.807,0c-45.802,0.961 -74.286,28.59 -75.529,74.203c-1.581,58.206 -1.581,116.514 0,174.719c1.243,45.608 29.727,72.599 75.534,74.296c29.079,1.083 58.23,0.205 87.348,0.205Z" style="fill:#fff;fill-rule:nonzero;"></path><path d="M256,153.611c-56.547,0 -102.394,45.842 -102.394,102.389c0,56.552 45.847,102.394 102.394,102.394c56.552,0 102.394,-45.842 102.394,-102.394c0,-56.547 -45.842,-102.389 -102.394,-102.389Zm0,169.53c-37.082,0 -67.141,-30.059 -67.141,-67.141c0,-37.082 30.059,-67.141 67.141,-67.141c37.082,0 67.141,30.059 67.141,67.141c0,37.082 -30.059,67.141 -67.141,67.141Z" style="fill:#fff;fill-rule:nonzero;"></path><path d="M388.731,148.939c0,13.451 -10.906,24.357 -24.357,24.357c-13.452,0 -24.363,-10.906 -24.363,-24.357c0,-13.457 10.911,-24.362 24.363,-24.362c13.451,0 24.357,10.905 24.357,24.362Z" style="fill:#fff;fill-rule:nonzero;"></path></g></g><defs><radialgradient id="instagram__Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(564.646,0,0,564.646,104.957,447.447)"><stop offset="0" style="stop-color:#ffda00;stop-opacity:1"></stop><stop offset="0.05" style="stop-color:#fab604;stop-opacity:1"></stop><stop offset="0.12" style="stop-color:#fbac0e;stop-opacity:1"></stop><stop offset="0.18" style="stop-color:#fc9f20;stop-opacity:1"></stop><stop offset="0.25" style="stop-color:#fe9838;stop-opacity:1"></stop><stop offset="0.31" style="stop-color:#ff7950;stop-opacity:1"></stop><stop offset="0.49" style="stop-color:#ff1c74;stop-opacity:1"></stop><stop offset="1" style="stop-color:#6c1cd1;stop-opacity:1"></stop></radialgradient><lineargradient id="instagram__Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-258.602,258.602,-258.602,-258.602,382.929,129.955)"><stop offset="0" style="stop-color:#833ab4;stop-opacity:1"></stop><stop offset="0.09" style="stop-color:#9c3495;stop-opacity:1"></stop><stop offset="0.29" style="stop-color:#dc2546;stop-opacity:1"></stop><stop offset="0.39" style="stop-color:#fd1d1d;stop-opacity:1"></stop><stop offset="0.56" style="stop-color:#fc6831;stop-opacity:1"></stop><stop offset="0.69" style="stop-color:#fc9b40;stop-opacity:1"></stop><stop offset="0.75" style="stop-color:#fcaf45;stop-opacity:1"></stop><stop offset="0.78" style="stop-color:#fdb750;stop-opacity:1"></stop><stop offset="0.87" style="stop-color:#fecb6a;stop-opacity:1"></stop><stop offset="0.94" style="stop-color:#ffd87a;stop-opacity:1"></stop><stop offset="1" style="stop-color:#ffdc80;stop-opacity:1"></stop></lineargradient></defs></symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 0 512 512" id="tiktok">
+    <path d="M503.234,91.578C498.574,47.914 464.09,13.422 420.422,8.766C310.914,-2.922 201.086,-2.922 91.582,8.766C47.914,13.426 13.426,47.914 8.766,91.578C-2.922,201.082 -2.922,310.914 8.766,420.418C13.426,464.086 47.914,498.574 91.578,503.234C201.082,514.922 310.914,514.922 420.422,503.234C464.09,498.574 498.574,464.086 503.234,420.418C514.922,310.914 514.922,201.086 503.234,91.578Z" style="fill-rule:nonzero;"></path>
+    <g>
+        <g transform="matrix(0.223233,0,0,0.223233,-23.2118,20.8974)">
+            <path d="M1611.67,811.86C1721.11,890.05 1855.19,936.06 1999.99,936.06L1999.99,657.55C1972.58,657.561 1945.25,654.702 1918.44,649.02L1918.44,868.25C1773.65,868.25 1639.59,822.24 1530.12,744.05L1530.12,1312.4C1530.12,1596.72 1299.52,1827.19 1015.07,1827.19C908.94,1827.19 810.29,1795.12 728.34,1740.12C821.87,1835.7 952.3,1895 1096.6,1895C1381.07,1895 1611.68,1664.53 1611.68,1380.2L1611.68,811.86L1611.67,811.86ZM1712.27,530.88C1656.34,469.81 1619.62,390.88 1611.67,303.62L1611.67,267.8L1534.39,267.8C1553.84,378.7 1620.19,473.45 1712.27,530.88ZM908.25,1521.95C877.01,1481.01 860.115,1430.89 860.19,1379.39C860.19,1249.35 965.67,1143.92 1095.8,1143.92C1120.05,1143.9 1144.15,1147.62 1167.27,1154.95L1167.27,870.22C1140.26,866.521 1113,864.953 1085.75,865.53L1085.75,1087.15C1062.62,1079.82 1038.51,1076.1 1014.25,1076.12C884.12,1076.12 778.65,1181.55 778.65,1311.6C778.65,1403.55 831.37,1483.17 908.25,1521.95Z" style="fill:rgb(238,29,82);"></path>
+        </g>
+        <g transform="matrix(0.223233,0,0,0.223233,-23.2118,20.8974)">
+            <path d="M1530.12,744.05C1639.59,822.24 1773.65,868.25 1918.44,868.25L1918.44,649.02C1837.62,631.82 1766.07,589.6 1712.27,530.88C1620.19,473.45 1553.84,378.7 1534.39,267.8L1331.4,267.8L1331.4,1380.19C1330.94,1509.87 1225.64,1614.87 1095.79,1614.87C1019.27,1614.87 951.29,1578.42 908.24,1521.95C831.36,1483.17 778.64,1403.55 778.64,1311.6C778.64,1181.55 884.11,1076.12 1014.24,1076.12C1039.17,1076.12 1063.2,1080 1085.74,1087.15L1085.74,865.53C806.29,871.3 581.54,1099.52 581.54,1380.2C581.54,1520.31 637.51,1647.33 728.34,1740.13C810.29,1795.13 908.94,1827.2 1015.07,1827.2C1299.52,1827.2 1530.12,1596.72 1530.12,1312.41L1530.12,744.05Z" style="fill:white;"></path>
+        </g>
+        <g transform="matrix(0.223233,0,0,0.223233,-23.2118,20.8974)">
+            <path d="M1918.44,649.02L1918.44,589.74C1845.56,589.85 1774.1,569.445 1712.27,530.87C1767,590.759 1839.1,632.077 1918.44,649.02ZM1534.39,267.8C1532.53,257.203 1531.11,246.534 1530.12,235.82L1530.12,200L1249.84,200L1249.84,1312.4C1249.39,1442.07 1144.1,1547.07 1014.24,1547.07C976.11,1547.07 940.12,1538.03 908.24,1521.95C951.29,1578.42 1019.27,1614.87 1095.79,1614.87C1225.63,1614.87 1330.94,1509.87 1331.4,1380.19L1331.4,267.8L1534.39,267.8ZM1085.75,865.53L1085.75,802.42C1062.33,799.218 1038.72,797.618 1015.08,797.63C730.6,797.63 500,1028.11 500,1312.4C500,1490.64 590.63,1647.72 728.35,1740.12C637.52,1647.32 581.55,1520.3 581.55,1380.19C581.55,1099.52 806.29,871.3 1085.75,865.53Z" style="fill:rgb(105,201,208);"></path>
+        </g>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120 39" id="logo">
+    <g transform="matrix(1,0,0,1,-4.67089,-15.5028)" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;opacity:0.5;">
+        <g transform="matrix(1.07016,0,0,1.07016,-247.784,-110.449)">
+            <g id="logo_Layer1">
+                <g>
+                    <g id="logo_LOGO-platform" transform="matrix(0.908,0,0,0.908,230.326,99.8573)">
+                        <path d="M14.611,27.07L19.706,37.994L24.823,27.07L33.246,27.07L22.161,48.367L17.135,48.367L6.143,27.07L14.611,27.07Z" style="fill:white;fill-rule:nonzero;"></path>
+                        <rect x="35.793" y="27.07" width="7.527" height="21.297" style="fill:white;fill-rule:nonzero;"></rect>
+                        <path d="M64.961,59.016L64.961,46.279C64.151,47.12 63.363,47.725 62.598,48.092C61.267,48.734 59.844,49.056 58.329,49.056C55.208,49.056 52.584,47.878 50.458,45.521C48.576,43.441 47.635,40.855 47.635,37.765C47.635,34.169 48.866,31.285 51.33,29.113C53.395,27.292 55.751,26.382 58.398,26.382C61.152,26.382 63.34,27.392 64.961,29.411L64.961,27.07L72.489,27.07L72.489,59.016L64.961,59.016ZM60.326,32.876C58.964,32.876 57.817,33.351 56.883,34.299C55.935,35.248 55.46,36.372 55.46,37.673C55.46,39.035 55.935,40.197 56.883,41.161C57.817,42.11 58.964,42.584 60.326,42.584C61.672,42.584 62.82,42.11 63.768,41.161C64.717,40.213 65.191,39.065 65.191,37.719C65.191,36.372 64.72,35.233 63.78,34.299C62.839,33.366 61.687,32.892 60.326,32.876Z" style="fill:white;fill-rule:nonzero;"></path>
+                        <path d="M100.211,39.096L84.376,39.096C84.422,42.293 85.952,43.892 88.966,43.892C89.869,43.892 90.592,43.743 91.135,43.445C91.678,43.146 92.187,42.622 92.661,41.873L99.913,41.873C99.439,43.464 98.804,44.726 98.008,45.659C96.999,46.837 95.721,47.717 94.176,48.298C92.508,48.91 90.756,49.216 88.92,49.216C84.682,49.216 81.454,47.885 79.236,45.223C77.584,43.234 76.757,40.802 76.757,37.925C76.757,35.615 77.293,33.511 78.364,31.614C80.307,28.187 83.726,26.474 88.622,26.474C91.988,26.474 94.665,27.369 96.654,29.159C97.924,30.306 98.834,31.656 99.385,33.209C99.936,34.762 100.211,36.724 100.211,39.096ZM93.212,34.735C92.952,33.68 92.435,32.85 91.663,32.245C90.89,31.641 89.945,31.339 88.829,31.339C87.681,31.339 86.736,31.637 85.994,32.234C85.252,32.831 84.782,33.664 84.583,34.735L93.212,34.735Z" style="fill:white;fill-rule:nonzero;"></path>
+                        <path d="M116.482,26.29C120.705,26.29 124.002,27.575 126.374,30.146C128.332,32.257 129.311,34.781 129.311,37.719C129.311,41.176 128.026,44.007 125.456,46.21C123.161,48.184 120.131,49.17 116.368,49.17C113.981,49.17 111.747,48.658 109.667,47.633C107.723,46.669 106.201,45.2 105.1,43.227C104.151,41.559 103.677,39.662 103.677,37.535C103.677,34.246 104.962,31.484 107.532,29.25C109.751,27.338 112.734,26.351 116.482,26.29ZM116.482,32.785C115.136,32.785 113.996,33.259 113.063,34.208C112.114,35.171 111.64,36.304 111.64,37.604C111.64,38.996 112.114,40.174 113.063,41.138C113.996,42.087 115.144,42.561 116.505,42.561C117.836,42.561 118.976,42.087 119.925,41.138C120.873,40.174 121.348,39.019 121.348,37.673C121.348,36.311 120.881,35.16 119.948,34.219C119.014,33.278 117.859,32.8 116.482,32.785Z" style="fill:white;fill-rule:nonzero;"></path>
+                    </g>
+                    <g transform="matrix(0.771434,0,0,0.267539,195.915,-82.2031)">
+                        <path d="M132.078,751.026C132.078,748.898 131.479,747.171 130.741,747.171L103.311,747.171C102.573,747.171 101.973,748.898 101.973,751.026C101.973,753.154 102.573,754.881 103.311,754.881L130.741,754.881C131.479,754.881 132.078,753.154 132.078,751.026Z" style="fill:white;"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</symbol><symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120 39" id="logoHover">
+    <g transform="matrix(1,0,0,1,-4.67089,-15.5028)">
+        <g transform="matrix(1.07016,0,0,1.07016,-247.784,-110.449)">
+            <g id="logoHover_Layer1">
+                <g>
+                    <g id="logoHover_LOGO-platform" transform="matrix(0.908,0,0,0.908,230.326,99.8573)">
+                        <path d="M14.611,27.07L19.706,37.994L24.823,27.07L33.246,27.07L22.161,48.367L17.135,48.367L6.143,27.07L14.611,27.07Z" style="fill:url(#logoHover_gradient);fill-rule:nonzero;"></path>
+                        <rect x="35.793" y="27.07" width="7.527" height="21.297" style="fill:url(#logoHover_gradient);fill-rule:nonzero;"></rect>
+                        <path d="M64.961,59.016L64.961,46.279C64.151,47.12 63.363,47.725 62.598,48.092C61.267,48.734 59.844,49.056 58.329,49.056C55.208,49.056 52.584,47.878 50.458,45.521C48.576,43.441 47.635,40.855 47.635,37.765C47.635,34.169 48.866,31.285 51.33,29.113C53.395,27.292 55.751,26.382 58.398,26.382C61.152,26.382 63.34,27.392 64.961,29.411L64.961,27.07L72.489,27.07L72.489,59.016L64.961,59.016ZM60.326,32.876C58.964,32.876 57.817,33.351 56.883,34.299C55.935,35.248 55.46,36.372 55.46,37.673C55.46,39.035 55.935,40.197 56.883,41.161C57.817,42.11 58.964,42.584 60.326,42.584C61.672,42.584 62.82,42.11 63.768,41.161C64.717,40.213 65.191,39.065 65.191,37.719C65.191,36.372 64.72,35.233 63.78,34.299C62.839,33.366 61.687,32.892 60.326,32.876Z" style="fill:url(#logoHover_gradient);fill-rule:nonzero;"></path>
+                        <path d="M100.211,39.096L84.376,39.096C84.422,42.293 85.952,43.892 88.966,43.892C89.869,43.892 90.592,43.743 91.135,43.445C91.678,43.146 92.187,42.622 92.661,41.873L99.913,41.873C99.439,43.464 98.804,44.726 98.008,45.659C96.999,46.837 95.721,47.717 94.176,48.298C92.508,48.91 90.756,49.216 88.92,49.216C84.682,49.216 81.454,47.885 79.236,45.223C77.584,43.234 76.757,40.802 76.757,37.925C76.757,35.615 77.293,33.511 78.364,31.614C80.307,28.187 83.726,26.474 88.622,26.474C91.988,26.474 94.665,27.369 96.654,29.159C97.924,30.306 98.834,31.656 99.385,33.209C99.936,34.762 100.211,36.724 100.211,39.096ZM93.212,34.735C92.952,33.68 92.435,32.85 91.663,32.245C90.89,31.641 89.945,31.339 88.829,31.339C87.681,31.339 86.736,31.637 85.994,32.234C85.252,32.831 84.782,33.664 84.583,34.735L93.212,34.735Z" style="fill:url(#logoHover_gradient);fill-rule:nonzero;"></path>
+                        <path d="M116.482,26.29C120.705,26.29 124.002,27.575 126.374,30.146C128.332,32.257 129.311,34.781 129.311,37.719C129.311,41.176 128.026,44.007 125.456,46.21C123.161,48.184 120.131,49.17 116.368,49.17C113.981,49.17 111.747,48.658 109.667,47.633C107.723,46.669 106.201,45.2 105.1,43.227C104.151,41.559 103.677,39.662 103.677,37.535C103.677,34.246 104.962,31.484 107.532,29.25C109.751,27.338 112.734,26.351 116.482,26.29ZM116.482,32.785C115.136,32.785 113.996,33.259 113.063,34.208C112.114,35.171 111.64,36.304 111.64,37.604C111.64,38.996 112.114,40.174 113.063,41.138C113.996,42.087 115.144,42.561 116.505,42.561C117.836,42.561 118.976,42.087 119.925,41.138C120.873,40.174 121.348,39.019 121.348,37.673C121.348,36.311 120.881,35.16 119.948,34.219C119.014,33.278 117.859,32.8 116.482,32.785Z" style="fill:url(#logoHover_gradient);fill-rule:nonzero;"></path>
+                    </g>
+                    <g transform="matrix(0.771434,0,0,0.267539,195.915,-82.2031)">
+                        <path d="M132.078,751.026C132.078,748.898 131.479,747.171 130.741,747.171L103.311,747.171C102.573,747.171 101.973,748.898 101.973,751.026C101.973,753.154 102.573,754.881 103.311,754.881L130.741,754.881C131.479,754.881 132.078,753.154 132.078,751.026Z" style="fill:url(#logoHover_gradient);"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <lineargradient id="logoHover_gradient" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(96.7807,0,0,96.7807,21.3907,35.4158)"><stop offset="0%" style="stop-color:rgb(249,124,0);stop-opacity:1"></stop><stop offset="100%" style="stop-color:rgb(201,74,0);stop-opacity:1"></stop></lineargradient>
+    </defs>
+</symbol></svg><div id="professor_prebid-root"></div><div style="width: 100%; height: 100%;"><div style="position: relative; width: 100%; height: 100%;"><div data-controller_name="container"><div style="position: absolute; left: 50%; transform: translateX(-50%); padding: 5px 0px; width: 80%; border-radius: 3px; color: white; background: rgba(0, 0, 0, 0.3); font-size: 8pt; line-height: 1.3; text-align: center; white-space: pre-wrap; pointer-events: none; z-index: 520; display: none; font-family: &quot;Playfair Display&quot;; bottom: 15%;"></div><div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 1450; display: none;"><style type="text/css">@keyframes circular-dash {0% {stroke-dasharray:1px, 200px; stroke-dashoffset:0px;}50% {stroke-dasharray:100px, 200px; stroke-dashoffset:-15px;}100% {stroke-dasharray:100px, 200px; stroke-dashoffset:-125px;}}</style><style type="text/css">@keyframes videonow-spin {100% {webkit-transform: rotate(360deg); transform:rotate(360deg);}}</style><div style="position: absolute; z-index: 3; animation: 1s linear 0s infinite normal none running videonow-spin; width: 30px; height: 30px; bottom: 13px; left: 10px; line-height: 0;"><svg viewBox="22 22 44 44" style="color: rgb(208, 2, 27);"><circle cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6" style="animation: 1.4s ease-in-out 0s infinite normal none running circular-dash; stroke-dasharray: 80px, 200px; stroke-dashoffset: 0px; stroke: currentcolor;"></circle></svg></div></div><div class="t-logo logoContainer" style="z-index: 3000; display: block; opacity: 1;"><style>.playerLogo {
+  width: 100%;
+  height: 100%;
+}
+
+.playerLogo-container {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  background-position: top right;
+}
+
+.playerLogo:hover .playerLogo-viqeo,
+.playerLogo .playerLogo-viqeoHover {
+  display: none;
+}
+
+.playerLogo:hover .playerLogo-viqeoHover,
+.playerLogo .playerLogo-viqeo {
+  display: block;
+}
+</style><div class="playerLogo">   <a href="https://viqeo.tv/?utm_source=about%3Ablank&amp;utm_campaign=logoclick&amp;utm_medium=referral" target="_blank"> <div class="playerLogo-container playerLogo-viqeo"><svg viewBox="0 0 120 39"> <use xlink:href="#logo"></use> </svg></div> <div class="playerLogo-container playerLogo-viqeoHover"><svg viewBox="0 0 120 39"> <use xlink:href="#logoHover"></use> </svg></div> </a> </div></div><div style="position: absolute; z-index: 3000; height: 30px; top: 70px; right: 10px; cursor: pointer; color: rgb(249, 124, 34); display: none;"><div class="t-viqeo-stats-button" style="display: none; width: 30px; height: 30px; cursor: pointer;"><style>.button { padding: 5px; margin: -5px; cursor: pointer; display: inline-block; width: 100%; height: 100%;}.button-inner { position: relative; width: 100%; height: 100%;}.button-image { position: absolute; width: 100%; height: 100%;}.button-background { display: block;}.button-backgroundHover { display: none;}.button:hover .button-background,.buttonForceHover .button-background { display: none;}.button:hover .button-backgroundHover,.buttonForceHover .button-backgroundHover { display: block;}.button-text { font-weight: 700; font-size: 12px; z-index: 100; width: 100%; text-align: center; top: 50%; margin-top: -0.5em; line-height: 100%; position: absolute;}.button-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 3px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}.button-image-inner { position: relative; width: 100%; height: 100%; margin: 0 auto;}</style><div class="button"> <div class="button-inner"> <div class="button-image button-background"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButton"></use> </svg> </div> <div class="button-image button-backgroundHover"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButtonHover"></use> </svg> </div> <div class="button-image-wrapper"> <div class="button-image-inner"> <div class="button-image"><svg viewBox="0 0 30 30"> <use xlink:href="#stats"></use> </svg></div> </div> </div>  </div></div></div></div><div style="display: none; z-index: 3000; position: absolute; transform: translate(-50%, 0px); bottom: 0px; left: 50%; width: 80%; height: 50%;"><div style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"><div><svg version="1.1" id="swipe_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 116" preserveAspectRatio="none" xml:space="preserve"><g opacity="1"><g id="vq_arrow" opacity="0.8"><line fill="none" id="vq_arrow_line" stroke="#FFFFFF" stroke-width="2" x1="80" y1="9" x2="220" y2="9"></line><polyline id="vq_arrow_left" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="85,15 79,9 85,3"></polyline><polyline id="vq_arrow_right" fill="none" stroke="#FFFFFF" stroke-width="2" troke-miterlimit="10" points="215,15 221,9 215,3"></polyline></g></g></svg></div><div style="position: absolute; height: 100%; width: 100px; top: 0px; left: 50%; transform: translateX(-50%); animation: 3500ms ease 0s 1 normal none running videonow_swipe;"><svg viewBox="0 0 340 376" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><g transform="matrix(1,0,0,1,42.4123,42.4528)"><g transform="matrix(1,-0,-0,1,-42.4123,-42.4528)"><use xlink:href="#vq_hand" x="40" y="44" width="267.628px" height="297.224px" transform="matrix(0.998613,0,0,0.997395,0,0)"></use></g><g transform="matrix(-6.38027,0,0,6.38027,1055.55,-453.08)"><path d="M156.242,90.677C155.393,89.994 152.898,89.951 150.898,92.61C149.922,93.907 149.005,92.429 148.998,90.865C148.99,89.3 148.671,81.141 148.671,81.141C148.733,80.377 148.122,79.709 147.305,79.649C146.5,79.598 145.775,80.163 145.711,80.928L144.788,88.73C143.916,88.188 142.444,88.601 142.158,89.356C140.657,88.743 139.124,89.386 138.611,90.18C136.577,89.821 135.356,91.058 135.259,92.214C135.194,92.986 135.058,99.321 136.368,100.491C137.677,101.661 137.271,104.912 137.271,104.912C139.463,107.123 145.304,107.479 147.587,105.445C147.888,102.687 150.981,101.469 152.193,99.985C153.406,98.5 154.359,94.995 156.182,92.659C156.893,91.89 157.088,91.36 156.242,90.677Z" style="fill:white;fill-rule:nonzero;stroke:rgb(204,204,204);stroke-width:0.29px;"></path></g></g><defs><image id="vq_hand" width="268px" height="298px" xlink:href="data:image/png;base64,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"></image></defs></svg><style type="text/css">@keyframes videonow_swipe {0% {left:40%;}50% {left:60%;}100% {left:40%;}}</style></div></div></div><div style="position: absolute; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%) scale(1); overflow: hidden; width: 100%; height: 100%; z-index: 1250; display: none; pointer-events: none; align-items: center; justify-content: center;"><style type="text/css">@keyframes vqFadeOut {0% {opacity:1;}100% {opacity:0; transform:scale(2);}}</style><div style="transform: scale(1); z-index: 1250; display: none; animation: 0.5s linear 0s 1 normal forwards running vqFadeOut; transform-origin: center center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: white; width: 100px; height: 100px;"><path d="M8 5v14l11-7z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></div><div style="transform: scale(1); z-index: 1250; display: none; animation: 0.5s linear 0s 1 normal forwards running vqFadeOut; transform-origin: center center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 100px; height: 100px;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="white"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></div></div><div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 500; overflow: hidden;"><div class="story" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"><div class="story-pages" style="position: absolute; top: 0px; left: 0%; width: 100%; height: 100%;"><div style="position: absolute; top: 0px; left: 0%; width: 100%; height: 100%; overflow: hidden;"><div style="position: absolute; top: 0px; left: 0px; background: rgb(0, 0, 0); width: 100%; height: 100%;"><div style="width: 100%; height: 100%; top: 0px; left: 0px; z-index: 10; position: absolute;"><div style="position: relative; width: 400px; height: 225px;"><div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden;"><div style="display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"><img src="https://cdn.viqeo.tv/storage/b4/73/5fcaf024c58095b45030b214fe669ede.webp" style="position: absolute; display: none;"><canvas id="canvas" width="400" height="225" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"></canvas></div></div></div></div></div></div><div style="position: absolute; top: 0px; left: 100%; width: 100%; height: 100%; overflow: hidden;"><div style="position: absolute; top: 0px; left: 0px; background: rgb(0, 0, 0); width: 100%; height: 100%;"><div style="width: 100%; height: 100%; top: 0px; left: 0px; z-index: 10; position: absolute;"><div style="position: relative; width: 400px; height: 225px;"><div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden;"><div style="display: block; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"><img src="https://cdn.viqeo.tv/storage/b4/73/5fcaf024c58095b45030b214fe669ede.webp" style="position: absolute; display: none;"><canvas id="canvas" width="400" height="225" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"></canvas></div></div></div></div></div></div></div><div class="story-arrow" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 1000; display: none;"><div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"><style type="text/css">.arrow-control { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}.arrow-control_icon { position: absolute; width: 50%; height: 100%; top: 0;}.arrow-control_icon_left { left: 0;}.arrow-control_icon_right { right: 0;}.arrow-control_icon_container { position: absolute; top: 0; width: 30px; height: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; opacity: 0.5;}.arrow-control_icon_container svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0;}.arrow-control_icon_right .arrow-control_icon_container { right: 10px;}.arrow-control_icon_left .arrow-control_icon_container { left: 10px;}.arrow-control_icon:hover .arrow-control_icon_container { opacity: 1;}</style><div class="arrow-control">  <div class="arrow-control_icon arrow-control_icon_left"> <div class="arrow-control_icon_container"> <svg width="100%" height="100%" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"> <g transform="matrix(1,0,0,1,-101,-324.775)"> <g transform="matrix(1,0,0,1,66,20.7746)"> <path d="M50,334C58.279,334 65,327.279 65,319C65,310.721 58.279,304 50,304C41.721,304 35,310.721 35,319C35,327.279 41.721,334 50,334ZM54.697,326.738L46.459,318.5L54.697,310.262L52.5,308.065L42.065,318.5L52.5,328.935L54.697,326.738Z" style="fill:white;"></path> </g> </g> </svg> </div> </div>   <div class="arrow-control_icon arrow-control_icon_right"> <div class="arrow-control_icon_container"> <svg width="100%" height="100%" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"> <g transform="matrix(1,0,0,1,-304,-324.775)"> <g transform="matrix(-1,0,0,1,369,20.7746)"> <path d="M50,334C58.279,334 65,327.279 65,319C65,310.721 58.279,304 50,304C41.721,304 35,310.721 35,319C35,327.279 41.721,334 50,334ZM54.697,326.738L46.459,318.5L54.697,310.262L52.5,308.065L42.065,318.5L52.5,328.935L54.697,326.738Z" style="fill:white;"></path> </g> </g> </svg> </div> </div> </div></div></div><div class="story-poll" style="position: absolute; z-index: 3000;"></div><div class="story-form" style="position: absolute; z-index: 3000;"></div></div></div><div style="position: absolute; top: 0px; left: 0px; z-index: 50; width: 100%; height: 100%; overflow: hidden; background: rgb(0, 0, 0);"></div><div class="t-seek-top-panel" style="width: 100%; height: 20px; position: absolute; top: 0px; left: 0px; display: none; z-index: 1200;"><div style="position: relative; top: 0px; left: 0px; width: 100%; height: 100%; font-size: 0px;"><div data-page="0" style="width: 50%; display: inline-block; height: 100%; padding-right: 1%; padding-left: 1%; box-sizing: border-box;"><div data-page="0" style="width: 100%; height: 4px; position: relative; top: 50%; transform: translate(0px, -50%); border-radius: 5px;"><div data-page="0" style="z-index: 100; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(255, 255, 255);"></div><div class="t-seek-top-loaded" data-page="0" style="z-index: 200; position: absolute; top: 0px; left: 0px; width: 37.2667%; height: 100%; background: rgb(208, 2, 27);"></div></div></div><div data-page="1" style="width: 50%; display: inline-block; height: 100%; padding-right: 1%; padding-left: 1%; box-sizing: border-box;"><div data-page="1" style="width: 100%; height: 4px; position: relative; top: 50%; transform: translate(0px, -50%); border-radius: 5px;"><div data-page="1" style="z-index: 100; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(255, 255, 255);"></div><div class="t-seek-top-loaded" data-page="1" style="z-index: 200; position: absolute; top: 0px; left: 0px; width: 0%; height: 100%; background: rgb(208, 2, 27);"></div></div></div></div></div><div style="position: absolute; cursor: pointer; z-index: 1475; left: 50%; transform: translate(-50%, 0px); display: none;"></div><div style="position: absolute; top: 50%; left: 50%; display: none; z-index: 3000; transform: translate(-50%, -50%);"><style type="text/css">.activeVolume { display: inline-block; padding: 10px; color: #fff; opacity: 0.7; -webkit-transition: opacity 0.3s; -moz-transition: opacity 0.3s; transition: opacity 0.3s;}.activeVolume-mobile { opacity: 1;}.activeVolume:hover { opacity: 1;}.activeVolume-mobile .activeVolume-control { border: none;}.activeVolume-mobile .activeVolume-icon { width: 50px;}.activeVolume-mobile .activeVolume-overlay { display: none;}.activeVolume-control { display: inline-block; border-radius: 50px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 2px solid #c2c2cc; height: 100px; width: 100px; position: relative; overflow: hidden;}.activeVolume-icon { position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 60px; display: inline-block;}.activeVolume-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000000; opacity: 0.6; z-index: 50;}.activeVolume-controlWrapper { position: relative; z-index: 100; width: 100%; height: 100%;}</style><style type="text/css"> .activeVolume:hover .activeVolume-control { border: 2px solid #d0021b; } .activeVolume-mobile:hover .activeVolume-control { border: none; }</style><div class="activeVolume " style="padding-top: 20px"> <div class="activeVolume-control"> <div class="activeVolume-controlWrapper"> <div class="activeVolume-icon"><svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 34.997V24.997C5 23.6163 6.1193 22.497 7.5 22.497H14.243C14.7366 22.497 15.2192 22.3509 15.6298 22.0771L26.1133 15.0881C27.7748 13.9805 30 15.1715 30 17.1683V42.8257C30 44.8225 27.7748 46.0135 26.1133 44.9057L15.6298 37.9167C15.2192 37.643 14.7366 37.497 14.243 37.497H7.5C6.1193 37.497 5 36.3777 5 34.997Z" fill="#C2C2CC" stroke="#C2C2CC" stroke-width="3.75"></path><path d="M41.25 18.75C41.25 18.75 45 22.5 45 28.75C45 35 41.25 38.75 41.25 38.75" stroke="#C2C2CC" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"></path><path d="M48.75 11.25C48.75 11.25 55 17.5 55 28.75C55 40 48.75 46.25 48.75 46.25" stroke="#C2C2CC" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></div> </div> <div class="activeVolume-overlay"></div> </div></div></div><div style="position: absolute; top: 0px; left: 0px; z-index: 1450; display: none;"></div><div style="z-index: 1400; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease 0s; display: none;"><img src="https://cdn.viqeo.tv/poster/361797-preview.webp" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute; display: block; width: 400px; height: 225px;"></div><div class="progressBar" data-controller_name="progress_bar" style="position: absolute; z-index: 5000; bottom: 0px; left: 0px; width: 100%;"><style>.progressBar {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.progressBar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #000;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  transition: height 1s;
+}
+
+.progressBar-main {
+  position: absolute;
+  z-index: 10;
+  width: 0;
+  height: 100%;
+  background: var(--color-primary);
+}
+
+.progressBar-bufferContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 5;
+}
+
+.progressBar-bufferItem {
+  height: 100%;
+  background: var(--color-primary);
+  position: absolute;
+  top: 0;
+}
+
+.progressBar-runner {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  background: var(--color-primary);
+  height: 12px;
+  bottom: 0;
+  display: none;
+}
+
+.player.rewind .progressBar-runner {
+  display: block;
+}
+
+.player.rewind.touch .progressBar-runner {
+  position: fixed;
+  height: 100%;
+  display: block;
+}
+
+.progressBar:hover .progressBar-runner {
+  display: block;
+}
+
+.player.touch .progressBar-runner {
+  display: none;
+}
+
+.player:hover .progressBar-container {
+  height: 6px;
+}
+</style><div class="progressBar" style="height: 9px"> <div class="progressBar-container"> <div class="progressBar-main js-progress-bar" style="width: 18.6333%;"></div> <div class="progressBar-bufferContainer js-buffer"></div> <div class="progressBar-runner js-progress-bar-runner" style="width: 6px"></div> </div></div></div><div data-controller_name="roundButton" class="buttonContainer buttonContainer-medium" data-name="settings" style="right: 10px; z-index: 1475;"><style>.button { padding: 5px; margin: -5px; cursor: pointer; display: inline-block; width: 100%; height: 100%;}.button-inner { position: relative; width: 100%; height: 100%;}.button-image { position: absolute; width: 100%; height: 100%;}.button-background { display: block;}.button-backgroundHover { display: none;}.button:hover .button-background,.buttonForceHover .button-background { display: none;}.button:hover .button-backgroundHover,.buttonForceHover .button-backgroundHover { display: block;}.button-text { font-weight: 700; font-size: 12px; z-index: 100; width: 100%; text-align: center; top: 50%; margin-top: -0.5em; line-height: 100%; position: absolute;}.button-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 3px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}.button-image-inner { position: relative; width: 100%; height: 100%; margin: 0 auto;}</style><div class="button"> <div class="button-inner"> <div class="button-image button-background"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButton"></use> </svg> </div> <div class="button-image button-backgroundHover"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButtonHover"></use> </svg> </div> <div class="button-image-wrapper"> <div class="button-image-inner"> <div class="button-image"><svg viewBox="0 0 20 20"> <use xlink:href="#settings"></use> </svg></div> </div> </div>  </div></div></div><div data-controller_name="roundButton" class="buttonContainer buttonContainer-medium" data-name="volume" style="right: 50px; z-index: 1475;"><style>.volumeContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.volumeContainer-buttons {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.volumeContainer-muted {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.volumeContainer-unmuted {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.volumeContainer-slider {
+  width: 26px;
+  height: 55px;
+  margin: auto;
+  position: absolute;
+  bottom: 100%;
+  padding: 10px 0 0 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px 3px 0 0;
+  z-index: 5;
+  cursor: pointer;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+     -moz-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  display: none;
+}
+
+.volumeContainer-availableSlider
+  .volumeContainer:hover
+  .volumeContainer-slider {
+  display: block;
+}
+
+.mobile.volumeContainer-availableSlider
+  .volumeContainer:hover
+  .volumeContainer-slider {
+  display: none;
+}
+
+.volumeContainer-sliderBackground {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+}
+
+.volumeContainer-sliderBottomRound {
+  position: absolute;
+  top: 55px;
+  height: 10px;
+  width: 100%;
+  background-color: rgba(254, 254, 254, 0);
+  background-image: -webkit-radial-gradient(
+    center bottom,
+    ellipse farthest-side,
+    rgba(255, 255, 255, 0) 99.5%,
+    rgba(253, 253, 253, 0) 99.5%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  background-image: -moz-radial-gradient(
+    center bottom,
+    ellipse farthest-side,
+    rgba(255, 255, 255, 0) 99.5%,
+    rgba(253, 253, 253, 0) 99.5%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  background-image: radial-gradient(
+    ellipse farthest-side at center bottom,
+    rgba(255, 255, 255, 0) 99.5%,
+    rgba(253, 253, 253, 0) 99.5%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.b {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.e {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 200;
+}
+
+.f {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+}
+
+.volumeContainer-emptyLine {
+  width: 5px;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.volumeContainer-filledLine {
+  width: 5px;
+  height: var(--volume);
+  background: var(--color-primary);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0;
+}
+
+.x {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 11px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.k {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.volumeContainer-dotContainer {
+  top: var(--volume-dot);
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.volumeContainer-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-primary);
+  margin: auto;
+  border-radius: 20px;
+  position: relative;
+  top: 3px;
+}
+
+[data-player_volume='muted'] .volumeContainer-muted,
+[data-player_volume='unmuted'] .volumeContainer-unmuted {
+  display: none;
+}
+
+[data-player_volume='unmuted'] .volumeContainer-muted,
+[data-player_volume='muted'] .volumeContainer-unmuted {
+  display: block;
+}
+</style><div class="volumeContainer"> <div class="volumeContainer-slider" data-controller_name="volume_slider"> <div class="b"> <div class="e"></div> <div class="f"> <div class="volumeContainer-emptyLine"></div> <div class="volumeContainer-filledLine"></div> <div class="x"> <div class="k"> <div class="volumeContainer-dotContainer"> <div class="volumeContainer-dot"></div> </div> </div> </div> </div> </div> <div class="volumeContainer-sliderBackground"></div> <div class="volumeContainer-sliderBottomRound"></div> </div> <div class="volumeContainer-buttons"> <div class="volumeContainer-muted"><style>.button { padding: 5px; margin: -5px; cursor: pointer; display: inline-block; width: 100%; height: 100%;}.button-inner { position: relative; width: 100%; height: 100%;}.button-image { position: absolute; width: 100%; height: 100%;}.button-background { display: block;}.button-backgroundHover { display: none;}.button:hover .button-background,.buttonForceHover .button-background { display: none;}.button:hover .button-backgroundHover,.buttonForceHover .button-backgroundHover { display: block;}.button-text { font-weight: 700; font-size: 12px; z-index: 100; width: 100%; text-align: center; top: 50%; margin-top: -0.5em; line-height: 100%; position: absolute;}.button-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 3px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}.button-image-inner { position: relative; width: 100%; height: 100%; margin: 0 auto;}</style><div class="button"> <div class="button-inner"> <div class="button-image button-background"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButton"></use> </svg> </div> <div class="button-image button-backgroundHover"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButtonHover"></use> </svg> </div> <div class="button-image-wrapper"> <div class="button-image-inner"> <div class="button-image"><svg viewBox="0 0 64 64"> <use xlink:href="#volumeOn"></use> </svg></div> </div> </div>  </div></div></div> <div class="volumeContainer-unmuted"><style>.button { padding: 5px; margin: -5px; cursor: pointer; display: inline-block; width: 100%; height: 100%;}.button-inner { position: relative; width: 100%; height: 100%;}.button-image { position: absolute; width: 100%; height: 100%;}.button-background { display: block;}.button-backgroundHover { display: none;}.button:hover .button-background,.buttonForceHover .button-background { display: none;}.button:hover .button-backgroundHover,.buttonForceHover .button-backgroundHover { display: block;}.button-text { font-weight: 700; font-size: 12px; z-index: 100; width: 100%; text-align: center; top: 50%; margin-top: -0.5em; line-height: 100%; position: absolute;}.button-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 3px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}.button-image-inner { position: relative; width: 100%; height: 100%; margin: 0 auto;}</style><div class="button"> <div class="button-inner"> <div class="button-image button-background"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButton"></use> </svg> </div> <div class="button-image button-backgroundHover"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButtonHover"></use> </svg> </div> <div class="button-image-wrapper"> <div class="button-image-inner"> <div class="button-image"><svg viewBox="0 0 64 64"> <use xlink:href="#volumeOff"></use> </svg></div> </div> </div>  </div></div></div> </div></div></div><div data-controller_name="roundButton" class="buttonContainer buttonContainer-medium" data-name="play" style="left: 10px; z-index: 1475;"><style>.playPauseContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.playPauseContainer-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.playPauseContainer-pause {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+[data-player_status='played'] .playPauseContainer-play,
+[data-player_status='paused'] .playPauseContainer-pause {
+  display: none;
+}
+
+[data-player_status='played'] .playPauseContainer-pause,
+[data-player_status='paused'] .playPauseContainer-play {
+  display: block;
+}
+</style><div class="playPauseContainer"> <div class="playPauseContainer-pause b-pause"><style>.button { padding: 5px; margin: -5px; cursor: pointer; display: inline-block; width: 100%; height: 100%;}.button-inner { position: relative; width: 100%; height: 100%;}.button-image { position: absolute; width: 100%; height: 100%;}.button-background { display: block;}.button-backgroundHover { display: none;}.button:hover .button-background,.buttonForceHover .button-background { display: none;}.button:hover .button-backgroundHover,.buttonForceHover .button-backgroundHover { display: block;}.button-text { font-weight: 700; font-size: 12px; z-index: 100; width: 100%; text-align: center; top: 50%; margin-top: -0.5em; line-height: 100%; position: absolute;}.button-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 3px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}.button-image-inner { position: relative; width: 100%; height: 100%; margin: 0 auto;}</style><div class="button"> <div class="button-inner"> <div class="button-image button-background"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButton"></use> </svg> </div> <div class="button-image button-backgroundHover"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButtonHover"></use> </svg> </div> <div class="button-image-wrapper"> <div class="button-image-inner"> <div class="button-image"><svg viewBox="0 0 24 24"> <use xlink:href="#pause"></use> </svg></div> </div> </div>  </div></div></div> <div class="playPauseContainer-play b-play"><style>.button { padding: 5px; margin: -5px; cursor: pointer; display: inline-block; width: 100%; height: 100%;}.button-inner { position: relative; width: 100%; height: 100%;}.button-image { position: absolute; width: 100%; height: 100%;}.button-background { display: block;}.button-backgroundHover { display: none;}.button:hover .button-background,.buttonForceHover .button-background { display: none;}.button:hover .button-backgroundHover,.buttonForceHover .button-backgroundHover { display: block;}.button-text { font-weight: 700; font-size: 12px; z-index: 100; width: 100%; text-align: center; top: 50%; margin-top: -0.5em; line-height: 100%; position: absolute;}.button-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 3px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}.button-image-inner { position: relative; width: 100%; height: 100%; margin: 0 auto;}</style><div class="button"> <div class="button-inner"> <div class="button-image button-background"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButton"></use> </svg> </div> <div class="button-image button-backgroundHover"> <svg viewBox="0 0 30 30"> <use xlink:href="#backgroundButtonHover"></use> </svg> </div> <div class="button-image-wrapper"> <div class="button-image-inner"> <div class="button-image"><svg viewBox="0 0 24 24"> <use xlink:href="#play"></use> </svg></div> </div> </div>  </div></div></div></div></div></div></div></div></body></html>

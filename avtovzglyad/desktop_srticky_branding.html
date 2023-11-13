@@ -102,6 +102,40 @@
         cursor: pointer;
 
     }
+    .mm_marker_bottom{
+        padding: 0rem 0.4rem;
+        border: none;
+        top: -1rem;
+        line-height: initial;
+        position: absolute;
+        left: 0.5rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.05rem;
+        border-radius: 0.3rem 0.3rem 0 0 !important;
+        height: 1rem;
+        background: #ffffffde;
+        width: fit-content;
+        text-align: center;
+        color: #989795;
+        box-shadow: 1px 1px 1px 0px rgb(0 0 0 / 20%) !important;
+    }
+    .mm_marker_top{
+        padding: 0rem 0.4rem;
+        border: none;
+        line-height: initial;
+        position: absolute;
+        left: 0.5rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.05rem;
+        border-radius: 0 0rem 0.3rem 0.3rem !important;
+        height: 1rem;
+        bottom: -1rem;
+        background: #ffffffde;
+        width: fit-content;
+        text-align: center;
+        color: #989795;
+        box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%) !important;
+    }
 
     #sticky_b {
         contain: content;
@@ -112,38 +146,56 @@
         contain: content;
         border-radius: 0px 0px 0.5rem 0.5rem;
     }
+    .interscroller_banner > div > div > div:first-child {
+      height: var(--banner-height) !important;
+    }
+    .interscroller_banner > div > div > div > div > div > div{
+      height: var(--banner-height) !important;
+    }
+    .static_banner > div:first-child{
+      height: var(--banner-height) !important;
+    }
+    .video_banner > div:first-child{
+      height: var(--banner-height) !important;
+    }
+    .video_banner > div:first-child > div {
+        height: auto !important;
+    }
+    .video_banner > div:first-child > div > div > video {
+        height: auto !important;
+    }
 </style>
-<div class="parallax-banner" style="background: radial-gradient(circle, rgb(11 27 37) 52%, rgba(0,0,0,1) 100%);">
-    <div id="p-banner-monetize-me"></div>
+<div class="parallax-banner" style="%banner.user5%">
+    <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script>
 
   var randomId = Math.floor(Math.random() * 1000);
   document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
 
+  //Берем ширину контента
+  width_sticky_banner = document.querySelector(".main-article").offsetWidth + "px"
+
+  //Убираем отступ плейсхолдера
+  document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
+
+  document.querySelector('.parallax-banner').style.width = width_sticky_banner
+
+  var banner_p_height = Math.round(document.querySelector('.adfox_parallax').offsetWidth * 0.7)
+  document.documentElement.style.setProperty('--banner-height', `${banner_p_height}px`);
+
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me'+ '_' + randomId,
-            params: {
-              p1: 'cxsrk',
-              p2: 'iegj',
-              pfc: 'fhnzi',
-              pfb: 'pywta'
-            }
+            params: {%banner.user2%}
         })
     })
 
-    //Берем ширину контента
-    width_sticky_banner = document.querySelector(".main-article").offsetWidth + "px"
+   
 
     //Указываем элемент статьи
     var article = document.querySelector(".main-article")
-
-    //Убираем отступ плейсхолдера
-    document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
-
-    document.querySelector('.parallax-banner').style.width = width_sticky_banner
     
 
     
@@ -153,17 +205,12 @@
       var stickyTop = document.createElement('div');
       stickyTop.classList.add('sticky-banner-top', 'collapsed');
       stickyTop.setAttribute('id', 'sticky_top');
-      stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+      stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
       window.yaContextCb.push(() => {
           Ya.adfoxCode.create({
               ownerId: 1458764,
               containerId: 'sticky_t',
-              params: {
-                p1: 'cyrmv',
-                p2: 'ihub',
-                pfc: 'fhnzi',
-                pfb: 'pyxdl'
-              }
+              params: {%banner.user3%}
           })
       })
 
@@ -174,17 +221,12 @@
 
       stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
       stickyBottom.setAttribute('id', 'sticky_bottom');
-      stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+      stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
       window.yaContextCb.push(() => {
           Ya.adfoxCode.create({
               ownerId: 1458764,
               containerId: 'sticky_b',
-              params: {
-                p1: 'cyrmv',
-                p2: 'ihub',
-                pfc: 'fhnzi',
-                pfb: 'pyxdp'
-              }
+              params: {%banner.user4%}
           })
       })
       article.insertAdjacentElement('afterbegin', stickyBottom)
