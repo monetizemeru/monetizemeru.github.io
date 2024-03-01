@@ -155,20 +155,48 @@
     <div id="p-banner-monetize-me" class="adfox_parallax" style="%banner.user5%"></div>
 </div>
 <script>
+
+
+function changeDivContent(callback) {
+
     if (document.querySelector("[id^=floor_ad]") != null) {
         window.Ya.adfoxCode.destroy(document.querySelector("[id^=floor_ad]").id)
         document.querySelector("[id^=floor_ad]").remove()
     }
 
     var randomId = Math.floor(Math.random() * 1000);
-    document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
+    parallax_id = "p-banner-monetize-me" + "_" + randomId
+    document.getElementById("p-banner-monetize-me").id = parallax_id ;
 
+    document.querySelector('#p-banner-monetize-me' + "_" + randomId).closest('.placeholder_mobile').style.overflow = 'initial'
+    document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
+    document.querySelector('.parallax-banner').parentElement.parentElement.style.background = 'none'
 
+    if (document.querySelector("#mobile_top_billboard")) {
+        document.querySelector("#mobile_top_billboard").remove()
+    }
+    const body = document.querySelector("body")
+    const stickyTop = document.createElement('div');
+    stickyTop.classList.add('sticky-banner-top');
+    stickyTop.setAttribute('id', 'sticky_top');
+    stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">^</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    document.body.insertAdjacentElement('afterbegin', stickyTop)
+    
 
+    const stickyBottom = document.createElement('div');
+    stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
+    stickyBottom.setAttribute('id', 'sticky_bottom');
+    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">^</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    document.body.insertAdjacentElement('afterbegin', stickyBottom)
+
+    callback();
+}
+function onContentChange() {
+    //parallax banner code
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
-            containerId: 'p-banner-monetize-me' + '_' + randomId,
+            containerId: parallax_id,
             onRender: function(){
                 document.body.addEventListener('click', playOrPauseVideo);
                 document.body.addEventListener('touchstart', playOrPauseVideo);
@@ -185,20 +213,7 @@
         })
     })
 
-    document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
-    document.querySelector('.parallax-banner').parentElement.parentElement.style.background = 'none'
-
-    document.querySelector("main").style.paddingTop = "70px"
-
-    if (document.querySelector("#mobile_top_billboard")) {
-        document.querySelector("#mobile_top_billboard").remove()
-    }
-
-    const body = document.querySelector("body")
-    const stickyTop = document.createElement('div');
-    stickyTop.classList.add('sticky-banner-top');
-    stickyTop.setAttribute('id', 'sticky_top');
-    stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">^</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    //sticky top banner code
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
@@ -207,12 +222,7 @@
         })
     })
 
-    document.body.insertAdjacentElement('afterbegin', stickyTop)
-
-    const stickyBottom = document.createElement('div');
-    stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
-    stickyBottom.setAttribute('id', 'sticky_bottom');
-    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">^</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    //sticky bottom banner code
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
@@ -220,105 +230,109 @@
             params: {%banner.user4%}
         })
     })
-    document.body.insertAdjacentElement('afterbegin', stickyBottom)
+
+}
+
+
+changeDivContent(onContentChange);
+
+function isElementHidden(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.bottom <= 5 ||
+        rect.top >= window.innerHeight ||
+        rect.right <= 5 ||
+        rect.left >= window.innerWidth
+    );
+}
+
+function isParallaxBannerHidden() {
+    var parallaxBanner = document.querySelector('.parallax-banner');
+    return isElementHidden(parallaxBanner);
+}
+
+function isArticleAboveScreen(articleElement) {
+    const articleRect = articleElement.getBoundingClientRect();
+    const screenBottom = window.innerHeight;
+    return articleRect.bottom < screenBottom;
+}
+
+function collapseElement(elementToCollapse) {
+    elementToCollapse.classList.add('collapsed') 
+}
+
+function isArticleBelowScreenTop(articleElement) {
+  const articleRect = articleElement.getBoundingClientRect();
+  const screenTop = 0;
+  return articleRect.top > screenTop;
+}
+
+function handleScroll() {
+    var parallaxBanner = document.querySelector('.parallax-banner');
+    var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
+    var stickyBannerTop = document.querySelector('.sticky-banner-top');
+    var articleElement = document.querySelector('article');
+    var elementToCollapse = document.querySelector('.sticky-banner-bottom');
     
-    function isElementHidden(element) {
-        var rect = element.getBoundingClientRect();
-        return (
-            rect.bottom <= 5 ||
-            rect.top >= window.innerHeight ||
-            rect.right <= 5 ||
-            rect.left >= window.innerWidth
-        );
-    }
+    var parallaxBannerHidden = isParallaxBannerHidden();
 
-    function isParallaxBannerHidden() {
-        var parallaxBanner = document.querySelector('.parallax-banner');
-        return isElementHidden(parallaxBanner);
-    }
-
-    function isArticleAboveScreen(articleElement) {
-        const articleRect = articleElement.getBoundingClientRect();
-        const screenBottom = window.innerHeight;
-        return articleRect.bottom < screenBottom;
-    }
-
-    function collapseElement(elementToCollapse) {
-        elementToCollapse.classList.add('collapsed') 
-    }
-
-    function isArticleBelowScreenTop(articleElement) {
-      const articleRect = articleElement.getBoundingClientRect();
-      const screenTop = 0;
-      return articleRect.top > screenTop;
-    }
-
-    function handleScroll() {
-        var parallaxBanner = document.querySelector('.parallax-banner');
-        var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
-        var stickyBannerTop = document.querySelector('.sticky-banner-top');
-        var articleElement = document.querySelector('article');
-        var elementToCollapse = document.querySelector('.sticky-banner-bottom');
-        
-        var parallaxBannerHidden = isParallaxBannerHidden();
-
-        if (parallaxBannerHidden) {
-            if (window.pageYOffset > lastScrollPos) {
-                if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true) {
-                    stickyBannerBottom.classList.remove('collapsed')
-                    stickyBannerTop.classList.add('collapsed')
-                }
-                if (isArticleAboveScreen(articleElement)){
-                  stickyBannerBottom.classList.add('collapsed')
-                }
-                if (parallaxBannerReached != true && isArticleBelowScreenTop(articleElement) != true){
-                  stickyBannerTop.classList.remove('collapsed')
-                }
-            } else {
-                if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isArticleBelowScreenTop(articleElement) != true) {
-                    stickyBannerTop.classList.remove('collapsed')
-                    stickyBannerBottom.classList.add('collapsed')
-                }
-                if (isArticleAboveScreen(articleElement) || isArticleBelowScreenTop(articleElement)){
-                  stickyBannerTop.classList.add('collapsed')
-                }
+    if (parallaxBannerHidden) {
+        if (window.pageYOffset > lastScrollPos) {
+            if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true) {
+                stickyBannerBottom.classList.remove('collapsed')
+                stickyBannerTop.classList.add('collapsed')
+            }
+            if (isArticleAboveScreen(articleElement)){
+              stickyBannerBottom.classList.add('collapsed')
+            }
+            if (parallaxBannerReached != true && isArticleBelowScreenTop(articleElement) != true){
+              stickyBannerTop.classList.remove('collapsed')
             }
         } else {
-            parallaxBannerReached = true;
-            stickyBannerTop.classList.add('collapsed');
-            stickyBannerBottom.classList.add('collapsed');
-        }
-        lastScrollPos = window.pageYOffset;
-    }
-
-    var parallaxBannerReached = false;
-
-    var topButton = document.querySelector('.button-top-close');
-    var bottomButton = document.querySelector('.button-bottom-close');
-
-    topButton.addEventListener('click', function() {
-        document.querySelector(".sticky-banner-top").remove();
-    });
-    bottomButton.addEventListener('click', function() {
-        document.querySelector(".sticky-banner-bottom").remove();
-    });
-
-    var lastScrollPos = 0;
-    window.addEventListener('scroll', handleScroll);
-
-    function checkURLchange() {
-        if (window.location.href != oldURL) {
-            if (document.querySelector(".sticky-banner-top")) {
-                document.querySelector(".sticky-banner-top").remove()
+            if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isArticleBelowScreenTop(articleElement) != true) {
+                stickyBannerTop.classList.remove('collapsed')
+                stickyBannerBottom.classList.add('collapsed')
             }
-            if (document.querySelector(".sticky-banner-bottom")) {
-                document.querySelector(".sticky-banner-bottom").remove()
+            if (isArticleAboveScreen(articleElement) || isArticleBelowScreenTop(articleElement)){
+              stickyBannerTop.classList.add('collapsed')
             }
-            window.removeEventListener('scroll', handleScroll)
-            oldURL = window.location.href;
         }
+    } else {
+        parallaxBannerReached = true;
+        stickyBannerTop.classList.add('collapsed');
+        stickyBannerBottom.classList.add('collapsed');
     }
+    lastScrollPos = window.pageYOffset;
+}
 
-    var oldURL = window.location.href;
-    setInterval(checkURLchange, 500);
+var parallaxBannerReached = false;
+
+var topButton = document.querySelector('.button-top-close');
+var bottomButton = document.querySelector('.button-bottom-close');
+
+topButton.addEventListener('click', function() {
+    document.querySelector(".sticky-banner-top").remove();
+});
+bottomButton.addEventListener('click', function() {
+    document.querySelector(".sticky-banner-bottom").remove();
+});
+
+var lastScrollPos = 0;
+window.addEventListener('scroll', handleScroll);
+
+function checkURLchange() {
+    if (window.location.href != oldURL) {
+        if (document.querySelector(".sticky-banner-top")) {
+            document.querySelector(".sticky-banner-top").remove()
+        }
+        if (document.querySelector(".sticky-banner-bottom")) {
+            document.querySelector(".sticky-banner-bottom").remove()
+        }
+        window.removeEventListener('scroll', handleScroll)
+        oldURL = window.location.href;
+    }
+}
+
+var oldURL = window.location.href;
+setInterval(checkURLchange, 500);
 </script>

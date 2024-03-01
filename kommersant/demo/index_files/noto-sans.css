@@ -1,0 +1,24 @@
+@font-face {
+    font-family:"Noto Sans";
+    src:url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensedSemiBold.woff2?1") format("woff2"),
+        url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensedSemiBold.woff?1") format("woff"),
+        url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensedSemiBold.ttf") format("truetype");
+    font-display:swap;font-style:normal;font-weight:700;font-stretch:normal;
+}
+    
+/* @font-face {
+    font-family:"Noto Sans";
+    src:url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensedBold.woff2") format("woff2"),
+        url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensedBold.woff") format("woff"),
+        url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensedBold.ttf") format("truetype");
+    font-display:swap;font-style:normal;font-weight:700;font-stretch:normal;
+} */
+
+
+@font-face {
+    font-family:"Noto Sans";
+    src:url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensed.woff2?1") format("woff2"),
+        url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensed.woff?1") format("woff"),
+        url("https://iv.kommersant.ru/ContentFlex/ajax/fonts/noto-sans/NotoSans-SemiCondensed.ttf") format("truetype");
+    font-display:swap;font-style:normal;font-weight:400;font-stretch:normal;
+}

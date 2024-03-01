@@ -41,7 +41,7 @@ window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
 
 window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
 
-var css = '.desktop_placeholder{min-height:320px;background: #f8f9fa;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px;} .mobile_placeholder{min-height:300px;background: #f8f9fa;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 0px;}',
+var css = '.desktop_placeholder{min-height:420px; aspect-ratio: 10/7; overflow:hidden; background: #f8f9fa; width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px;} .mobile_placeholder{aspect-ratio: 4/5; overflow:hidden; background: #f8f9fa;width: calc(100% - 2px);display: flex;justify-content: center;margin: 20px 0px;} .mm_container{margin:auto;}',
     head = document.head || document.getElementsByTagName('head')[0],
     style = document.createElement('style');
 
@@ -74,7 +74,7 @@ function add_dektop_banners_fc(){
                         desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
                         desktop_in_article.setAttribute('class', 'desktop_placeholder');
                         //desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px;');
-                        desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-" + mmId + "'></div>";
+                        desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-" + mmId + "' class='mm_container'></div>";
 
                         window.Ya.adfoxCode.hbCallbacks.push(function() {
                             window.Ya.headerBidding.pushAdUnits([{
@@ -160,7 +160,7 @@ function add_dektop_banners_sc(){
                                             desktop_in_article.setAttribute('id', 'desktop_in_article_' + mmId);
                                             desktop_in_article.setAttribute('class', 'desktop_placeholder');
                                             //desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px');
-                                            desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-" + mmId + "'></div>";
+                                            desktop_in_article.innerHTML = "<div id='monetizeme-desktop-inread-article-" + mmId + "' class='mm_container'></div>";
 
                                             window.Ya.adfoxCode.hbCallbacks.push(function() {
                                                 window.Ya.headerBidding.pushAdUnits([{
@@ -243,7 +243,7 @@ function add_mobile_banners_fc(){
                         desktop_in_article.setAttribute('id', 'mobile_in_article_' + mmId);
                         desktop_in_article.setAttribute('class', 'mobile_placeholder');
                         //desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px;');
-                        desktop_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "'></div>";
+                        desktop_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "' class='mm_container'></div>";
 
                         window.Ya.adfoxCode.hbCallbacks.push(function() {
                             window.Ya.headerBidding.pushAdUnits([{
@@ -329,7 +329,7 @@ function add_mobile_banners_sc(){
                                             desktop_in_article.setAttribute('id', 'mobile_in_article_' + mmId);
                                             desktop_in_article.setAttribute('class', 'mobile_placeholder');
                                             //desktop_in_article.setAttribute('style', '    background: #f4f2ee;width: calc(100% - 2px);display: flex;justify-content: center;margin: 40px 0px;padding: 20px 20px');
-                                            desktop_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "'></div>";
+                                            desktop_in_article.innerHTML = "<div id='monetizeme-mobile-inread-article-" + mmId + "' class='mm_container'></div>";
 
                                             window.Ya.adfoxCode.hbCallbacks.push(function() {
                                                 window.Ya.headerBidding.pushAdUnits([{

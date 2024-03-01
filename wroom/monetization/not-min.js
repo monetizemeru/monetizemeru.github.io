@@ -51,96 +51,96 @@ if (window.matchMedia('(max-width: 768px)').matches) {
     document.addEventListener("DOMContentLoaded", function(event) {
         const body = document.querySelector("body")
         // //Adding mobile fs banner 
-        // const mobile_fs = document.createElement('div');
-        // mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
+        const mobile_fs = document.createElement('div');
+        mobile_fs.setAttribute('id', 'monetizeme-mobile-fs');
 
-        // window.yaContextCb.push(()=>{
-        //     Ya.adfoxCode.create({
-        //         ownerId: 1458764,
-        //             sequentialLoading: true,
-        //             containerId: 'monetizeme-mobile-fs',
-        //             onStub: function() {
-        //                 const mobile_fs_s = document.createElement('div');
-        //                 mobile_fs_s.setAttribute('id', 'mm_fs_banner');
-        //                 mobile_fs_s.setAttribute('style', 'background:#fff;z-index:0;');
-        //                 mobile_fs_s.innerHTML = `
-        //                 <div class="mm_fs_marker stub"></div>
-        //                 <div class="mm_fs_btn"></div>
-        //                 <div id="mm_fs_close-button" class="stub">4</div>
-        //                 <div id="mm_fs_container"></div>`;
+        window.yaContextCb.push(()=>{
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                    sequentialLoading: true,
+                    containerId: 'monetizeme-mobile-fs',
+                    onStub: function() {
+                        const mobile_fs_s = document.createElement('div');
+                        mobile_fs_s.setAttribute('id', 'mm_fs_banner');
+                        mobile_fs_s.setAttribute('style', 'background:#fff;z-index:0;');
+                        mobile_fs_s.innerHTML = `
+                        <div class="mm_fs_marker stub"></div>
+                        <div class="mm_fs_btn"></div>
+                        <div id="mm_fs_close-button" class="stub">4</div>
+                        <div id="mm_fs_container"></div>`;
 
-        //                 window.Ya.adfoxCode.hbCallbacks.push(function() {
-        //                     window.Ya.headerBidding.pushAdUnits([{
-        //                         code: 'mm_fs_container',
-        //                         codeType: 'combo',
-        //                         sizes: [ [0, 0] ],
-        //                         bids: [ 
-        //                         { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } },
-        //                         { bidder: "buzzoola", params: {placementId: "1247268" } } ]
-        //                     }])
-        //                     window.yaContextCb.push(function() {
-        //                         window.Ya.adfoxCode.create({
-        //                             ownerId: 1458764,
-        //                             sequentialLoading: true,
-        //                             containerId: 'mm_fs_container',
-        //                             onError:function(error) {
-        //                                 document.querySelector("#mm_fs_banner").add('stub')
-        //                             },
-        //                             onStub: function() {
-        //                                 document.querySelector("#mm_fs_banner").add('stub')
-        //                             },
-        //                             onRender: function() {
-        //                                 document.querySelector("#mm_fs_banner").classList.add('view')
-        //                                 document.querySelector("#mm_fs_banner").removeAttribute("style")
-        //                                 document.querySelector(".mm_fs_marker").classList.remove("stub")
-        //                                 document.querySelector("#mm_fs_close-button").classList.remove("stub")
-        //                                 document.querySelector(".mm_fs_marker").innerHTML += 'advertising'
-        //                                 var btn = document.querySelector('.mm_fs_btn')
+                        window.Ya.adfoxCode.hbCallbacks.push(function() {
+                            window.Ya.headerBidding.pushAdUnits([{
+                                code: 'mm_fs_container',
+                                codeType: 'combo',
+                                sizes: [ [0, 0] ],
+                                bids: [ 
+                                { bidder: "adriver", params: { placementId: "136:wroom_fs_mob" } },
+                                { bidder: "buzzoola", params: {placementId: "1247268" } } ]
+                            }])
+                            window.yaContextCb.push(function() {
+                                window.Ya.adfoxCode.create({
+                                    ownerId: 1458764,
+                                    sequentialLoading: true,
+                                    containerId: 'mm_fs_container',
+                                    onError:function(error) {
+                                        document.querySelector("#mm_fs_banner").add('stub')
+                                    },
+                                    onStub: function() {
+                                        document.querySelector("#mm_fs_banner").add('stub')
+                                    },
+                                    onRender: function() {
+                                        document.querySelector("#mm_fs_banner").classList.add('view')
+                                        document.querySelector("#mm_fs_banner").removeAttribute("style")
+                                        document.querySelector(".mm_fs_marker").classList.remove("stub")
+                                        document.querySelector("#mm_fs_close-button").classList.remove("stub")
+                                        document.querySelector(".mm_fs_marker").innerHTML += 'advertising'
+                                        var btn = document.querySelector('.mm_fs_btn')
 
-        //                                 let timeLeft = 4;
-        //                                 let timerId;
-        //                                 let popup = document.querySelector('#mm_fs_close-button')
-        //                                 function updateProgress() {
-        //                                   timeLeft--;
-        //                                   popup.textContent = `${timeLeft}`;
-
-
-        //                                   if (timeLeft === 0) {
-        //                                     clearInterval(timerId);
-        //                                     popup.textContent = 'X'
-        //                                     btn.style.display = 'block'
+                                        let timeLeft = 4;
+                                        let timerId;
+                                        let popup = document.querySelector('#mm_fs_close-button')
+                                        function updateProgress() {
+                                          timeLeft--;
+                                          popup.textContent = `${timeLeft}`;
 
 
+                                          if (timeLeft === 0) {
+                                            clearInterval(timerId);
+                                            popup.textContent = 'X'
+                                            btn.style.display = 'block'
 
-        //                                   }
-        //                                 }
+
+
+                                          }
+                                        }
 
                                         
-        //                                 timerId = setInterval(updateProgress, 1000);
-        //                                 btn.addEventListener('click', function() {
-        //                                         document.getElementById("mm_fs_banner").remove();
-        //                                     });
-        //                             },
-        //                             params: {
-        //                                 pp: 'g',
-        //                                 ps: 'gmdq',
-        //                                 p2: 'ihud',
-        //                             }
-        //                         })
-        //                     })
-        //                 })
+                                        timerId = setInterval(updateProgress, 1000);
+                                        btn.addEventListener('click', function() {
+                                                document.getElementById("mm_fs_banner").remove();
+                                            });
+                                    },
+                                    params: {
+                                        pp: 'g',
+                                        ps: 'gmdq',
+                                        p2: 'ihud',
+                                    }
+                                })
+                            })
+                        })
 
-        //                 document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
-        //             },
-        //             params: {
-        //                 pp: 'h',
-        //                 ps: 'gmdq',
-        //                 p2: 'ihud',
-        //             }
-        //         })
-        // }) 
+                        document.body.insertAdjacentElement('afterbegin', mobile_fs_s)
+                    },
+                    params: {
+                        pp: 'h',
+                        ps: 'gmdq',
+                        p2: 'ihud',
+                    }
+                })
+        }) 
 
-        // document.body.insertAdjacentElement('afterbegin', mobile_fs)
+        document.body.insertAdjacentElement('afterbegin', mobile_fs)
 
         //Adding top sticky banner and make him scroll
         const stickyTop = document.createElement('div');
@@ -325,11 +325,10 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         //Add blocks to article
         const textBlock = document.querySelector(".text-block");
         const mainText = document.querySelector(".maintext")
-        const artcicleBlock = document.querySelector('span[itemprop="articleBody"]')
+        const artcicleBlock = document.querySelector(".text-block")
         const articleBottomBlock = document.querySelector('a[name="comments"]')
         const commentsBlock = document.querySelector(".comment2")
         const after_commentsBlock = document.querySelector('form[name="addcomment"]')
-        const main_pageBlock = document.querySelector("body > div.content-page > div:nth-child(5) > div:nth-child(1) > div.col-md-8 > div.row.index-news-2 > div:nth-child(2)")
         if (textBlock != null) {
 
             //add mobile after cover
@@ -550,58 +549,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
 
 
         }
-        if (main_pageBlock != null) {
-            const mobile_mainpage_articleElement = document.createElement("div");
-            mobile_mainpage_articleElement.classList.add('mm_mobile_content');
-            mobile_mainpage_articleElement.setAttribute('id', 'mobile_mainpage_article');
-            mobile_mainpage_articleElement.innerHTML = `<div id="monetizeme-mobile-mainpage"></div>`;
-
-            window.Ya.adfoxCode.hbCallbacks.push(function() {
-                window.Ya.headerBidding.pushAdUnits([{
-                    code: 'monetizeme-mobile-inread-after-article',
-                    codeType: 'combo',
-                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
-                    bids: [ 
-                    { bidder: "astralab", params: {placementId: "64411ec58528b410c4990c69" } },
-                    { bidder: "buzzoola", params: {placementId: "1247265" } },
-                    { bidder: "videonow", params: {placementId: "6326344" } },
-                    { bidder: "sape", params: { placementId:"844562" } },
-                    { bidder: "otm", params: { placementId:"44962" } },
-                    { bidder: "mediasniper", params: { placementId: "740013" }},
-                    { bidder: "adfox_adsmart", params: { "p1": "cxzvz", "p2": "ul" } },
-                    { bidder: "myTarget", params: { placementId: "1256682" } },
-                    { bidder: "adriver", params: { placementId: "136:wroom_300x500mob_3",additional: {ext: {query: 'custom=10=136&cid=' + localStorage.getItem('adrcid')}}}},
-                    { bidder: "bidvol", params: { placementId: "34831" } } ]
-                }])
-                window.yaContextCb.push(function() {
-                    window.Ya.adfoxCode.create({
-                        ownerId: 1458764,
-                        sequentialLoading: true,
-                        containerId: 'monetizeme-mobile-inread-after-article',
-                        onError:function(error) {
-                            mobile_mainpage_articleElement.classList.add('stub')
-                        },
-                        onStub: function() {
-                            mobile_mainpage_articleElement.classList.add('stub')
-                        },
-                        onRender: function() {
-                            mobile_mainpage_articleElement.classList.add('view')
-                        },
-                        params: {
-                            p1: 'cztgq',
-                            p2: 'ipvp',
-                        },
-                        lazyLoad: {
-                          fetchMargin: 200,
-                          mobileScaling: 2
-                        }
-                    })
-                })
-            })
-
-
-            main_pageBlock.parentNode.insertBefore(mobile_mainpage_articleElement, main_pageBlock);
-        }
+        
 
         //Add blocks to comments
         if (commentsBlock != null) {
@@ -775,7 +723,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         const textBlock = document.querySelector(".text-block");
         const mainText = document.querySelector(".maintext")
         const sideBlock = document.querySelector(".sideblock")
-        const artcicleBlock = document.querySelector('span[itemprop="articleBody"]')
+        const artcicleBlock = document.querySelector(".text-block")
         const articleBottomBlock = document.querySelector('a[name="comments"]')
         const commentsBlock = document.querySelector(".comment2")
         const after_commentsBlock = document.querySelector('form[name="addcomment"]')

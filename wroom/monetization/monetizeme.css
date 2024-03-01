@@ -92,7 +92,7 @@
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
     color: #777;
     top: auto !important;
-    bottom: -30px;
+    bottom: -20px;
     border-radius: 0 0 10px 0 !important;
     font-size: 17px;
     font-family: verdana;
@@ -142,7 +142,7 @@
     box-shadow: 1px 0px 0px 0px rgb(0 0 0 / 20%) ;
     color: #777;
     bottom:  auto !important;
-    top: -30px;
+    top: -20px;
     border-radius: 0 10px 0 0px ;
     font-size: 0.9rem;
     font-family: verdana;

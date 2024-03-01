@@ -1,0 +1,94 @@
+@media print {
+	* {
+		background: transparent !important;
+		color: #000 !important;
+		text-shadow: none !important;
+		filter:none !important;
+		-ms-filter: none !important;
+		box-shadow: none !important;
+	}
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+	.doc a[href]:after {
+		content: " (https://kommersant.ru" attr(href) ")";
+	}
+	.doc a[href^=http]:after {
+		content: " (" attr(href) ")";
+	}
+
+	@page {
+		margin: 1cm 2cm;
+	}
+	p, h2, h3, h4 {
+		orphans: 3;
+		widows: 3;
+	}
+	h2,
+	h3,
+	h4 {
+		page-break-after: avoid;
+	}
+	.doc_media,
+	.incut--wide,
+	.incut--center {
+		page-break-inside: avoid;
+	}
+	body {
+		margin: 0;
+	}
+	[class^=adv],
+	.loading,
+	.fluid-width-video-wrapper,
+	.push_notification,
+	.nr-player,
+	.fixed_panel,
+	.fixed_bottom,
+	.grid-col-l,
+	.doc_sharing,
+	.incut--right,
+	.incut__left,
+	.doc_footer,
+	.doc_media__enlarge,
+	.doc_media__nav_button,
+	.doc_media__counter,
+	.main_header,
+	.site_menu,
+	.regions,
+	.actual,
+	.doc_button.js-article-comment,
+	.comments,
+	.potd,
+	.aside_column,
+	.js-canonical:not(.js-canonical-current),
+	.lenta_multimedia,
+	.lenta_partner,
+	.lenta_most_readable,
+	.lenta_ba,
+	.footer,
+	.incut_content,
+	.js-lenta-full,
+	.lenta_loading {
+		display: none !important;
+	}
+	.layout {
+		max-width: none;
+	}
+	.doc--preview {
+		max-height: none;
+		overflow: visible;
+		margin-bottom: 30px;
+		position: static;
+		padding: 0;
+	}
+	.doc--preview:after {
+		display: none;
+	}
+	.doc_media__caption {
+		max-height: none;
+	}
+	.doc_media__caption:after {
+		display: none;
+	}
+}

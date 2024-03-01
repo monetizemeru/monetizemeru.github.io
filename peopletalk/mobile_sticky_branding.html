@@ -155,6 +155,9 @@
   document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
   document.getElementById("parallax-banner").id = "parallax-banner" + "_" + randomId;
 
+  document.getElementById("parallax-banner" + "_" + randomId).closest('.mobile_placeholder').style.background = "none"
+  document.getElementById("parallax-banner" + "_" + randomId).closest('.mobile_placeholder').style.overflow = "unset"
+
   var nodes = document.querySelectorAll('.js__buzzoola');
   var first = nodes[0];
   var article = nodes[nodes.length - 1]

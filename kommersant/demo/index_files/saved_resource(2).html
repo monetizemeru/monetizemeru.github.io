@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://www.kommersant.ru/doc/6413764 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<meta name="description" content="adfox_template">
+<title>index</title>
+<!-- write your code here -->
+<script src="./createjs.min.js"></script>
+<script src="./index(1).js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("CDBE0C574DF84E88A332AB33DC85368A");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false,null,true);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+    var flashVars = {
+      reference: "https://ads.adfox.ru/1092/clickURL?erid=4CQwVszH9pWvok2vqdH&puid5=100&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&duid=1659361425448087523&hash=26427bf526ed861c&puid1=62&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&rand=kanongr&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid3=88%3A3155%3A2036&pr=ggtxnby&p1=blnrq&ytt=255086698692613&p5=shqju&ybv=0.976336&puid2=4%3A68&p2=eurb&ylv=0.976336",
+      link: "https://hide.moscow/?utm_source=kommersant&utm_medium=banner&utm_campaign=hide_022024",
+      target: "_blank",
+      rnd: parseInt("3199930945") || parseInt("1621825855"),
+      events: [
+            "",
+            "https://ads.adfox.ru/1092/event?pm=b&hash=03c62c4f23d66eec&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=ivoodux&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=c&hash=ddea3aa04a516a52&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=dykpljz&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=d&hash=e0374fd226e778a7&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=beqokiy&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=e&hash=f62053be6e4fe3ba&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=brkeryp&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=f&hash=aa3a656975f09122&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=grtdoqu&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=g&hash=f69862b0302931b3&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=ennsbtt&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=h&hash=cf1fc4df4cd69aa0&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=dhgfaog&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=i&hash=2335caa5d52bc12c&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=hftrsiy&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=j&hash=0b8f057a86fffa7c&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=hosxtvq&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=k&hash=017dad930e12f387&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=kzsantq&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=l&hash=77825c4de895f723&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=mpbdlue&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=m&hash=0e7d0f1c1f8c0ed4&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=iyitzqv&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=n&hash=a9c6fdd642732265&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=gpzwvvl&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=o&hash=191aea7856523f21&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=cniqftg&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=p&hash=bed17520680dbd92&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=iphyzjz&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=q&hash=83c1db4c659a5f98&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=nkcggkh&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=r&hash=c22128da114a17b7&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=enttzpr&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=s&hash=dbdc567df0be1576&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=eftxtyj&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=t&hash=f7e017c21194d9ef&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=flshonu&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=u&hash=2c7d571d6fbd13b8&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=mdhagmi&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=v&hash=35e2dadc90f269a8&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=ggaxdha&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=w&hash=446e0c4a1e0be24b&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=ngvykqc&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=x&hash=31961bedf79c7549&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=hoorpoe&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=y&hash=1dd5ff85ec411275&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=fmkflnz&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=z&hash=201018421249e1b2&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=gilevzw&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=ba&hash=09746f3d2fed374e&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=jsjgkka&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=bb&hash=0f7288b08a65c48e&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=ksbumot&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=bc&hash=e7898c33424a072d&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=fyswtns&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=bd&hash=fb0bc65e6246ade1&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=lsrcllv&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq",
+            "https://ads.adfox.ru/1092/event?pm=be&hash=429d4cf84054e5e0&duid=1659361425448087523&p5=shqju&utg=oxum&lts=fnwhhqz&ytt=255086698692613&ybv=0.976336&ylv=0.976336&rqs=kGV5tp6aUTeNmuBl_ZTrQOyLMK9T9QLC&puid5=100&dl=https%3A%2F%2Fwww.kommersant.ru%2Fdoc%2F6413764&ad-session-id=4635071709218131036&puid4=i62%3Ar4%3Ar68%3At88%3At3155%3At2036&pr=ggtxnby&puid3=88%3A3155%3A2036&puid2=4%3A68&p2=eurb&rand=kpqohze&sj=-wG0G92AG53QjTRsMcU4LZVD5m29ibIMXPDvPmzt90HYhbvIosv7gWtLEAhmeg%3D%3D&puid1=62&p1=blnrq"
+      ]
+    };
+function callClick(n) {
+      var link = ( n ? flashVars.events[n] : flashVars.link );
+      window.open(flashVars.reference + "@" + link, flashVars.target);
+}
+function callEvent(n) {
+      (new Image()).src = flashVars.events[n]; 
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.index();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;" marginwidth="0" marginheight="0">
+     <div class="frame" style="height: 600px; position: relative; overflow: hidden; background-color:rgba(255, 255, 255, 1.00);border: solid 0px #d6d6d6;box-sizing: border-box;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:4000px; height:600px;position: absolute; top: 0; left: 50%; margin-left: -2000px;">
+		<canvas id="canvas" width="10000" height="1500" style="position: absolute; top: 0px; left: 50%; margin-left: -2000px; width: 4000px; height: 600px; cursor: pointer;">
+                  </canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:4000px; height:600px; position: absolute; top: 0; left: 50%; margin-left: -2000px; display: block;">
+		</div>
+	</div>
+      </div>
+  <script type="text/javascript">
+      var elem = document.getElementsByTagName("canvas")[0];
+      elem.style.cursor = "pointer";
+      elem.addEventListener("click", function(){
+        callClick();
+      }, false);
+  </script>
+
+
+            
+        <script>
+            (function () {
+                const windowParent = window.parent;
+                const onChangeFocus = function() {
+                    const hasFocus = document.hasFocus();
+                    windowParent.postMessage({
+                        type: 'focus-updated',
+                        hasFocus: hasFocus,
+                        id: 'b985a4',
+                    }, '*');
+                    window.removeEventListener('focus', onChangeFocus);
+                };
+                window.addEventListener('focus', onChangeFocus);
+            })();
+        </script>
+    
+            <script>
+                if(window.onCodeLoad){window.onCodeLoad();}
+            </script><div id="preloadjs-container" style="visibility: hidden; position: absolute; height: 10px; width: 10px; overflow: hidden; transform: translate(-10px, -10px);"></div></body></html>

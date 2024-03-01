@@ -38,14 +38,6 @@ window.yaContextCb = window.yaContextCb || [];
 window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
 window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
 const artcicleBlock = document.querySelector(".editor-body.entry-article__article-body")
-
-var adriver_script = document.createElement('script');
-adriver_script.setAttribute('src','https://content.adriver.ru/AdRiverFPS.js');
-document.head.appendChild(adriver_script);
-
-var mediasniper_script = document.createElement('script');
-mediasniper_script.setAttribute('src','https://static.terratraf.com/engine/ssp/hb.js');
-document.head.appendChild(mediasniper_script);
 //Desktop codes add
 if (window.matchMedia('(min-width: 768px)').matches) {
     //document.addEventListener("DOMContentLoaded", function(event) {

@@ -22,7 +22,7 @@
 	    height: auto !important;
 	}
 </style>
-<div class="parallax-banner" id="parallax-banner" style="">
+<div class="parallax-banner" id="parallax-banner" style="background: #fafafa">
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script type="text/javascript">
@@ -31,6 +31,9 @@
 
 	var banner_p_height = Math.round(document.querySelector('.adfox_parallax').offsetWidth * 0.7)
 	document.documentElement.style.setProperty('--banner-height', `${banner_p_height}px`);
+
+	document.getElementById('parallax-banner').parentElement.parentElement.parentElement.parentElement.style.height = "var(--banner-height)"
+	//document.getElementById('parallax-banner').parentElement.parentElement.parentElement.parentElementstyle.removeProperty("--height");
 
 	window.yaContextCb.push(() => {
 	  Ya.adfoxCode.create({

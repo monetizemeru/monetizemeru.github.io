@@ -154,72 +154,83 @@
     <div id="p-banner-monetize-me" class="adfox_parallax" style="%banner.user5%"></div>
 </div>
 <script>
-    if (document.querySelector("[id^=floor_ad]") != null) {
-        window.Ya.adfoxCode.destroy(document.querySelector("[id^=floor_ad]").id)
-        document.querySelector("[id^=floor_ad]").remove()
+
+    function changeDivContent(callback) {
+
+        if (document.querySelector("[id^=floor_ad]") != null) {
+            window.Ya.adfoxCode.destroy(document.querySelector("[id^=floor_ad]").id)
+            document.querySelector("[id^=floor_ad]").remove()
+        }
+
+        document.querySelector('.parallax-banner').parentElement.style.overflow = "unset"
+
+        var randomId = Math.floor(Math.random() * 1000);
+        parallax_id = "p-banner-monetize-me" + "_" + randomId
+        document.getElementById("p-banner-monetize-me").id = parallax_id;
+
+        document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
+        document.querySelector('.parallax-banner').parentElement.parentElement.style.background = 'none'
+
+        const body = document.querySelector("body")
+        const stickyTop = document.createElement('div');
+        stickyTop.classList.add('sticky-banner-top');
+        stickyTop.setAttribute('id', 'sticky_top');
+        stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">ЗАКРЫТЬ</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+        document.body.insertAdjacentElement('afterbegin', stickyTop)
+
+        const stickyBottom = document.createElement('div');
+        stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
+        stickyBottom.setAttribute('id', 'sticky_bottom');
+        stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">ЗАКРЫТЬ</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+        document.body.insertAdjacentElement('afterbegin', stickyBottom)
+
+        callback();
     }
 
-    document.querySelector('.parallax-banner').parentElement.style.overflow = "unset"
+    function onContentChange() {
 
-    var randomId = Math.floor(Math.random() * 1000);
-    document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: parallax_id,
+                onRender: function(){
+                    document.body.addEventListener('click', playOrPauseVideo);
+                    document.body.addEventListener('touchstart', playOrPauseVideo);
 
+                    function playOrPauseVideo() {
+                      var videoElement = document.querySelector('.video_banner > div:first-child > div > div > video');
 
-
-    window.yaContextCb.push(() => {
-        Ya.adfoxCode.create({
-            ownerId: 1458764,
-            containerId: 'p-banner-monetize-me' + '_' + randomId,
-            onRender: function(){
-                document.body.addEventListener('click', playOrPauseVideo);
-                document.body.addEventListener('touchstart', playOrPauseVideo);
-
-                function playOrPauseVideo() {
-                  var videoElement = document.querySelector('.video_banner > div:first-child > div > div > video');
-
-                  if (videoElement && videoElement.paused) {
-                    videoElement.play();
-                  }
-                }
-            },
-            params: {%banner.user2%}
+                      if (videoElement && videoElement.paused) {
+                        videoElement.play();
+                      }
+                    }
+                },
+                params: {%banner.user2%}
+            })
         })
-    })
 
-    document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
-    document.querySelector('.parallax-banner').parentElement.parentElement.style.background = 'none'
 
-    if (document.querySelector("#mobile_top_billboard")) {
-        document.querySelector("#mobile_top_billboard").remove()
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'sticky_t',
+                params: {%banner.user3%}
+            })
+        })
+
+
+        
+        window.yaContextCb.push(() => {
+            Ya.adfoxCode.create({
+                ownerId: 1458764,
+                containerId: 'sticky_b',
+                params: {%banner.user4%}
+            })
+        })
     }
 
-    const body = document.querySelector("body")
-    const stickyTop = document.createElement('div');
-    stickyTop.classList.add('sticky-banner-top');
-    stickyTop.setAttribute('id', 'sticky_top');
-    stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">ЗАКРЫТЬ</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
-    window.yaContextCb.push(() => {
-        Ya.adfoxCode.create({
-            ownerId: 1458764,
-            containerId: 'sticky_t',
-            params: {%banner.user3%}
-        })
-    })
-
-    document.body.insertAdjacentElement('afterbegin', stickyTop)
-
-    const stickyBottom = document.createElement('div');
-    stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
-    stickyBottom.setAttribute('id', 'sticky_bottom');
-    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">ЗАКРЫТЬ</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
-    window.yaContextCb.push(() => {
-        Ya.adfoxCode.create({
-            ownerId: 1458764,
-            containerId: 'sticky_b',
-            params: {%banner.user4%}
-        })
-    })
-    document.body.insertAdjacentElement('afterbegin', stickyBottom)
+    changeDivContent(onContentChange);
+    
     
     function isElementHidden(element) {
         var rect = element.getBoundingClientRect();
