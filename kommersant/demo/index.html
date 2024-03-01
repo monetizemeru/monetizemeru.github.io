@@ -5555,24 +5555,20 @@
 
 
     <script src="./index_files/kom2021.commonAsyncJS.js" async=""></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+          // Ваш код с setTimeout здесь
+          window.addEventListener('scroll', function() {
+            if (document.querySelector('.notification') != null){
+                document.querySelector('.notification').remove()
+            }
+          })
+        });
+    </script>
 
 
 
     <script type="text/javascript" async="" src="./index_files/dyn-goal-config.js"></script>
-    <div class="fixed_bottom">
-        <div class="fixed_bottom__flow_holder">
-            <div class="fixed_bottom__flow fixed_bottom__flow--left">
-                <div class="fixed_bottom__item fixed_bottom__item--subscriptions_left"></div>
-            </div>
-            <div class="fixed_bottom__flow fixed_bottom__flow--right">
-                <div class="fixed_bottom__item fixed_bottom__item--buttons fixed_bottom__item--tar"><a href="https://www.kommersant.ru/doc/6413764#" class="ui-button ui-button--standart up_button"> <span class="vicon vicon--rarrow vicon--gull_up up_button__arrow"> <svg class="vicon__body">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vicon-rarrow"></use>
-                            </svg> </span> <span class="up_button__text hide_mobile">Наверх</span> </a></div>
-                <div class="fixed_bottom__item fixed_bottom__item--subscriptions_right"></div>
-            </div>
-        </div>
-        <div class="fixed_bottom__item fixed_bottom__item--notifications"></div>
-    </div>
     <div style="position: fixed; left: -99px;">
         <div id="2c78f16cb4"><iframe frameborder="no" scrolling="no" allowtransparency="true" hidefocus="true" tabindex="-1" marginwidth="0" marginheight="0" src="./index_files/render.html" id="id5730" style="opacity: 1;"></iframe></div>
     </div>
