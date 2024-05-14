@@ -72,7 +72,6 @@ if (window.matchMedia('(min-width: 768px)').matches) {
                     code: mm_adfox_id,
                     codeType: 'combo',
                     sizes: [
-                        [0, 0]
                     ],
                     bids: [
                     {
@@ -203,7 +202,6 @@ if (window.matchMedia('(min-width: 768px)').matches) {
                     code: mm_adfox_id,
                     codeType: 'combo',
                     sizes: [
-                        [0, 0],
                         [300, 600],
                         [300, 250],
                         [320, 50],

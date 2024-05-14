@@ -70,7 +70,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-mobile-inread-after-cover',
                     codeType: 'combo',
-                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                    sizes: [[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [ 
                     { bidder: "astralab", params: {placementId: "6440fbad8528b410c4990c67" } },
                     { bidder: "buzzoola", params: {placementId: "1247263" } },
@@ -133,7 +133,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-desktop-inread-after-cover',
                     codeType: 'combo',
-                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 0, 0 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
+                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
                     bids: [ 
                     { bidder: "astralab", params: {placementId: "6440fa938528b410c4990c64" } },
                     { bidder: "buzzoola", params: {placementId: "1247254" } },

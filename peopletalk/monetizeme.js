@@ -80,7 +80,7 @@ function add_dektop_banners_fc(){
                             window.Ya.headerBidding.pushAdUnits([{
                                 code: mm_adfox_id,
                                 codeType: 'combo',
-                                sizes: [[0,0],[300,250],[320,250],[240,400],[320,280]],
+                                sizes: [[300,250],[320,250],[240,400],[320,280]],
                                 bids: [
                                 { bidder: "astralab", params: {placementId: "64ef1716ae8a5fa962f15923" } }, 
                                 { bidder: "buzzoola", params: {placementId: "1253131" } },
@@ -166,7 +166,7 @@ function add_dektop_banners_sc(){
                                                 window.Ya.headerBidding.pushAdUnits([{
                                                     code: mm_adfox_id,
                                                     codeType: 'combo',
-                                                    sizes: [[0,0],[300,250],[320,250],[240,400],[320,280]],
+                                                    sizes: [[300,250],[320,250],[240,400],[320,280]],
                                                     bids: [
                                                     { bidder: "astralab", params: {placementId: "64ef1716ae8a5fa962f15923" } }, 
                                                     { bidder: "buzzoola", params: {placementId: "1253131" } },
@@ -249,7 +249,7 @@ function add_mobile_banners_fc(){
                             window.Ya.headerBidding.pushAdUnits([{
                                 code: mm_adfox_id,
                                 codeType: 'combo',
-                                sizes: [[0,0],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                                sizes: [[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                                 bids: [
                                 { bidder: "astralab", params: {placementId: "64ef1743ae8a5fa962f15924" } }, 
                                 { bidder: "buzzoola", params: {placementId: "1253132" } },
@@ -335,7 +335,7 @@ function add_mobile_banners_sc(){
                                                 window.Ya.headerBidding.pushAdUnits([{
                                                     code: mm_adfox_id,
                                                     codeType: 'combo',
-                                                    sizes: [[0,0],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                                                    sizes: [[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                                                     bids: [
                                                     { bidder: "astralab", params: {placementId: "64ef1743ae8a5fa962f15924" } }, 
                                                     { bidder: "buzzoola", params: {placementId: "1253132" } },

@@ -275,6 +275,17 @@
     return articleRect.bottom < screenBottom;
   }
 
+  function isElementScrolled60Percent(element) {
+        var elementHeight = element.offsetHeight;
+        var elementScrollTop = element.getBoundingClientRect().top;
+        var windowHeight = window.innerHeight;
+        var scrollPosition = Math.abs(elementScrollTop);
+        var scrollPercentage = (scrollPosition + windowHeight) / elementHeight;
+
+        return scrollPercentage >= 0.6;
+    }
+
+
 
   function collapseElement(elementToCollapse) {
     elementToCollapse.classList.add('collapsed')
@@ -299,8 +310,9 @@
 
     if (parallaxBannerHidden) {
       if (window.pageYOffset > lastScrollPos) {
-        if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true) {
+        if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isElementScrolled60Percent(articleElement)) {
           stickyBannerBottom.classList.remove('collapsed')
+          window.Ya.adfoxCode.destroy('adfox_162636477046862701')
           stickyBannerTop.classList.add('collapsed')
         }
         if (isArticleAboveScreen(articleElement)) {
@@ -313,6 +325,7 @@
         if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isArticleBelowScreenTop(articleElement) != true) {
           stickyBannerTop.classList.remove('collapsed')
           stickyBannerBottom.classList.add('collapsed')
+
         }
         if (isArticleAboveScreen(articleElement) || isArticleBelowScreenTop(articleElement)) {
           stickyBannerTop.classList.add('collapsed')

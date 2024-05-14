@@ -165,6 +165,8 @@
 	width: calc(100% - 2px);
 	margin: auto !important;
 	padding: auto !important;
+	display: flex;
+	justify-content: center;
 }
 .monetizeme-desktop-sticky-bottom{
 	left: 50%;
@@ -205,6 +207,7 @@
 	display: grid !important;
 	justify-content: center !important;
 	box-sizing: border-box;
+	height: 700px;
 }
 .button-bottom-close-desktop {
     position: absolute;

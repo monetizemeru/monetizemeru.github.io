@@ -16,7 +16,7 @@
     }
 
     .sticky-banner-top {
-        top: 2.8125rem;
+        top: 0px;
         z-index: 3;
         transform: translateY(0px);
         background: none;
@@ -97,7 +97,7 @@
         letter-spacing: 0.05rem;
         border-radius: 0 0rem 0.3rem 0.3rem !important;
         height: 1rem;
-        bottom: -2.2rem;
+        bottom: -1.2rem;
         background: #ffffffde;
         width: fit-content;
         text-align: center;
@@ -130,7 +130,7 @@
       box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%) !important;
       color: #777;
       top: auto !important;
-      bottom: -2.8rem;
+      bottom: -1.8rem;
       border-radius: 0 0 10px 10px !important;
       font-size: 0.7rem;
       font-family: verdana;
@@ -170,55 +170,57 @@
     }
 </style> <div class="parallax-banner" style=""><div id="p-banner-monetize-me" class="adfox_parallax"></div> </div>
 <script>
+  var randomId = Math.floor(Math.random() * 1000);
+  var parallax_id = "p-banner-monetize-me" + "_" + randomId
+  var nodes = document.querySelectorAll('[id^="matter-"]')
+  var first = nodes[0];
+  var article = nodes[nodes.length - 1]
 
   function changeDivContent(callback) {
 
     if(document.querySelector('#adfox_169350432102654436') != null){
       window.Ya.adfoxCode.destroy('adfox_169350432102654436')
     }
-    //Указываем элемент статьи
-    article = document.querySelector(".article_main")
+    
     //Убираем отступ плейсхолдера
     document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
 
-    var randomId = Math.floor(Math.random() * 1000);
-    parallax_id = "p-banner-monetize-me" + "_" + randomId
     document.getElementById("p-banner-monetize-me").id = parallax_id;
 
     //Указываем элемент статьи
-    article = document.getElementById(parallax_id).parentElement.parentElement.parentElement
+    //article = document.getElementById(parallax_id).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
 
-    //Передвигаем баннер в контент
-    var container_banner = document.getElementById(parallax_id).parentElement.parentElement
-    var text_container = article.querySelector('.newstext > p:nth-child(2)')
-    text_container.style.margin = "20px 0"
-    text_container.parentNode.insertBefore(container_banner, text_container);
+    
 
-    if (document.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
+    if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
 
-      var stickyTop = document.createElement('div');
-      var stickyBottom = document.createElement('div');
-
-      stickyTop.classList.add('sticky-banner-top');
-      stickyTop.setAttribute('id', 'sticky_top' + randomId);
-      stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
-
-    }
-
-    document.body.insertAdjacentElement('afterbegin', stickyTop)
+    var stickyBottom = document.createElement('div');
 
 
 
     stickyBottom.classList.add('sticky-banner-bottom', 'collapsed');
     stickyBottom.setAttribute('id', 'sticky_bottom' + randomId);
-    stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
+    stickyBottom.innerHTML = '<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b' + randomId + '"class="sticky_b"></div></div>';
 
-    document.body.insertAdjacentElement('afterbegin', stickyBottom)
-
+    article.insertAdjacentElement('afterbegin', stickyBottom)
+  }
     callback();
   }
 
   function onContentChange() {
+    //Передвигаем баннер в контент, если меньше 9 элементов
+    var container_banner = document.getElementById(parallax_id).parentElement.parentElement
+    var text_container = article.querySelector('.kind-common > div:nth-child(1)')
+
+    if(article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1 ){
+      text_container.style.margin = "20px 0"
+      container_banner.style.marginLeft = "-1rem"
+      text_container.parentNode.insertBefore(container_banner, text_container);
+    }else{
+      container_banner.style.marginLeft = "-1rem"
+    }
+
+
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
@@ -242,15 +244,7 @@
     window.yaContextCb.push(() => {
         Ya.adfoxCode.create({
             ownerId: 1458764,
-            containerId: 'sticky_t',
-            params: {%banner.user3%}
-        })
-    })
-
-    window.yaContextCb.push(() => {
-        Ya.adfoxCode.create({
-            ownerId: 1458764,
-            containerId: 'sticky_b',
+            containerId: 'sticky_b' + randomId,
             params: {%banner.user4%}
         })
     })
@@ -296,38 +290,35 @@
   // Function to handle scroll events
   function handleScroll() {
       
-      var articleElement = document.querySelector('body')
-      var parallaxBanner = articleElement.querySelector('.parallax-banner');
-      var stickyBannerBottom = articleElement.querySelector('.sticky-banner-bottom');
-      var stickyBannerTop = articleElement.querySelector('.sticky-banner-top');
-      var elementToCollapse = document.querySelector('.sticky-banner-bottom');
+      var articleElement = article
+      var parallaxBanner = document.getElementById(parallax_id);
+      var stickyBannerBottom = articleElement.querySelector('#sticky_bottom' + randomId);
+      var elementToCollapse = articleElement.querySelector('.sticky-banner-bottom');
       
       var parallaxBannerHidden = isParallaxBannerHidden();
+
 
       if (parallaxBannerHidden) {
           if (window.pageYOffset > lastScrollPos) {
               if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true) {
                   stickyBannerBottom.classList.remove('collapsed')
-                  stickyBannerTop.classList.add('collapsed')
               }
               if (isArticleAboveScreen(articleElement)){
                 stickyBannerBottom.classList.add('collapsed')
               }
               if (parallaxBannerReached != true && isArticleBelowScreenTop(articleElement) != true){
-                stickyBannerTop.classList.remove('collapsed')
+                stickyBannerBottom.classList.remove('collapsed')
               }
           } else {
               if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isArticleBelowScreenTop(articleElement) != true) {
-                  stickyBannerTop.classList.remove('collapsed')
-                  stickyBannerBottom.classList.add('collapsed')
+                  stickyBannerBottom.classList.remove('collapsed')
               }
               if (isArticleAboveScreen(articleElement) || isArticleBelowScreenTop(articleElement)){
-                stickyBannerTop.classList.add('collapsed')
+                stickyBannerBottom.classList.add('collapsed')
               }
           }
       } else {
           parallaxBannerReached = true;
-          stickyBannerTop.classList.add('collapsed');
           stickyBannerBottom.classList.add('collapsed');
       }
       lastScrollPos = window.pageYOffset;
@@ -335,20 +326,45 @@
 
   var parallaxBannerReached = false;
 
+  var bottomButton = article.querySelector('.button-bottom-close');
+
+
+
+  bottomButton.addEventListener('click', function() {
+      article.querySelector('#sticky_bottom' + randomId).remove();
+  });
+
   var lastScrollPos = 0;
-  if (document.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1){
+  if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1){
     window.addEventListener('scroll', handleScroll);
   }
   
 
-  var bottomButton = document.querySelector('.button-bottom-close');
-  var topButton = document.querySelector('.button-top-close');
+  var container = document.querySelector('#__next');
 
-  topButton.addEventListener('click', function() {
-      document.querySelector('.sticky-banner-top').remove();
-  });
-  bottomButton.addEventListener('click', function() {
-      document.querySelector('.sticky-banner-bottom').remove();
-  });
+  // Create a MutationObserver instance
+  var observer = new MutationObserver(function(mutationsList) {
+      for (const mutation of mutationsList) {
+          if (mutation.type === 'childList') {
+              // Loop through added nodes and check if they are <div> elements
+              for (const addedNode of mutation.addedNodes) {
+                  if (addedNode instanceof HTMLElement && addedNode.tagName === 'DIV') {
+                    window.removeEventListener('scroll', handleScroll)
+                    if (document.querySelector("#sticky_top" + randomId)) {
+                        document.querySelector("#sticky_top" + randomId).remove()
+                        
+                        console.log('Удаляем верхний')
+                    }
+                    if (document.querySelector("#sticky_bottom" + randomId)) {
+                        document.querySelector("#sticky_bottom" + randomId).remove()
+
+                        console.log('Удаляем нижний')
+                    }
+                  }
+                }
+              }
+            }
+          })
+  observer.observe(container, { childList: true });
 
 </script>

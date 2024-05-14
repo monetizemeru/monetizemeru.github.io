@@ -177,20 +177,16 @@
         height: auto !important;
         width: calc(100vw - 20px) !important;
     }
-</style> <div class="parallax-banner" style="%banner.user4%"><div id="p-banner-monetize-me" class="adfox_parallax"></div> </div>
+</style> <div class="parallax-banner" style="%banner.user5%"><div id="p-banner-monetize-me" class="adfox_parallax"></div> </div>
 <script>
 
   function changeDivContent(callback) {
-
-    if(document.querySelector('#adfox_16377031031783515') != null){
-      window.Ya.adfoxCode.destroy('adfox_16377031031783515')
-    }
 
     //Указываем элемент статьи
     article = document.querySelector('.content')
     width_sticky_banner = article.offsetWidth + "px"
     //Убираем отступ плейсхолдера
-    document.querySelector('.parallax-banner').parentElement.parentElement.style.marginLeft = '-20px !important;'
+    document.querySelector('.parallax-banner').setAttribute('style', 'margin-left:-20px !important');
 
     //document.querySelector('.parallax-banner').style.width = width_sticky_banner
 
@@ -215,6 +211,9 @@
             ownerId: 1458764,
             containerId: parallax_id,
             onRender: function(){
+              if(document.querySelector('#adfox_16377031031783515') != null){
+                window.Ya.adfoxCode.destroy('adfox_16377031031783515')
+              }
                 document.body.addEventListener('click', playOrPauseVideo);
                 document.body.addEventListener('touchstart', playOrPauseVideo);
 
@@ -234,7 +233,7 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_b',
-            params: {%banner.user3%}
+            params: {%banner.user4%}
         })
     })
   }

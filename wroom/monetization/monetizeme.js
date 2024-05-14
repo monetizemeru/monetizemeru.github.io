@@ -55,7 +55,7 @@ function changeDivContentMobile(callback) {
 
     //Adding top sticky banner and make him scroll
     stickyTop = document.createElement('div');
-    stickyTop.classList.add('monetizeme-block-top');
+    stickyTop.classList.add('monetizeme-block-top', );
     stickyTop.setAttribute('id', 'sticky_top');
     stickyTop.innerHTML = `
     <div class="button-top-close"></div>
@@ -65,7 +65,7 @@ function changeDivContentMobile(callback) {
 
     //Adding bottom sticky banner and make him scroll
     stickyBottom = document.createElement('div');
-    stickyBottom.classList.add('monetizeme-block-bottom');
+    stickyBottom.classList.add('monetizeme-block-bottom', 'collapsed');
     stickyBottom.setAttribute('id', 'sticky_bottom');
     stickyBottom.innerHTML = `
     <div class="button-bottom-close"></div>
@@ -81,7 +81,7 @@ function changeDivContentMobile(callback) {
     //bottom sticky banner
     var bottomBlock = document.querySelector('.monetizeme-block-bottom');
     var bottomButton = document.querySelector('.button-bottom-close');
-    var isBottomBlockCollapsed = false;
+    var isBottomBlockCollapsed = true;
 
     var lastScrollTop = 0;
 
@@ -303,7 +303,7 @@ function onContentChangeMobile() {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-mobile-inread-after-cover',
                     codeType: 'combo',
-                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                    sizes: [[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [ 
                     { bidder: "astralab", params: {placementId: "6440fbad8528b410c4990c67" } },
                     { bidder: "buzzoola", params: {placementId: "1247263" } },
@@ -343,7 +343,7 @@ function onContentChangeMobile() {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: mm_article_id,
                     codeType: 'combo',
-                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                    sizes: [[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [
                     { bidder: "astralab", params: {placementId: "64411d898528b410c4990c68" } }, 
                     { bidder: "buzzoola", params: {placementId: "1247264" } },
@@ -386,7 +386,7 @@ function onContentChangeMobile() {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: mm_article_id,
                     codeType: 'combo',
-                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                    sizes: [[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [
                     { bidder: "astralab", params: {placementId: "64411d898528b410c4990c68" } }, 
                     { bidder: "buzzoola", params: {placementId: "1247264" } },
@@ -431,7 +431,7 @@ function onContentChangeMobile() {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-mobile-inread-after-article',
                     codeType: 'combo',
-                    sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                    sizes: [[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                     bids: [ 
                     { bidder: "astralab", params: {placementId: "64411ec58528b410c4990c69" } },
                     { bidder: "buzzoola", params: {placementId: "1247265" } },
@@ -478,7 +478,7 @@ function onContentChangeMobile() {
             window.Ya.headerBidding.pushAdUnits([{
                 code: mm_comment_id,
                 codeType: 'combo',
-                sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                sizes: [[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                 bids: [
                 { bidder: "astralab", params: {placementId: "64411f598528b410c4990c6a" } }, 
                 { bidder: "buzzoola", params: {placementId: "1247266" } },
@@ -521,7 +521,7 @@ function onContentChangeMobile() {
             window.Ya.headerBidding.pushAdUnits([{
                 code: 'monetizeme-mobile-after-comments',
                 codeType: 'combo',
-                sizes: [[0,0],[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
+                sizes: [[300,600],[300,250],[320,50],[320,100],[320,336],[300,500],[320,250],[240,400],[320,280],[ 320, 150 ],[ 300, 150 ],[ 320, 500 ],[ 320, 480 ]],
                 bids: [ 
                 { bidder: "astralab", params: {placementId: "64411fa48528b410c4990c6b" } },
                 { bidder: "buzzoola", params: {placementId: "1247267" } },
@@ -581,6 +581,11 @@ function changeDivContentDesktop(callback) {
     bottomButton.addEventListener('click', function() {
         document.getElementById("sticky_bottom").remove();
     });
+    
+    branding = document.createElement('div');
+    branding.setAttribute('id', 'desktop_branding');
+    body.insertAdjacentElement('afterbegin', branding)
+
 
     if (sideBlock != null) {
         //first side banner
@@ -656,7 +661,7 @@ function onContentChangeDesktop() {
         window.Ya.headerBidding.pushAdUnits([{
             code: 'monetizeme-desktop-sticky-bottom',
             codeType: 'combo',
-            sizes: [ [ 728, 90 ], [ 0, 0 ] ],
+            sizes: [ [ 728, 90 ]],
             bids: [ 
             { bidder: "astralab", params: {placementId: "6440fa038528b410c4990c63" } },
             { bidder: "buzzoola", params: {placementId: "1247259" } },
@@ -691,12 +696,49 @@ function onContentChangeDesktop() {
         })
     })
 
+    window.yaContextCb.push(()=>{
+        Ya.adfoxCode.create({
+            ownerId: 1458764,
+            containerId: 'desktop_branding',
+            onLoad:function(data) {
+                var elements = document.querySelectorAll('.basic-block');
+
+                  // ÐŸÑ€Ð¾Ñ…Ð¾Ð´ Ð¿Ð¾ ÐºÐ°Ð¶Ð´Ð¾Ð¼Ñƒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñƒ Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¸Ð»Ñ
+                  elements.forEach(function(element) {
+                    element.style.background = '#fff'; 
+                    element.style.position = 'relative';
+                    element.style.maxWidth = '1190px'
+                    element.style.transition = "width 2s ease-in-out;"
+                  });
+                var nav = document.querySelectorAll('.top-menu');
+
+                  // ÐŸÑ€Ð¾Ñ…Ð¾Ð´ Ð¿Ð¾ ÐºÐ°Ð¶Ð´Ð¾Ð¼Ñƒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñƒ Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¸Ð»Ñ
+                  nav.forEach(function(nav) {
+                    nav.style.background = '#fff'; 
+                    nav.style.position = 'relative';
+                    nav.style.maxWidth = '1190px'
+                    nav.style.marginTop = '200px'
+                    nav.style.marginBottom = '0px'
+                    nav.style.transition = "width 2s ease-in-out;"
+                    nav.style.transition = "margin 2s ease-in-out;"
+
+                  });
+            },
+            params: {
+                pp: 'g',
+                ps: 'gmdq',
+                p2: 'ixtc'
+            }
+        })
+    })
+
+
     if (sideBlock != null) {
         window.Ya.adfoxCode.hbCallbacks.push(function() {
             window.Ya.headerBidding.pushAdUnits([{
                 code: 'monetizeme-desktop-side-first',
                 codeType: 'combo',
-                sizes: [ [ 240, 400 ], [ 300, 500 ], [ 300, 600 ], [ 120, 600 ], [ 300, 300 ], [ 0, 0 ] ],
+                sizes: [ [ 240, 400 ], [ 300, 500 ], [ 300, 600 ], [ 120, 600 ], [ 300, 300 ] ],
                 bids: [ 
                 { bidder: "astralab", params: {placementId: "6440f86a8528b410c4990c5e" } },
                 { bidder: "buzzoola", params: {placementId: "1247208" } },
@@ -726,7 +768,7 @@ function onContentChangeDesktop() {
             window.Ya.headerBidding.pushAdUnits([{
                 code: 'monetizeme-desktop-side-second',
                 codeType: 'combo',
-                sizes: [ [ 240, 400 ], [ 300, 500 ], [ 300, 600 ], [ 120, 600 ], [ 300, 300 ], [ 0, 0 ] ],
+                sizes: [ [ 240, 400 ], [ 300, 500 ], [ 300, 600 ], [ 120, 600 ], [ 300, 300 ]],
                 bids: [ 
                 { bidder: "astralab", params: {placementId: "6440f90e8528b410c4990c62" } },
                 { bidder: "buzzoola", params: {placementId: "1247211" } },
@@ -762,7 +804,7 @@ function onContentChangeDesktop() {
             window.Ya.headerBidding.pushAdUnits([{
                 code: 'monetizeme-desktop-inread-after-cover',
                 codeType: 'combo',
-                sizes: [ [ 728, 90 ], [ 300, 250 ], [ 0, 0 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
+                sizes: [ [ 728, 90 ], [ 300, 250 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
                 bids: [ 
                 { bidder: "astralab", params: {placementId: "6440fa938528b410c4990c64" } },
                 { bidder: "buzzoola", params: {placementId: "1247254" } },
@@ -780,13 +822,13 @@ function onContentChangeDesktop() {
                     ownerId: 1458764,
                     sequentialLoading: true,
                     containerId: 'monetizeme-desktop-inread-after-cover',
-                    onError:function(error) {
+                    onError:function(error){
                         desktop_before_articleElement.classList.add('stub')
                     },
-                    onStub: function() {
+                    onStub: function(){
                         desktop_before_articleElement.classList.add('stub')
                     },
-                    onRender: function() {
+                    onRender: function(){
                         desktop_before_articleElement.classList.add('view')
                     },
                     params: {
@@ -802,7 +844,7 @@ function onContentChangeDesktop() {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: mm_article_id,
                     codeType: 'combo',
-                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 0, 0 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
+                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
                     bids: [ 
                     { bidder: "buzzoola", params: {placementId: "1247255" } },
                     { bidder: "videonow", params: {placementId: "6315648" } },
@@ -819,13 +861,13 @@ function onContentChangeDesktop() {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId:mm_article_id,
-                        onError:function(error) {
+                        onError:function(error){
                             document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
                         },
-                        onStub: function() {
+                        onStub: function(){
                             document.getElementById('desktop_in_article_' + mmId).classList.add('stub')
                         },
-                        onRender: function() {
+                        onRender: function(){
                             document.getElementById('desktop_in_article_' + mmId).classList.add('view')
                         },
                         params: {
@@ -845,7 +887,7 @@ function onContentChangeDesktop() {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: 'monetizeme-desktop-inread-article-bottom',
                     codeType: 'combo',
-                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 0, 0 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
+                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
                     bids: [ 
                     { bidder: "buzzoola", params: {placementId: "1247256" } },
                     { bidder: "videonow", params: {placementId: "6316146" } },
@@ -865,10 +907,10 @@ function onContentChangeDesktop() {
                         onError:function(error) {
                             desktop_article_bottom.classList.add('stub')
                         },
-                        onStub: function() {
+                        onStub: function(){
                             desktop_article_bottom.classList.add('stub')
                         },
-                        onRender: function() {
+                        onRender: function(){
                             desktop_article_bottom.classList.add('view')
                         },
                         params: {
@@ -888,7 +930,7 @@ function onContentChangeDesktop() {
                 window.Ya.headerBidding.pushAdUnits([{
                     code: mm_comment_id,
                     codeType: 'combo',
-                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 0, 0 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
+                    sizes: [ [ 728, 90 ], [ 300, 250 ], [ 300, 100 ], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
                     bids: [ 
                     { bidder: "buzzoola", params: {placementId: "1247257" } },
                     { bidder: "videonow", params: {placementId: "6317778" } },
@@ -905,13 +947,13 @@ function onContentChangeDesktop() {
                         ownerId: 1458764,
                         sequentialLoading: true,
                         containerId: mm_comment_id,
-                        onError:function(error) {
+                        onError:function(error){
                             document.getElementById('desktop_in_comments_' + mmId).classList.add('stub')
                         },
-                        onStub: function() {
+                        onStub: function(){
                             document.getElementById('desktop_in_comments_' + mmId).classList.add('stub')
                         },
-                        onRender: function() {
+                        onRender: function(){
                             document.getElementById('desktop_in_comments_' + mmId).classList.add('view')
                         },
                         params: {
@@ -929,7 +971,7 @@ function onContentChangeDesktop() {
                     window.Ya.headerBidding.pushAdUnits([{
                         code: 'monetizeme-desktop-coomments-bottom',
                         codeType: 'combo',
-                        sizes: [ [ 728, 90 ], [ 300, 250 ], [ 0, 0 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
+                        sizes: [ [ 728, 90 ], [ 300, 250 ], [ 300, 100], [ 300, 300 ], [ 320, 250 ], [ 336, 280 ], [ 580, 400 ] ],
                         bids: [ 
                         { bidder: "buzzoola", params: {placementId: "1247258" } },
                         { bidder: "videonow", params: {placementId: "6318782" } },
@@ -946,13 +988,13 @@ function onContentChangeDesktop() {
                             ownerId: 1458764,
                             sequentialLoading: true,
                             containerId: 'monetizeme-desktop-coomments-bottom',
-                            onError:function(error) {
+                            onError:function(error){
                                 desktop_comments_bottom.classList.add('stub')
                             },
-                            onStub: function() {
+                            onStub: function(){
                                 desktop_comments_bottom.classList.add('stub')
                             },
-                            onRender: function() {
+                            onRender: function(){
                                 desktop_comments_bottom.classList.add('view')
                             },
                             params: {
@@ -995,6 +1037,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
         changeDivContentDesktop(onContentChangeDesktop)
     }    
 })
-
-
 

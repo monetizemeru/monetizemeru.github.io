@@ -173,19 +173,19 @@
     <div id="p-banner-monetize-me" class="adfox_parallax"></div>
 </div>
 <script>
+    
     function changeDivContent(callback) {
-
-        var randomId = Math.floor(Math.random() * 1000);
-        parallax_id = "p-banner-monetize-me" + "_" + randomId
+        var randomIdSB = Math.floor(Math.random() * 1000);
+        parallax_id = "p-banner-monetize-me" + "_" + randomIdSB
         document.getElementById("p-banner-monetize-me").id = parallax_id;
 
         var banner_p_height = Math.round(document.querySelector('.adfox_parallax').offsetWidth * 0.7)
         document.documentElement.style.setProperty('--banner-height', `${banner_p_height}px`);
 
-        document.querySelector('#p-banner-monetize-me' + "_" + randomId).closest('.placeholder').style.overflow = 'initial'
+        document.querySelector('#p-banner-monetize-me' + "_" + randomIdSB).closest('.placeholder').style.overflow = 'initial'
 
         //Указываем элемент статьи
-        article = document.querySelector(".ProseMirror-view")
+        var article_content = document.querySelector(".ProseMirror-view")
 
         //Убираем отступ плейсхолдера
         document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
@@ -195,14 +195,14 @@
 
 
 
-        if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
+        if (article_content.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
             var stickyBottom = document.createElement('div');
             var stickyTop = document.createElement('div');
             stickyTop.classList.add('sticky-banner-top', 'collapsed');
             stickyTop.setAttribute('id', 'sticky_top');
             stickyTop.innerHTML = `<div class="button-top-close"></div><button class="mm_button_top">Закрыть</button><button class="mm_marker_top">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_t" style="width: 100%;display: flex;justify-content: center;"></div></div>`;
 
-            article.insertAdjacentElement('afterbegin', stickyTop)
+            article_content.insertAdjacentElement('afterbegin', stickyTop)
 
             //Ставим ширину баннера под контент
             document.querySelector(".sticky-banner-top").style.width = width_sticky_banner
@@ -211,7 +211,7 @@
             stickyBottom.setAttribute('id', 'sticky_bottom');
             stickyBottom.innerHTML = `<div class="button-bottom-close"></div><button class="mm_button_bottom ">Закрыть</button><button class="mm_marker_bottom">РЕКЛАМА</button><div style="width: 100%;display: flex;justify-content: center;"><div id="sticky_b"style="width: 100%;display: flex;justify-content: center;"></div></div>`;
 
-            article.insertAdjacentElement('afterbegin', stickyBottom)
+            article_content.insertAdjacentElement('afterbegin', stickyBottom)
 
             //Ставим ширину баннера под контент
             document.querySelector(".sticky-banner-bottom").style.width = width_sticky_banner
@@ -349,8 +349,9 @@
     // Attach the scroll event listener
     var lastScrollPos = 0;
 
+    var article_content = document.querySelector(".ProseMirror-view")
     //Проверка, если баннер вызвался два раза на странице, чтоб не вызывать стики
-    if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
+    if (article_content.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
       window.addEventListener('scroll', handleScroll);
     }
 
