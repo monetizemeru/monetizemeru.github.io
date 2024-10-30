@@ -1,0 +1,466 @@
+<!--HEADER BIDDING-->
+<script async src="https://yandex.ru/ads/system/header-bidding.js"></script>
+<script>
+    var adfoxBiddersMap = {
+        "myTarget": "808046",
+        "betweenDigital": "890130",
+        "buzzoola": "1315118",
+        "astralab": "1696542",
+        "sape": "1850265",
+        "adfox_adtech": "1912404",
+        "adfox_adsmart": "1920941",
+        "adfox_mttech": "2592358",
+        "otm": "1877227",
+        "adriver": "1874771",
+        "segmento": "1876241",
+        "adfox_yandex_roxot-adfox-hb": "1937940",
+        "mediasniper": "2181294",
+        "bidvol": "2312610",
+        "videonow": "1591235",
+        "adfox_yandex_adfox@monetize-me.ru": "2427108"
+    };
+    var adUnits = [
+        //desktop_top_billboard
+        {
+            "code": "desktop_top_billboard",
+            "codeType": "combo",
+            "bids": [
+                //{
+                //  "bidder": "sape",
+                //"params": {
+                //  "placementId": "735061"
+                //}
+                //},
+
+                {
+                    "bidder": "buzzoola",
+                    "params": {
+                        "placementId": "1240654"
+                    }
+                },
+                {
+                    "bidder": "bidvol",
+                    "params": {
+                        "placementId": "33810"
+                    }
+                },
+                //{
+                //"bidder": "betweenDigital",
+                //"params": {
+                //  "placementId": "4531708"
+                //}
+                //},
+                {
+                    "bidder": "astralab",
+                    "params": {
+                        "placementId": "636cc2d8d43c1010d49d020d"
+                    }
+                },
+                {
+                    "bidder": "adfox_yandex_roxot-adfox-hb",
+                    "params": {
+                        p1: 'cujwh',
+                        p2: 'hrmw'
+                    }
+                },
+                {
+                    "bidder": "adfox_mttech",
+                    "params": {
+                        p1: 'czkzq',
+                        p2: 'hxse'
+                    }
+                },
+                {
+                    "bidder": "adfox_adtech",
+                    "params": {
+                        p1: 'cuehg',
+                        p2: 'y',
+                        puid17: 'spletnik'
+                    }
+                },
+                {
+                    "bidder": "adfox_adsmart",
+                    "params": {
+                        p1: 'cuhby',
+                        p2: 'ul'
+                    }
+                },
+                {
+                    "bidder": "adriver",
+                    "params": {
+                        "placementId": "62:spletnik_970x250_top_billboard",
+                        "additional": {
+                            "ext": {
+                                "query": "cid=" + localStorage.getItem('adrcid')
+                            }
+                        }
+                    }
+                },
+                {
+                    "bidder": "segmento",
+                    "params": {
+                        "placementId": "2140"
+                    }
+                },
+                {
+                    "bidder": "otm",
+                    "params": {
+                        "placementId": "30733"
+                    }
+                }
+            ],
+            "sizes": [
+                [1000, 180],
+                [990, 90],
+                [990, 250],
+                [728, 90],
+                [320, 100]
+            ]
+        },
+
+        //desktop_branding
+        // {
+        //     "code": "desktop_branding",
+        //     "bids": [
+        //     {
+        //             "bidder": "adfox_yandex_adfox@monetize-me.ru",
+        //             "params": {
+        //                 p1: 'dcgqi',
+        //                 p2: 'ixtc'
+        //             }
+        //         }
+        //     ]
+        // },
+
+        //desktop_comments_side_banner
+        {
+            "code": "desktop_comments_side_banner",
+            "codeType": "combo",
+            "bids": [{
+                    "bidder": "betweenDigital",
+                    "params": {
+                        "placementId": "2815811"
+                    }
+                },
+                {
+                    "bidder": "bidvol",
+                    "params": {
+                        "placementId": "33815"
+                    }
+                },
+                {
+                    "bidder": "buzzoola",
+                    "params": {
+                        "placementId": "1240660"
+                    }
+                },
+                {
+                    "bidder": "astralab",
+                    "params": {
+                        "placementId": "636cd208d43c1010d49d0218"
+                    }
+                },
+                {
+                    "bidder": "adfox_adtech",
+                    "params": {
+                        p1: 'cuehj',
+                        p2: 'gdph',
+                        puid17: 'spletnik'
+                    }
+                },
+                {
+                    "bidder": "adfox_adsmart",
+                    "params": {
+                        p1: 'cuhcc',
+                        p2: 'hhro'
+                    }
+                },
+                {
+                    "bidder": "adfox_yandex_roxot-adfox-hb",
+                    "params": {
+                        p1: 'cujwp',
+                        p2: 'hrmw'
+                    }
+                },
+                {
+                    "bidder": "sape",
+                    "params": {
+                        "placementId": "735064"
+                    }
+                },
+                {
+                    "bidder": "myTarget",
+                    "params": {
+                        "placementId": "234259"
+                    }
+                },
+                {
+                    "bidder": "adriver",
+                    "params": {
+                        "placementId": "62:spletnik_300x600_side_banner_3",
+                        "additional": {
+                            "ext": {
+                                "query": "cid=" + localStorage.getItem('adrcid')
+                            }
+                        }
+                    }
+                },
+                {
+                    "bidder": "segmento",
+                    "params": {
+                        "placementId": "2143"
+                    }
+                },
+                {
+                    "bidder": "otm",
+                    "params": {
+                        "placementId": "30736"
+                    }
+                }
+            ],
+            "sizes": [
+                [300, 500],
+                [240, 400],
+                [300, 600]
+            ]
+        },
+
+        //mobile fullscreen
+        {
+            "code": "adfox_168069462983338110",
+            "bids": [
+            {
+                    "bidder": "adfox_yandex_adfox@monetize-me.ru",
+                    "params": {
+                        p1: 'dcgqj',
+                        p2: 'ihud'
+                    }
+                }
+            ]
+        },
+
+        //mobile_top_billboard
+        {
+            "code": "mobile_top_billboard",
+            "bids": [{
+                    "bidder": "myTarget",
+                    "params": {
+                        "placementId": "902582"
+                    }
+                },
+                {
+                    "bidder": "bidvol",
+                    "params": {
+                        "placementId": "33804"
+                    }
+                },
+                {
+                    "bidder": "buzzoola",
+                    "params": {
+                        "placementId": "1240648"
+                    }
+                },
+                {
+                    "bidder": "astralab",
+                    "params": {
+                        "placementId": "636cdd82d43c1010d49d0219"
+                    }
+                },
+                {
+                    "bidder": "betweenDigital",
+                    "params": {
+                        "placementId": "4531603"
+                    }
+                },
+                {
+                    "bidder": "adfox_adtech",
+                    "params": {
+                        p1: 'cuehr',
+                        p2: 'gcfq',
+                        puid17: 'spletnik'
+                    }
+                },
+                {
+                    "bidder": "adfox_yandex_roxot-adfox-hb",
+                    "params": {
+                        p1: 'cujwv',
+                        p2: 'hrmw'
+                    }
+                },
+                {
+                    "bidder": "sape",
+                    "params": {
+                        "placementId": "735074"
+                    }
+                },
+                {
+                    "bidder": "adriver",
+                    "params": {
+                        "placementId": "62:spletnik_320x100mob_top_billboard",
+                        "additional": {
+                            "ext": {
+                                "query": "cid=" + localStorage.getItem('adrcid')
+                            }
+                        }
+                    }
+                },
+                {
+                    "bidder": "segmento",
+                    "params": {
+                        "placementId": "2153"
+                    }
+                },
+                {
+                    "bidder": "otm",
+                    "params": {
+                        "placementId": "30895"
+                    }
+                }
+            ],
+            "sizes": [
+                [
+                    320,
+                    50
+                ],
+                [
+                    320,
+                    100
+                ]
+            ]
+        }
+
+    ];
+    var userTimeout = 1500;
+    window.YaHeaderBiddingSettings = {
+        biddersMap: adfoxBiddersMap,
+        adUnits: adUnits,
+        timeout: userTimeout,
+        syncPixels: syncPixels
+    };
+
+    var syncPixels = [{
+    bidder: 'sape',
+    pixels: ['https://acint.net/cmatch/?dp=14&pi=1647343']
+    }];
+
+</script>
+<script>
+    window.Ya || (window.Ya = {});
+    window.yaContextCb = window.yaContextCb || [];
+    window.Ya.adfoxCode || (window.Ya.adfoxCode = {});
+    window.Ya.adfoxCode.hbCallbacks || (window.Ya.adfoxCode.hbCallbacks = []);
+</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+
+<style type="text/css">
+    .marker_desktop {
+        display: none;
+        color: #f74c25;
+        position: absolute;
+        left: 50%;
+        top: 0.3rem;
+        transform: translate(-50%, 0%);
+        font-size: 0.8rem;
+    }
+
+    .placeholder {
+        background: #fceae6;
+        width: calc(100% - 2px);
+        overflow: hidden;
+    }
+    .placeholder_mobile{
+        background: #fceae6;
+        border-radius: 0.3rem;
+        overflow: hidden;
+    }
+
+    .placeholder_billboard {
+        background: #fceae6;
+        width: calc(100% - 2px);
+        overflow: hidden;
+        max-width: 1536px;
+    }
+
+    #root {
+        width: 100%;
+    }
+
+    .branding {
+        width: 1200px !important;
+        top:245px;
+        position: relative;
+        margin: auto;
+        background: var(--page-background-color);
+    }
+
+    #root.branding {
+        -webkit-transition: width 2s ease-in-out;
+        -moz-transition: width 2s ease-in-out;
+        -o-transition: width 2s ease-in-out;
+        transition: width 2s ease-in-out;
+    }
+
+    #mobile_top_billboard {
+        max-height: 150px;
+        margin:auto;
+        overflow: hidden;
+    }
+
+    .mobile_inread_container {
+        background: #fceae6;
+        text-align: center;
+        width: calc(100vw - 2.5rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .m_inread_adfox_container {
+        text-align: center;
+        max-height: 300px;
+        margin: auto;
+    }
+    .m_inread_adfox_container  img{
+        margin: auto;
+    }
+    .m_inread_adfox_container_content  {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+    .m_inread_adfox_container_content  img{
+        margin: auto;
+        
+    }
+    .m_inread_adfox_container_content  div{
+        margin: auto;
+        
+    }
+    #billboard_ads {
+        max-width: 1370px;
+        overflow: hidden;
+        width: 100%;
+    }
+    .desktop_inread_container {
+        background: #fceae6;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        padding: 20px;
+        width: 100%;
+    }
+    .d_inread_adfox_container_content  {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+    .d_inread_adfox_container_content img{
+        margin: auto;
+    }
+    .d_inread_adfox_container_content div{
+        margin: auto;
+    }
+
+</style>

@@ -12,7 +12,7 @@
       justify-content: center;
       background-color: #f1f1f1;
       left: 0;
-      transition: all 0.5s;
+      transition: all 2.5s;
   }
 
   .sticky-banner-top_sb {
@@ -25,6 +25,9 @@
   .sticky-banner-top_sb.collapsed {
       transform: translateY(-250px)
   }
+  .sticky-banner-top_sb.deleted {
+      transform: translateY(-250px)
+  }
 
   .sticky-banner-bottom_sb {
       bottom: 0px;
@@ -35,6 +38,10 @@
   .sticky-banner-bottom_sb.collapsed {
       transform: translateY(500px);
   }
+  .sticky-banner-bottom_sb.deleted {
+      transform: translateY(500px);
+  }
+
 
   .button-bottom-close_sb {
       position: absolute;
@@ -147,6 +154,10 @@
       height: auto !important;
       width: 100vw !important;
   }
+  .banner_adfox_top_html{
+      height: 33.33vw !important;
+      width:100vw !important;
+  }
 </style>
 <div class="parallax-banner">
     <div id="p-banner-monetize-me" class="adfox_parallax" style="background: #ffffff;"></div>
@@ -195,6 +206,7 @@
             ownerId: 1458764,
             containerId: parallax_id,
             onRender: function(){
+                fetch('%banner.event7%')
                 if (document.querySelector("[data-name^=catfish]") != null) {
                     window.Ya.adfoxCode.destroy(document.querySelector("[data-name^=catfish]").firstChild.id)
                     document.querySelector("[data-name^=catfish]").remove()
@@ -230,6 +242,9 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_t',
+            onRender: function(){
+                  fetch('%banner.event8%')
+                },
             params: {%banner.user3%}
         })
     })
@@ -238,6 +253,9 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_b',
+            onRender: function(){
+                  fetch('%banner.event9%')
+                },
             params: {%banner.user4%}
         })
     })
@@ -320,13 +338,31 @@
 
     var topButton = document.querySelector('.button-top-close_sb');
     var bottomButton = document.querySelector('.button-bottom-close_sb');
+    var bottom_banner = document.querySelector(".sticky-banner-bottom_sb")
+    var top_banner = document.querySelector(".sticky-banner-top_sb")
 
     topButton.addEventListener('click', function() {
-        document.querySelector(".sticky-banner-top_sb").remove();
+        top_banner.classList.add('deleted')
     });
     bottomButton.addEventListener('click', function() {
-        document.querySelector(".sticky-banner-bottom_sb").remove();
+        bottom_banner.classList.add('deleted');
     });
+
+    
+    // function handleSwipe() {
+    //         if (touchendY > touchstartY) {
+    //             bottom_banner.classList.add('deleted');
+    //         }
+    //     }
+
+    //     bottom_banner.addEventListener('touchstart', (event) => {
+    //         touchstartY = event.changedTouches[0].screenY;
+    //     });
+
+    //     bottom_banner.addEventListener('touchend', (event) => {
+    //         touchendY = event.changedTouches[0].screenY;
+    //         handleSwipe();
+    //     });
 
     var lastScrollPos = 0;
     window.addEventListener('scroll', handleScroll);

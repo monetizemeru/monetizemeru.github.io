@@ -14,7 +14,7 @@
     }
 
     .sticky-banner-top {
-        top: 4.25rem;
+        top: 0rem;
         z-index: 3;
         transform: translateY(0px);
         background: none;
@@ -50,7 +50,7 @@
 
     .mm_button_bottom {
         position: absolute;
-        padding: 0 0.6rem;
+        padding: 0.5rem 1rem;
         right: 0.5rem;
         left: auto;
         border: none;
@@ -117,7 +117,7 @@
 
     .mm_button_top {
         position: absolute;
-        padding: 0 0.6rem;
+        padding: 0.5rem 1rem;
         right: 0.5rem;
         left: auto;
         border: none;
@@ -187,21 +187,17 @@
         document.documentElement.style.setProperty('--banner-height', `${banner_p_height}px`);
 
 
-        document.querySelector('#p-banner-monetize-me' + "_" + randomIdSB).closest('.placeholder').style.overflow = 'initial'
-        document.querySelector('#p-banner-monetize-me' + "_" + randomIdSB).closest('.placeholder').style.background = 'none'
-        document.querySelector('#p-banner-monetize-me' + "_" + randomIdSB).closest('.desktop_inread_container').style.background = 'none'
-
         //Указываем элемент статьи
-        var article_content = document.querySelector(".ProseMirror-view")
+        var article_content = document.querySelector(".article-text")
 
         //Убираем отступ плейсхолдера
         document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
 
         //Берем ширину контента
-        var width_sticky_banner = document.querySelector(".ProseMirror-view").offsetWidth + "px"
+        var width_sticky_banner = document.querySelector(".article-text").offsetWidth + "px"
         document.documentElement.style.setProperty('--banner-width', `${width_sticky_banner}px`);
 
-        var banner_t_height = Math.round(document.querySelector(".ProseMirror-view").offsetWidth / 7)
+        var banner_t_height = Math.round(document.querySelector(".article-text").offsetWidth / 7)
         document.documentElement.style.setProperty('--bannert-height', `${banner_t_height}px`);
 
         if (article_content.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
@@ -315,7 +311,7 @@
         var parallaxBanner = document.getElementById(parallax_id);
         var stickyBannerBottom = document.querySelector('.sticky-banner-bottom');
         var stickyBannerTop = document.querySelector('.sticky-banner-top');
-        var articleElement = document.querySelector('article');
+        var articleElement = document.querySelector('.article-text');
         var elementToCollapse = document.querySelector('.sticky-banner-bottom');
 
 
@@ -367,7 +363,7 @@
     // Attach the scroll event listener
     var lastScrollPos = 0;
 
-    var article_content = document.querySelector(".ProseMirror-view")
+    var article_content = document.querySelector(".article-text")
     //Проверка, если баннер вызвался два раза на странице, чтоб не вызывать стики
     if (article_content.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
       window.addEventListener('scroll', handleScroll);

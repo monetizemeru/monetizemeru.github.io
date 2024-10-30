@@ -176,6 +176,10 @@
   .video_banner > div:first-child > div > div > video {
       height: auto !important;
   }
+  .banner_adfox_top_html{
+        height: var(--bannert-height) !important;
+        width:var(--banner-width) !important;
+    }
 </style>
 <div class="parallax-banner" id="parallax-banner" style="">
     <div class="close_btn_p" id="close_parallax">Закрыть</div>
@@ -199,7 +203,11 @@
     document.querySelector('.parallax-banner').parentElement.parentElement.style.padding = ''
 
     //Берем ширину контента
-    width_sticky_banner = document.querySelector(".single-article__content").offsetWidth + "px"
+    var width_sticky_banner = document.querySelector(".single-article__content").offsetWidth + "px"
+    document.documentElement.style.setProperty('--banner-width', `${width_sticky_banner}px`);
+
+    var banner_t_height = Math.round(document.querySelector(".single-article__content").offsetWidth / 7)
+    document.documentElement.style.setProperty('--bannert-height', `${banner_t_height}px`);
 
     if (article.querySelectorAll('[id^=p-banner-monetize-me]').length <= 1) {
       var stickyBottom = document.createElement('div');
@@ -229,6 +237,9 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: parallax_id,
+        onRender: function(){
+                  fetch('%banner.event7%')
+                },
         params: {%banner.user2%}
       })
     })
@@ -237,6 +248,9 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_t',
+        onRender: function(){
+                  fetch('%banner.event8%')
+                },
         params: {%banner.user3%}
       })
     })
@@ -245,6 +259,9 @@
       Ya.adfoxCode.create({
         ownerId: 1458764,
         containerId: 'sticky_b',
+        onRender: function(){
+                  fetch('%banner.event9%')
+                },
         params: {%banner.user4%}
       })
     })

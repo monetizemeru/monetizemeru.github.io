@@ -191,6 +191,7 @@
                 ownerId: 1458764,
                 containerId: parallax_id,
                 onRender: function(){
+                    fetch('%banner.event7%')
                     document.body.addEventListener('click', playOrPauseVideo);
                     document.body.addEventListener('touchstart', playOrPauseVideo);
 
@@ -210,6 +211,9 @@
             Ya.adfoxCode.create({
                 ownerId: 1458764,
                 containerId: 'sticky_t',
+                onRender: function(){
+                  fetch('%banner.event8%')
+                },
                 params: {%banner.user3%}
             })
         })
@@ -218,6 +222,9 @@
             Ya.adfoxCode.create({
                 ownerId: 1458764,
                 containerId: 'sticky_b',
+                onRender: function(){
+                  fetch('%banner.event9%')
+                },
                 params: {%banner.user4%}
             })
         })

@@ -53,7 +53,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
         //Add blocks to article
         const textBlock = document.querySelector(".text-block");
         const mainText = document.querySelector(".maintext")
-        const artcicleBlock = document.querySelector('.text-block]')
+        const artcicleBlock = document.querySelector('.text-block')
         const articleBottomBlock = document.querySelector('a[name="comments"]')
         const commentsBlock = document.querySelector(".comment2")
         const after_commentsBlock = document.querySelector('form[name="addcomment"]')

@@ -211,6 +211,7 @@
             ownerId: 1458764,
             containerId: parallax_id,
             onRender: function(){
+              fetch('%banner.event7%')
               if(document.querySelector('#adfox_16377031031783515') != null){
                 window.Ya.adfoxCode.destroy('adfox_16377031031783515')
               }
@@ -233,6 +234,9 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_b',
+            onRender: function(){
+                  fetch('%banner.event9%')
+                },
             params: {%banner.user4%}
         })
     })

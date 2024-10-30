@@ -12,11 +12,11 @@
       justify-content: center;
       background-color: #f1f1f1;
       left: 0;
-      transition: all 0.5s;
+      transition: all 2s;
   }
 
   .sticky-banner-top_sb {
-      top: 0px;
+      top: 50px;
       z-index: 23;
       transform: translateY(0px);
 
@@ -27,8 +27,8 @@
   }
 
   .sticky-banner-bottom_sb {
-      bottom: 50px;
-      z-index: 11;
+      bottom: 0;
+      z-index: 999;
       transform: translateY(0px);
   }
 
@@ -147,9 +147,13 @@
       height: auto !important;
       width: 100vw !important;
   }
+  .banner_adfox_top_html{
+      height: 33.33vw !important;
+      width:100vw !important;
+  }
 </style>
 <div class="parallax-banner">
-    <div id="p-banner-monetize-me" class="adfox_parallax" style="background: #ffffff;"></div>
+    <div id="p-banner-monetize-me" class="adfox_parallax" style="background: rgba(13,141,208,0.1);"></div>
 </div>
 <script type="text/javascript">
 
@@ -159,9 +163,9 @@
     parallax_id = "p-banner-monetize-me" + "_" + randomId
     document.getElementById("p-banner-monetize-me").id = parallax_id;
 
-    //document.querySelector('.adfox_parallax').parentElement.parentElement.parentElement.style.background = 'none'
-    //document.querySelector('.adfox_parallax').parentElement.parentElement.parentElement.style.overflow = 'unset'
-    //document.querySelector('.adfox_parallax').parentElement.parentElement.parentElement.style.height = 'fit-content'
+    document.querySelector('.adfox_parallax').parentElement.parentElement.style.background = 'none'
+    document.querySelector('.adfox_parallax').parentElement.parentElement.style.overflow = 'unset'
+    document.querySelector('.adfox_parallax').parentElement.parentElement.style.height = 'fit-content'
 
     const body = document.querySelector("body")
     const stickyTop = document.createElement('div');
@@ -178,8 +182,8 @@
 
     document.body.insertAdjacentElement('afterbegin', stickyBottom)
 
-    if (document.querySelector('.article') != null){
-          document.querySelector('.sticky-banner-top_sb').style.top = '0px'
+    if (document.querySelector('.post-content') != null){
+          document.querySelector('.sticky-banner-top_sb').style.top = '60px'
         }
 
 
@@ -196,22 +200,7 @@
             containerId: parallax_id,
             onRender: function(){
                 fetch('%banner.event7%')
-                if (document.querySelector("[data-name^=catfish]") != null) {
-                    window.Ya.adfoxCode.destroy(document.querySelector("[data-name^=catfish]").firstChild.id)
-                    document.querySelector("[data-name^=catfish]").remove()
-                }
-                if (document.getElementById('adfox_169114049853144652') != null){
-                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_169114049853144652').id)
-                }
-                if (document.getElementById('adfox_164309839191795006') != null){
-                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_164309839191795006').id)
-                }
-                if (document.getElementById('adfox_16426912430654090') != null){
-                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_16426912430654090').id)
-                }
-                if (document.getElementById('adfox_164276545221899855') != null){
-                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_164276545221899855').id)
-                }
+                
                 document.body.addEventListener('click', playOrPauseVideo);
                 document.body.addEventListener('touchstart', playOrPauseVideo);
 
@@ -283,28 +272,54 @@
       return articleRect.top > screenTop;
     }
 
+    function isElementScrolled60Percent(element) {
+        var elementHeight = element.offsetHeight;
+        var elementScrollTop = element.getBoundingClientRect().top;
+        var windowHeight = window.innerHeight;
+        var scrollPosition = Math.abs(elementScrollTop);
+        var scrollPercentage = (scrollPosition + windowHeight) / elementHeight;
+
+        return scrollPercentage >= 0.2;
+    }
+
     function handleScroll() {
         var parallaxBanner = document.querySelector('.parallax-banner');
         var stickyBannerBottom = document.querySelector('.sticky-banner-bottom_sb');
         var stickyBannerTop = document.querySelector('.sticky-banner-top_sb');
-        if (document.querySelector('.news-text-body') != null){
-          var articleElement = document.querySelector('.news-text-body');
+        if (document.querySelector('.page') != null){
+          var articleElement = document.querySelector('.page');
         }
+
+        
         var elementToCollapse = document.querySelector('.sticky-banner-bottom_sb');
         
         var parallaxBannerHidden = isParallaxBannerHidden();
 
         if (parallaxBannerHidden) {
             if (window.pageYOffset > lastScrollPos) {
-                if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true) {
+                if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isElementScrolled60Percent(document.querySelector('.onthe_data'))) {
                     stickyBannerBottom.classList.remove('collapsed')
                     stickyBannerTop.classList.add('collapsed')
+                    if (document.querySelector("[class^=csr-uniq]") != null) {
+                        window.Ya.adfoxCode.destroy("tp-video-mobile")
+                        document.querySelector("[class^=csr-uniq]").remove()
+                    }
+                    if (document.querySelector('[data-ad-player="2283319"]') != null) {
+                        document.querySelector('[data-ad-player="2283319"]').remove()
+                    }
                 }
                 if (isArticleAboveScreen(articleElement)){
                   stickyBannerBottom.classList.add('collapsed')
                 }
-                if (parallaxBannerReached != true && isArticleBelowScreenTop(articleElement) != true){
+                if (parallaxBannerReached != true && isArticleBelowScreenTop(articleElement) != true && isElementScrolled60Percent(document.querySelector('.onthe_data'))){
                   stickyBannerTop.classList.remove('collapsed')
+                  if (document.querySelector("[class^=csr-uniq]") != null) {
+                        window.Ya.adfoxCode.destroy("tp-video-mobile")
+                        document.querySelector("[class^=csr-uniq]").remove()
+                    }
+                  if (document.querySelector('[data-ad-player="2283319"]') != null) {
+                        document.querySelector('[data-ad-player="2283319"]').remove()
+                    }
                 }
             } else {
                 if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isArticleBelowScreenTop(articleElement) != true) {

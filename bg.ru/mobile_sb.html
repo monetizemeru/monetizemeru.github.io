@@ -16,8 +16,8 @@
     }
 
     .sticky-banner-top_sb {
-        top: 50px;
-        z-index: 6;
+        top: 0px;
+        z-index: 10000;
         transform: translateY(0px);
 
     }
@@ -152,6 +152,10 @@
         height: auto !important;
         width: 100vw !important;
     }
+    .banner_adfox_top_html{
+        height: 33.33vw !important;
+        width:100vw !important;
+    }
 </style>
 <div class="parallax-banner">
     <div id="p-banner-monetize-me" class="adfox_parallax" style="background: #ffffff;"></div>
@@ -197,22 +201,6 @@
                 containerId: parallax_id,
                 onRender: function() {
                     fetch('%banner.event7%')
-                    if (document.querySelector("[data-name^=catfish]") != null) {
-                        window.Ya.adfoxCode.destroy(document.querySelector("[data-name^=catfish]").firstChild.id)
-                        document.querySelector("[data-name^=catfish]").remove()
-                    }
-                    if (document.getElementById('adfox_169114049853144652') != null) {
-                        window.Ya.adfoxCode.destroy(document.getElementById('adfox_169114049853144652').id)
-                    }
-                    if (document.getElementById('adfox_164309839191795006') != null) {
-                        window.Ya.adfoxCode.destroy(document.getElementById('adfox_164309839191795006').id)
-                    }
-                    if (document.getElementById('adfox_16426912430654090') != null) {
-                        window.Ya.adfoxCode.destroy(document.getElementById('adfox_16426912430654090').id)
-                    }
-                    if (document.getElementById('adfox_164276545221899855') != null) {
-                        window.Ya.adfoxCode.destroy(document.getElementById('adfox_164276545221899855').id)
-                    }
                     document.body.addEventListener('click', playOrPauseVideo);
                     document.body.addEventListener('touchstart', playOrPauseVideo);
 
@@ -294,8 +282,8 @@
         var parallaxBanner = document.querySelector('.parallax-banner');
         var stickyBannerBottom = document.querySelector('.sticky-banner-bottom_sb');
         var stickyBannerTop = document.querySelector('.sticky-banner-top_sb');
-        if (document.querySelector('.entry-body') != null) {
-            var articleElement = document.querySelector('.entry-body');
+        if (document.querySelector('.article-text') != null) {
+            var articleElement = document.querySelector('.article-text');
         }
         var elementToCollapse = document.querySelector('.sticky-banner-bottom_sb');
 

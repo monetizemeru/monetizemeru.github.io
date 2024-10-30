@@ -175,6 +175,8 @@
     document.getElementById("p-banner-monetize-me").id = "p-banner-monetize-me" + "_" + randomId;
     document.getElementById("parallax-banner").id = "parallax-banner" + "_" + randomId;
 
+    document.getElementById("parallax-banner" + "_" + randomId).closest('.desktop_placeholder').style.background = "none"
+
 
     var nodes = document.querySelectorAll('.js__buzzoola');
     var first = nodes[0];
@@ -188,6 +190,9 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'p-banner-monetize-me' + "_" + randomId,
+            onRender: function(){
+                  fetch('%banner.event7%')
+                },
             params: {%banner.user2%}
         })
     })
@@ -209,6 +214,9 @@
             Ya.adfoxCode.create({
                 ownerId: 1458764,
                 containerId: 'sticky_t' + randomId,
+                onRender: function(){
+                  fetch('%banner.event8%')
+                },
                 params: {%banner.user3%}
             })
         })
@@ -226,6 +234,9 @@
             Ya.adfoxCode.create({
                 ownerId: 1458764,
                 containerId: 'sticky_b' + randomId,
+                onRender: function(){
+                  fetch('%banner.event9%')
+                },
                 params: {
                     %banner.user4%
                 }

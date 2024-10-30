@@ -231,6 +231,7 @@ var article = nodes[nodes.length - 1]
             ownerId: 1458764,
             containerId: parallax_id,
             onRender: function(){
+                fetch('%banner.event7%')
                 document.body.addEventListener('click', playOrPauseVideo);
                 document.body.addEventListener('touchstart', playOrPauseVideo);
 
@@ -250,6 +251,9 @@ var article = nodes[nodes.length - 1]
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_b' + randomId,
+            onRender: function(){
+                  fetch('%banner.event9%')
+                },
             params: {%banner.user4%}
         })
     })
@@ -315,7 +319,7 @@ var article = nodes[nodes.length - 1]
                   stickyBannerBottom.classList.remove('collapsed')
               }
               if (isArticleAboveScreen(articleElement)){
-                stickyBannerBottom.classList.remove('collapsed')
+                stickyBannerBottom.classList.add('collapsed')
               }
               if (parallaxBannerReached != true && isArticleBelowScreenTop(articleElement) != true){
                 stickyBannerBottom.classList.remove('collapsed')

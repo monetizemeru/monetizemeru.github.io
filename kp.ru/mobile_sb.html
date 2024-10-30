@@ -12,7 +12,7 @@
       justify-content: center;
       background-color: #f1f1f1;
       left: 0;
-      transition: all 0.5s;
+      transition: all 2s;
   }
 
   .sticky-banner-top_sb {
@@ -147,6 +147,10 @@
       height: auto !important;
       width: 100vw !important;
   }
+  .banner_adfox_top_html{
+      height: 33.33vw !important;
+      width:100vw !important;
+  }
 </style>
 <div class="parallax-banner">
     <div id="p-banner-monetize-me" class="adfox_parallax" style="background: rgba(13,141,208,0.1);"></div>
@@ -181,6 +185,19 @@
     if (document.querySelector('.article') != null){
           document.querySelector('.sticky-banner-top_sb').style.top = '0px'
         }
+    if (document.querySelector('.serial-content') != null){
+          document.querySelector('.sticky-banner-top_sb').style.top = '0px'
+        }
+    if (document.querySelector('.event_content-area') != null){
+          document.querySelector('.sticky-banner-top_sb').style.top = '0px'
+        }
+    if (document.querySelector('.main-section__wrapper') != null){
+          document.querySelector('.sticky-banner-top_sb').style.top = '0px'
+        }
+    if (document.querySelector('.content-column') != null){
+          document.querySelector(".rec-slot__after-13th.hide-for-large").style.display = "flow"
+          document.querySelector(".rec-slot__after-13th.hide-for-large").style.width = "100%"
+        }
 
 
     callback();
@@ -194,6 +211,9 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: parallax_id,
+            onLoad: function(data){
+              fetch('%banner.event7%')
+            },
             onRender: function(){
                 if (document.querySelector("[data-name^=catfish]") != null) {
                     window.Ya.adfoxCode.destroy(document.querySelector("[data-name^=catfish]").firstChild.id)
@@ -211,6 +231,26 @@
                 if (document.getElementById('adfox_164276545221899855') != null){
                   window.Ya.adfoxCode.destroy(document.getElementById('adfox_164276545221899855').id)
                 }
+                if (document.getElementById('adfox_16438040313998405') != null){
+                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_16438040313998405').id)
+                }
+                if (document.getElementById('adfox_165459122747812689') != null){
+                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_165459122747812689').id)
+                }
+                if (document.getElementById('adfox_168077214315231852') != null){
+                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_168077214315231852').id)
+                }
+                if (document.getElementById('adfox_168077214315231852') != null){
+                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_168077214315231852').id)
+                }
+                if (document.getElementById('adfox_169158575974292090') != null){
+                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_169158575974292090').id)
+                }
+                if (document.getElementById('adfox_164276618637449674') != null){
+                  window.Ya.adfoxCode.destroy(document.getElementById('adfox_164276618637449674').id)
+                }
+                
+                
                 document.body.addEventListener('click', playOrPauseVideo);
                 document.body.addEventListener('touchstart', playOrPauseVideo);
 
@@ -230,6 +270,9 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_t',
+            onRender: function(){
+                  fetch('%banner.event8%')
+                },
             params: {%banner.user3%}
         })
     })
@@ -238,6 +281,9 @@
         Ya.adfoxCode.create({
             ownerId: 1458764,
             containerId: 'sticky_b',
+            onRender: function(){
+                  fetch('%banner.event9%')
+                },
             params: {%banner.user4%}
         })
     })
@@ -286,6 +332,25 @@
         if (document.querySelector('.article__content') != null){
           var articleElement = document.querySelector('.article__content');
         }
+        if (document.querySelector('.event_content-area') != null){
+          var articleElement = document.querySelector('.event_content-area');
+        }
+        if (document.querySelector('.serial-content') != null){
+          var articleElement = document.querySelector('.serial-content');
+        }
+        if (document.querySelector('.content-column') != null){
+          var articleElement = document.querySelector('.content-column');
+          if (isElementHidden(document.querySelector('.header'))){
+              document.querySelector('.sticky-banner-top').style.top = "0px"
+          }else{
+              document.querySelector('.sticky-banner-top').style.top = "60px"
+          }
+        }
+        if (document.querySelector('.main-section__wrapper') != null){
+          var articleElement = document.querySelector('.main-section__wrapper');
+        }
+
+        
         var elementToCollapse = document.querySelector('.sticky-banner-bottom_sb');
         
         var parallaxBannerHidden = isParallaxBannerHidden();

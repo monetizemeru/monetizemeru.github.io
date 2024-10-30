@@ -197,6 +197,7 @@
       ownerId: 1458764,
       containerId: 'p-banner-monetize-me' + '_' + randomId,
       onRender: function(){
+        fetch('%banner.event7%')
         document.querySelector('#parallax-banner').parentElement.parentElement.style.background = '#fff'
       },
       params: {%banner.user2%}
@@ -223,6 +224,7 @@
         ownerId: 1458764,
         containerId: 'sticky_t',
         onRender: function(){
+          fetch('%banner.event8%')
           var s = document.querySelector(".text-block").offsetWidth 
           var p = s / 1480
           var padd = (200 - 200 * p)/2
@@ -252,6 +254,7 @@
         ownerId: 1458764,
         containerId: 'sticky_b',
         onRender: function(){
+          fetch('%banner.event9%')
           var s = document.querySelector(".text-block").offsetWidth 
           var p = s / 1480
           var padd = (200 - 200 * p)/2
@@ -364,6 +367,7 @@
     // Attach the scroll event listener
     var lastScrollPos = 0;
     window.addEventListener('scroll', handleScroll);
+
+    
   }
-  var clckio_st = document.querySelector(".__lxG__tsticky")
 </script>

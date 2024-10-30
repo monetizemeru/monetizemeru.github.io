@@ -149,6 +149,10 @@
         height: auto !important;
         width: 100vw !important;
     }
+    .banner_adfox_top_html{
+        height: 33.33vw !important;
+        width:100vw !important;
+    }
 </style>
 <div class="parallax-banner">
     <div id="p-banner-monetize-me" class="adfox_parallax" style="%banner.user5%"></div>
@@ -194,6 +198,7 @@
                 ownerId: 1458764,
                 containerId: parallax_id,
                 onRender: function(){
+                    fetch('%banner.event7%')
                     document.body.addEventListener('click', playOrPauseVideo);
                     document.body.addEventListener('touchstart', playOrPauseVideo);
 
@@ -214,6 +219,9 @@
             Ya.adfoxCode.create({
                 ownerId: 1458764,
                 containerId: 'sticky_t',
+                onRender: function(){
+                  fetch('%banner.event8%')
+                },
                 params: {%banner.user3%}
             })
         })
@@ -224,6 +232,9 @@
             Ya.adfoxCode.create({
                 ownerId: 1458764,
                 containerId: 'sticky_b',
+                onRender: function(){
+                  fetch('%banner.event9%')
+                },
                 params: {%banner.user4%}
             })
         })
@@ -262,6 +273,16 @@
       const screenTop = 0;
       return articleRect.top > screenTop;
     }
+    function isElementScrolled60Percent(element) {
+        var elementHeight = element.offsetHeight;
+        var elementScrollTop = element.getBoundingClientRect().top;
+        var windowHeight = window.innerHeight;
+        var scrollPosition = Math.abs(elementScrollTop);
+        var scrollPercentage = (scrollPosition + windowHeight) / elementHeight;
+
+        return scrollPercentage >= 0.6;
+    }
+
 
     function handleScroll() {
         var parallaxBanner = document.querySelector('.parallax-banner');
@@ -280,10 +301,10 @@
 
         if (parallaxBannerHidden) {
             if (window.pageYOffset > lastScrollPos) {
-                if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true) {
+                if (parallaxBannerReached && isArticleAboveScreen(articleElement) != true && isElementScrolled60Percent(articleElement)) {
                     stickyBannerBottom.classList.remove('collapsed')
-                    
                     stickyBannerTop.classList.add('collapsed')
+                    window.Ya.adfoxCode.destroy('adfox_158903622720024748')
                 }
                 if (isArticleAboveScreen(articleElement)){
                   stickyBannerBottom.classList.add('collapsed')

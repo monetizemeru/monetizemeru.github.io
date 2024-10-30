@@ -1,0 +1,120 @@
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Survey Banner</title>
+    <style>
+        .banner-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 125vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .banner-container {
+            position: absolute;
+            width: 80vw;
+            height: 100vw;
+            max-width: 400px;
+            max-height: 500px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .banner-title {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+        .banner-options {
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .banner-option {
+            margin: 10px 0;
+        }
+        .banner-option button {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .banner-option button:hover {
+            background-color: #0056b3;
+        }
+        .banner-thank-you {
+            display: none;
+            font-size: 1.2em;
+            color: green;
+        }
+        @media (max-width: 768px) {
+            .banner-container {
+                padding: 10px;
+            }
+            .banner-title {
+                font-size: 1em;
+            }
+            .banner-option button {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            .banner-container {
+                padding: 5px;
+            }
+            .banner-title {
+                font-size: 0.9em;
+            }
+            .banner-option button {
+                font-size: 0.8em;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+
+<div class="banner-wrapper">
+    <div class="banner-container">
+        <div class="banner-title">На рекламу какого бренда вы обращали свое внимание за последнее время?</div>
+        <div class="banner-options">
+            <div class="banner-option"><button onclick="submitAnswer('Вариант 1')">Вариант 1</button></div>
+            <div class="banner-option"><button onclick="submitAnswer('Вариант 2')">Вариант 2</button></div>
+            <div class="banner-option"><button onclick="submitAnswer('Вариант 3')">Вариант 3</button></div>
+            <div class="banner-option"><button onclick="submitAnswer('Вариант 4')">Вариант 4</button></div>
+            <div class="banner-option"><button onclick="submitAnswer('Вариант 5')">Вариант 5</button></div>
+        </div>
+        <div class="banner-thank-you">Спасибо, ответ засчитан</div>
+    </div>
+</div>
+
+<script>
+    function submitAnswer(option) {
+        // Здесь можно отправить событие на сервер
+        console.log('Пользователь выбрал:', option);
+        
+        // Показать сообщение "спасибо, ответ засчитан"
+        document.querySelector('.banner-thank-you').style.display = 'block';
+        
+        // Скрыть кнопки опроса
+        document.querySelector('.banner-options').style.display = 'none';
+    }
+</script>
+
